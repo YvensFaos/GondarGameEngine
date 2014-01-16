@@ -1,6 +1,6 @@
-#include "glInput.h"
+#include "input.h"
 
-#include "GLFW\glfw3.h"
+/*#include "GLFW\glfw3.h"
 
 void GlInput::key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
@@ -11,4 +11,4 @@ void GlInput::key_callback(GLFWwindow* window, int key, int scancode, int action
 			glfwSetWindowShouldClose(window, GL_TRUE);
 		}
 	}
-}
+}*/

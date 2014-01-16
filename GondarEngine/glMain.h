@@ -9,7 +9,7 @@
 #include "GLFW\glfw3.h"
 #include "camera.h"
 #include "geometric.h"
-#include "glInput.h"
+#include "input.h"
 
 bool rotation = false;
 float ratio;

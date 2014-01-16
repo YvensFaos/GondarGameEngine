@@ -1,60 +1,67 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Files">
       <UniqueIdentifier>{51889754-b8b7-445d-977b-20ed10e54efc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{268b37ae-62b8-4fa4-8f77-52d215e30623}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{be870294-262d-4b8f-b3d5-9663f9214fb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGL">
+      <UniqueIdentifier>{c177decc-bfbc-4c00-a14b-b4a26f60df8c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="glMain.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="camera.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="mathematics.h">
+      <Filter>Math</Filter>
     </ClInclude>
     <ClInclude Include="filehandler.h">
-      <Filter>Header Files</Filter>
+      <Filter>System</Filter>
     </ClInclude>
     <ClInclude Include="geometric.h">
-      <Filter>Header Files</Filter>
+      <Filter>Math</Filter>
     </ClInclude>
-    <ClInclude Include="mathematics.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="camera.h">
+      <Filter>OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="glInput.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="glMain.h">
+      <Filter>OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="input.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="clock.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="random.h">
+      <Filter>System</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="camera.cpp">
-      <Filter>Resource Files</Filter>
+    <ClCompile Include="mathematic.cpp">
+      <Filter>Math</Filter>
     </ClCompile>
     <ClCompile Include="filehandler.cpp">
-      <Filter>Resource Files</Filter>
+      <Filter>System</Filter>
     </ClCompile>
     <ClCompile Include="geometric.cpp">
-      <Filter>Resource Files</Filter>
+      <Filter>Math</Filter>
     </ClCompile>
-    <ClCompile Include="mathematic.cpp">
-      <Filter>Resource Files</Filter>
+    <ClCompile Include="camera.cpp">
+      <Filter>OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="glInput.cpp">
-      <Filter>Resource Files</Filter>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="input.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="clock.cpp">
+      <Filter>System</Filter>
+    </ClCompile>
+    <ClCompile Include="random.cpp">
+      <Filter>System</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

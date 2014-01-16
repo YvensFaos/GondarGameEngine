@@ -85,17 +85,21 @@
     <ClInclude Include="camera.h" />
     <ClInclude Include="filehandler.h" />
     <ClInclude Include="geometric.h" />
-    <ClInclude Include="glInput.h" />
+    <ClInclude Include="input.h" />
     <ClInclude Include="glMain.h" />
     <ClInclude Include="mathematics.h" />
+    <ClInclude Include="clock.h" />
+    <ClInclude Include="random.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="filehandler.cpp" />
     <ClCompile Include="geometric.cpp" />
-    <ClCompile Include="glInput.cpp" />
+    <ClCompile Include="input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mathematic.cpp" />
+    <ClCompile Include="clock.cpp" />
+    <ClCompile Include="random.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
