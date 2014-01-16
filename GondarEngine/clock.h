@@ -13,6 +13,6 @@ public:
 	static double getTotalTime();
 	// Retorna o tempo decorrido entre as duas últimas atualizações do relógio
 	static double getDeltaTime();
-}
+};
 
 #endif

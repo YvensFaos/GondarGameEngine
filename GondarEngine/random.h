@@ -15,6 +15,6 @@ public:
 
 	// gera um valor de 0 a 100 e se esse valor for maior que "chance" retorna true
 	static bool chance(int chance);
-}
+};
 
 #endif
