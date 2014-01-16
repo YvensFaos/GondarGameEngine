@@ -3,7 +3,8 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <GL\glut.h>
+#include <Windows.h>
+#include <GL\GLU.h>
 
 #include "GLFW\glfw3.h"
 #include "camera.h"

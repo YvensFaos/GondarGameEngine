@@ -1,7 +1,8 @@
 #include "geometric.h"
 
 #include <stdio.h>
-#include <GL\glut.h>
+#include <Windows.h>
+#include <GL\GLU.h>
 #include <math.h>
 
 #include "mathematics.h"
