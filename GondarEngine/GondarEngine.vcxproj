@@ -82,6 +82,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="gsLinkedList.h" />
+    <ClInclude Include="gsNode.h" />
     <ClInclude Include="gsConfig.h" />
     <ClInclude Include="gsDebugGame_Gameloop.h" />
     <ClInclude Include="gsEngine.h" />
@@ -109,9 +111,11 @@
     <ClCompile Include="gsGraphics.cpp" />
     <ClCompile Include="gsInput.cpp" />
     <ClCompile Include="gsLogger.cpp" />
+    <ClCompile Include="gsLinkedList.cpp" />
     <ClCompile Include="gsMain.cpp" />
     <ClCompile Include="gsMathematic.cpp" />
     <ClCompile Include="gsClock.cpp" />
+    <ClCompile Include="gsNode.cpp" />
     <ClCompile Include="gsRandom.cpp" />
     <ClCompile Include="gsWindow.cpp" />
   </ItemGroup>

@@ -22,6 +22,9 @@
     <Filter Include="System\Debug">
       <UniqueIdentifier>{67fb6670-9184-44bb-a8d0-5a8ad839c047}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Data Structures">
+      <UniqueIdentifier>{3d61a1ef-f75d-4f7d-860e-4f4a92a21b9b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="glMain.h">
@@ -71,6 +74,11 @@
     </ClInclude>
     <ClInclude Include="gsLogger.h">
       <Filter>System\Engine Sytems</Filter>
+    <ClInclude Include="gsNode.h">
+      <Filter>Data Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="gsLinkedList.h">
+      <Filter>Data Structures</Filter>
     </ClInclude>
     <ClInclude Include="gsDebugGame_Gameloop.h">
       <Filter>System\Debug</Filter>
@@ -110,6 +118,11 @@
     </ClCompile>
     <ClCompile Include="gsLogger.cpp">
       <Filter>System\Engine Sytems</Filter>
+    <ClCompile Include="gsNode.cpp">
+      <Filter>Data Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="gsLinkedList.cpp">
+      <Filter>Data Structures</Filter>
     </ClCompile>
     <ClCompile Include="gsDebugGame_GameLoop.cpp">
       <Filter>System\Debug</Filter>
