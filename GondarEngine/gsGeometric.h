@@ -1,13 +1,13 @@
-#ifndef __GEOMETRIC__
-#define __GEOMETRIC__
+#ifndef __GS_GEOMETRIC__
+#define __GS_GEOMETRIC__
 
 typedef int GLint;
 typedef float GLfloat;
 
-class Mathematic;
-class FileHandler;
+class gsMathematic;
+class gsFileHandler;
 
-extern Mathematic* mathematic;
+extern gsMathematic* mathematic;
 
 const GLfloat planeSize = 11.f;
 const GLfloat pi = 3.14159265f;
@@ -128,7 +128,7 @@ class Mesh3D
 private:
 	bool wireFrame;
 	bool enableArrays;
-	FileHandler* fileHandler;
+	gsFileHandler* fileHandler;
 public:
 	GLint vertexesSize;
 	GLint facesSize;

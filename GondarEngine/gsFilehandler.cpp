@@ -1,9 +1,9 @@
-#include "filehandler.h"
+#include "gsFilehandler.h"
 
 #include <stdlib.h>
 #include <string.h>
 
-FileHandler::FileHandler(const char* fileName)
+gsFileHandler::gsFileHandler(const char* fileName)
 {
 	//Cria as instâncias necessárias para a leitura do arquivo
 	//rb -> read as binary file (?)
@@ -25,27 +25,27 @@ FileHandler::FileHandler(const char* fileName)
 	linesRead = 0;
 }
 
-FileHandler::~FileHandler()
+gsFileHandler::~gsFileHandler()
 {
 	close();
 	delete buffer;
 }
 
-void FileHandler::readBuf()
+void gsFileHandler::readBuf()
 {
 	bufLen = fread(buffer, 1, bufSize, fileHandle);
 	bufPos = 0;
 	filePos += bufLen;
 }
 
-bool FileHandler::eof()
+bool gsFileHandler::eof()
 {
 	bool hasBuf = bufPos < bufLen;
 	bool hasFile = filePos < fileSize;
 	return !(hasBuf || hasFile);
 }
 
-void FileHandler::close()
+void gsFileHandler::close()
 {
 	if (fileHandle)
 	{
@@ -61,7 +61,7 @@ void FileHandler::close()
 	linesRead = 0;
 }
 
-int FileHandler::readLn()
+int gsFileHandler::readLn()
 {
 	//Método para ler uma linha do arquivo e apontar para a linha seguinte
 	lineLen = 0;
@@ -112,19 +112,19 @@ int FileHandler::readLn()
 	return lineLen;
 }
 
-char* FileHandler::readLnStr()
+char* gsFileHandler::readLnStr()
 {
 	readLn();
 	return &line[0];
 }
 
-int FileHandler::readLnInt()
+int gsFileHandler::readLnInt()
 {
 	readLn();
 	return atoi(line);
 }
 
-float FileHandler::readLnFloat()
+float gsFileHandler::readLnFloat()
 {
 	readLn();
 	return atof(line);

@@ -4,7 +4,7 @@
 typedef float GLfloat;
 class Point3D;
 
-class Camera
+class gsCamera
 {
 public:
 	GLfloat walkingStepSize;
@@ -23,8 +23,8 @@ public:
 	void cameraLookAt(void);
 	void calculateLookAt(void);
 	void initCamera(GLfloat, GLfloat, GLfloat);
-	Camera(Point3D*, Point3D*, Point3D*);
-	~Camera();
+	gsCamera(Point3D*, Point3D*, Point3D*);
+	~gsCamera();
 
 public:
 	void left(void);

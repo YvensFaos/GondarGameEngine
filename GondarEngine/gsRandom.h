@@ -1,7 +1,8 @@
-#ifndef __RANDOM__
-#define __RANDOM__
+#ifndef __GS_RANDOM__
+#define __GS_RANDOM__
 
-class Random {
+// Subsistema responsável pela geração de números aleatórios
+class gsRandom {
 public:
 	// Inicializa o gerador de números aleatórios
 	static void init();

@@ -1,9 +1,9 @@
-#ifndef __FILE_HANDLER
-#define __FILE_HANDLER
+#ifndef __GS_FILE_HANDLER
+#define __GS_FILE_HANDLER
 
 #include <stdio.h>
 
-class FileHandler
+class gsFileHandler
 {
 private:
 	FILE* fileHandle;
@@ -18,8 +18,8 @@ private:
 	int readLn();
 
 public:
-	FileHandler(const char* fileName);
-	~FileHandler();
+	gsFileHandler(const char* fileName);
+	~gsFileHandler();
 	bool eof();
 	char* readLnStr();
 	int readLnInt();

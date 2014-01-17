@@ -1,19 +1,19 @@
-#include "mathematics.h"
+#include "gsMathematics.h"
 
 #include <ctime>
 #include <stdlib.h>
 
-Mathematic::Mathematic(void)
+gsMathematic::gsMathematic(void)
 { 
 	srand(time(0));
 }
 
-float Mathematic::random(void)
+float gsMathematic::random(void)
 {
 	return (rand() % 100 + 1)/100.0f;
 }
 
-float Mathematic::random(int minValue, int maxValue)
+float gsMathematic::random(int minValue, int maxValue)
 {
 	return rand() % (maxValue - minValue) + minValue;
 }

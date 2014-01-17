@@ -13,55 +13,85 @@
     <Filter Include="OpenGL">
       <UniqueIdentifier>{c177decc-bfbc-4c00-a14b-b4a26f60df8c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="System\Engine Sytems">
+      <UniqueIdentifier>{9d5daba1-5cf1-41ba-bc12-6a5a63c4f5a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Meta">
+      <UniqueIdentifier>{9e194eb8-8a3c-48fb-820f-abc3c445376f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="mathematics.h">
-      <Filter>Math</Filter>
-    </ClInclude>
-    <ClInclude Include="filehandler.h">
-      <Filter>System</Filter>
-    </ClInclude>
-    <ClInclude Include="geometric.h">
-      <Filter>Math</Filter>
-    </ClInclude>
-    <ClInclude Include="camera.h">
-      <Filter>OpenGL</Filter>
-    </ClInclude>
     <ClInclude Include="glMain.h">
       <Filter>OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="input.h">
+    <ClInclude Include="gsCamera.h">
+      <Filter>OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="gsMathematics.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="gsGeometric.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="gsClock.h">
+      <Filter>System\Engine Sytems</Filter>
+    </ClInclude>
+    <ClInclude Include="gsInput.h">
+      <Filter>System\Engine Sytems</Filter>
+    </ClInclude>
+    <ClInclude Include="gsRandom.h">
+      <Filter>System\Engine Sytems</Filter>
+    </ClInclude>
+    <ClInclude Include="gsFilehandler.h">
+      <Filter>System\Engine Sytems</Filter>
+    </ClInclude>
+    <ClInclude Include="gsEngine.h">
       <Filter>System</Filter>
     </ClInclude>
-    <ClInclude Include="clock.h">
+    <ClInclude Include="gsGame.h">
       <Filter>System</Filter>
     </ClInclude>
-    <ClInclude Include="random.h">
-      <Filter>System</Filter>
+    <ClInclude Include="gsGraphics.h">
+      <Filter>System\Engine Sytems</Filter>
+    </ClInclude>
+    <ClInclude Include="gsConfig.h">
+      <Filter>Meta</Filter>
+    </ClInclude>
+    <ClInclude Include="gsMacros.h">
+      <Filter>Meta</Filter>
+    </ClInclude>
+    <ClInclude Include="gsIncludeOpenGL.h">
+      <Filter>OpenGL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="mathematic.cpp">
-      <Filter>Math</Filter>
-    </ClCompile>
-    <ClCompile Include="filehandler.cpp">
-      <Filter>System</Filter>
-    </ClCompile>
-    <ClCompile Include="geometric.cpp">
-      <Filter>Math</Filter>
-    </ClCompile>
-    <ClCompile Include="camera.cpp">
+    <ClCompile Include="gsMain.cpp" />
+    <ClCompile Include="gsCamera.cpp">
       <Filter>OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="input.cpp">
+    <ClCompile Include="gsMathematic.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="gsGgeometric.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
+    <ClCompile Include="gsClock.cpp">
+      <Filter>System\Engine Sytems</Filter>
+    </ClCompile>
+    <ClCompile Include="gsInput.cpp">
+      <Filter>System\Engine Sytems</Filter>
+    </ClCompile>
+    <ClCompile Include="gsRandom.cpp">
+      <Filter>System\Engine Sytems</Filter>
+    </ClCompile>
+    <ClCompile Include="gsFilehandler.cpp">
+      <Filter>System\Engine Sytems</Filter>
+    </ClCompile>
+    <ClCompile Include="gsEngine.cpp">
       <Filter>System</Filter>
     </ClCompile>
-    <ClCompile Include="clock.cpp">
-      <Filter>System</Filter>
-    </ClCompile>
-    <ClCompile Include="random.cpp">
-      <Filter>System</Filter>
+    <ClCompile Include="gsGraphics.cpp">
+      <Filter>System\Engine Sytems</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

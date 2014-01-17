@@ -1,34 +1,35 @@
-#include "random.h"
+#include "gsRandom.h"
 #include <stdlib.h> 
 
 int gSeed = 0;
 
 #define DEFAULT_SEED 1373
 
-void Random::init()
+void gsRandom::init()
 {
 	gSeed = DEFAULT_SEED;
 	srand(gSeed);
 }
 
-bool Random::nextBool()
+bool gsRandom::nextBool()
 {
-	int value = rand() % 2;
+	bool value = (rand() % 2) == 0;
 	return value;
 }
 
-int Random::nextInt(int min, int max)
+int gsRandom::nextInt(int min, int max)
 {
 	int value = rand() % (max - min) + min;
 	return value;
 }
 
-double Random::nextDouble()
+double gsRandom::nextDouble()
 {
-	double value = (rand() % 1000 + 1) / 1000.f;
+	double value = rand() / (double)RAND_MAX;;
+	return value;
 }
 
-bool Random::chance(int chance)
+bool gsRandom::chance(int chance)
 {
 	if(chance > 100 || chance <= 0)
 	{

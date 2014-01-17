@@ -1,15 +1,13 @@
-#ifndef __GLMAIN__
-#define __GLMAIN__
+#ifndef __GS_GLMAIN__
+#define __GS_GLMAIN__
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <Windows.h>
-#include <GL\GLU.h>
 
-#include "GLFW\glfw3.h"
-#include "camera.h"
-#include "geometric.h"
-#include "input.h"
+#include "gsIncludeOpenGL.h"
+#include "gsCamera.h"
+#include "gsGeometric.h"
+#include "gsInput.h"
 
 bool rotation = false;
 float ratio;
@@ -17,7 +15,7 @@ int width, height;
 int windowPosX, windowPosY;
 
 GLFWwindow* window;
-Camera* camera;
+gsCamera* camera;
 
 Point3D* position;
 Point3D* lookAt;
@@ -34,7 +32,7 @@ Point3D* up;
 	position = new Point3D(1.0f, 3.0f, 12.0f);\
 	lookAt = new Point3D(0.0f, 0.0f, 0.0f);\
 	up = new Point3D(0.0f, 1.0f, 0.0f);\
-	camera = new Camera(position, lookAt, up);\
+	camera = new gsCamera(position, lookAt, up);\
 	camera->initCamera(0.0f, 50.0f, 45.0f);
 
 //Macro de janela tamanho 800x600
@@ -69,7 +67,7 @@ static void error_callback(int error, const char* description)
 static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
 	//Chamada ao método da engine para tratamento de input
-	GlInput::key_callback(window, key, scancode, action, mods);
+	gsInput::key_callback(window, key, scancode, action, mods);
 }
 
 //Definição do modelo de iluminação da aplicação

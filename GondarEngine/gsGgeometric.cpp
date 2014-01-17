@@ -1,14 +1,14 @@
-#include "geometric.h"
+#include "gsGeometric.h"
 
 #include <stdio.h>
 #include <Windows.h>
 #include <GL\GLU.h>
 #include <math.h>
 
-#include "mathematics.h"
+#include "gsMathematics.h"
 
 Point3D* defaultColor = new Point3D(0.42f, 0.85f, 0.5f);
-Mathematic* mathematic = new Mathematic();
+gsMathematic* mathematic = new gsMathematic();
 
 //Objeto Point3D
 

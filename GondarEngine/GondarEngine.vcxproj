@@ -82,24 +82,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="camera.h" />
-    <ClInclude Include="filehandler.h" />
-    <ClInclude Include="geometric.h" />
-    <ClInclude Include="input.h" />
+    <ClInclude Include="gsConfig.h" />
+    <ClInclude Include="gsEngine.h" />
+    <ClInclude Include="gsGame.h" />
+    <ClInclude Include="gsCamera.h" />
+    <ClInclude Include="gsFilehandler.h" />
+    <ClInclude Include="gsGeometric.h" />
+    <ClInclude Include="gsGraphics.h" />
+    <ClInclude Include="gsIncludeOpenGL.h" />
+    <ClInclude Include="gsInput.h" />
     <ClInclude Include="glMain.h" />
-    <ClInclude Include="mathematics.h" />
-    <ClInclude Include="clock.h" />
-    <ClInclude Include="random.h" />
+    <ClInclude Include="gsMacros.h" />
+    <ClInclude Include="gsMathematics.h" />
+    <ClInclude Include="gsClock.h" />
+    <ClInclude Include="gsRandom.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="camera.cpp" />
-    <ClCompile Include="filehandler.cpp" />
-    <ClCompile Include="geometric.cpp" />
-    <ClCompile Include="input.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="mathematic.cpp" />
-    <ClCompile Include="clock.cpp" />
-    <ClCompile Include="random.cpp" />
+    <ClCompile Include="gsCamera.cpp" />
+    <ClCompile Include="gsEngine.cpp" />
+    <ClCompile Include="gsFilehandler.cpp" />
+    <ClCompile Include="gsGgeometric.cpp" />
+    <ClCompile Include="gsGraphics.cpp" />
+    <ClCompile Include="gsInput.cpp" />
+    <ClCompile Include="gsMain.cpp" />
+    <ClCompile Include="gsMathematic.cpp" />
+    <ClCompile Include="gsClock.cpp" />
+    <ClCompile Include="gsRandom.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
