@@ -74,6 +74,7 @@
     </ClInclude>
     <ClInclude Include="gsLogger.h">
       <Filter>System\Engine Sytems</Filter>
+	</ClInclude>
     <ClInclude Include="gsNode.h">
       <Filter>Data Structures</Filter>
     </ClInclude>
@@ -118,6 +119,7 @@
     </ClCompile>
     <ClCompile Include="gsLogger.cpp">
       <Filter>System\Engine Sytems</Filter>
+	</ClCompile>
     <ClCompile Include="gsNode.cpp">
       <Filter>Data Structures</Filter>
     </ClCompile>
