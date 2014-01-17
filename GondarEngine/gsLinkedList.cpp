@@ -167,7 +167,7 @@ void gsList<T>::clear(void)
 }
 
 generics
-int gsList<T>::size(void)
+int gsList<T>::getSize(void)
 {
 	return size;
 }

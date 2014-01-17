@@ -1,0 +1,22 @@
+﻿Commit
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# rebase in progress; onto 01f5e45
+# You are currently rebasing branch 'master' on '01f5e45'.
+#   (all conflicts fixed: run "git rebase --continue")
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   GondarEngine/GondarEngine.vcxproj
+#	modified:   GondarEngine/GondarEngine.vcxproj.filters
+#	new file:   GondarEngine/gsLinkedList.cpp
+#	new file:   GondarEngine/gsLinkedList.h
+#	new file:   GondarEngine/gsNode.cpp
+#	new file:   GondarEngine/gsNode.h
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	wpikfe0o.i4j.txt
+

@@ -26,7 +26,7 @@ public:
 	bool contains(T value);
 	void clear(void);
 
-	int size(void);
+	int getSize(void);
 	void log(void);
 };
 #endif
