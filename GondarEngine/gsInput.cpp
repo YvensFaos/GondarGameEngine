@@ -1,8 +1,9 @@
 #include "gsInput.h"
 
+#include "gsWindow.h"
 #include "GLFW\glfw3.h"
 
-void gsInput::key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+void glfwKeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
 	if(action == GLFW_PRESS || action == GLFW_REPEAT)
 	{
@@ -14,7 +15,7 @@ void gsInput::key_callback(GLFWwindow* window, int key, int scancode, int action
 }
 
 void gsInput::init() {
-
+	glfwSetKeyCallback(gsWindow::getWindow(), glfwKeyCallback);
 }
 
 void gsInput::update() {

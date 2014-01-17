@@ -63,6 +63,12 @@
     <ClInclude Include="gsIncludeOpenGL.h">
       <Filter>OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="gsWindow.h">
+      <Filter>System\Engine Sytems</Filter>
+    </ClInclude>
+    <ClInclude Include="gsLogger.h">
+      <Filter>System\Engine Sytems</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsMain.cpp" />
@@ -91,6 +97,12 @@
       <Filter>System</Filter>
     </ClCompile>
     <ClCompile Include="gsGraphics.cpp">
+      <Filter>System\Engine Sytems</Filter>
+    </ClCompile>
+    <ClCompile Include="gsWindow.cpp">
+      <Filter>System\Engine Sytems</Filter>
+    </ClCompile>
+    <ClCompile Include="gsLogger.cpp">
       <Filter>System\Engine Sytems</Filter>
     </ClCompile>
   </ItemGroup>

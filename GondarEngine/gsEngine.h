@@ -1,7 +1,7 @@
 #ifndef __GS_ENGINE__
 #define __GS_ENGINE__
 
-
+// Forward Declaration
 class gsGame;
 
 // Classe base para a execução de jogos.

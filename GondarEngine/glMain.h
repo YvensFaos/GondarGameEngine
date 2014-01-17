@@ -58,18 +58,6 @@ static void update(void)
 
 }
 
-static void error_callback(int error, const char* description)
-{
-    fputs(description, stderr);
-}
-
-//Método do openGL para tratamento de input
-static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
-{
-	//Chamada ao método da engine para tratamento de input
-	gsInput::key_callback(window, key, scancode, action, mods);
-}
-
 //Definição do modelo de iluminação da aplicação
 void setLightModel()
 {
@@ -79,29 +67,6 @@ void setLightModel()
 //Método de inicialização do openGL
 void glInitiate()
 {
-    glfwSetErrorCallback(error_callback);
-    if (!glfwInit())
-	{
-        exit(EXIT_FAILURE);
-	}
-
-	//Criação da janela de renderização
-	window = glfwCreateWindow(width, height, "Gondar Engine", NULL, NULL);
-    if (!window)
-    {
-        glfwTerminate();
-        exit(EXIT_FAILURE);
-    }
-
-    glfwMakeContextCurrent(window);
-
-	//Setando o método de tratamento de input
-    glfwSetKeyCallback(window, key_callback);
-   
-    glfwGetFramebufferSize(window, &width, &height);
-	ratio = width / (float) height;
-
-	glfwSetWindowPos(window, windowPosX, windowPosY);
 
 	//Setando o modelo de iluminação da janela
 	setLightModel();
@@ -110,38 +75,11 @@ void glInitiate()
 //Game Loop
 void glLoop()
 {
-	while (!glfwWindowShouldClose(window))
-    {
-		glfwGetFramebufferSize(window, &width, &height);
-        ratio = width / (float) height;
-        glViewport(0, 0, width, height);
-
-        glClear(GL_COLOR_BUFFER_BIT);
-        glMatrixMode(GL_PROJECTION);
-        glLoadIdentity();
-
-		gluPerspective(camera->ffov, ratio, camera->fnear, camera->ffar);
-		camera->cameraLookAt();
-
-        glMatrixMode(GL_MODELVIEW);
-        glLoadIdentity();
-
-		//Chamada aos principais métodos da engine
-		update();
-        draw();
-
-        glfwSwapBuffers(window);
-        glfwPollEvents();
-    }
 }
     
 //Método de finalização da engine
 int glTerminate()
 {
-    glfwDestroyWindow(window);
-    glfwTerminate();
-    exit(EXIT_SUCCESS);
-
 	return 0;
 }
 

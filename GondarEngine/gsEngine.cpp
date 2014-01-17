@@ -2,12 +2,14 @@
 #include "gsGame.h"
 
 // subsystems
+#include "gsLogger.h"
+#include "gsWindow.h"
 #include "gsClock.h"
 #include "gsRandom.h"
 #include "gsInput.h"
 #include "gsGraphics.h"
 
-// metafiles
+// meta
 #include "gsConfig.h"
 #include "gsMacros.h"
 
@@ -23,6 +25,8 @@ gsEngine::~gsEngine() {
 
 
 void gsEngine::initializeEngineSystems() {
+	gsLogger::init();
+	gsWindow::init(GS_RESOLUTION_X, GS_RESOLUTION_Y);
 	gsClock::init();
 	gsRandom::init();
 	gsInput::init();
@@ -34,6 +38,7 @@ void gsEngine::updateEngineSystems() {
 }
 void gsEngine::disposeEngineSystems() {
 	gsGraphics::dispose();
+	gsWindow::dispose();
 }
 
 void gsEngine::runGame() {
