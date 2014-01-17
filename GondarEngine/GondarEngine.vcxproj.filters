@@ -19,6 +19,9 @@
     <Filter Include="Meta">
       <UniqueIdentifier>{9e194eb8-8a3c-48fb-820f-abc3c445376f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="System\Debug">
+      <UniqueIdentifier>{67fb6670-9184-44bb-a8d0-5a8ad839c047}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="glMain.h">
@@ -69,6 +72,9 @@
     <ClInclude Include="gsLogger.h">
       <Filter>System\Engine Sytems</Filter>
     </ClInclude>
+    <ClInclude Include="gsDebugGame_Gameloop.h">
+      <Filter>System\Debug</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsMain.cpp" />
@@ -104,6 +110,9 @@
     </ClCompile>
     <ClCompile Include="gsLogger.cpp">
       <Filter>System\Engine Sytems</Filter>
+    </ClCompile>
+    <ClCompile Include="gsDebugGame_GameLoop.cpp">
+      <Filter>System\Debug</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

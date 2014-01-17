@@ -83,6 +83,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="gsConfig.h" />
+    <ClInclude Include="gsDebugGame_Gameloop.h" />
     <ClInclude Include="gsEngine.h" />
     <ClInclude Include="gsGame.h" />
     <ClInclude Include="gsCamera.h" />
@@ -101,6 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsCamera.cpp" />
+    <ClCompile Include="gsDebugGame_GameLoop.cpp" />
     <ClCompile Include="gsEngine.cpp" />
     <ClCompile Include="gsFilehandler.cpp" />
     <ClCompile Include="gsGgeometric.cpp" />

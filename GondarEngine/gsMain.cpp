@@ -1,17 +1,16 @@
-#include "glMain.h"
+#include "gsEngine.h"
+#include "gsDebugGame_Gameloop.h"
+
+#include <stdlib.h> // system("pause");
 
 //Método principal do jogo
 int main()
 {
-	//Macro de inicialização de variáveis. Esse macro inicializa os valores das variáveis principais do tamanho de janela e posicionamento inicial da câmera do OpenGL
-	INIT_640x480
+	gsDebugGame_GameLoop game;
+	gsEngine engine = gsEngine(&game);
 
-	//Método de inicialização do openGL
-	glInitiate();
+	engine.runGame();
 
-	//Início do game loop
-	glLoop();
 
-	//Finaliza a aplicação
-	return glTerminate();
+	system("pause");
 }
