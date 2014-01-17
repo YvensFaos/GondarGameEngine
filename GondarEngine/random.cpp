@@ -1,14 +1,49 @@
 #include "random.h"
+#include <stdlib.h> 
 
-// implementar cada método
+int gSeed = 0;
 
-// nextBool > gera um aleatório e retorna se ele é par ou impar
-// nextInt > gera um aleatório e convete pro intervalo min max
-// nextDouble > gera um aleatório e divide por (float)IntMax
-
-// chance > gera um aleatório entre 0 e 100 e retorna se ele é maior que "chance"
+#define DEFAULT_SEED 1373
 
 void Random::init()
 {
+	gSeed = DEFAULT_SEED;
+	srand(gSeed);
+}
 
+bool Random::nextBool()
+{
+	int value = rand() % 2;
+	return value;
+}
+
+int Random::nextInt(int min, int max)
+{
+	int value = rand() % (max - min) + min;
+	return value;
+}
+
+double Random::nextDouble()
+{
+	double value = (rand() % 1000 + 1) / 1000.f;
+}
+
+bool Random::chance(int chance)
+{
+	if(chance > 100 || chance <= 0)
+	{
+		return false;
+	}
+	else
+	{
+		int value = nextInt(0, 101);
+		if(value > chance)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 }
