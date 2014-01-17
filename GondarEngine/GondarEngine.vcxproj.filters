@@ -19,6 +19,9 @@
     <Filter Include="Meta">
       <UniqueIdentifier>{9e194eb8-8a3c-48fb-820f-abc3c445376f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Data Structures">
+      <UniqueIdentifier>{3d61a1ef-f75d-4f7d-860e-4f4a92a21b9b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="glMain.h">
@@ -68,6 +71,11 @@
     </ClInclude>
     <ClInclude Include="gsLogger.h">
       <Filter>System\Engine Sytems</Filter>
+    <ClInclude Include="gsNode.h">
+      <Filter>Data Structures</Filter>
+    </ClInclude>
+    <ClInclude Include="gsLinkedList.h">
+      <Filter>Data Structures</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +112,11 @@
     </ClCompile>
     <ClCompile Include="gsLogger.cpp">
       <Filter>System\Engine Sytems</Filter>
+    <ClCompile Include="gsNode.cpp">
+      <Filter>Data Structures</Filter>
+    </ClCompile>
+    <ClCompile Include="gsLinkedList.cpp">
+      <Filter>Data Structures</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
