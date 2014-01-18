@@ -3,7 +3,13 @@
 
 int gSeed = 0;
 
-#define DEFAULT_SEED 1373
+//#define DEFAULT_SEED 0x1534ff65
+#ifndef DEFAULT_SEED
+#include <ctime>
+#define DEFAULT_SEED time(0)
+#endif
+
+// Valor utilizado para melhorar a distribuição do nextInt
 
 void gsRandom::init()
 {
@@ -19,7 +25,7 @@ bool gsRandom::nextBool()
 
 int gsRandom::nextInt(int min, int max)
 {
-	int value = rand() % (max - min) + min;
+	int value = rand() % ((max + 1) - min) + min;
 	return value;
 }
 
@@ -31,20 +37,16 @@ double gsRandom::nextDouble()
 
 bool gsRandom::chance(int chance)
 {
-	if(chance > 100 || chance <= 0)
+	if(chance > 100) return true;
+	if(chance < 0) return false;
+
+	int value = nextInt(0, 100);
+	if(value > chance)
 	{
-		return false;
+		return true;
 	}
 	else
 	{
-		int value = nextInt(0, 101);
-		if(value > chance)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return false;
 	}
 }
