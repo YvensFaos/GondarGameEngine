@@ -31,6 +31,11 @@ class Sphere3D
 
 };
 
+class Rectangle3D
+{
+
+};
+
 class Cube3D
 {
 

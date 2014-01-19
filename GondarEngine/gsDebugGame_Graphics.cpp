@@ -5,7 +5,6 @@
 #include "gsRandom.h"
 #include "gsOpenGL.h"
 
-
 void gsDebugGame_Graphics::start() {
 	GS_LOG("Teste Inicializado\n");
 	frameCounter = 0;
@@ -23,14 +22,13 @@ void gsDebugGame_Graphics::update() {
 }
 void gsDebugGame_Graphics::draw() {
 	glBegin(GL_QUADS);
-
-	glColor3f(1, 0, 0);
-	glVertex3f(-0.5, -0.5, 0);
-	glColor3f(0, 1, 0);
-	glVertex3f(0.5, -0.5, 0);
-	glColor3f(1, 1, 1);
-	glVertex3f(0.5, 0.5, 0);
-	glColor3f(0, 0, 1);
-	glVertex3f(-0.5, 0.5, 0);
+		glColor3f(1, 0, 0);
+		glVertex3f(-0.5, -0.5, 0);
+		glColor3f(0, 1, 0);
+		glVertex3f(0.5, -0.5, 0);
+		glColor3f(1, 1, 1);
+		glVertex3f(0.5, 0.5, 0);
+		glColor3f(0, 0, 1);
+		glVertex3f(-0.5, 0.5, 0);
 	glEnd();
 }
