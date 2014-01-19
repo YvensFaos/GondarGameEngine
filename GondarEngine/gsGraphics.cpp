@@ -1,6 +1,6 @@
 #include "gsGraphics.h"
 
-#include "gsIncludeOpenGL.h"
+#include "gsOpenGL.h"
 #include "gsWindow.h"
 
 int gResX;

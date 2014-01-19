@@ -82,8 +82,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="gsArrayList.h" />
+    <ClInclude Include="gsAxis.h" />
+    <ClInclude Include="gsColor.h" />
+    <ClInclude Include="gsDebugGame_DataStrutures.h" />
     <ClInclude Include="gsDebugGame_Graphics.h" />
+    <ClInclude Include="gsGameObject.h" />
     <ClInclude Include="gsLinkedList.h" />
+    <ClInclude Include="gsMesh.h" />
     <ClInclude Include="gsNode.h" />
     <ClInclude Include="gsConfig.h" />
     <ClInclude Include="gsDebugGame_Gameloop.h" />
@@ -93,18 +99,23 @@
     <ClInclude Include="gsFilehandler.h" />
     <ClInclude Include="gsGeometric.h" />
     <ClInclude Include="gsGraphics.h" />
-    <ClInclude Include="gsIncludeOpenGL.h" />
+    <ClInclude Include="gsOpenGL.h" />
     <ClInclude Include="gsInput.h" />
     <ClInclude Include="glMain.h" />
     <ClInclude Include="gsLogger.h" />
     <ClInclude Include="gsMacros.h" />
     <ClInclude Include="gsMathematics.h" />
     <ClInclude Include="gsClock.h" />
+    <ClInclude Include="gsPlane.h" />
     <ClInclude Include="gsRandom.h" />
+    <ClInclude Include="gsTriangle.h" />
+    <ClInclude Include="gsVector2.h" />
+    <ClInclude Include="gsVector3.h" />
     <ClInclude Include="gsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsCamera.cpp" />
+    <ClCompile Include="gsColor.cpp" />
     <ClCompile Include="gsDebugGame_GameLoop.cpp" />
     <ClCompile Include="gsDebugGame_Graphics.cpp" />
     <ClCompile Include="gsEngine.cpp" />
@@ -118,8 +129,13 @@
     <ClCompile Include="gsMathematic.cpp" />
     <ClCompile Include="gsClock.cpp" />
     <ClCompile Include="gsNode.cpp" />
+    <ClCompile Include="gsPlane.cpp" />
     <ClCompile Include="gsRandom.cpp" />
+    <ClCompile Include="gsTriangle.cpp" />
+    <ClCompile Include="gsVector2.cpp" />
+    <ClCompile Include="gsVector3.cpp" />
     <ClCompile Include="gsWindow.cpp" />
+    <ClCompile Include="gsDebugGame_DataStrutures.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

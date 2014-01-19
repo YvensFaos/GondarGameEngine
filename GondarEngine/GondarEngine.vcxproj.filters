@@ -25,6 +25,18 @@
     <Filter Include="Data Structures">
       <UniqueIdentifier>{3d61a1ef-f75d-4f7d-860e-4f4a92a21b9b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Data Structures\Linked">
+      <UniqueIdentifier>{3c5dc4cb-02ac-4fda-ad76-ed0bf8b1a325}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data Structures\Array">
+      <UniqueIdentifier>{430b9315-31ef-4c9e-a241-e56713c92cc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math\Linear Algebra">
+      <UniqueIdentifier>{937b3480-1ac7-4f0f-b63f-7d2048c72791}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math\Deprecated / Old code">
+      <UniqueIdentifier>{b85f0123-9308-4b91-b462-2ed02c554e55}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="glMain.h">
@@ -32,12 +44,6 @@
     </ClInclude>
     <ClInclude Include="gsCamera.h">
       <Filter>OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="gsMathematics.h">
-      <Filter>Math</Filter>
-    </ClInclude>
-    <ClInclude Include="gsGeometric.h">
-      <Filter>Math</Filter>
     </ClInclude>
     <ClInclude Include="gsClock.h">
       <Filter>System\Engine Sytems</Filter>
@@ -57,17 +63,11 @@
     <ClInclude Include="gsGame.h">
       <Filter>System</Filter>
     </ClInclude>
-    <ClInclude Include="gsGraphics.h">
-      <Filter>System\Engine Sytems</Filter>
-    </ClInclude>
     <ClInclude Include="gsConfig.h">
       <Filter>Meta</Filter>
     </ClInclude>
     <ClInclude Include="gsMacros.h">
       <Filter>Meta</Filter>
-    </ClInclude>
-    <ClInclude Include="gsIncludeOpenGL.h">
-      <Filter>OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="gsWindow.h">
       <Filter>System\Engine Sytems</Filter>
@@ -75,29 +75,63 @@
     <ClInclude Include="gsLogger.h">
       <Filter>System\Engine Sytems</Filter>
     </ClInclude>
-    <ClInclude Include="gsNode.h">
-      <Filter>Data Structures</Filter>
-    </ClInclude>
-    <ClInclude Include="gsLinkedList.h">
-      <Filter>Data Structures</Filter>
-    </ClInclude>
     <ClInclude Include="gsDebugGame_Gameloop.h">
       <Filter>System\Debug</Filter>
     </ClInclude>
     <ClInclude Include="gsDebugGame_Graphics.h">
       <Filter>System\Debug</Filter>
     </ClInclude>
+    <ClInclude Include="gsGameObject.h">
+      <Filter>System</Filter>
+    </ClInclude>
+    <ClInclude Include="gsLinkedList.h">
+      <Filter>Data Structures\Linked</Filter>
+    </ClInclude>
+    <ClInclude Include="gsNode.h">
+      <Filter>Data Structures\Linked</Filter>
+    </ClInclude>
+    <ClInclude Include="gsArrayList.h">
+      <Filter>Data Structures\Array</Filter>
+    </ClInclude>
+    <ClInclude Include="gsDebugGame_DataStrutures.h">
+      <Filter>System\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="gsMesh.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="gsAxis.h">
+      <Filter>Math\Linear Algebra</Filter>
+    </ClInclude>
+    <ClInclude Include="gsColor.h">
+      <Filter>Math\Linear Algebra</Filter>
+    </ClInclude>
+    <ClInclude Include="gsPlane.h">
+      <Filter>Math\Linear Algebra</Filter>
+    </ClInclude>
+    <ClInclude Include="gsTriangle.h">
+      <Filter>Math\Linear Algebra</Filter>
+    </ClInclude>
+    <ClInclude Include="gsVector2.h">
+      <Filter>Math\Linear Algebra</Filter>
+    </ClInclude>
+    <ClInclude Include="gsVector3.h">
+      <Filter>Math\Linear Algebra</Filter>
+    </ClInclude>
+    <ClInclude Include="gsGeometric.h">
+      <Filter>Math\Deprecated / Old code</Filter>
+    </ClInclude>
+    <ClInclude Include="gsMathematics.h">
+      <Filter>Math\Deprecated / Old code</Filter>
+    </ClInclude>
+    <ClInclude Include="gsGraphics.h">
+      <Filter>System\Engine Sytems</Filter>
+    </ClInclude>
+    <ClInclude Include="gsOpenGL.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsMain.cpp" />
     <ClCompile Include="gsCamera.cpp">
       <Filter>OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="gsMathematic.cpp">
-      <Filter>Math</Filter>
-    </ClCompile>
-    <ClCompile Include="gsGgeometric.cpp">
-      <Filter>Math</Filter>
     </ClCompile>
     <ClCompile Include="gsClock.cpp">
       <Filter>System\Engine Sytems</Filter>
@@ -114,26 +148,50 @@
     <ClCompile Include="gsEngine.cpp">
       <Filter>System</Filter>
     </ClCompile>
-    <ClCompile Include="gsGraphics.cpp">
-      <Filter>System\Engine Sytems</Filter>
-    </ClCompile>
     <ClCompile Include="gsWindow.cpp">
       <Filter>System\Engine Sytems</Filter>
     </ClCompile>
     <ClCompile Include="gsLogger.cpp">
       <Filter>System\Engine Sytems</Filter>
     </ClCompile>
-    <ClCompile Include="gsNode.cpp">
-      <Filter>Data Structures</Filter>
-    </ClCompile>
-    <ClCompile Include="gsLinkedList.cpp">
-      <Filter>Data Structures</Filter>
-    </ClCompile>
     <ClCompile Include="gsDebugGame_GameLoop.cpp">
       <Filter>System\Debug</Filter>
     </ClCompile>
     <ClCompile Include="gsDebugGame_Graphics.cpp">
       <Filter>System\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="gsLinkedList.cpp">
+      <Filter>Data Structures\Linked</Filter>
+    </ClCompile>
+    <ClCompile Include="gsNode.cpp">
+      <Filter>Data Structures\Linked</Filter>
+    </ClCompile>
+    <ClCompile Include="gsDebugGame_DataStrutures.cpp">
+      <Filter>System\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="gsGgeometric.cpp">
+      <Filter>Math\Deprecated / Old code</Filter>
+    </ClCompile>
+    <ClCompile Include="gsMathematic.cpp">
+      <Filter>Math\Deprecated / Old code</Filter>
+    </ClCompile>
+    <ClCompile Include="gsGraphics.cpp">
+      <Filter>System\Engine Sytems</Filter>
+    </ClCompile>
+    <ClCompile Include="gsColor.cpp">
+      <Filter>Math\Linear Algebra</Filter>
+    </ClCompile>
+    <ClCompile Include="gsPlane.cpp">
+      <Filter>Math\Linear Algebra</Filter>
+    </ClCompile>
+    <ClCompile Include="gsTriangle.cpp">
+      <Filter>Math\Linear Algebra</Filter>
+    </ClCompile>
+    <ClCompile Include="gsVector2.cpp">
+      <Filter>Math\Linear Algebra</Filter>
+    </ClCompile>
+    <ClCompile Include="gsVector3.cpp">
+      <Filter>Math\Linear Algebra</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

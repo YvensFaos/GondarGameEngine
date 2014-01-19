@@ -1,11 +1,10 @@
-#ifndef __GLNODE__
-#define __GLNODE__
+#ifndef __GS_NODE__
+#define __GS_NODE__
 
 #define generics template <class T>
 
 generics
-class gsNode
-{
+class gsNode {
 private:
 	T value;
 	gsNode* next;

@@ -1,21 +1,21 @@
 #include "gsLinkedList.h"
 
 generics
-gsList<T>::gsList(void)
+gsLinkedList<T>::gsLinkedList(void)
 {
 	head = nullptr;
 	size = 0;
 }
 
 generics
-gsList<T>::gsList(T value)
+gsLinkedList<T>::gsLinkedList(T value)
 {
 	head = new gsNode(value);
 	size = 1;
 }
 
 generics
-gsList<T>::~gsList(void)
+gsLinkedList<T>::~gsLinkedList(void)
 {
 	if(head)
 	{
@@ -25,13 +25,13 @@ gsList<T>::~gsList(void)
 }
 
 generics
-gsNode<T>* gsList<T>::getHead(void)
+gsNode<T>* gsLinkedList<T>::getHead(void)
 {
 	return head;
 }
 
 generics
-T gsList<T>::get(int i)
+T gsLinkedList<T>::get(int i)
 {
 	if(head == nullptr || i > size)
 	{
@@ -56,14 +56,14 @@ T gsList<T>::get(int i)
 }
 
 generics
-void gsList<T>::add(T value)
+void gsLinkedList<T>::add(T value)
 {
 	gsNode* node = new gsNode(value);
 	add(node);
 }
 
 generics
-void gsList<T>::add(gsNode<T>* node)
+void gsLinkedList<T>::add(gsNode<T>* node)
 {
 	if(head == nullptr)
 	{
@@ -85,7 +85,7 @@ void gsList<T>::add(gsNode<T>* node)
 }
 
 generics
-void gsList<T>::remove(int i)
+void gsLinkedList<T>::remove(int i)
 {
 	if(head == nullptr || i > size)
 	{
@@ -116,7 +116,7 @@ void gsList<T>::remove(int i)
 }
 
 generics
-bool gsList<T>::contains(T value)
+bool gsLinkedList<T>::contains(T value)
 {
 	if(head == nullptr)
 	{
@@ -144,7 +144,7 @@ bool gsList<T>::contains(T value)
 }
 
 generics
-void gsList<T>::clear(void)
+void gsLinkedList<T>::clear(void)
 {
 	if(head == nullptr)
 	{
@@ -167,13 +167,13 @@ void gsList<T>::clear(void)
 }
 
 generics
-int gsList<T>::getSize(void)
+int gsLinkedList<T>::getSize(void)
 {
 	return size;
 }
 
 generics
-void gsList<T>::log(void)
+void gsLinkedList<T>::log(void)
 {
 	//A ser implementado.
 }

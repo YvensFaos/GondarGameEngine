@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "gsIncludeOpenGL.h"
+#include "gsOpenGL.h"
 #include "gsCamera.h"
 #include "gsGeometric.h"
 #include "gsInput.h"

@@ -3,8 +3,7 @@
 #include "gsLogger.h"
 #include "gsClock.h"
 #include "gsRandom.h"
-
-#include <gl\GL.h>
+#include "gsOpenGL.h"
 
 
 void gsDebugGame_Graphics::start() {

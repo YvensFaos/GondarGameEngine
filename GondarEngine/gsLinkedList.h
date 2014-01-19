@@ -1,13 +1,12 @@
-#ifndef __GLLINKEDLIST__
-#define __GLLINKEDLIST__
+#ifndef __GS_LINKEDLIST__
+#define __GS_LINKEDLIST__
 
 #include "gsNode.h"
 
 #define generics template <class T>
 
 generics
-class gsList
-{
+class gsLinkedList {
 private:
 	int size;
 
@@ -15,9 +14,9 @@ private:
 	void add(gsNode<T>* node);
 	gsNode<T>* getHead(void);
 public:
-	gsList<T>(void);
-	gsList<T>(T value);
-	~gsList(void);
+	gsLinkedList<T>(void);
+	gsLinkedList<T>(T value);
+	~gsLinkedList(void);
 
 	T get(int i);
 
