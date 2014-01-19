@@ -38,3 +38,6 @@ void gsWindow::dispose() {
 GLFWwindow* gsWindow::getWindow() {
 	return gWindow;
 }
+bool gsWindow::isOpen() {
+	return !glfwWindowShouldClose(gWindow);
+}

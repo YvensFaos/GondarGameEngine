@@ -114,20 +114,27 @@
     <ClInclude Include="gsWindow.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="gsCamera.cpp" />
+    <ClCompile Include="gsCamera.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="gsColor.cpp" />
     <ClCompile Include="gsDebugGame_GameLoop.cpp" />
     <ClCompile Include="gsDebugGame_Graphics.cpp" />
     <ClCompile Include="gsEngine.cpp" />
     <ClCompile Include="gsFilehandler.cpp" />
-    <ClCompile Include="gsGgeometric.cpp" />
+    <ClCompile Include="gsGgeometric.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="gsGraphics.cpp" />
     <ClCompile Include="gsInput.cpp" />
     <ClCompile Include="gsLogger.cpp" />
     <ClCompile Include="gsLinkedList.cpp" />
     <ClCompile Include="gsMain.cpp" />
-    <ClCompile Include="gsMathematic.cpp" />
+    <ClCompile Include="gsMathematic.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="gsClock.cpp" />
+    <ClCompile Include="gsMesh.cpp" />
     <ClCompile Include="gsNode.cpp" />
     <ClCompile Include="gsPlane.cpp" />
     <ClCompile Include="gsRandom.cpp" />

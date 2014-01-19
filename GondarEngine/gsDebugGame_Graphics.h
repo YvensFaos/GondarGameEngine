@@ -6,10 +6,12 @@
 #ifdef GS_DEBUG
 
 #include "gsGame.h"
+#include "gsTriangle.h"
 
 
 class gsDebugGame_Graphics : public gsGame {
 private:
+	gsTriangle triangle;
 	int frameCounter;
 
 public:

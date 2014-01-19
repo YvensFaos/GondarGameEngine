@@ -5,6 +5,7 @@
 #include "gsAxis.h"
 #include "gsVector3.h"
 #include "gsColor.h"
+#include <ostream>
 
 class gsTriangle {
 public:
@@ -17,15 +18,17 @@ public:
 
 	gsTriangle(void);
 	gsTriangle(gsVector3 _a, gsVector3 _b, gsVector3 _c);
-	~gsTriangle(void);
 
 	void calculateNormal(void);
-	void drawTriangle(void);
-	void drawTriangleLines(void);
-	void print(void);
 
-	void translate(gsVector3 translation);
+	void drawSolid(void);
+	void drawWireFrame(void);
+
+	void translate(const gsVector3& amount);
 	void rotate(float angle, gsAxis axis);
 };
+
+// To String
+std::ostream& operator<<(std::ostream& os, const gsTriangle& triangle);
 
 #endif

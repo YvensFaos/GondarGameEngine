@@ -10,9 +10,6 @@
     <Filter Include="System">
       <UniqueIdentifier>{be870294-262d-4b8f-b3d5-9663f9214fb5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="OpenGL">
-      <UniqueIdentifier>{c177decc-bfbc-4c00-a14b-b4a26f60df8c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="System\Engine Sytems">
       <UniqueIdentifier>{9d5daba1-5cf1-41ba-bc12-6a5a63c4f5a6}</UniqueIdentifier>
     </Filter>
@@ -34,17 +31,11 @@
     <Filter Include="Math\Linear Algebra">
       <UniqueIdentifier>{937b3480-1ac7-4f0f-b63f-7d2048c72791}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Math\Deprecated / Old code">
+    <Filter Include="Deprecated / Old code">
       <UniqueIdentifier>{b85f0123-9308-4b91-b462-2ed02c554e55}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="glMain.h">
-      <Filter>OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="gsCamera.h">
-      <Filter>OpenGL</Filter>
-    </ClInclude>
     <ClInclude Include="gsClock.h">
       <Filter>System\Engine Sytems</Filter>
     </ClInclude>
@@ -118,21 +109,24 @@
       <Filter>Math\Linear Algebra</Filter>
     </ClInclude>
     <ClInclude Include="gsGeometric.h">
-      <Filter>Math\Deprecated / Old code</Filter>
+      <Filter>Deprecated / Old code</Filter>
     </ClInclude>
     <ClInclude Include="gsMathematics.h">
-      <Filter>Math\Deprecated / Old code</Filter>
+      <Filter>Deprecated / Old code</Filter>
     </ClInclude>
     <ClInclude Include="gsGraphics.h">
       <Filter>System\Engine Sytems</Filter>
     </ClInclude>
     <ClInclude Include="gsOpenGL.h" />
+    <ClInclude Include="glMain.h">
+      <Filter>Deprecated / Old code</Filter>
+    </ClInclude>
+    <ClInclude Include="gsCamera.h">
+      <Filter>Deprecated / Old code</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsMain.cpp" />
-    <ClCompile Include="gsCamera.cpp">
-      <Filter>OpenGL</Filter>
-    </ClCompile>
     <ClCompile Include="gsClock.cpp">
       <Filter>System\Engine Sytems</Filter>
     </ClCompile>
@@ -170,10 +164,10 @@
       <Filter>System\Debug</Filter>
     </ClCompile>
     <ClCompile Include="gsGgeometric.cpp">
-      <Filter>Math\Deprecated / Old code</Filter>
+      <Filter>Deprecated / Old code</Filter>
     </ClCompile>
     <ClCompile Include="gsMathematic.cpp">
-      <Filter>Math\Deprecated / Old code</Filter>
+      <Filter>Deprecated / Old code</Filter>
     </ClCompile>
     <ClCompile Include="gsGraphics.cpp">
       <Filter>System\Engine Sytems</Filter>
@@ -192,6 +186,12 @@
     </ClCompile>
     <ClCompile Include="gsVector3.cpp">
       <Filter>Math\Linear Algebra</Filter>
+    </ClCompile>
+    <ClCompile Include="gsCamera.cpp">
+      <Filter>Deprecated / Old code</Filter>
+    </ClCompile>
+    <ClCompile Include="gsMesh.cpp">
+      <Filter>Math</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -10,7 +10,7 @@
 //Método principal do jogo
 int main()
 {
-	gsDebugGame_DataStrutures game;
+	gsDebugGame_Graphics game;
 	gsEngine engine = gsEngine(&game);
 
 	engine.runGame();

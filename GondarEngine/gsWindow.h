@@ -14,6 +14,8 @@ public:
 
 	// Retorna uma referência para a janela da aplicação
 	static GLFWwindow* getWindow();
+	// Retorna se a janela ainda está aberta.
+	static bool isOpen();
 };
 
 #endif

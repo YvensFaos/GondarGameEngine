@@ -19,7 +19,3 @@ void gsColor::randomize() {
 	y = gsRandom::nextDouble();
 	z = gsRandom::nextDouble();
 }
-
-void gsColor::setAsOpenGLColor() {
-	glColor3f(x, y, z);
-}

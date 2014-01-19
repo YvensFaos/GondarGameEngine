@@ -7,6 +7,10 @@
 
 void gsDebugGame_Graphics::start() {
 	GS_LOG("Teste Inicializado\n");
+	triangle =  gsTriangle(
+		gsVector3(-0.33, -0.33, 0), 
+		gsVector3( 0.33, -0.33, 0), 
+		gsVector3(    0,  0.5 , 0));
 	frameCounter = 0;
 }
 void gsDebugGame_Graphics::end() {
@@ -18,6 +22,7 @@ bool gsDebugGame_Graphics::isRunning() {
 }
 
 void gsDebugGame_Graphics::update() {
+	triangle.rotate(gsClock::getDeltaTime(), gsAxis::Z);
 	frameCounter++;
 }
 void gsDebugGame_Graphics::draw() {
@@ -31,4 +36,6 @@ void gsDebugGame_Graphics::draw() {
 		glColor3f(0, 0, 1);
 		glVertex3f(-0.5, 0.5, 0);
 	glEnd();
+
+	triangle.drawSolid();
 }

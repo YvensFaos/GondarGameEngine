@@ -45,7 +45,7 @@ void gsEngine::runGame() {
 	initializeEngineSystems();
 
 	game->start();
-	while(game->isRunning()) {
+	while(game->isRunning() && gsWindow::isOpen()) {
 		updateEngineSystems();
 
 		game->update();

@@ -2,6 +2,8 @@
 
 
 #include "gsLogger.h"
+#include "gsOpenGL.h"
+#include <ostream>
 
 gsVector3::gsVector3(void)
 {
@@ -9,14 +11,12 @@ gsVector3::gsVector3(void)
 	y = 0.0f;
 	z = 0.0f;
 }
-
 gsVector3::gsVector3(float points[3])
 {
 	x = points[0];
 	y = points[1];
 	z = points[2];
 }
-
 gsVector3::gsVector3(float _x, float _y, float _z)
 {
 	x = _x;
@@ -24,7 +24,11 @@ gsVector3::gsVector3(float _x, float _y, float _z)
 	z = _z;
 }
 
-void gsVector3::makeUnitary(void)
+float gsVector3::magnitude(void) const
+{
+	return sqrt(x * x + y * y + z * z);
+}
+void gsVector3::normalize(void)
 {
 	float len = magnitude();
 	if (len != 0.0f)
@@ -35,53 +39,23 @@ void gsVector3::makeUnitary(void)
 	}
 }
 
-void gsVector3::print()
+float gsVector3::angleTo(const gsVector3& p) const
 {
-	GS_LOG("> " << x << " - " << y << " - " << z);
-}
-
-bool gsVector3::isZeroVector(void)
-{
-	return x == 0 && y == 0 && z == 0;
-}
-
-bool gsVector3::isParalel(gsVector3 p)
-{
-	gsVector3* cross = gsVector3::crossProduct(this, p);
-	bool paralel = cross->isZeroVector();
-	delete cross;
-
-	return paralel;
-}
-
-GLfloat Point3D::magnitude(void)
-{
-	return sqrt(x * x + y * y + z * z);
-}
-
-GLfloat Point3D::angleTo(Point3D* p)
-{
-	GLfloat dot = Point3D::dot(this, p);
-	GLfloat cosO = dot / this->magnitude() * p->magnitude();
+	float dot = gsVector3::dot(*this, p);
+	float cosO = dot / this->magnitude() * p.magnitude();
 
 	return acosf(cosO);
 }
-
-void Point3D::drawVertex3f(void)
-{
-	glVertex3f(x, y, z);
-}
-
-void Point3D::rotate(GLfloat angle, AxisEnum axis)
+void gsVector3::rotate(float angle, const gsAxis& axis)
 {
 	if(angle == 0.0f)
 	{
 		return;
 	}
 
-	GLfloat newX = 0;
-	GLfloat newY = 0;
-	GLfloat newZ = 0;
+	float newX = 0;
+	float newY = 0;
+	float newZ = 0;
 
 	switch (axis)
 	{
@@ -112,49 +86,87 @@ void Point3D::rotate(GLfloat angle, AxisEnum axis)
 	}
 }
 
-void Point3D::operator+(Point3D* p)
+bool gsVector3::isZeroVector(void) const
 {
-	x += p->x;
-	y += p->y;
-	z += p->z;
+	return x == 0 && y == 0 && z == 0;
+}
+bool gsVector3::isParalel(const gsVector3& p) const
+{
+	gsVector3 cross = gsVector3::cross(*this, p);
+	bool paralel = cross.isZeroVector();
+	return paralel;
 }
 
-void Point3D::operator-(Point3D* p)
-{
-	x -= p->x;
-	y -= p->y;
-	z -= p->z;
+void gsVector3::sendToOpenGL_Vertex(void) const {
+	glVertex3f(x, y, z);
+}
+void gsVector3::sendToOpenGL_Normal(void) const {
+	glNormal3f(x, y, z);
+}
+void gsVector3::sendToOpenGL_Color(void) const {
+	glColor3f(x, y, z);
 }
 
-void Point3D::operator*(GLfloat value)
+float gsVector3::dot(const gsVector3& a, const gsVector3& b)
 {
-	x *= value;
-	y *= value;
-	z *= value;
+	return a.x*b.x + a.y*b.y + a.z*b.z;
+}
+gsVector3 gsVector3::cross(const gsVector3& a, const gsVector3& b)
+{
+	float x = a.y * b.z - a.z * b.y;
+	float y = a.z * b.x - a.x * b.z;
+	float z = a.x * b.y - a.y * b.x;
+
+	return gsVector3(x, y, z);
 }
 
-GLfloat Point3D::dot(Point3D* a, Point3D* b)
-{
-	return a->x*b->x + a->y*b->y + a->z*b->z;
+void gsVector3::operator +=(const gsVector3& rhs) {
+	x += rhs.x;
+	y += rhs.y;
+	z += rhs.z;
+}
+void gsVector3::operator -=(const gsVector3& rhs) {
+	x -= rhs.x;
+	y -= rhs.y;
+	z -= rhs.z;
+}
+void gsVector3::operator *=(const float& rhs) {
+	x *= rhs;
+	y *= rhs;
+	z *= rhs;
+}
+void gsVector3::operator /=(const float& rhs) {
+	x /= rhs;
+	y /= rhs;
+	z /= rhs;
 }
 
-Point3D* Point3D::vector(Point3D* a, Point3D* b)
-{
-	GLfloat x = b->x - a->x;
-	GLfloat y = b->y - a->y;
-	GLfloat z = b->z - a->z;
-
-	return new Point3D(x, y, z);
+gsVector3 operator+(const gsVector3& lhs, const gsVector3& rhs) {
+	return gsVector3(
+		lhs.x + rhs.x, 
+		lhs.y + rhs.y, 
+		lhs.z + rhs.z);
+}
+gsVector3 operator-(const gsVector3& lhs, const gsVector3& rhs) {
+	return gsVector3(
+		lhs.x - rhs.x, 
+		lhs.y - rhs.y, 
+		lhs.z - rhs.z);
+}
+gsVector3 operator*(const gsVector3& lhs, const float& rhs) {
+	return gsVector3(
+		lhs.x * rhs, 
+		lhs.y * rhs, 
+		lhs.z * rhs);
+}
+gsVector3 operator/(const gsVector3& lhs, const float& rhs) {
+	return gsVector3(
+		lhs.x / rhs, 
+		lhs.y / rhs, 
+		lhs.z / rhs);
 }
 
-Point3D* Point3D::crossProduct(Point3D* a, Point3D* b)
-{
-	GLfloat x = a->y * b->z - a->z * b->y;
-	GLfloat y = a->z * b->x - a->x * b->z;
-	GLfloat z = a->x * b->y - a->y * b->x;
-
-	return new Point3D(x, y, z);
+std::ostream& operator<<(std::ostream& os, const gsVector3& vector) {
+	os << "(" << vector.x << ", " << vector.y << ", " << vector.y << ")";
+	return os;
 }
-
-Point3D::~Point3D(void)
-{ }
