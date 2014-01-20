@@ -11,6 +11,7 @@ void gsGraphics::init(int resX, int resY) {
 	gResY = resY;
 
 	glEnable (GL_BLEND);
+	glEnable(GL_TEXTURE_2D);
 	glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 void gsGraphics::dispose() {
@@ -41,9 +42,13 @@ void gsGraphics::drawQuad(const gsTransform& transform) {
 
 	glBegin(GL_QUADS);
 		transform.tint.sendToOpenGL_Color();
+		glTexCoord2f(0, 1);
 		corners[0].sendToOpenGL_Vertex();
+		glTexCoord2f(1, 1);
 		corners[1].sendToOpenGL_Vertex();
+		glTexCoord2f(1, 0);
 		corners[2].sendToOpenGL_Vertex();
+		glTexCoord2f(0, 0);
 		corners[3].sendToOpenGL_Vertex();
 	glEnd();
 }

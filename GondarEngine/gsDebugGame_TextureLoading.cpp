@@ -21,8 +21,8 @@ public:
 			gsRandom::nextInt(50, 550),
 			0);
 		gsVector3 size = gsVector3(
-			gsRandom::nextInt(30, 80), 
-			gsRandom::nextInt(30, 80),
+			620,
+			620,
 			0);
 		speed = gsVector3(
 			gsRandom::nextInt(-200, 200), 
@@ -33,8 +33,6 @@ public:
 
 		transform = gsTransform(position, size, gsVector3::zero(), color);
 		this->texture = texture;
-
-		//GS_LOG("entrando no construtor certo!");
 	}
 
 	void update() {
@@ -60,8 +58,6 @@ public:
 	void draw() {
 		texture.sendToOpenGL();
 		gsGraphics::drawQuad(transform);
-
-		//GS_LOG("entrando no draw certo!\n");
 	}
 	void onCollision(gsGameObject *other, const gsCollisionInfo& info) { }
 };
@@ -88,14 +84,12 @@ bool gsDebugGame_TextureLoading::isRunning() {
 }
 
 void gsDebugGame_TextureLoading::update() {
-	//GS_LOG("q");
 	for (int i = 0; i < objects.getSize(); i++)
 	{
 		objects.get(i)->update();
 	}
 }
 void gsDebugGame_TextureLoading::draw() {
-	//GS_LOG("q");
 	for (int i = 0; i < objects.getSize(); i++)
 	{
 		objects.get(i)->draw();
