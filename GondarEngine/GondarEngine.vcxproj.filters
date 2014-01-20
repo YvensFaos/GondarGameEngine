@@ -240,7 +240,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\gondar_texture.jpg">
+    <Image Include="gondar_texture.jpg">
       <Filter>Files</Filter>
     </Image>
   </ItemGroup>

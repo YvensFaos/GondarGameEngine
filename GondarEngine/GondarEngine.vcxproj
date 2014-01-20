@@ -156,7 +156,7 @@
     <ClCompile Include="gsDebugGame_DataStrutures.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\gondar_texture.jpg">
+    <Image Include="gondar_texture.jpg">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
     </Image>
