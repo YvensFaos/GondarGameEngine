@@ -1,7 +1,6 @@
 #ifndef __GS_MESH__
 #define __GS_MESH__
 
-
 #include "gsFilehandler.h"
 #include "gsVector3.h"
 #include "gsTriangle.h"

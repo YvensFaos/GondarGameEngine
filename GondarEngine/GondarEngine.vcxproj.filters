@@ -154,6 +154,12 @@
     <ClInclude Include="gsDebugGame_Collisions.h">
       <Filter>System\Debug</Filter>
     </ClInclude>
+    <ClInclude Include="gsSpriteSheet.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="gsDebugGame_TextureLoading.h">
+      <Filter>System\Debug</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsMain.cpp" />
@@ -226,5 +232,16 @@
     <ClCompile Include="gsDebugGame_Collisions.cpp">
       <Filter>System\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="gsTexture.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="gsDebugGame_TextureLoading.cpp">
+      <Filter>System\Debug</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\gondar_texture.jpg">
+      <Filter>Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

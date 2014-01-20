@@ -70,7 +70,7 @@ T gsLinkedList<T>::get(int i)
 	{
 		int counter = 0;
 
-		gsNode<T>* actual = &head;
+		gsNode<T>* actual = head;
 		while(counter++ <= i)
 		{
 			actual = actual->getNext();

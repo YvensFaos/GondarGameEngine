@@ -1,7 +1,6 @@
 #ifndef __GS_GAME__
 #define __GS_GAME__
 
-
 class gsGame {
 public:
 	virtual void start() = 0;

@@ -91,6 +91,7 @@
     <ClInclude Include="gsDebugGame_Collisions.h" />
     <ClInclude Include="gsDebugGame_DataStrutures.h" />
     <ClInclude Include="gsDebugGame_Graphics.h" />
+    <ClInclude Include="gsDebugGame_TextureLoading.h" />
     <ClInclude Include="gsGameObject.h" />
     <ClInclude Include="gsLinkedList.h" />
     <ClInclude Include="gsMesh.h" />
@@ -112,6 +113,7 @@
     <ClInclude Include="gsClock.h" />
     <ClInclude Include="gsPlane.h" />
     <ClInclude Include="gsRandom.h" />
+    <ClInclude Include="gsSpriteSheet.h" />
     <ClInclude Include="gsTexture.h" />
     <ClInclude Include="gsTransform.h" />
     <ClInclude Include="gsTriangle.h" />
@@ -129,6 +131,7 @@
     <ClCompile Include="gsDebugGame_Collisions.cpp" />
     <ClCompile Include="gsDebugGame_GameLoop.cpp" />
     <ClCompile Include="gsDebugGame_Graphics.cpp" />
+    <ClCompile Include="gsDebugGame_TextureLoading.cpp" />
     <ClCompile Include="gsEngine.cpp" />
     <ClCompile Include="gsFilehandler.cpp" />
     <ClCompile Include="gsGgeometric.cpp">
@@ -145,11 +148,18 @@
     <ClCompile Include="gsMesh.cpp" />
     <ClCompile Include="gsPlane.cpp" />
     <ClCompile Include="gsRandom.cpp" />
+    <ClCompile Include="gsTexture.cpp" />
     <ClCompile Include="gsTriangle.cpp" />
     <ClCompile Include="gsVector2.cpp" />
     <ClCompile Include="gsVector3.cpp" />
     <ClCompile Include="gsWindow.cpp" />
     <ClCompile Include="gsDebugGame_DataStrutures.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\gondar_texture.jpg">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+    </Image>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
