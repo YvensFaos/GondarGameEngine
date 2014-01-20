@@ -22,6 +22,7 @@ public:
 public:
 	static gsColor white() { return gsColor(1, 1, 1); }
 	static gsColor black() { return gsColor(0, 0, 0); }
+
 	static gsColor red() { return gsColor(1, 0, 0); }
 	static gsColor green() { return gsColor(0, 1, 0); }
 	static gsColor blue() { return gsColor(0, 0, 1); }

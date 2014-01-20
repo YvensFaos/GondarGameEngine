@@ -166,12 +166,6 @@
     <ClCompile Include="gsDebugGame_Graphics.cpp">
       <Filter>System\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="gsLinkedList.cpp">
-      <Filter>Data Structures\Linked</Filter>
-    </ClCompile>
-    <ClCompile Include="gsNode.cpp">
-      <Filter>Data Structures\Linked</Filter>
-    </ClCompile>
     <ClCompile Include="gsDebugGame_DataStrutures.cpp">
       <Filter>System\Debug</Filter>
     </ClCompile>

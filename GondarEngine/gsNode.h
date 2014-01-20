@@ -21,4 +21,49 @@ public:
 	void setValue(T value);
 };
 
+generics
+gsNode<T>::gsNode(void)
+{
+	this->value = nullptr;
+	this->next = nullptr;
+}
+
+generics
+gsNode<T>::gsNode(T value)
+{
+	this->value = value;
+	this->next = nullptr;
+}
+
+generics
+gsNode<T>::~gsNode(void)
+{
+
+}
+
+generics
+gsNode<T>* gsNode<T>::getNext(void)
+{
+	return next;
+}
+
+generics
+void gsNode<T>::setNext(gsNode<T>* next)
+{
+	this->next = next;
+}
+
+generics
+T gsNode<T>::getValue(void)
+{
+	return value;
+}
+
+generics
+void gsNode<T>::setValue(T value)
+{
+	this->T = value;
+}
+
+#undef generics
 #endif

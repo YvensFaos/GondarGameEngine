@@ -137,14 +137,12 @@
     <ClCompile Include="gsGraphics.cpp" />
     <ClCompile Include="gsInput.cpp" />
     <ClCompile Include="gsLogger.cpp" />
-    <ClCompile Include="gsLinkedList.cpp" />
     <ClCompile Include="gsMain.cpp" />
     <ClCompile Include="gsMathematic.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="gsClock.cpp" />
     <ClCompile Include="gsMesh.cpp" />
-    <ClCompile Include="gsNode.cpp" />
     <ClCompile Include="gsPlane.cpp" />
     <ClCompile Include="gsRandom.cpp" />
     <ClCompile Include="gsTriangle.cpp" />

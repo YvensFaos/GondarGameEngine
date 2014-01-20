@@ -11,7 +11,8 @@
 //Método principal do jogo
 int main()
 {
-	gsDebugGame_Collisions game;
+	//gsDebugGame_Collisions game;
+	gsDebugGame_DataStrutures game;
 	gsEngine engine = gsEngine(&game);
 
 	engine.runGame();
