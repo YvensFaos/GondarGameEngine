@@ -8,7 +8,7 @@
 #define GS_RESOLUTION_X 800
 #define GS_RESOLUTION_Y 600
 
-#define GS_WINDOW_POS_X 800
+#define GS_WINDOW_POS_X 100
 #define GS_WINDOW_POS_Y 100
 
 #endif

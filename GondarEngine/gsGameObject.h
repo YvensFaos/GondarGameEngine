@@ -2,9 +2,14 @@
 #define __GS_GAME_OBJECT__
 
 
+#include "gsTransform.h"
+#include "gsCollisionInfo.h"
+
 // Classe base de todos os objetos do jogo.
 class gsGameObject {
-private:
+public:
+	gsTransform transform; // Posição, tamanho e rotação do objeto
+
 	bool enabled;   // Se enabled for true, o objeto é atualizado todo frame
 	bool visible;   // Se visible for true, o objeto é desenhado todo frame
 	bool collident; // Se collident for true, o objeto é testado por colisões
@@ -22,10 +27,12 @@ public:
 	virtual void update() = 0;
 	virtual void draw() = 0;
 
-	bool isEnabled() { return enabled; }
-	bool isVisible() { return visible; }
-	bool isCollident() { return collident; }
-	bool isSolid() { return solid; }
+	virtual void onCollision(gsGameObject *other, const gsCollisionInfo& info) = 0;
+
+	bool isEnabled() const { return enabled; }
+	bool isVisible() const { return visible; }
+	bool isCollident() const { return collident; }
+	bool isSolid() const { return solid; }
 };
 
 #endif

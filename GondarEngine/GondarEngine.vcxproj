@@ -84,7 +84,11 @@
   <ItemGroup>
     <ClInclude Include="gsArrayList.h" />
     <ClInclude Include="gsAxis.h" />
+    <ClInclude Include="gsCollision.h" />
+    <ClInclude Include="gsCollisionInfo.h" />
+    <ClInclude Include="gsCollisionProxy.h" />
     <ClInclude Include="gsColor.h" />
+    <ClInclude Include="gsDebugGame_Collisions.h" />
     <ClInclude Include="gsDebugGame_DataStrutures.h" />
     <ClInclude Include="gsDebugGame_Graphics.h" />
     <ClInclude Include="gsGameObject.h" />
@@ -108,6 +112,8 @@
     <ClInclude Include="gsClock.h" />
     <ClInclude Include="gsPlane.h" />
     <ClInclude Include="gsRandom.h" />
+    <ClInclude Include="gsTexture.h" />
+    <ClInclude Include="gsTransform.h" />
     <ClInclude Include="gsTriangle.h" />
     <ClInclude Include="gsVector2.h" />
     <ClInclude Include="gsVector3.h" />
@@ -117,7 +123,10 @@
     <ClCompile Include="gsCamera.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="gsCollision.cpp" />
+    <ClCompile Include="gsCollisionProxy.cpp" />
     <ClCompile Include="gsColor.cpp" />
+    <ClCompile Include="gsDebugGame_Collisions.cpp" />
     <ClCompile Include="gsDebugGame_GameLoop.cpp" />
     <ClCompile Include="gsDebugGame_Graphics.cpp" />
     <ClCompile Include="gsEngine.cpp" />

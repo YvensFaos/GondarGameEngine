@@ -3,6 +3,7 @@
 #include "gsDebugGame_Gameloop.h"
 #include "gsDebugGame_Graphics.h"
 #include "gsDebugGame_DataStrutures.h"
+#include "gsDebugGame_Collisions.h"
 
 
 #include <stdlib.h> // system("pause");
@@ -10,7 +11,7 @@
 //Método principal do jogo
 int main()
 {
-	gsDebugGame_Graphics game;
+	gsDebugGame_Collisions game;
 	gsEngine engine = gsEngine(&game);
 
 	engine.runGame();

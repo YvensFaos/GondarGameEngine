@@ -4,9 +4,6 @@
     <Filter Include="Files">
       <UniqueIdentifier>{51889754-b8b7-445d-977b-20ed10e54efc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Math">
-      <UniqueIdentifier>{268b37ae-62b8-4fa4-8f77-52d215e30623}</UniqueIdentifier>
-    </Filter>
     <Filter Include="System">
       <UniqueIdentifier>{be870294-262d-4b8f-b3d5-9663f9214fb5}</UniqueIdentifier>
     </Filter>
@@ -28,26 +25,29 @@
     <Filter Include="Data Structures\Array">
       <UniqueIdentifier>{430b9315-31ef-4c9e-a241-e56713c92cc7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Math\Linear Algebra">
-      <UniqueIdentifier>{937b3480-1ac7-4f0f-b63f-7d2048c72791}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Deprecated / Old code">
       <UniqueIdentifier>{b85f0123-9308-4b91-b462-2ed02c554e55}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Objects">
+      <UniqueIdentifier>{268b37ae-62b8-4fa4-8f77-52d215e30623}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Linear Algebra">
+      <UniqueIdentifier>{937b3480-1ac7-4f0f-b63f-7d2048c72791}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Engine Sytems\Collision">
+      <UniqueIdentifier>{48efcf06-6b34-4944-a438-409b9f78b9fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Engine Sytems\Content">
+      <UniqueIdentifier>{97831d82-6da4-4523-9e7c-c11bbfa7a43f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Engine Sytems\Atomic">
+      <UniqueIdentifier>{dcd1d180-848d-4eb9-9209-f3a20b9af0ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Engine Sytems\Graphics">
+      <UniqueIdentifier>{7593df05-a07d-4ee9-aa1d-0f8ec32b1ad6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="gsClock.h">
-      <Filter>System\Engine Sytems</Filter>
-    </ClInclude>
-    <ClInclude Include="gsInput.h">
-      <Filter>System\Engine Sytems</Filter>
-    </ClInclude>
-    <ClInclude Include="gsRandom.h">
-      <Filter>System\Engine Sytems</Filter>
-    </ClInclude>
-    <ClInclude Include="gsFilehandler.h">
-      <Filter>System\Engine Sytems</Filter>
-    </ClInclude>
     <ClInclude Include="gsEngine.h">
       <Filter>System</Filter>
     </ClInclude>
@@ -59,12 +59,6 @@
     </ClInclude>
     <ClInclude Include="gsMacros.h">
       <Filter>Meta</Filter>
-    </ClInclude>
-    <ClInclude Include="gsWindow.h">
-      <Filter>System\Engine Sytems</Filter>
-    </ClInclude>
-    <ClInclude Include="gsLogger.h">
-      <Filter>System\Engine Sytems</Filter>
     </ClInclude>
     <ClInclude Include="gsDebugGame_Gameloop.h">
       <Filter>System\Debug</Filter>
@@ -88,34 +82,31 @@
       <Filter>System\Debug</Filter>
     </ClInclude>
     <ClInclude Include="gsMesh.h">
-      <Filter>Math</Filter>
+      <Filter>Objects</Filter>
     </ClInclude>
     <ClInclude Include="gsAxis.h">
-      <Filter>Math\Linear Algebra</Filter>
+      <Filter>Objects\Linear Algebra</Filter>
     </ClInclude>
     <ClInclude Include="gsColor.h">
-      <Filter>Math\Linear Algebra</Filter>
+      <Filter>Objects\Linear Algebra</Filter>
     </ClInclude>
     <ClInclude Include="gsPlane.h">
-      <Filter>Math\Linear Algebra</Filter>
+      <Filter>Objects\Linear Algebra</Filter>
     </ClInclude>
     <ClInclude Include="gsTriangle.h">
-      <Filter>Math\Linear Algebra</Filter>
+      <Filter>Objects\Linear Algebra</Filter>
     </ClInclude>
     <ClInclude Include="gsVector2.h">
-      <Filter>Math\Linear Algebra</Filter>
+      <Filter>Objects\Linear Algebra</Filter>
     </ClInclude>
     <ClInclude Include="gsVector3.h">
-      <Filter>Math\Linear Algebra</Filter>
+      <Filter>Objects\Linear Algebra</Filter>
     </ClInclude>
     <ClInclude Include="gsGeometric.h">
       <Filter>Deprecated / Old code</Filter>
     </ClInclude>
     <ClInclude Include="gsMathematics.h">
       <Filter>Deprecated / Old code</Filter>
-    </ClInclude>
-    <ClInclude Include="gsGraphics.h">
-      <Filter>System\Engine Sytems</Filter>
     </ClInclude>
     <ClInclude Include="gsOpenGL.h" />
     <ClInclude Include="glMain.h">
@@ -124,29 +115,50 @@
     <ClInclude Include="gsCamera.h">
       <Filter>Deprecated / Old code</Filter>
     </ClInclude>
+    <ClInclude Include="gsTransform.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="gsTexture.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="gsFilehandler.h">
+      <Filter>System\Engine Sytems\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="gsGraphics.h">
+      <Filter>System\Engine Sytems\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="gsClock.h">
+      <Filter>System\Engine Sytems\Atomic</Filter>
+    </ClInclude>
+    <ClInclude Include="gsInput.h">
+      <Filter>System\Engine Sytems\Atomic</Filter>
+    </ClInclude>
+    <ClInclude Include="gsLogger.h">
+      <Filter>System\Engine Sytems\Atomic</Filter>
+    </ClInclude>
+    <ClInclude Include="gsRandom.h">
+      <Filter>System\Engine Sytems\Atomic</Filter>
+    </ClInclude>
+    <ClInclude Include="gsWindow.h">
+      <Filter>System\Engine Sytems\Atomic</Filter>
+    </ClInclude>
+    <ClInclude Include="gsCollisionProxy.h">
+      <Filter>System\Engine Sytems\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="gsCollision.h">
+      <Filter>System\Engine Sytems\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="gsCollisionInfo.h">
+      <Filter>System\Engine Sytems\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="gsDebugGame_Collisions.h">
+      <Filter>System\Debug</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsMain.cpp" />
-    <ClCompile Include="gsClock.cpp">
-      <Filter>System\Engine Sytems</Filter>
-    </ClCompile>
-    <ClCompile Include="gsInput.cpp">
-      <Filter>System\Engine Sytems</Filter>
-    </ClCompile>
-    <ClCompile Include="gsRandom.cpp">
-      <Filter>System\Engine Sytems</Filter>
-    </ClCompile>
-    <ClCompile Include="gsFilehandler.cpp">
-      <Filter>System\Engine Sytems</Filter>
-    </ClCompile>
     <ClCompile Include="gsEngine.cpp">
       <Filter>System</Filter>
-    </ClCompile>
-    <ClCompile Include="gsWindow.cpp">
-      <Filter>System\Engine Sytems</Filter>
-    </ClCompile>
-    <ClCompile Include="gsLogger.cpp">
-      <Filter>System\Engine Sytems</Filter>
     </ClCompile>
     <ClCompile Include="gsDebugGame_GameLoop.cpp">
       <Filter>System\Debug</Filter>
@@ -169,29 +181,56 @@
     <ClCompile Include="gsMathematic.cpp">
       <Filter>Deprecated / Old code</Filter>
     </ClCompile>
-    <ClCompile Include="gsGraphics.cpp">
-      <Filter>System\Engine Sytems</Filter>
-    </ClCompile>
     <ClCompile Include="gsColor.cpp">
-      <Filter>Math\Linear Algebra</Filter>
+      <Filter>Objects\Linear Algebra</Filter>
     </ClCompile>
     <ClCompile Include="gsPlane.cpp">
-      <Filter>Math\Linear Algebra</Filter>
+      <Filter>Objects\Linear Algebra</Filter>
     </ClCompile>
     <ClCompile Include="gsTriangle.cpp">
-      <Filter>Math\Linear Algebra</Filter>
+      <Filter>Objects\Linear Algebra</Filter>
     </ClCompile>
     <ClCompile Include="gsVector2.cpp">
-      <Filter>Math\Linear Algebra</Filter>
+      <Filter>Objects\Linear Algebra</Filter>
     </ClCompile>
     <ClCompile Include="gsVector3.cpp">
-      <Filter>Math\Linear Algebra</Filter>
+      <Filter>Objects\Linear Algebra</Filter>
     </ClCompile>
     <ClCompile Include="gsCamera.cpp">
       <Filter>Deprecated / Old code</Filter>
     </ClCompile>
     <ClCompile Include="gsMesh.cpp">
-      <Filter>Math</Filter>
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="gsFilehandler.cpp">
+      <Filter>System\Engine Sytems\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="gsGraphics.cpp">
+      <Filter>System\Engine Sytems\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="gsClock.cpp">
+      <Filter>System\Engine Sytems\Atomic</Filter>
+    </ClCompile>
+    <ClCompile Include="gsInput.cpp">
+      <Filter>System\Engine Sytems\Atomic</Filter>
+    </ClCompile>
+    <ClCompile Include="gsLogger.cpp">
+      <Filter>System\Engine Sytems\Atomic</Filter>
+    </ClCompile>
+    <ClCompile Include="gsRandom.cpp">
+      <Filter>System\Engine Sytems\Atomic</Filter>
+    </ClCompile>
+    <ClCompile Include="gsWindow.cpp">
+      <Filter>System\Engine Sytems\Atomic</Filter>
+    </ClCompile>
+    <ClCompile Include="gsCollisionProxy.cpp">
+      <Filter>System\Engine Sytems\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="gsCollision.cpp">
+      <Filter>System\Engine Sytems\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="gsDebugGame_Collisions.cpp">
+      <Filter>System\Debug</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

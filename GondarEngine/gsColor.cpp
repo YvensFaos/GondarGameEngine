@@ -2,20 +2,31 @@
 
 
 #include "gsRandom.h"
-#include <Windows.h>
-#include <gl\GL.h>
+#include "gsOpenGL.h"
 
 gsColor::gsColor() {
-	x = y = z = 0; // preto
+	r = g = b = a = 0;
 }
 gsColor::gsColor(float r, float g, float b) {
-	x = r;
-	y = g;
-	z = b;
+	this->r = r;
+	this->g = g;
+	this->b = b;
+	this->a = 1;
+}
+gsColor::gsColor(float r, float g, float b, float a) {
+	this->r = r;
+	this->g = g;
+	this->b = b;
+	this->a = a;
 }
 
 void gsColor::randomize() {
-	x = gsRandom::nextDouble();
-	y = gsRandom::nextDouble();
-	z = gsRandom::nextDouble();
+	r = gsRandom::nextDouble();
+	g = gsRandom::nextDouble();
+	b = gsRandom::nextDouble();
+	a = gsRandom::nextDouble();
+}
+
+void gsColor::sendToOpenGL_Color(void) const {
+	glColor4f(r, g, b, a);
 }
