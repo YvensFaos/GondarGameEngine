@@ -46,6 +46,9 @@
     <Filter Include="System\Engine Sytems\Graphics">
       <UniqueIdentifier>{7593df05-a07d-4ee9-aa1d-0f8ec32b1ad6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Data Structures\Hash">
+      <UniqueIdentifier>{b7096ef8-c80d-4ed6-808b-cf1e46d40d0d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gsEngine.h">
@@ -159,6 +162,9 @@
     </ClInclude>
     <ClInclude Include="gsDebugGame_TextureLoading.h">
       <Filter>System\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="gsHashMap.h">
+      <Filter>Data Structures\Hash</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -4,7 +4,6 @@
 #include "gsArrayList.h"
 #define generics template <class T>
 
-
 generics
 class gsHashMap {
 private:
