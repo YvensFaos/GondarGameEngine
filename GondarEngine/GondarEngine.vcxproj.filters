@@ -166,6 +166,9 @@
     <ClInclude Include="gsHashMap.h">
       <Filter>Data Structures\Hash</Filter>
     </ClInclude>
+    <ClInclude Include="gsHashNode.h">
+      <Filter>Data Structures\Hash</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsMain.cpp" />

@@ -2,6 +2,7 @@
 #define __GS_HASHMAP__
 
 #include "gsArrayList.h"
+#include "gsHashNode.h"
 #define generics template <class T>
 
 #define chunk 256
@@ -50,8 +51,6 @@ generics
 T gsHashMap<T>::get(int value)
 {
 	return data[hashFunction(value)][0];
-	//Retorna o objeto T que esta no ArrayList da posicao indicada pela funcao hash
-	//Usar o resultado da função de hash, mas a função vai depender do tipo de key do hashmap ?
 }
 
 generics
