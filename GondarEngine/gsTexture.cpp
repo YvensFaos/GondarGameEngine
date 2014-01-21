@@ -26,7 +26,8 @@ void gsTexture::loadTexture(const char* textureName)
 
 	fif = FreeImage_GetFIFFromFilename(textureName);
 
-	gsAssert(fif != FIF_UNKNOWN);
+	bool test = fif != FIF_UNKNOWN;
+	gsAssert(test);
 
 	FIBITMAP *bitmap = FreeImage_Load(fif, textureName);
 	FIBITMAP *temp = bitmap;
