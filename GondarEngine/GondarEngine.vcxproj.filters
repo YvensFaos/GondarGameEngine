@@ -238,6 +238,9 @@
     <ClCompile Include="gsDebugGame_TextureLoading.cpp">
       <Filter>System\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="gsSpriteSheet.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="gondar_texture.jpg">

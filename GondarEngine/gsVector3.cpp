@@ -1,6 +1,5 @@
 #include "gsVector3.h"
 
-
 #include "gsLogger.h"
 #include "gsOpenGL.h"
 #include <ostream>
