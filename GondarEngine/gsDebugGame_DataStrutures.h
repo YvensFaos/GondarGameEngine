@@ -12,7 +12,7 @@ class gsDebugGame_DataStrutures : public gsGame {
 private:
 	void testLinkedList();
 	void testArrayList();
-
+	void testHashMap();
 public:
 	virtual void start();
 	virtual void end();

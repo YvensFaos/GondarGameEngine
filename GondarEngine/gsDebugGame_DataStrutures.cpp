@@ -4,7 +4,7 @@
 #include "gsMacros.h"
 #include "gsLinkedList.h"
 #include "gsArrayList.h"
-
+#include "gsHashMap.h"
 
 void gsDebugGame_DataStrutures::start() {
 	GS_LOG("Começando Testes");
@@ -15,6 +15,8 @@ void gsDebugGame_DataStrutures::start() {
 	GS_LOG("\nTestando array list: ");
 	testArrayList();
 	
+	GS_LOG("\nTestando hash map: ");
+	testHashMap();
 }
 void gsDebugGame_DataStrutures::end() {
 	GS_LOG("Testes finalizados com sucesso.");
@@ -71,6 +73,21 @@ void gsDebugGame_DataStrutures::testLinkedList() {
 		list.remove(0);
 	}
 	list.log();
+}
+
+void gsDebugGame_DataStrutures::testHashMap()
+{
+	gsHashMap<int> hash = gsHashMap<int>();
+
+	hash.add(1, 666);
+	hash.add(2, 777);
+
+	hash.add(1, 999);
+	hash.add(5, 333);
+
+	hash.remove(2);
+
+	hash.contains(333);
 }
 
 void gsDebugGame_DataStrutures::testArrayList() {
