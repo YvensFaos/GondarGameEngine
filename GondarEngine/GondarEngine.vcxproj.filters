@@ -252,5 +252,8 @@
     <Image Include="gondar_texture.jpg">
       <Filter>Files</Filter>
     </Image>
+    <Image Include="explosion_spritesheet.png">
+      <Filter>Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

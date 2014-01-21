@@ -3,6 +3,8 @@
 
 #include "gsTexture.h"
 
+class gsVector2;
+
 class gsSpriteSheet
 {
 private:
@@ -12,12 +14,19 @@ private:
 
 	int vertical;
 	int horizontal;
+
+	int counter;
+
+	gsVector2* positions;
 public:
 	gsSpriteSheet(void);
 	gsSpriteSheet(const char* file, int vertical, int horizontal);
+	~gsSpriteSheet(void);
 
-	int getWidth(void);
-	int setHeight(void);
+	gsVector2* getSpritePos(int pos);
+
+	int count(void);
+	void sendToOpenGL(void);
 };
 
 #endif

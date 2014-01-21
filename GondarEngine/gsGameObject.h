@@ -1,7 +1,6 @@
 #ifndef __GS_GAME_OBJECT__
 #define __GS_GAME_OBJECT__
 
-
 #include "gsTransform.h"
 #include "gsCollisionInfo.h"
 

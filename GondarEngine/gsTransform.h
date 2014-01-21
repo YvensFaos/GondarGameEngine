@@ -22,10 +22,19 @@ public:
 		rotation = rot;
 		tint = col;
 
+		
 		textureCoordinates[0] = gsVector2(0, 1);
 		textureCoordinates[1] = gsVector2(1, 1);
 		textureCoordinates[2] = gsVector2(1, 0);
 		textureCoordinates[3] = gsVector2(0, 0);
+		
+
+		/*
+		textureCoordinates[0] = gsVector2(0.0f, 0.2f);
+		textureCoordinates[1] = gsVector2(0.2f, 0.2f);
+		textureCoordinates[2] = gsVector2(1, 0);
+		textureCoordinates[3] = gsVector2(0, 0);
+		*/
 	}
 
 	gsTransform(gsVector3 pos, gsVector3 siz, gsVector3 rot, gsColor col, gsVector2 coords[4]) {
@@ -34,6 +43,14 @@ public:
 		rotation = rot;
 		tint = col;
 
+		textureCoordinates[0] = coords[0];
+		textureCoordinates[1] = coords[1];
+		textureCoordinates[2] = coords[2];
+		textureCoordinates[3] = coords[3];
+	}
+
+	void setTextureCoordinates(gsVector2 coords[4])
+	{
 		textureCoordinates[0] = coords[0];
 		textureCoordinates[1] = coords[1];
 		textureCoordinates[2] = coords[2];
