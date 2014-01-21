@@ -11,7 +11,6 @@
 
 class gsDebugObject : public gsGameObject {
 public:
-	gsVector3 speed;
 	bool hasContatcs;
 	gsTransform contacts[8];
 
@@ -24,34 +23,19 @@ public:
 			gsRandom::nextInt(30, 80), 
 			gsRandom::nextInt(30, 80),
 			0);
-		speed = gsVector3(
+		gsVector3 speed = gsVector3(
 			gsRandom::nextInt(-200, 200), 
 			gsRandom::nextInt(-200, 200),
 			0);
 		gsColor color = gsColor::cyan();
 		color.a = 0.7f;
 
-		transform = gsTransform(position, size, gsVector3::zero(), color);
+		transform = gsTransform(position, size, gsVector3::zero(), speed, color);
 	}
 
 	void update() {
-		transform.position += speed * gsClock::getDeltaTime();
-
-		if (transform.position.x < 0) {
-			transform.position.x = 1;
-			speed.x *= -1;
-		} else if (transform.position.x + transform.size.x > 800) {
-			transform.position.x = 799 - transform.size.x;
-			speed.x *= -1;
-		}
-
-		if (transform.position.y < 0) {
-			transform.position.y = 1;
-			speed.y *= -1;
-		} else if (transform.position.y + transform.size.y > 600) {
-			transform.position.y = 599 - transform.size.y;
-			speed.y *= -1;
-		}
+		transform.applySpeed();
+		transform.bounceAtScreenEdges();
 	}
 	void draw() {
 		gsGraphics::drawQuad(transform);
@@ -86,12 +70,12 @@ void gsDebugGame_Collisions::start() {
 		objects.add(new gsDebugObject());
 	}
 	gsDebugObject *bigGreen = new gsDebugObject();
+	bigGreen->transform.speed = gsVector3(50, 300, 0);
 	bigGreen->transform.size = gsVector3(300, 300, 0);
 	bigGreen->transform.tint = gsColor::green();
 	bigGreen->transform.tint.a = 0.5f;
 	bigGreen->solid = false;
-	bigGreen->speed = gsVector3(50, 300, 0);
-
+	
 	objects.add(bigGreen);
 	
 }

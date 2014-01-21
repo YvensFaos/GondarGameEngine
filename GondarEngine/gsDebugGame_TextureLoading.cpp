@@ -9,59 +9,38 @@
 
 class gsDebugTexture : public gsGameObject {
 public:
-	gsVector3 speed;
-	bool hasContatcs;
 	gsTexture texture;
 
 	gsDebugTexture(gsTexture texture) {
 		gsVector3 position = gsVector3(
 			gsRandom::nextInt(50, 750), 
-			gsRandom::nextInt(50, 550),
-			0);
+			gsRandom::nextInt(50, 550), 0);
 		gsVector3 size = gsVector3(
-			620,
-			620,
-			0);
-		speed = gsVector3(
-			gsRandom::nextInt(-200, 200), 
-			gsRandom::nextInt(-200, 200),
-			0);
-		gsColor color = gsColor::white();
-		color.a = 0.7f;
+			500,
+			500, 0);
+		gsVector3 speed = gsVector3(
+			gsRandom::nextInt(-50, 50), 
+			gsRandom::nextInt(-50, 50), 0);
+		gsColor color = gsColor::white(0.7f);
 
-		transform = gsTransform(position, size, gsVector3::zero(), color);
+		transform = gsTransform(position, size, gsVector3::zero(), speed, color);
 		this->texture = texture;
 	}
 
 	void update() {
-		transform.position += speed * gsClock::getDeltaTime();
-
-		if (transform.position.x < 0) {
-			transform.position.x = 1;
-			speed.x *= -1;
-		} else if (transform.position.x + transform.size.x > 800) {
-			transform.position.x = 799 - transform.size.x;
-			speed.x *= -1;
-		}
-
-		if (transform.position.y < 0) {
-			transform.position.y = 1;
-			speed.y *= -1;
-		} else if (transform.position.y + transform.size.y > 600) {
-			transform.position.y = 599 - transform.size.y;
-			speed.y *= -1;
-		}
+		transform.applySpeed();
+		transform.bounceAtScreenEdges();
 	}
 	
 	void draw() {
-		texture.sendToOpenGL();
+		texture.sendToOpenGL_Texture();
 		gsGraphics::drawQuad(transform);
 	}
+
 	void onCollision(gsGameObject *other, const gsCollisionInfo& info) { }
 };
 
-class gsDebugSpritesheet : public gsGameObject 
-{
+class gsDebugSpritesheet : public gsGameObject {
 public:
 	int spritePos;
 	double timer;
@@ -77,47 +56,31 @@ public:
 			64,
 			64,
 			0);
-		speed = gsVector3(
+		gsVector3 speed = gsVector3(
 			gsRandom::nextInt(-200, 200), 
 			gsRandom::nextInt(-200, 200),
 			0);
-		gsColor color = gsColor::white();
-		color.a = 0.9f;
+		gsColor color = gsColor::white(0.9f);
 
 		timer = 0.f;
 		spritePos = 0;
 
 		sprite = new gsSpriteSheet(spriteFile, vertical, horizontal);
 
-		transform = gsTransform(position, size, gsVector3::zero(), color, sprite->getSpritePos(spritePos));
+		transform = gsTransform(position, size, gsVector3::zero(), speed, color, sprite->getSpritePos(spritePos));
 
 	}
 
 	void update() {
-		transform.position += speed * gsClock::getDeltaTime();
-
-		if (transform.position.x < 0) {
-			transform.position.x = 1;
-			speed.x *= -1;
-		} else if (transform.position.x + transform.size.x > 800) {
-			transform.position.x = 799 - transform.size.x;
-			speed.x *= -1;
-		}
-
-		if (transform.position.y < 0) {
-			transform.position.y = 1;
-			speed.y *= -1;
-		} else if (transform.position.y + transform.size.y > 600) {
-			transform.position.y = 599 - transform.size.y;
-			speed.y *= -1;
-		}
+		transform.applySpeed();
+		transform.bounceAtScreenEdges();
 
 		timer += gsClock::getDeltaTime();
 
 		if(timer >= 0.2f)
 		{
-			spritePos += 4;
-			if(spritePos >= sprite->count())
+			spritePos++;
+			if(spritePos >= sprite->getCellCount())
 			{
 				spritePos = 0;
 			}
@@ -129,7 +92,7 @@ public:
 	}
 	
 	void draw() {
-		sprite->sendToOpenGL();
+		sprite->sendToOpenGL_Texture();
 
 		gsGraphics::drawQuad(transform);
 	}
@@ -137,22 +100,21 @@ public:
 };
 
 void gsDebugGame_TextureLoading::start() {
-	texture = *new gsTexture("gondar_texture.jpg");
-
 	GS_LOG("Teste Inicializado\n");
 
-	objects.add(new gsDebugTexture(texture));
+	texture = gsTexture("gondar_texture.jpg");
 
+	objects.add(new gsDebugTexture(texture));
 	objects.add(new gsDebugSpritesheet("explosion_spritesheet.png", 5, 5));
 }
 
 void gsDebugGame_TextureLoading::end() {
-	GS_LOG("Teste Finalizado");
-
 	for (int i = 0; i < objects.getSize(); i++)
 	{
 		delete objects.get(i);
 	}
+
+	GS_LOG("Teste Finalizado");
 }
 
 bool gsDebugGame_TextureLoading::isRunning() {

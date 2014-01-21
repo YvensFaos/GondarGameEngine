@@ -18,5 +18,5 @@ int main()
 
 	engine.runGame();
 
-	system("pause");
+	//system("pause");
 }

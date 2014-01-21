@@ -8,29 +8,26 @@ gsSpriteSheet::gsSpriteSheet(void)
 {
 	width = 0;
 	height = 0;
-	vertical = 0;
-	horizontal = 0;
+	rows = 0;
+	collums = 0;
 }
 
-gsSpriteSheet::gsSpriteSheet(const char* file, int vertical, int horizontal)
+gsSpriteSheet::gsSpriteSheet(const char* file, int _rows, int _collums)
+	: gsTexture(file)
 {
-	texture = gsTexture(file);
-	width = texture.width;
-	height = texture.height;
+	rows = _rows;
+	collums = _collums;
 
-	this->vertical = vertical;
-	this->horizontal = horizontal;
+	float stepU = (width/collums) / (float)width;
+	float stepV = (height/rows) / (float)height;
 
-	float stepU = (width/horizontal) / (float)width;
-	float stepV = (height/vertical) / (float)height;
+	cellCount = rows * collums;
 
-	counter = vertical*horizontal*4;
-
-	positions = new gsVector2[counter];
+	positions = new gsVector2[cellCount * 4];
 
 	float u = 0;
 	float v = 0;
-	for(int i = 0; i < counter; i += 4)
+	for(int i = 0; i < cellCount * 4; i += 4)
 	{
 		positions[i]     = gsVector2(u, v + stepV);
 		positions[i + 1] = gsVector2(u + stepU, v + stepV);
@@ -40,36 +37,26 @@ gsSpriteSheet::gsSpriteSheet(const char* file, int vertical, int horizontal)
 		u += stepU;
 		v += stepV;
 	}
-
 }
 
-int gsSpriteSheet::count(void)
+int gsSpriteSheet::getCellCount(void)
 {
-	return counter;
+	return cellCount;
 }
 
 gsVector2* gsSpriteSheet::getSpritePos(int pos)
 {
-	gsVector2* sprite = new gsVector2[4];
+	gsAssert(pos >= 0);
+	gsAssert(pos < cellCount);
+	pos *= 4;
 
-	int i = 0;
-	sprite[i]     = positions[pos];
-	sprite[i + 1] = positions[pos + 1];
-	sprite[i + 2] = positions[pos + 2];
-	sprite[i + 3] = positions[pos + 3];
-
-	return sprite;
+	return &positions[pos];
 }
 
 gsSpriteSheet::~gsSpriteSheet(void)
 {
 	if(positions)
 	{
-		delete positions;
+		delete[] positions;
 	}
-}
-
-void gsSpriteSheet::sendToOpenGL(void)
-{
-	texture.sendToOpenGL();
 }

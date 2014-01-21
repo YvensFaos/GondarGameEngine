@@ -5,28 +5,22 @@
 
 class gsVector2;
 
-class gsSpriteSheet
-{
+class gsSpriteSheet : public gsTexture{
 private:
-	gsTexture texture;
-	int width;
-	int height;
+	int collums;
+	int rows;
 
-	int vertical;
-	int horizontal;
-
-	int counter;
+	int cellCount;
 
 	gsVector2* positions;
 public:
 	gsSpriteSheet(void);
-	gsSpriteSheet(const char* file, int vertical, int horizontal);
+	gsSpriteSheet(const char* file, int _rows, int _collums);
 	~gsSpriteSheet(void);
 
 	gsVector2* getSpritePos(int pos);
 
-	int count(void);
-	void sendToOpenGL(void);
+	int getCellCount(void);
 };
 
 #endif

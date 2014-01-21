@@ -30,6 +30,8 @@ public:
 
 	void operator +=(const gsVector3& rhs);
 	void operator -=(const gsVector3& rhs);
+	void operator *=(const gsVector3& rhs);
+	void operator /=(const gsVector3& rhs);
 	void operator *=(const float& rhs);
 	void operator /=(const float& rhs);
 
@@ -43,6 +45,8 @@ public:
 
 gsVector3 operator+(const gsVector3& lhs, const gsVector3& rhs);
 gsVector3 operator-(const gsVector3& lhs, const gsVector3& rhs);
+gsVector3 operator*(const gsVector3& lhs, const gsVector3& rhs);
+gsVector3 operator/(const gsVector3& lhs, const gsVector3& rhs);
 gsVector3 operator*(const gsVector3& lhs, const float& rhs);
 gsVector3 operator/(const gsVector3& lhs, const float& rhs);
 

@@ -26,8 +26,7 @@ void gsTexture::loadTexture(const char* textureName)
 
 	fif = FreeImage_GetFIFFromFilename(textureName);
 
-	bool test = fif != FIF_UNKNOWN;
-	gsAssert(test);
+	gsAssert(fif != FIF_UNKNOWN);
 
 	FIBITMAP *bitmap = FreeImage_Load(fif, textureName);
 	FIBITMAP *temp = bitmap;
@@ -57,7 +56,7 @@ void gsTexture::loadTexture(const char* textureName)
 	FreeImage_Unload(bitmap);
 }
 
-void gsTexture::sendToOpenGL(void)
+void gsTexture::sendToOpenGL_Texture(void)
 {
 	glBindTexture(GL_TEXTURE_2D, handle);
 }

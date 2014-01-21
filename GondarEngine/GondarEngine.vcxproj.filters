@@ -247,6 +247,9 @@
     <ClCompile Include="gsSpriteSheet.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
+    <ClCompile Include="gsTransform.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="gondar_texture.jpg">

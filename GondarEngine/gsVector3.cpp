@@ -129,6 +129,16 @@ void gsVector3::operator -=(const gsVector3& rhs) {
 	y -= rhs.y;
 	z -= rhs.z;
 }
+void gsVector3::operator *=(const gsVector3& rhs) {
+	x *= rhs.x;
+	y *= rhs.y;
+	z *= rhs.z;
+}
+void gsVector3::operator /=(const gsVector3& rhs) {
+	x /= rhs.x;
+	y /= rhs.y;
+	z /= rhs.z;
+}
 void gsVector3::operator *=(const float& rhs) {
 	x *= rhs;
 	y *= rhs;
@@ -151,6 +161,18 @@ gsVector3 operator-(const gsVector3& lhs, const gsVector3& rhs) {
 		lhs.x - rhs.x, 
 		lhs.y - rhs.y, 
 		lhs.z - rhs.z);
+}
+gsVector3 operator*(const gsVector3& lhs, const gsVector3& rhs) {
+	return gsVector3(
+		lhs.x * rhs.x, 
+		lhs.y * rhs.y, 
+		lhs.z * rhs.z);
+}
+gsVector3 operator/(const gsVector3& lhs, const gsVector3& rhs) {
+	return gsVector3(
+		lhs.x / rhs.x, 
+		lhs.y / rhs.y, 
+		lhs.z / rhs.z);
 }
 gsVector3 operator*(const gsVector3& lhs, const float& rhs) {
 	return gsVector3(

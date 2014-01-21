@@ -18,7 +18,7 @@ public:
 	gsTexture(const char* file);
 
 	// torna a textura ativa
-	void sendToOpenGL(void);
+	void sendToOpenGL_Texture(void);
 };
 
 #endif

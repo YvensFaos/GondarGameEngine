@@ -151,6 +151,7 @@
     <ClCompile Include="gsRandom.cpp" />
     <ClCompile Include="gsSpriteSheet.cpp" />
     <ClCompile Include="gsTexture.cpp" />
+    <ClCompile Include="gsTransform.cpp" />
     <ClCompile Include="gsTriangle.cpp" />
     <ClCompile Include="gsVector2.cpp" />
     <ClCompile Include="gsVector3.cpp" />

@@ -12,52 +12,39 @@ public:
 	gsVector3 position; // A posição do objeto
 	gsVector3 size;    // O tamanho do objeto
 	gsVector3 rotation; // A orientação do objeto (em graus)
-	gsVector2* textureCoordinates; //Coordenadas de textura
+	gsVector3 speed;    // A velocidade do objeto
+	gsVector2 textureCoordinates[4]; //Coordenadas de textura
 	gsColor   tint;     // A cor do objeto
 
+private:
+	void _init(gsVector3 pos, gsVector3 siz, gsVector3 rot, gsVector3 spd, gsVector2* texCoords, gsColor col);
+
+public:
 	gsTransform() {}
 
+	gsTransform(gsVector3 pos, gsVector3 siz) {
+		_init(pos, siz, gsVector3::zero(), gsVector3::zero(), 0, gsColor::white());
+	}
+	gsTransform(gsVector3 pos, gsVector3 siz, gsColor col) {
+		_init(pos, siz, gsVector3::zero(), gsVector3::zero(), 0, col);
+	}
 	gsTransform(gsVector3 pos, gsVector3 siz, gsVector3 rot, gsColor col) {
-		position = pos;
-		size = siz;
-		rotation = rot;
-		tint = col;
-		
-		textureCoordinates = new gsVector2[4];
-
-		textureCoordinates[0] = gsVector2(0, 1);
-		textureCoordinates[1] = gsVector2(1, 1);
-		textureCoordinates[2] = gsVector2(1, 0);
-		textureCoordinates[3] = gsVector2(0, 0);
-
-		/*
-		textureCoordinates[0] = gsVector2(0.5f, 0.2f);
-		textureCoordinates[1] = gsVector2(0.2f, 0.2f);
-		textureCoordinates[2] = gsVector2(0.2, 0.5f);
-		textureCoordinates[3] = gsVector2(0.5f, 0.5f);
-		*/
+		_init(pos, siz, rot, gsVector3::zero(), 0, col);
 	}
-
+	gsTransform(gsVector3 pos, gsVector3 siz, gsVector3 rot, gsVector3 spd, gsColor col) {
+		_init(pos, siz, rot, spd, 0, col);
+	}
 	gsTransform(gsVector3 pos, gsVector3 siz, gsVector3 rot, gsColor col, gsVector2* coords) {
-		position = pos;
-		size = siz;
-		rotation = rot;
-		tint = col;
-
-		textureCoordinates = new gsVector2[4];
-		textureCoordinates[0] = coords[0];
-		textureCoordinates[1] = coords[1];
-		textureCoordinates[2] = coords[2];
-		textureCoordinates[3] = coords[3];
+		_init(pos, siz, rot, gsVector3::zero(), coords, col);
+	}
+	gsTransform(gsVector3 pos, gsVector3 siz, gsVector3 rot, gsVector3 spd, gsColor col, gsVector2* coords) {
+		_init(pos, siz, rot, spd, coords, col);
 	}
 
-	void setTextureCoordinates(gsVector2* coords)
-	{
-		textureCoordinates[0] = coords[0];
-		textureCoordinates[1] = coords[1];
-		textureCoordinates[2] = coords[2];
-		textureCoordinates[3] = coords[3];
-	}
+	void applySpeed();
+	void bounceAtScreenEdges();
+
+	void setTextureCoordinates(gsVector2* coords);
 };
 
 #endif

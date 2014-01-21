@@ -13,23 +13,22 @@ public:
 	float a;
 
 	gsColor();
-	gsColor(float r, float g, float b);
-	gsColor(float r, float g, float b, float a);
+	gsColor(float r, float g, float b, float a = 1.0f);
 
 	void randomize();
 	void sendToOpenGL_Color(void) const;
 
 public:
-	static gsColor white() { return gsColor(1, 1, 1); }
-	static gsColor black() { return gsColor(0, 0, 0); }
+	static gsColor white(float a = 1.0f) { return gsColor(1, 1, 1, a); }
+	static gsColor black(float a = 1.0f) { return gsColor(0, 0, 0, a); }
 
-	static gsColor red() { return gsColor(1, 0, 0); }
-	static gsColor green() { return gsColor(0, 1, 0); }
-	static gsColor blue() { return gsColor(0, 0, 1); }
+	static gsColor red(float a = 1.0f) { return gsColor(1, 0, 0, a); }
+	static gsColor green(float a = 1.0f) { return gsColor(0, 1, 0, a); }
+	static gsColor blue(float a = 1.0f) { return gsColor(0, 0, 1, a); }
 
-	static gsColor magenta() { return gsColor(1, 0, 1); }
-	static gsColor yellow() { return gsColor(1, 1, 0); }
-	static gsColor cyan() { return gsColor(0, 1, 1); }
+	static gsColor magenta(float a = 1.0f) { return gsColor(1, 0, 1, a); }
+	static gsColor yellow(float a = 1.0f) { return gsColor(1, 1, 0, a); }
+	static gsColor cyan(float a = 1.0f) { return gsColor(0, 1, 1, a); }
 };
 
 #endif
