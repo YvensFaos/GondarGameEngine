@@ -7,7 +7,7 @@ class gsVector2;
 
 class gsSpriteSheet : public gsTexture{
 private:
-	int collums;
+	int column;
 	int rows;
 
 	int cellCount;
@@ -15,7 +15,7 @@ private:
 	gsVector2* positions;
 public:
 	gsSpriteSheet(void);
-	gsSpriteSheet(const char* file, int _rows, int _collums);
+	gsSpriteSheet(const char* file, int _rows, int _column);
 	~gsSpriteSheet(void);
 
 	gsVector2* getSpritePos(int pos);

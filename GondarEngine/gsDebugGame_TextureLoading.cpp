@@ -77,7 +77,7 @@ public:
 
 		timer += gsClock::getDeltaTime();
 
-		if(timer >= 0.2f)
+		if(timer >= 0.05f)
 		{
 			spritePos++;
 			if(spritePos >= sprite->getCellCount())
@@ -85,7 +85,7 @@ public:
 				spritePos = 0;
 			}
 
-			timer = 0.f;
+			timer -= 0.05f;
 		}
 
 		transform.setTextureCoordinates(sprite->getSpritePos(spritePos));
@@ -106,6 +106,7 @@ void gsDebugGame_TextureLoading::start() {
 
 	objects.add(new gsDebugTexture(texture));
 	objects.add(new gsDebugSpritesheet("explosion_spritesheet.png", 5, 5));
+	objects.add(new gsDebugSpritesheet("scarlet_walk.png", 2, 10));
 }
 
 void gsDebugGame_TextureLoading::end() {

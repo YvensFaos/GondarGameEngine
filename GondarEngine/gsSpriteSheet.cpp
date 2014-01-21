@@ -9,33 +9,41 @@ gsSpriteSheet::gsSpriteSheet(void)
 	width = 0;
 	height = 0;
 	rows = 0;
-	collums = 0;
+	column = 0;
 }
 
-gsSpriteSheet::gsSpriteSheet(const char* file, int _rows, int _collums)
+gsSpriteSheet::gsSpriteSheet(const char* file, int _rows, int _columns)
 	: gsTexture(file)
 {
 	rows = _rows;
-	collums = _collums;
+	column = _columns;
 
-	float stepU = (width/collums) / (float)width;
+	float stepU = (width/column) / (float)width;
 	float stepV = (height/rows) / (float)height;
 
-	cellCount = rows * collums;
+	cellCount = rows * column;
 
 	positions = new gsVector2[cellCount * 4];
 
 	float u = 0;
-	float v = 0;
-	for(int i = 0; i < cellCount * 4; i += 4)
-	{
-		positions[i]     = gsVector2(u, v + stepV);
-		positions[i + 1] = gsVector2(u + stepU, v + stepV);
-		positions[i + 2] = gsVector2(u + stepU, v);
-		positions[i + 3] = gsVector2(u, v);
+	float v = 1;
 
-		u += stepU;
-		v += stepV;
+	int counter = cellCount*4;
+	int k = 0;
+
+	for(int i = 0; i < column; i++)
+	{
+		for(int j = rows - 1; j > -1; j--)
+		{
+			positions[k]     = gsVector2(u, v);							//0, 1 -> 0, máx
+			positions[k + 1] = gsVector2(u + stepU, v);					//1, 1 -> 0 + step, máx
+			positions[k + 2] = gsVector2(u + stepU, v - stepV);         //1, 0 -> 0 + step, máx - step
+			positions[k + 3] = gsVector2(u, v - stepV);                 //0, 0 -> 0, máx - step
+
+			u += stepU;
+			k += 4;
+		}
+		v -= stepV;
 	}
 }
 

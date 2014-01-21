@@ -166,9 +166,6 @@
     <ClInclude Include="gsHashMap.h">
       <Filter>Data Structures\Hash</Filter>
     </ClInclude>
-    <ClInclude Include="gsHashNode.h">
-      <Filter>Data Structures\Hash</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsMain.cpp" />
@@ -259,6 +256,9 @@
       <Filter>Files</Filter>
     </Image>
     <Image Include="explosion_spritesheet.png">
+      <Filter>Files</Filter>
+    </Image>
+    <Image Include="scarlet_walk.png">
       <Filter>Files</Filter>
     </Image>
   </ItemGroup>
