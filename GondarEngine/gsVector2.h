@@ -21,6 +21,8 @@ public:
 
 	void operator +=(const gsVector2& rhs);
 	void operator -=(const gsVector2& rhs);
+	void operator *=(const gsVector2& rhs);
+	void operator /=(const gsVector2& rhs);
 	void operator *=(const float& rhs);
 	void operator /=(const float& rhs);
 
@@ -31,8 +33,13 @@ public:
 	static gsVector2 one() { return gsVector2(1.0f, 1.0f); }
 };
 
+bool operator==(const gsVector2& lhs, const gsVector2& rhs);
+bool operator!=(const gsVector2& lhs, const gsVector2& rhs);
+
 gsVector2 operator+(const gsVector2& lhs, const gsVector2& rhs);
 gsVector2 operator-(const gsVector2& lhs, const gsVector2& rhs);
+gsVector2 operator*(const gsVector2& lhs, const gsVector2& rhs);
+gsVector2 operator/(const gsVector2& lhs, const gsVector2& rhs);
 gsVector2 operator*(const gsVector2& lhs, const float& rhs);
 gsVector2 operator/(const gsVector2& lhs, const float& rhs);
 

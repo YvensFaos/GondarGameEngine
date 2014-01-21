@@ -48,20 +48,35 @@ void gsVector2::operator +=(const gsVector2& rhs) {
 	x += rhs.x;
 	y += rhs.y;
 }
-
 void gsVector2::operator -=(const gsVector2& rhs) {
 	x -= rhs.x;
 	y -= rhs.y;
 }
-
+void gsVector2::operator *=(const gsVector2& rhs) {
+	x *= rhs.x;
+	y *= rhs.y;
+}
+void gsVector2::operator /=(const gsVector2& rhs) {
+	x /= rhs.x;
+	y /= rhs.y;
+}
 void gsVector2::operator *=(const float& rhs) {
 	x *= rhs;
 	y *= rhs;
 }
-
 void gsVector2::operator /=(const float& rhs) {
 	x /= rhs;
 	y /= rhs;
+}
+
+bool operator==(const gsVector2& lhs, const gsVector2& rhs) {
+	bool output;
+	output &= lhs.x == rhs.x;
+	output &= lhs.y == rhs.y;
+	return output;
+}
+bool operator!=(const gsVector2& lhs, const gsVector2& rhs) {
+	return !(operator==(lhs, rhs)); // implementando um operador utilizando outro
 }
 
 gsVector2 operator+(const gsVector2& lhs, const gsVector2& rhs) {
@@ -69,13 +84,21 @@ gsVector2 operator+(const gsVector2& lhs, const gsVector2& rhs) {
 		lhs.x + rhs.x, 
 		lhs.y + rhs.y);
 }
-
 gsVector2 operator-(const gsVector2& lhs, const gsVector2& rhs) {
 	return gsVector2(
 		lhs.x - rhs.x, 
 		lhs.y - rhs.y);
 }
-
+gsVector2 operator*(const gsVector2& lhs, const gsVector2& rhs) {
+	return gsVector2(
+		lhs.x * rhs.x, 
+		lhs.y * rhs.y);
+}
+gsVector2 operator/(const gsVector2& lhs, const gsVector2& rhs) {
+	return gsVector2(
+		lhs.x / rhs.x, 
+		lhs.y / rhs.y);
+}
 gsVector2 operator*(const gsVector2& lhs, const float& rhs) {
 	return gsVector2(
 		lhs.x * rhs, 

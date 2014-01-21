@@ -150,6 +150,17 @@ void gsVector3::operator /=(const float& rhs) {
 	z /= rhs;
 }
 
+bool operator==(const gsVector3& lhs, const gsVector3& rhs) {
+	bool output;
+	output &= lhs.x == rhs.x;
+	output &= lhs.y == rhs.y;
+	output &= lhs.z == rhs.z;
+	return output;
+}
+bool operator!=(const gsVector3& lhs, const gsVector3& rhs) {
+	return !(operator==(lhs, rhs)); // implementando um operador utilizando outro
+}
+
 gsVector3 operator+(const gsVector3& lhs, const gsVector3& rhs) {
 	return gsVector3(
 		lhs.x + rhs.x, 

@@ -43,6 +43,9 @@ public:
 	static gsVector3 one() { return gsVector3(1.0f, 1.0f, 1.0f); }
 };
 
+bool operator==(const gsVector3& lhs, const gsVector3& rhs);
+bool operator!=(const gsVector3& lhs, const gsVector3& rhs);
+
 gsVector3 operator+(const gsVector3& lhs, const gsVector3& rhs);
 gsVector3 operator-(const gsVector3& lhs, const gsVector3& rhs);
 gsVector3 operator*(const gsVector3& lhs, const gsVector3& rhs);
