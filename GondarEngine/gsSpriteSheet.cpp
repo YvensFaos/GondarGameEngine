@@ -2,6 +2,7 @@
 
 #include "gsVector2.h"
 #include "gsMacros.h"
+#include "gsLogger.h"
 
 gsSpriteSheet::gsSpriteSheet(void)
 {
@@ -25,7 +26,7 @@ gsSpriteSheet::gsSpriteSheet(const char* file, int vertical, int horizontal)
 
 	counter = vertical*horizontal*4;
 
-	positions = new gsVector2[vertical*horizontal*4];
+	positions = new gsVector2[counter];
 
 	float u = 0;
 	float v = 0;
@@ -39,6 +40,7 @@ gsSpriteSheet::gsSpriteSheet(const char* file, int vertical, int horizontal)
 		u += stepU;
 		v += stepV;
 	}
+
 }
 
 int gsSpriteSheet::count(void)
@@ -48,15 +50,13 @@ int gsSpriteSheet::count(void)
 
 gsVector2* gsSpriteSheet::getSpritePos(int pos)
 {
-	//gsAssert(pos > 0 && pos < counter);
-
 	gsVector2* sprite = new gsVector2[4];
 
 	int i = 0;
-	sprite[i]     = positions[i];
-	sprite[i + 1] = positions[i + 1];
-	sprite[i + 2] = positions[i + 2];
-	sprite[i + 3] = positions[i + 3];
+	sprite[i]     = positions[pos];
+	sprite[i + 1] = positions[pos + 1];
+	sprite[i + 2] = positions[pos + 2];
+	sprite[i + 3] = positions[pos + 3];
 
 	return sprite;
 }

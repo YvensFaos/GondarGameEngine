@@ -64,9 +64,9 @@ class gsDebugSpritesheet : public gsGameObject
 {
 public:
 	int spritePos;
-
+	double timer;
 	gsVector3 speed;
-	gsSpriteSheet sprite;
+	gsSpriteSheet* sprite;
 
 	gsDebugSpritesheet(const char* spriteFile, int vertical, int horizontal) {
 		gsVector3 position = gsVector3(
@@ -82,13 +82,15 @@ public:
 			gsRandom::nextInt(-200, 200),
 			0);
 		gsColor color = gsColor::white();
-		color.a = 0.4f;
+		color.a = 0.9f;
 
+		timer = 0.f;
 		spritePos = 0;
 
-		sprite = gsSpriteSheet(spriteFile, vertical, horizontal);
+		sprite = new gsSpriteSheet(spriteFile, vertical, horizontal);
 
-		transform = gsTransform(position, size, gsVector3::zero(), color, sprite.getSpritePos(spritePos));
+		transform = gsTransform(position, size, gsVector3::zero(), color, sprite->getSpritePos(spritePos));
+
 	}
 
 	void update() {
@@ -110,17 +112,24 @@ public:
 			speed.y *= -1;
 		}
 
-		spritePos += 4;
-		if(spritePos >= sprite.count())
+		timer += gsClock::getDeltaTime();
+
+		if(timer >= 0.2f)
 		{
-			spritePos = 0;
+			spritePos += 4;
+			if(spritePos >= sprite->count())
+			{
+				spritePos = 0;
+			}
+
+			timer = 0.f;
 		}
-		//GS_LOG(spritePos);
-		transform.setTextureCoordinates(sprite.getSpritePos(spritePos));
+
+		transform.setTextureCoordinates(sprite->getSpritePos(spritePos));
 	}
 	
 	void draw() {
-		sprite.sendToOpenGL();
+		sprite->sendToOpenGL();
 
 		gsGraphics::drawQuad(transform);
 	}
