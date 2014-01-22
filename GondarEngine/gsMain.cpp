@@ -7,12 +7,14 @@
 #include "gsDebugGame_Collisions.h"
 #include "gsDebugGame_TextureLoading.h"
 
+#include "gsShootEmUpGame.h"
+
 #include <stdlib.h> // system("pause");
 
 //Método principal do jogo
 int main()
 {
-	gsDebugGame_Collisions game;
+	gsShootEmUpGame game;
 	gsEngine engine = gsEngine(&game);
 
 	engine.runGame();

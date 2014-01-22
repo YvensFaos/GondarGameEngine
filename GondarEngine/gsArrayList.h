@@ -25,6 +25,7 @@ public:
 
 	void add(T value);
 	void remove(int i);
+	void remove(T value);
 	bool contains(T value);
 	int  indexOf(T value);
 	void clear(void);
@@ -96,6 +97,16 @@ void gsArrayList<T>::remove(int i) {
 	{
 		data[i] = data[i + 1];
 	}
+}
+
+generics
+void gsArrayList<T>::remove(T value) {
+	int index = indexOf(value);
+
+	if (index == -1) {
+		gsAssert(0); // Element not found exception
+	}
+	remove(index);
 }
 
 generics

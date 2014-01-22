@@ -6,9 +6,14 @@
 #include "gsGameObject.h"
 #include "gsArrayList.h"
 
+
+class gsShootEmUp_Player;
+
 class gsShootEmUpGame : public gsGame {
 private:
 	gsArrayList<gsGameObject*> objects;
+	gsArrayList<gsGameObject*> objectsToBeRemoved;
+	gsShootEmUp_Player *player;
 
 public:
 	virtual void start();
@@ -18,6 +23,9 @@ public:
 
 	virtual void update();
 	virtual void draw();
+
+	void addObjetToObjectsList(gsGameObject* object);
+	void removeObjectFromObjectsList(gsGameObject *object);
 };
 
 #endif

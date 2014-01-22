@@ -3,18 +3,21 @@
 
 
 #include "gsShootEmUpObject.h"
+#include "gsSpriteSheet.h"
 
+// Classe que representa a nave do jogador
 class gsShootEmUp_Player : public gsShootEmUpObject {
 private:
+	gsSpriteSheet *sprite;
 	float health;
 	float damage;
-	float speed;
 	float weapowCooldownTime;
 	float swapowCooldown;
 	
 public:
 	gsShootEmUp_Player() {}
 	gsShootEmUp_Player(gsShootEmUpGame *game);
+	~gsShootEmUp_Player();
 
 	void update();
 	void draw();

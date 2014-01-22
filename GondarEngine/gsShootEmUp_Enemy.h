@@ -3,23 +3,25 @@
 
 
 #include "gsShootEmUpObject.h"
+#include "gsSpriteSheet.h"
 
 class gsShootEmUp_Enemy : public gsShootEmUpObject {
 private:
+	gsSpriteSheet *sprite;
 	float hp;
 	float damage;
-	float speed;
 	float weapowCooldownTime;
 	float swapowCooldown;
 	
 public:
 	gsShootEmUp_Enemy() {}
-	gsShootEmUp_Enemy(bool isPlayerBullet, gsShootEmUpGame *game);
+	gsShootEmUp_Enemy(gsShootEmUpGame *game);
+	~gsShootEmUp_Enemy();
 
 	void update();
 	void draw();
 
-	void onCollision(gsGameObject *other, const gsCollisionInfo& info);
+	void onCollision(gsGameObject *_other, const gsCollisionInfo& info);
 };
 
 #endif

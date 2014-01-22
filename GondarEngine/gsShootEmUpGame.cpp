@@ -5,10 +5,14 @@
 #include "gsGraphics.h"
 #include "gsOpenGL.h"
 
+#include "gsShootEmUp_Player.h"
+
 
 void gsShootEmUpGame::start() {
 	GS_LOG("Shoot 'em Up Game Initialized\n");
-	// Criar objetos do jogo aqui
+	
+	// Criar um player
+	// Criar um enemy spawner
 }
 void gsShootEmUpGame::end() {
 	GS_LOG("Shoot 'em Up Game Ended\n");
@@ -27,10 +31,25 @@ void gsShootEmUpGame::update() {
 	{
 		objects.get(i)->update();
 	}
+
+	if (objectsToBeRemoved.getSize() != 0) {
+		for (int i = 0; i < objectsToBeRemoved.getSize(); i++)
+		{
+			objects.remove(objectsToBeRemoved.get(i));
+		}
+		objectsToBeRemoved.clear();
+	}
 }
 void gsShootEmUpGame::draw() {
 	for (int i = 0; i < objects.getSize(); i++)
 	{
 		objects.get(i)->draw();
 	}
+}
+
+void gsShootEmUpGame::addObjetToObjectsList(gsGameObject* object) {
+	objects.add(object);
+}
+void gsShootEmUpGame::removeObjectFromObjectsList(gsGameObject *object) {
+	objectsToBeRemoved.add(object);
 }

@@ -4,6 +4,7 @@
 
 #include "gsShootEmUpObject.h"
 
+// Objeto invisível que deve de tempos em tempos criar um novo inimigo no topo da tela
 class gsShootEmUp_EnemySpawner : public gsShootEmUpObject {
 private:
 	float spawnCooldownTime;
@@ -12,11 +13,12 @@ private:
 public:
 	gsShootEmUp_EnemySpawner() {}
 	gsShootEmUp_EnemySpawner(gsShootEmUpGame *game);
+	~gsShootEmUp_EnemySpawner();
 
 	void update();
 	void draw();
 
-	void onCollision(gsGameObject *other, const gsCollisionInfo& info);
+	void onCollision(gsGameObject *_other, const gsCollisionInfo& info);
 };
 
 #endif
