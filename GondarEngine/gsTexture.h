@@ -11,11 +11,12 @@ private:
 	void loadTexture(const char* textureName);
 	
 public:
+	const char* name;
 	int width;
 	int height;
 
 	gsTexture(void);
-	gsTexture(const char* file);
+	gsTexture(const char* file, const char* name);
 
 	// torna a textura ativa
 	void sendToOpenGL_Texture(void);

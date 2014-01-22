@@ -49,6 +49,9 @@
     <Filter Include="Data Structures\Hash">
       <UniqueIdentifier>{b7096ef8-c80d-4ed6-808b-cf1e46d40d0d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Objects\Texture">
+      <UniqueIdentifier>{d132b73e-a07b-483f-aad1-e165c88b08c2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gsEngine.h">
@@ -121,9 +124,6 @@
     <ClInclude Include="gsTransform.h">
       <Filter>Objects</Filter>
     </ClInclude>
-    <ClInclude Include="gsTexture.h">
-      <Filter>Objects</Filter>
-    </ClInclude>
     <ClInclude Include="gsFilehandler.h">
       <Filter>System\Engine Sytems\Content</Filter>
     </ClInclude>
@@ -157,14 +157,23 @@
     <ClInclude Include="gsDebugGame_Collisions.h">
       <Filter>System\Debug</Filter>
     </ClInclude>
-    <ClInclude Include="gsSpriteSheet.h">
-      <Filter>Objects</Filter>
-    </ClInclude>
     <ClInclude Include="gsDebugGame_TextureLoading.h">
       <Filter>System\Debug</Filter>
     </ClInclude>
     <ClInclude Include="gsHashMap.h">
       <Filter>Data Structures\Hash</Filter>
+    </ClInclude>
+    <ClInclude Include="gsHashNode.h">
+      <Filter>Data Structures\Hash</Filter>
+    </ClInclude>
+    <ClInclude Include="gsAnimationClip.h">
+      <Filter>Objects\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="gsSpriteSheet.h">
+      <Filter>Objects\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="gsTexture.h">
+      <Filter>Objects\Texture</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -238,17 +247,20 @@
     <ClCompile Include="gsDebugGame_Collisions.cpp">
       <Filter>System\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="gsTexture.cpp">
-      <Filter>Objects</Filter>
-    </ClCompile>
     <ClCompile Include="gsDebugGame_TextureLoading.cpp">
       <Filter>System\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="gsSpriteSheet.cpp">
-      <Filter>Objects</Filter>
-    </ClCompile>
     <ClCompile Include="gsTransform.cpp">
       <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="gsAnimationClip.cpp">
+      <Filter>Objects\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="gsSpriteSheet.cpp">
+      <Filter>Objects\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="gsTexture.cpp">
+      <Filter>Objects\Texture</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

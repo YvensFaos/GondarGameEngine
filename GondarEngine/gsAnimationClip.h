@@ -1,19 +1,18 @@
 #ifndef __GS_ANIMATION_CLIP__
 #define __GS_ANIMATION_CLIP__
 
-class gsAnimationClip
-{
-private:
-	int* positions;
-	int size;
-
-	int position;
+class gsAnimationClip {
 public:
-	gsAnimationClip(void);
-	gsAnimationClip(int* positions, int size);
+	const char* name;
+	int* keyFrames;
+	int keyFrameCount;
+	float refreshInterval;
 
-	int actual(void);
-	int next(void);
+	gsAnimationClip(void);
+	gsAnimationClip(const char* name, int* keyFrames, int keyFrameCount);
+	~gsAnimationClip();
 };
+
+bool operator==(const gsAnimationClip& lhs, const gsAnimationClip& rhs);
 
 #endif

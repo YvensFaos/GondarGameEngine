@@ -42,12 +42,10 @@ public:
 
 class gsDebugSpritesheet : public gsGameObject {
 public:
-	int spritePos;
-	double timer;
-	gsVector3 speed;
 	gsSpriteSheet* sprite;
+	gsVector3 speed;
 
-	gsDebugSpritesheet(const char* spriteFile, int vertical, int horizontal) {
+	gsDebugSpritesheet(const char* spriteFile, const char* spriteName, int vertical, int horizontal) {
 		gsVector3 position = gsVector3(
 			gsRandom::nextInt(50, 750), 
 			gsRandom::nextInt(50, 550),
@@ -62,33 +60,25 @@ public:
 			0);
 		gsColor color = gsColor::white(0.9f);
 
-		timer = 0.f;
-		spritePos = 0;
+		sprite = new gsSpriteSheet(spriteFile, spriteName, vertical, horizontal);
+		int *keyframes = new int[25];
+		for (int i = 0; i < 25; i++)
+		{
+			keyframes[i] = i;
+		}
+		gsAnimationClip *clip = new gsAnimationClip(spriteName, keyframes, 25);
+		sprite->addAnimation(clip);
+		sprite->setAnimation(spriteName);
 
-		sprite = new gsSpriteSheet(spriteFile, vertical, horizontal);
-
-		transform = gsTransform(position, size, gsVector3::zero(), speed, color, sprite->getSpritePos(spritePos));
-
+		transform = gsTransform(position, size, gsVector3::zero(), speed, color, sprite->getCurrentSprite());
 	}
 
 	void update() {
 		transform.applySpeed();
 		transform.bounceAtScreenEdges();
+		sprite->updateAnimation();
 
-		timer += gsClock::getDeltaTime();
-
-		if(timer >= 0.05f)
-		{
-			spritePos++;
-			if(spritePos >= sprite->getCellCount())
-			{
-				spritePos = 0;
-			}
-
-			timer -= 0.05f;
-		}
-
-		transform.setTextureCoordinates(sprite->getSpritePos(spritePos));
+		transform.setTextureCoordinates(sprite->getCurrentSprite());
 	}
 	
 	void draw() {
@@ -102,11 +92,11 @@ public:
 void gsDebugGame_TextureLoading::start() {
 	GS_LOG("Teste Inicializado\n");
 
-	texture = gsTexture("gondar_texture.jpg");
+	texture = gsTexture("gondar_texture.jpg", "Gondar");
 
 	objects.add(new gsDebugTexture(texture));
-	objects.add(new gsDebugSpritesheet("explosion_spritesheet.png", 5, 5));
-	objects.add(new gsDebugSpritesheet("scarlet_walk.png", 2, 10));
+	objects.add(new gsDebugSpritesheet("explosion_spritesheet.png", "Explosion", 5, 5));
+	objects.add(new gsDebugSpritesheet("scarlet_walk.png", "Scarlett", 2, 10));
 }
 
 void gsDebugGame_TextureLoading::end() {

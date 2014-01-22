@@ -13,11 +13,13 @@ gsTexture::gsTexture(void)
 {
 	width = -1;
 	height = -1;
+	name = "Unloaded Image";
 }
 
-gsTexture::gsTexture(const char* file)
+gsTexture::gsTexture(const char* file, const char* name)
 {
 	loadTexture(file);
+	this->name = name;
 }
 
 void gsTexture::loadTexture(const char* textureName)

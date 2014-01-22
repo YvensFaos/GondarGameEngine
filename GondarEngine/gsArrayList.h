@@ -6,6 +6,7 @@
 #define generics template <class T>
 
 #include "gsLogger.h"
+#include "gsMacros.h"
 
 generics
 class gsArrayList {
@@ -20,10 +21,12 @@ public:
 	~gsArrayList(void);
 
 	T get(int i);
+	T* getAdress(int i);
 
 	void add(T value);
 	void remove(int i);
 	bool contains(T value);
+	int  indexOf(T value);
 	void clear(void);
 
 	int getSize(void);
@@ -53,9 +56,17 @@ gsArrayList<T>::~gsArrayList(void) {
 generics
 T gsArrayList<T>::get(int i) {
 	if (i < 0 || i >= size) {
-		return nullptr;
+		gsAssert(0); // Array out of bounds exception
 	}
 	return data[i];
+}
+
+generics
+	T* gsArrayList<T>::getAdress(int i) {
+	if (i < 0 || i >= size) {
+		gsAssert(0); // Array out of bounds exception
+	}
+	return &data[i];
 }
 
 generics
@@ -77,7 +88,7 @@ void gsArrayList<T>::add(T value) {
 generics
 void gsArrayList<T>::remove(int i) {
 	if (i < 0 || i >= size) {
-		return;
+		gsAssert(0); // Array out of bounds exception
 	}
 	size--;
 	for (; i < size; i++)
@@ -95,6 +106,17 @@ bool gsArrayList<T>::contains(T value) {
 		}
 	}
 	return false;
+}
+
+generics
+int gsArrayList<T>::indexOf(T value) {
+	for (int i = 0; i < size; i++)
+	{
+		if (data[i] == value) {
+			return i;
+		}
+	}
+	return -1;
 }
 
 generics

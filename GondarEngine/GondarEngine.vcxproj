@@ -82,6 +82,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="gsAnimationClip.h" />
     <ClInclude Include="gsArrayList.h" />
     <ClInclude Include="gsAxis.h" />
     <ClInclude Include="gsCollision.h" />
@@ -94,6 +95,7 @@
     <ClInclude Include="gsDebugGame_TextureLoading.h" />
     <ClInclude Include="gsGameObject.h" />
     <ClInclude Include="gsHashMap.h" />
+    <ClInclude Include="gsHashNode.h" />
     <ClInclude Include="gsLinkedList.h" />
     <ClInclude Include="gsMesh.h" />
     <ClInclude Include="gsNode.h" />
@@ -123,6 +125,7 @@
     <ClInclude Include="gsWindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="gsAnimationClip.cpp" />
     <ClCompile Include="gsCamera.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>

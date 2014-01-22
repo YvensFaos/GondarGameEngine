@@ -3,21 +3,43 @@
 #include "gsVector2.h"
 #include "gsMacros.h"
 #include "gsLogger.h"
+#include "gsClock.h"
+#include <ctime>
 
 gsSpriteSheet::gsSpriteSheet(void)
+	: gsTexture()
 {
-	width = 0;
-	height = 0;
 	rows = 0;
 	column = 0;
+	currentAnimation = 0;
+	currentKeyframe = 0;
+	elapsedTime = 0;
 }
 
-gsSpriteSheet::gsSpriteSheet(const char* file, int _rows, int _columns)
-	: gsTexture(file)
+gsSpriteSheet::gsSpriteSheet(const char* file, const char* name, int _rows, int _columns)
+	: gsTexture(file, name)
 {
 	rows = _rows;
 	column = _columns;
+	currentAnimation = 0;
+	currentKeyframe = 0;
+	elapsedTime = 0;
 
+	genCoordinates();
+}
+gsSpriteSheet::~gsSpriteSheet(void)
+{
+	if(positions)
+	{
+		delete[] positions;
+	}
+	for (int i = 0; i < animations.getSize(); i++)
+	{
+		delete animations.get(i);
+	}
+}
+
+void gsSpriteSheet::genCoordinates() {
 	float stepU = (width/column) / (float)width;
 	float stepV = (height/rows) / (float)height;
 
@@ -47,24 +69,30 @@ gsSpriteSheet::gsSpriteSheet(const char* file, int _rows, int _columns)
 	}
 }
 
-int gsSpriteSheet::getCellCount(void)
-{
-	return cellCount;
-}
+void gsSpriteSheet::updateAnimation() {
+	elapsedTime += gsClock::getDeltaTime();
+	if (elapsedTime > currentAnimation->refreshInterval) {
+		currentKeyframe++;
+		currentKeyframe %= currentAnimation->keyFrameCount;
 
-gsVector2* gsSpriteSheet::getSpritePos(int pos)
-{
-	gsAssert(pos >= 0);
-	gsAssert(pos < cellCount);
-	pos *= 4;
-
-	return &positions[pos];
-}
-
-gsSpriteSheet::~gsSpriteSheet(void)
-{
-	if(positions)
-	{
-		delete[] positions;
+		elapsedTime -= currentAnimation->refreshInterval;
 	}
+}
+
+void gsSpriteSheet::addAnimation(gsAnimationClip *clip) {
+	animations.add(clip);
+}
+void gsSpriteSheet::setAnimation(const char* animationName) {
+	for (int i = 0; i < animations.getSize(); i++)
+	{
+		if (!strcmp(animations.get(i)->name, animationName)) {
+			currentAnimation = animations.get(i);
+			break;
+		}
+	}
+	currentKeyframe = 0;
+}
+
+gsVector2* gsSpriteSheet::getCurrentSprite() {
+	return &positions[currentAnimation->keyFrames[currentKeyframe] * 4];
 }

@@ -2,25 +2,36 @@
 #define __GS_SPRITE_SHEET__
 
 #include "gsTexture.h"
+#include "gsArrayList.h"
+#include "gsAnimationClip.h"
 
 class gsVector2;
 
 class gsSpriteSheet : public gsTexture{
 private:
+	gsVector2* positions;
 	int column;
 	int rows;
-
 	int cellCount;
 
-	gsVector2* positions;
+	gsArrayList<gsAnimationClip*> animations;
+	gsAnimationClip *currentAnimation;
+	float elapsedTime;
+	int currentKeyframe;
+
+	void genCoordinates();
+	
 public:
 	gsSpriteSheet(void);
-	gsSpriteSheet(const char* file, int _rows, int _column);
+	gsSpriteSheet(const char* file, const char* name, int _rows, int _column);
 	~gsSpriteSheet(void);
 
-	gsVector2* getSpritePos(int pos);
+	void updateAnimation();
 
-	int getCellCount(void);
+	void addAnimation(gsAnimationClip* clip);
+	void setAnimation(const char* animationName);
+
+	gsVector2* getCurrentSprite();
 };
 
 #endif

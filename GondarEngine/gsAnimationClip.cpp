@@ -1,25 +1,27 @@
 #include "gsAnimationClip.h"
+#include <cstring>
 
 gsAnimationClip::gsAnimationClip(void)
 {
-	size = 0;
-	position = 0;
+	name = "Unloaded Animation Clip";
+	keyFrames = 0;
+	keyFrameCount = 0;
+	refreshInterval = 0;
+}
+gsAnimationClip::gsAnimationClip(const char* name, int* keyFrames, int keyFrameCount)
+{
+	this->name = name;
+	this->keyFrames = keyFrames;
+	this->keyFrameCount = keyFrameCount;
+	this->refreshInterval = 0.12f;
+}
+gsAnimationClip::~gsAnimationClip(void)
+{
+	if (keyFrames) {
+		delete[] keyFrames;
+	}
 }
 
-gsAnimationClip::gsAnimationClip(int* positions, int size)
-{
-	this->positions = positions;
-	this->size = size;
-	
-	position = 0;
-}
-
-int gsAnimationClip::actual(void)
-{
-	return position;
-}
-
-int gsAnimationClip::next(void)
-{
-	return ++position % size;
+bool operator==(const gsAnimationClip& lhs, const gsAnimationClip& rhs) {
+	return !strcmp(lhs.name, rhs.name);
 }
