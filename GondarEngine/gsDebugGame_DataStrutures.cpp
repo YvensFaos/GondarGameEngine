@@ -33,6 +33,7 @@ void gsDebugGame_DataStrutures::draw() {
 	// Nada
 }
 
+
 void gsDebugGame_DataStrutures::testLinkedList() {
 	////gsLinkedList<float> list = gsLinkedList<float>();
 
@@ -79,19 +80,18 @@ void gsDebugGame_DataStrutures::testHashMap()
 {
 	gsHashMap<int> hash = gsHashMap<int>();
 
-	hash.add(1, 666);
+	hash.add(1, 111);
 
 	hash.get(1);
-//	hash.remove(1);
-//	hash.contains(2);
-//	hash.add(2, 777);
+	hash.remove(1);
+	gsAssert(!hash.contains(2));
 
-//	hash.add(1, 999);
-//	hash.add(5, 333);
+	hash.add(1, 111);
+	hash.add(2, 222);
+	hash.add(3, 333);
 
-	//hash.remove(2);
-
-	//hash.contains(333);
+	hash.contains(2);
+	hash.remove(2);
 }
 
 void gsDebugGame_DataStrutures::testArrayList() {

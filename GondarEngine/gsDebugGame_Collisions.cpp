@@ -9,12 +9,12 @@
 #include "gsOpenGL.h"
 
 
-class gsDebugObject : public gsGameObject {
+class gsDebugCollisionsObject : public gsGameObject {
 public:
 	bool hasContatcs;
 	gsTransform contacts[8];
 
-	gsDebugObject() {
+	gsDebugCollisionsObject() {
 		gsVector3 position = gsVector3(
 			gsRandom::nextInt(50, 750), 
 			gsRandom::nextInt(50, 550),
@@ -67,9 +67,9 @@ void gsDebugGame_Collisions::start() {
 	GS_LOG("Teste Inicializado\n");
 	for (int i = 0; i < 30; i++)
 	{
-		objects.add(new gsDebugObject());
+		objects.add(new gsDebugCollisionsObject());
 	}
-	gsDebugObject *bigGreen = new gsDebugObject();
+	gsDebugCollisionsObject *bigGreen = new gsDebugCollisionsObject();
 	bigGreen->transform.speed = gsVector3(50, 300, 0);
 	bigGreen->transform.size = gsVector3(300, 300, 0);
 	bigGreen->transform.tint = gsColor::green();

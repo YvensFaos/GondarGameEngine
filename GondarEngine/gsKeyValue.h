@@ -4,12 +4,11 @@
 #define generics template <class T>
 
 generics
-class gsKeyValue{
-private:
+class gsKeyValue {
+public:
 	int key;
 	T value;
 
-public:
 	gsKeyValue<T>(void);
 	gsKeyValue<T>(int key, T value);
 	
@@ -19,17 +18,12 @@ bool operator==(gsKeyValue<T> kv1, gsKeyValue<T> kv2);
 
 
 generics
-gsKeyValue<T>::gsKeyValue(void)
-{
-
-}
+gsKeyValue<T>::gsKeyValue(void) {}
 
 generics
-gsKeyValue<T>::gsKeyValue(int key, T value)
-{
+gsKeyValue<T>::gsKeyValue(int key, T value) {
 	this->key = key;
 	this->value = value;
-
 }
 
 generics

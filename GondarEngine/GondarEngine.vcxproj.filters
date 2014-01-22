@@ -66,9 +66,6 @@
     <ClInclude Include="gsMacros.h">
       <Filter>Meta</Filter>
     </ClInclude>
-    <ClInclude Include="gsDebugGame_Gameloop.h">
-      <Filter>System\Debug</Filter>
-    </ClInclude>
     <ClInclude Include="gsDebugGame_Graphics.h">
       <Filter>System\Debug</Filter>
     </ClInclude>
@@ -163,20 +160,26 @@
     <ClInclude Include="gsHashMap.h">
       <Filter>Data Structures\Hash</Filter>
     </ClInclude>
-    <ClInclude Include="gsKeyValue.h">
-      <Filter>Data Structures\Hash</Filter>
-    </ClInclude>
     <ClInclude Include="gsAnimationClip.h">
       <Filter>Objects\Texture</Filter>
-	</ClInclude>
+    </ClInclude>
     <ClInclude Include="gsSpriteSheet.h">
       <Filter>Objects\Texture</Filter>
     </ClInclude>
     <ClInclude Include="gsTexture.h">
       <Filter>Objects\Texture</Filter>
-	</ClInclude>
-	<ClInclude Include="gsHashNode.h">
+    </ClInclude>
+    <ClInclude Include="gsHashNode.h">
       <Filter>Deprecated / Old code</Filter>
+    </ClInclude>
+    <ClInclude Include="gsKeyValue.h">
+      <Filter>Data Structures\Hash</Filter>
+    </ClInclude>
+    <ClInclude Include="gsDebugGame_Input.h">
+      <Filter>System\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="gsDebugGame_GameLoop.h">
+      <Filter>System\Debug</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -264,6 +267,9 @@
     </ClCompile>
     <ClCompile Include="gsTexture.cpp">
       <Filter>Objects\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="gsDebugGame_Input.cpp">
+      <Filter>System\Debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -7,11 +7,11 @@
 #include "gsOpenGL.h"
 #include "gsSpriteSheet.h"
 
-class gsDebugTexture : public gsGameObject {
+class gsDebugTextureObject : public gsGameObject {
 public:
 	gsTexture texture;
 
-	gsDebugTexture(gsTexture texture) {
+	gsDebugTextureObject(gsTexture texture) {
 		gsVector3 position = gsVector3(
 			gsRandom::nextInt(50, 750), 
 			gsRandom::nextInt(50, 550), 0);
@@ -40,12 +40,12 @@ public:
 	void onCollision(gsGameObject *other, const gsCollisionInfo& info) { }
 };
 
-class gsDebugSpritesheet : public gsGameObject {
+class gsDebugSpritesheetObject : public gsGameObject {
 public:
 	gsSpriteSheet* sprite;
 	gsVector3 speed;
 
-	gsDebugSpritesheet(const char* spriteFile, const char* spriteName, int vertical, int horizontal) {
+	gsDebugSpritesheetObject(const char* spriteFile, const char* spriteName, int vertical, int horizontal) {
 		gsVector3 position = gsVector3(
 			gsRandom::nextInt(50, 750), 
 			gsRandom::nextInt(50, 550),
@@ -94,9 +94,9 @@ void gsDebugGame_TextureLoading::start() {
 
 	texture = gsTexture("gondar_texture.jpg", "Gondar");
 
-	objects.add(new gsDebugTexture(texture));
-	objects.add(new gsDebugSpritesheet("explosion_spritesheet.png", "Explosion", 5, 5));
-	objects.add(new gsDebugSpritesheet("scarlet_walk.png", "Scarlett", 2, 10));
+	objects.add(new gsDebugTextureObject(texture));
+	objects.add(new gsDebugSpritesheetObject("explosion_spritesheet.png", "Explosion", 5, 5));
+	objects.add(new gsDebugSpritesheetObject("scarlet_walk.png", "Scarlett", 2, 10));
 }
 
 void gsDebugGame_TextureLoading::end() {

@@ -91,16 +91,18 @@
     <ClInclude Include="gsColor.h" />
     <ClInclude Include="gsDebugGame_Collisions.h" />
     <ClInclude Include="gsDebugGame_DataStrutures.h" />
+    <ClInclude Include="gsDebugGame_GameLoop.h" />
     <ClInclude Include="gsDebugGame_Graphics.h" />
+    <ClInclude Include="gsDebugGame_Input.h" />
     <ClInclude Include="gsDebugGame_TextureLoading.h" />
     <ClInclude Include="gsGameObject.h" />
     <ClInclude Include="gsHashMap.h" />
     <ClInclude Include="gsHashNode.h" />
+    <ClInclude Include="gsKeyValue.h" />
     <ClInclude Include="gsLinkedList.h" />
     <ClInclude Include="gsMesh.h" />
     <ClInclude Include="gsNode.h" />
     <ClInclude Include="gsConfig.h" />
-    <ClInclude Include="gsDebugGame_Gameloop.h" />
     <ClInclude Include="gsEngine.h" />
     <ClInclude Include="gsGame.h" />
     <ClInclude Include="gsCamera.h" />
@@ -135,6 +137,7 @@
     <ClCompile Include="gsDebugGame_Collisions.cpp" />
     <ClCompile Include="gsDebugGame_GameLoop.cpp" />
     <ClCompile Include="gsDebugGame_Graphics.cpp" />
+    <ClCompile Include="gsDebugGame_Input.cpp" />
     <ClCompile Include="gsDebugGame_TextureLoading.cpp" />
     <ClCompile Include="gsEngine.cpp" />
     <ClCompile Include="gsFilehandler.cpp" />

@@ -21,7 +21,7 @@ public:
 	~gsArrayList(void);
 
 	T get(int i);
-	T* getAdress(int i);
+	T* getAddress(int i);
 
 	void add(T value);
 	void remove(int i);
@@ -29,7 +29,8 @@ public:
 	int  indexOf(T value);
 	void clear(void);
 
-	int getSize(void);
+	int getSize(void) { return size; }
+	int getCapacity(void) { return capacity; }
 	void log(void);
 };
 
@@ -62,7 +63,7 @@ T gsArrayList<T>::get(int i) {
 }
 
 generics
-	T* gsArrayList<T>::getAdress(int i) {
+	T* gsArrayList<T>::getAddress(int i) {
 	if (i < 0 || i >= size) {
 		gsAssert(0); // Array out of bounds exception
 	}
@@ -99,13 +100,7 @@ void gsArrayList<T>::remove(int i) {
 
 generics
 bool gsArrayList<T>::contains(T value) {
-	for (int i = 0; i < size; i++)
-	{
-		if (data[i] == value) {
-			return true;
-		}
-	}
-	return false;
+	return (indexOf(value) != -1);
 }
 
 generics
@@ -122,11 +117,6 @@ int gsArrayList<T>::indexOf(T value) {
 generics
 void gsArrayList<T>::clear(void) {
 	size = 0;
-}
-
-generics
-int gsArrayList<T>::getSize(void) { 
-	return size; 
 }
 
 generics

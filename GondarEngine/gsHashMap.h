@@ -3,8 +3,9 @@
 
 #include "gsArrayList.h"
 #include "gsKeyValue.h"
-#define generics template <class T>
+#include "gsMacros.h"
 
+#define generics template <class T>
 #define chunk 256
 
 generics
@@ -29,43 +30,36 @@ public:
 };
 
 generics
-gsHashMap<T>::gsHashMap(void)
-{
-	int size = chunk;
-	data = new gsArrayList<gsKeyValue<T>>[size];
+gsHashMap<T>::gsHashMap(void) {
+	data = new gsArrayList<gsKeyValue<T>>[chunk];
+	this->size = chunk;
 }
 
 generics
-gsHashMap<T>::gsHashMap(int size)
-{
+gsHashMap<T>::gsHashMap(int size) {
 	data = new gsArrayList<gsKeyValue<T>>[size];
+	this->size = chunk;
 }
 
 generics
-gsHashMap<T>::~gsHashMap(void)
-{
+gsHashMap<T>::~gsHashMap(void) {
 	delete[] data;
 }
 
 generics
-T gsHashMap<T>::get(int key)// TODO; O get do hash funciona de forma diferente do get do arraylist, ou seja, precisa de uma implementacao especifica.
-{
+T gsHashMap<T>::get(int key) {
 	int position = hashFunction(key);
 	gsArrayList<gsKeyValue<T>>* list = &data[position];
 	
-	int listSize = list->getSize();
-
-	for (int i = 0; i < listSize; i++)
+	for (int i = 0; i < list->getSize(); i++)
 	{
 		if (list->get(i).key == key)
 		{
-			return list->get(i);
+			return list->get(i).value;
 		}
 	}
-
-	return nullptr;
-
-	//return data[hashFunction(key)].get(key);
+	gsAssert(0); // Element not found Exception
+	return T();
 }
 
 generics
@@ -81,38 +75,43 @@ void gsHashMap<T>::add(int key, T value)
 	gsArrayList<gsKeyValue<T>>* list = &data[position];
 
 	list->add(gsKeyValue<T>(key,value));
-
-	if(list->getSize() > 1)
-	{
-		GS_LOG("Overflow de Bucket");
-	}
 }
 
 generics
 void gsHashMap<T>::remove(int key)
 {
-	data[hashFunction(key)].remove(key);
+	int position = hashFunction(key);
+	gsArrayList<gsKeyValue<T>>* list = &data[position];
+	
+	for (int i = 0; i < list->getSize(); i++)
+	{
+		if (list->get(i).key == key)
+		{
+			list->remove(i);
+			return;
+		}
+	}
+	gsAssert(0); // Element not found Exception
 }
 
 generics
-bool gsHashMap<T>::contains(int key) //TODO ; Não tenho certeza se a implementação seria assim. Está dando um erro "cannot access private member declared in class: 'gsKeyValue<T>' ".
+bool gsHashMap<T>::contains(int key)
 {
 	int position = hashFunction(key);
 	gsArrayList<gsKeyValue<T>>* list = &data[position];
 	
-	return list->contains(gsKeyValue<T>(key, 000));
-
-	//return data[hashFunction(key)].getSize() > 0;
-
-	/*Usar o resultado da função hash para saber a possivel localização desse valor no hashmap
-	para depois procurar no ArrayList daquela posição se o valor existe.
-	*/
+	return list->contains(gsKeyValue<T>(key, 0));
 }
 
 generics
 void gsHashMap<T>::clear(void)
 {
-	//I'm 12 and what is this..
+	gsArrayList<gsKeyValue<T>>* list;
+	for (int i = 0; i < size; i++)
+	{
+		list = &data[i];
+		list->clear();
+	}
 }
 
 #undef generics
