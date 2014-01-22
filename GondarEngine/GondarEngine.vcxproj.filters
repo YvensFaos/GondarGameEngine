@@ -166,6 +166,12 @@
     <ClInclude Include="gsHashMap.h">
       <Filter>Data Structures\Hash</Filter>
     </ClInclude>
+    <ClInclude Include="gsHashNode.h">
+      <Filter>Deprecated / Old code</Filter>
+    </ClInclude>
+    <ClInclude Include="gsKeyValue.h">
+      <Filter>Data Structures\Hash</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsMain.cpp" />

@@ -62,7 +62,7 @@ T gsNode<T>::getValue(void)
 generics
 void gsNode<T>::setValue(T value)
 {
-	this->T = value;
+	this->value = value;
 }
 
 #undef generics
