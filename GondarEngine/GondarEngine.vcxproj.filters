@@ -163,7 +163,7 @@
     <ClInclude Include="gsHashMap.h">
       <Filter>Data Structures\Hash</Filter>
     </ClInclude>
-    <ClInclude Include="gsHashNode.h">
+    <ClInclude Include="gsKeyValue.h">
       <Filter>Data Structures\Hash</Filter>
     </ClInclude>
     <ClInclude Include="gsAnimationClip.h">
@@ -174,7 +174,10 @@
     </ClInclude>
     <ClInclude Include="gsTexture.h">
       <Filter>Objects\Texture</Filter>
+	<ClInclude Include="gsHashNode.h">
+      <Filter>Deprecated / Old code</Filter>
     </ClInclude>
+    
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsMain.cpp" />

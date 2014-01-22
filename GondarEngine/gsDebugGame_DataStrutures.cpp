@@ -34,45 +34,45 @@ void gsDebugGame_DataStrutures::draw() {
 }
 
 void gsDebugGame_DataStrutures::testLinkedList() {
+	////gsLinkedList<float> list = gsLinkedList<float>();
+
 	//gsLinkedList<float> list = gsLinkedList<float>();
 
-	gsLinkedList<float> list = gsLinkedList<float>();
+	//// testando log de lista vazia
+	//list.log();
 
-	// testando log de lista vazia
-	list.log();
+	//// testando add
+	//list.add(12.0f);
+	//list.add(14.0f);
+	//list.add(13.0f);
 
-	// testando add
-	list.add(12.0f);
-	list.add(14.0f);
-	list.add(13.0f);
+	//// testando log de lista ocupada
+	//list.log();
+	//
+	//// testando contains
+	//gsAssert(list.contains(13.0f));
 
-	// testando log de lista ocupada
-	list.log();
-	
-	// testando contains
-	gsAssert(list.contains(13.0f));
+	//// testando remove
+	//list.remove(0);
+	//list.log();
+	//
+	//// testando clear
+	//list.clear();
+	//list.log();
 
-	// testando remove
-	list.remove(0);
-	list.log();
-	
-	// testando clear
-	list.clear();
-	list.log();
+	//// testando resize
+	//for (int i = 0; i < 60; i++)
+	//{
+	//	list.add((float)i);
+	//}
 
-	// testando resize
-	for (int i = 0; i < 60; i++)
-	{
-		list.add((float)i);
-	}
-
-	list.log();
-	// testando o remove denovo
-	for (int i = 0; i < 50; i++)
-	{
-		list.remove(0);
-	}
-	list.log();
+	//list.log();
+	//// testando o remove denovo
+	//for (int i = 0; i < 50; i++)
+	//{
+	//	list.remove(0);
+	//}
+	//list.log();
 }
 
 void gsDebugGame_DataStrutures::testHashMap()
@@ -80,14 +80,18 @@ void gsDebugGame_DataStrutures::testHashMap()
 	gsHashMap<int> hash = gsHashMap<int>();
 
 	hash.add(1, 666);
-	hash.add(2, 777);
 
-	hash.add(1, 999);
-	hash.add(5, 333);
+	hash.get(1);
+//	hash.remove(1);
+//	hash.contains(2);
+//	hash.add(2, 777);
 
-	hash.remove(2);
+//	hash.add(1, 999);
+//	hash.add(5, 333);
 
-	hash.contains(333);
+	//hash.remove(2);
+
+	//hash.contains(333);
 }
 
 void gsDebugGame_DataStrutures::testArrayList() {
