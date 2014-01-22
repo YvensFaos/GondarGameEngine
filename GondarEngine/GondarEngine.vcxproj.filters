@@ -64,6 +64,9 @@
     <Filter Include="Games\Shoot %27em Up Demo\Objects">
       <UniqueIdentifier>{beb748dc-0ec3-44fc-810a-85fa896dd228}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Files\Shoot">
+      <UniqueIdentifier>{47aafb7a-9d48-4c4d-8538-3375863bcc07}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gsEngine.h">
@@ -329,6 +332,27 @@
     </Image>
     <Image Include="scarlet_walk.png">
       <Filter>Files</Filter>
+    </Image>
+    <Image Include="Nova pasta\enemy_bullet.png">
+      <Filter>Files\Shoot</Filter>
+    </Image>
+    <Image Include="Nova pasta\enemy_sheet.png">
+      <Filter>Files\Shoot</Filter>
+    </Image>
+    <Image Include="Nova pasta\player_bullet.png">
+      <Filter>Files\Shoot</Filter>
+    </Image>
+    <Image Include="Nova pasta\player_sheet.png">
+      <Filter>Files\Shoot</Filter>
+    </Image>
+    <Image Include="Shoot\player_starting.png">
+      <Filter>Files\Shoot</Filter>
+    </Image>
+    <Image Include="Shoot\player_walking.png">
+      <Filter>Files\Shoot</Filter>
+    </Image>
+    <Image Include="Shoot\player_walking_broken.png">
+      <Filter>Files\Shoot</Filter>
     </Image>
   </ItemGroup>
 </Project>

@@ -13,7 +13,7 @@ gsAnimationClip::gsAnimationClip(const char* name, int* keyFrames, int keyFrameC
 	this->name = name;
 	this->keyFrames = keyFrames;
 	this->keyFrameCount = keyFrameCount;
-	this->refreshInterval = 0.12f;
+	this->refreshInterval = 0.4f;
 }
 gsAnimationClip::~gsAnimationClip(void)
 {

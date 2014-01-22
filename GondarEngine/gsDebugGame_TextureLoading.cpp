@@ -58,15 +58,16 @@ public:
 			gsRandom::nextInt(-200, 200), 
 			gsRandom::nextInt(-200, 200),
 			0);
-		gsColor color = gsColor::white(0.9f);
+		gsColor color = gsColor::white(1.0f);
 
 		sprite = new gsSpriteSheet(spriteFile, spriteName, vertical, horizontal);
-		int *keyframes = new int[25];
-		for (int i = 0; i < 25; i++)
+		int keyCount = 4;
+		int *keyframes = new int[keyCount];
+		for (int i = 0; i < keyCount; i++)
 		{
 			keyframes[i] = i;
 		}
-		gsAnimationClip *clip = new gsAnimationClip(spriteName, keyframes, 25);
+		gsAnimationClip *clip = new gsAnimationClip(spriteName, keyframes, keyCount);
 		sprite->addAnimation(clip);
 		sprite->setAnimation(spriteName);
 
@@ -95,8 +96,9 @@ void gsDebugGame_TextureLoading::start() {
 	texture = gsTexture("gondar_texture.jpg", "Gondar");
 
 	objects.add(new gsDebugTextureObject(texture));
-	objects.add(new gsDebugSpritesheetObject("explosion_spritesheet.png", "Explosion", 5, 5));
-	objects.add(new gsDebugSpritesheetObject("scarlet_walk.png", "Scarlett", 2, 10));
+	//objects.add(new gsDebugSpritesheetObject("explosion_spritesheet.png", "Explosion", 5, 5));
+	//objects.add(new gsDebugSpritesheetObject("scarlet_walk.png", "Scarlett", 2, 10));
+	objects.add(new gsDebugSpritesheetObject("Shoot/player_walking_broken.png", "Player", 1, 4));
 }
 
 void gsDebugGame_TextureLoading::end() {

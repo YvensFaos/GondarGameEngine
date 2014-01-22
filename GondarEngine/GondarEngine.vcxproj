@@ -185,7 +185,14 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
     </Image>
+    <Image Include="Nova pasta\enemy_bullet.png" />
+    <Image Include="Nova pasta\enemy_sheet.png" />
+    <Image Include="Nova pasta\player_bullet.png" />
+    <Image Include="Nova pasta\player_sheet.png" />
     <Image Include="scarlet_walk.png" />
+    <Image Include="Shoot\player_starting.png" />
+    <Image Include="Shoot\player_walking.png" />
+    <Image Include="Shoot\player_walking_broken.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

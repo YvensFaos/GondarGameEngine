@@ -27,6 +27,7 @@ gsSpriteSheet::gsSpriteSheet(const char* file, const char* name, int _rows, int 
 
 	genCoordinates();
 }
+
 gsSpriteSheet::~gsSpriteSheet(void)
 {
 	if(positions)
