@@ -62,9 +62,10 @@ gsNode<T>* gsLinkedList<T>::getHead(void)
 generics
 T gsLinkedList<T>::get(int i)
 {
+	T x;
 	if(head == nullptr || i > size)
 	{
-		return nullptr;
+		return x;
 	}
 	else
 	{
@@ -74,9 +75,9 @@ T gsLinkedList<T>::get(int i)
 		while(counter++ <= i)
 		{
 			actual = actual->getNext();
-			if(actual == nullptr)
+			if(counter == i)
 			{
-				return nullptr;
+				return actual->getValue();
 			}
 		}
 
@@ -116,7 +117,7 @@ void gsLinkedList<T>::remove(int i)
 
 		gsNode<T>* actual = head;
 		gsNode<T>* before = nullptr;
-		while(counter++ <= i)
+		while(counter++ < i)
 		{
 			before = actual;
 			actual = actual->getNext();
