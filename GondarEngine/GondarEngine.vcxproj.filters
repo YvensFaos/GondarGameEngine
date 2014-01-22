@@ -13,9 +13,6 @@
     <Filter Include="Meta">
       <UniqueIdentifier>{9e194eb8-8a3c-48fb-820f-abc3c445376f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="System\Debug">
-      <UniqueIdentifier>{67fb6670-9184-44bb-a8d0-5a8ad839c047}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Data Structures">
       <UniqueIdentifier>{3d61a1ef-f75d-4f7d-860e-4f4a92a21b9b}</UniqueIdentifier>
     </Filter>
@@ -52,6 +49,21 @@
     <Filter Include="Objects\Texture">
       <UniqueIdentifier>{d132b73e-a07b-483f-aad1-e165c88b08c2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games">
+      <UniqueIdentifier>{c58b7dd9-b277-413e-a6cc-0ae2f3724b71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Debugging Games">
+      <UniqueIdentifier>{67fb6670-9184-44bb-a8d0-5a8ad839c047}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\GGJ Game">
+      <UniqueIdentifier>{dbe7fe55-13ac-4694-ae31-aab3d832bbf2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Shoot %27em Up Demo">
+      <UniqueIdentifier>{6108bc7f-7b0f-4fdb-a99c-baa072a7ad92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\Shoot %27em Up Demo\Objects">
+      <UniqueIdentifier>{beb748dc-0ec3-44fc-810a-85fa896dd228}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gsEngine.h">
@@ -67,7 +79,7 @@
       <Filter>Meta</Filter>
     </ClInclude>
     <ClInclude Include="gsDebugGame_Graphics.h">
-      <Filter>System\Debug</Filter>
+      <Filter>Games\Debugging Games</Filter>
     </ClInclude>
     <ClInclude Include="gsGameObject.h">
       <Filter>System</Filter>
@@ -82,7 +94,7 @@
       <Filter>Data Structures\Array</Filter>
     </ClInclude>
     <ClInclude Include="gsDebugGame_DataStrutures.h">
-      <Filter>System\Debug</Filter>
+      <Filter>Games\Debugging Games</Filter>
     </ClInclude>
     <ClInclude Include="gsMesh.h">
       <Filter>Objects</Filter>
@@ -152,10 +164,10 @@
       <Filter>System\Engine Sytems\Collision</Filter>
     </ClInclude>
     <ClInclude Include="gsDebugGame_Collisions.h">
-      <Filter>System\Debug</Filter>
+      <Filter>Games\Debugging Games</Filter>
     </ClInclude>
     <ClInclude Include="gsDebugGame_TextureLoading.h">
-      <Filter>System\Debug</Filter>
+      <Filter>Games\Debugging Games</Filter>
     </ClInclude>
     <ClInclude Include="gsHashMap.h">
       <Filter>Data Structures\Hash</Filter>
@@ -176,10 +188,31 @@
       <Filter>Data Structures\Hash</Filter>
     </ClInclude>
     <ClInclude Include="gsDebugGame_Input.h">
-      <Filter>System\Debug</Filter>
+      <Filter>Games\Debugging Games</Filter>
     </ClInclude>
     <ClInclude Include="gsDebugGame_GameLoop.h">
-      <Filter>System\Debug</Filter>
+      <Filter>Games\Debugging Games</Filter>
+    </ClInclude>
+    <ClInclude Include="gsShootEmUpGame.h">
+      <Filter>Games\Shoot %27em Up Demo</Filter>
+    </ClInclude>
+    <ClInclude Include="gsShootEmUp_Player.h">
+      <Filter>Games\Shoot %27em Up Demo\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="gsShootEmUp_Bullet.h">
+      <Filter>Games\Shoot %27em Up Demo\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="gsShootEmUp_Enemy.h">
+      <Filter>Games\Shoot %27em Up Demo\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="gsShootEmUp_EnemySpawner.h">
+      <Filter>Games\Shoot %27em Up Demo\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="gsShootEmUpObject.h">
+      <Filter>Games\Shoot %27em Up Demo</Filter>
+    </ClInclude>
+    <ClInclude Include="gsShootEmUpObjectTag.h">
+      <Filter>Games\Shoot %27em Up Demo</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -188,13 +221,13 @@
       <Filter>System</Filter>
     </ClCompile>
     <ClCompile Include="gsDebugGame_GameLoop.cpp">
-      <Filter>System\Debug</Filter>
+      <Filter>Games\Debugging Games</Filter>
     </ClCompile>
     <ClCompile Include="gsDebugGame_Graphics.cpp">
-      <Filter>System\Debug</Filter>
+      <Filter>Games\Debugging Games</Filter>
     </ClCompile>
     <ClCompile Include="gsDebugGame_DataStrutures.cpp">
-      <Filter>System\Debug</Filter>
+      <Filter>Games\Debugging Games</Filter>
     </ClCompile>
     <ClCompile Include="gsGgeometric.cpp">
       <Filter>Deprecated / Old code</Filter>
@@ -251,10 +284,10 @@
       <Filter>System\Engine Sytems\Collision</Filter>
     </ClCompile>
     <ClCompile Include="gsDebugGame_Collisions.cpp">
-      <Filter>System\Debug</Filter>
+      <Filter>Games\Debugging Games</Filter>
     </ClCompile>
     <ClCompile Include="gsDebugGame_TextureLoading.cpp">
-      <Filter>System\Debug</Filter>
+      <Filter>Games\Debugging Games</Filter>
     </ClCompile>
     <ClCompile Include="gsTransform.cpp">
       <Filter>Objects</Filter>
@@ -269,7 +302,22 @@
       <Filter>Objects\Texture</Filter>
     </ClCompile>
     <ClCompile Include="gsDebugGame_Input.cpp">
-      <Filter>System\Debug</Filter>
+      <Filter>Games\Debugging Games</Filter>
+    </ClCompile>
+    <ClCompile Include="gsShootEmUpGame.cpp">
+      <Filter>Games\Shoot %27em Up Demo</Filter>
+    </ClCompile>
+    <ClCompile Include="gsShootEmUp_Player.cpp">
+      <Filter>Games\Shoot %27em Up Demo\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="gsShootEmUp_Enemy.cpp">
+      <Filter>Games\Shoot %27em Up Demo\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="gsShootEmUp_Bullet.cpp">
+      <Filter>Games\Shoot %27em Up Demo\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="gsShootEmUp_EnemySpawner.cpp">
+      <Filter>Games\Shoot %27em Up Demo\Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

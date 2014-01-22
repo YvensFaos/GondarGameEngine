@@ -82,6 +82,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="gsShootEmUpObject.h" />
+    <ClInclude Include="gsShootEmUpObjectTag.h" />
+    <ClInclude Include="gsShootEmUp_Enemy.h" />
     <ClInclude Include="gsAnimationClip.h" />
     <ClInclude Include="gsArrayList.h" />
     <ClInclude Include="gsAxis.h" />
@@ -118,6 +121,10 @@
     <ClInclude Include="gsClock.h" />
     <ClInclude Include="gsPlane.h" />
     <ClInclude Include="gsRandom.h" />
+    <ClInclude Include="gsShootEmUpGame.h" />
+    <ClInclude Include="gsShootEmUp_Bullet.h" />
+    <ClInclude Include="gsShootEmUp_EnemySpawner.h" />
+    <ClInclude Include="gsShootEmUp_Player.h" />
     <ClInclude Include="gsSpriteSheet.h" />
     <ClInclude Include="gsTexture.h" />
     <ClInclude Include="gsTransform.h" />
@@ -155,6 +162,11 @@
     <ClCompile Include="gsMesh.cpp" />
     <ClCompile Include="gsPlane.cpp" />
     <ClCompile Include="gsRandom.cpp" />
+    <ClCompile Include="gsShootEmUpGame.cpp" />
+    <ClCompile Include="gsShootEmUp_Bullet.cpp" />
+    <ClCompile Include="gsShootEmUp_Enemy.cpp" />
+    <ClCompile Include="gsShootEmUp_EnemySpawner.cpp" />
+    <ClCompile Include="gsShootEmUp_Player.cpp" />
     <ClCompile Include="gsSpriteSheet.cpp" />
     <ClCompile Include="gsTexture.cpp" />
     <ClCompile Include="gsTransform.cpp" />
