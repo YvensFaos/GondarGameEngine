@@ -81,7 +81,7 @@ T gsLinkedList<T>::get(int i)
 			}
 		}
 
-		return actual->getValue();
+		return x;
 	}
 }
 
