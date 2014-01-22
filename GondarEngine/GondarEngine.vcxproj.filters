@@ -168,16 +168,16 @@
     </ClInclude>
     <ClInclude Include="gsAnimationClip.h">
       <Filter>Objects\Texture</Filter>
-    </ClInclude>
+	</ClInclude>
     <ClInclude Include="gsSpriteSheet.h">
       <Filter>Objects\Texture</Filter>
     </ClInclude>
     <ClInclude Include="gsTexture.h">
       <Filter>Objects\Texture</Filter>
+	</ClInclude>
 	<ClInclude Include="gsHashNode.h">
       <Filter>Deprecated / Old code</Filter>
     </ClInclude>
-    
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsMain.cpp" />
