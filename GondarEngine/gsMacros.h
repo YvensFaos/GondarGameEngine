@@ -23,7 +23,7 @@
 	#include <Windows.h>
 	#include <stdio.h>
 	#define gsAssert(x) {                                                           \
-		if (!(x)) {                                                                   \
+		if (!(x)) {                                                                 \
 			printf("Assertion error at: " GS_STRINGIZE(x) " at: " GS_DEBUG_INFO);   \
 			DebugBreak();                                                           \
 		}                                                                           \

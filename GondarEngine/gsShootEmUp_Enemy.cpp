@@ -1,12 +1,10 @@
 #include "gsShootEmUp_Enemy.h"
 
-#include "gsClock.h"
-#include "gsRandom.h"
-#include "gsGraphics.h"
-#include "gsShootEmUpObject.h"
+
+#include "gsSystem.h"
+
 #include "gsShootEmUp_Bullet.h"
 #include "gsShootEmUpObjectTag.h"
-#include "gsConfig.h"
 
 #define default_hp 10
 #define default_damage 1

@@ -1,7 +1,7 @@
 #include "gsShootEmUp_Bullet.h"
 
-#include "gsConfig.h"
-#include "gsGraphics.h"
+
+#include "gsSystem.h"
 #include "gsShootEmUpObjectTag.h"
 
 gsShootEmUp_Bullet::gsShootEmUp_Bullet(bool isPlayerBullet, gsShootEmUpObject* shooter, gsShootEmUpGame *game, gsVector3 speed) : gsShootEmUpObject(game) {

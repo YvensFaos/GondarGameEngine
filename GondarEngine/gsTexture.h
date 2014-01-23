@@ -17,6 +17,8 @@ public:
 
 	gsTexture(void);
 	gsTexture(const char* file, const char* name);
+	gsTexture(const char* name, GLuint handle, int width, int height);
+	~gsTexture(void);
 
 	// torna a textura ativa
 	void sendToOpenGL_Texture(void);

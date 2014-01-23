@@ -217,6 +217,12 @@
     <ClInclude Include="gsShootEmUpObjectTag.h">
       <Filter>Games\Shoot %27em Up Demo</Filter>
     </ClInclude>
+    <ClInclude Include="gsContent.h">
+      <Filter>System\Engine Sytems\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="gsSystem.h">
+      <Filter>System\Engine Sytems</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsMain.cpp" />
@@ -321,6 +327,9 @@
     </ClCompile>
     <ClCompile Include="gsShootEmUp_EnemySpawner.cpp">
       <Filter>Games\Shoot %27em Up Demo\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="gsContent.cpp">
+      <Filter>System\Engine Sytems\Content</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

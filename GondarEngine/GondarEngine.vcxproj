@@ -82,6 +82,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="gsContent.h" />
     <ClInclude Include="gsShootEmUpObject.h" />
     <ClInclude Include="gsShootEmUpObjectTag.h" />
     <ClInclude Include="gsShootEmUp_Enemy.h" />
@@ -126,6 +127,7 @@
     <ClInclude Include="gsShootEmUp_EnemySpawner.h" />
     <ClInclude Include="gsShootEmUp_Player.h" />
     <ClInclude Include="gsSpriteSheet.h" />
+    <ClInclude Include="gsSystem.h" />
     <ClInclude Include="gsTexture.h" />
     <ClInclude Include="gsTransform.h" />
     <ClInclude Include="gsTriangle.h" />
@@ -141,6 +143,7 @@
     <ClCompile Include="gsCollision.cpp" />
     <ClCompile Include="gsCollisionProxy.cpp" />
     <ClCompile Include="gsColor.cpp" />
+    <ClCompile Include="gsContent.cpp" />
     <ClCompile Include="gsDebugGame_Collisions.cpp" />
     <ClCompile Include="gsDebugGame_GameLoop.cpp" />
     <ClCompile Include="gsDebugGame_Graphics.cpp" />

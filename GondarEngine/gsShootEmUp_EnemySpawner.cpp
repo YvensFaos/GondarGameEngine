@@ -1,6 +1,7 @@
 #include "gsShootEmUp_EnemySpawner.h"
 
-#include "gsClock.h"
+
+#include "gsSystem.h"
 #include "gsShootEmUp_Enemy.h"
 
 #define default_time 1.6f

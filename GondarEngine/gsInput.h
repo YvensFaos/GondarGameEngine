@@ -17,6 +17,7 @@ public:
 
 	static void update();
 
+	// queryKey(GLFW_KEY_SPACE) == gsKeyState::Pressed;
 	static gsKeyState queryKey(int keyCode);
 };
 

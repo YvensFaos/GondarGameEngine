@@ -12,6 +12,7 @@
 class gsCollision  {
 private:
 	static void dispatchPair(const gsCollisionProxy& p1, const gsCollisionProxy& p2);
+
 public:
 	static void detectCollisions(gsArrayList<gsGameObject*>* objects);
 };

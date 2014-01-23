@@ -21,6 +21,15 @@ gsTexture::gsTexture(const char* file, const char* name)
 	loadTexture(file);
 	this->name = name;
 }
+gsTexture::gsTexture(const char* name, GLuint handle, int width, int height) {
+	this->name = name;
+	this->handle = handle;
+	this->width = width;
+	this->height = height;
+}
+gsTexture::~gsTexture() {
+	glDeleteTextures(1, &handle);
+}
 
 void gsTexture::loadTexture(const char* textureName)
 {

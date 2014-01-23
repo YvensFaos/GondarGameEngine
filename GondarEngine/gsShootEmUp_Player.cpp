@@ -1,10 +1,7 @@
 #include "gsShootEmUp_Player.h"
 
-#include "gsGraphics.h"
-#include "gsInput.h"
-#include "gsConfig.h"
-#include "gsClock.h"
-#include "gsRandom.h"
+
+#include "gsSystem.h"
 #include "gsShootEmUp_Bullet.h"
 
 

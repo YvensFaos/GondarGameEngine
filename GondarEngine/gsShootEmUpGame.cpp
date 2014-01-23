@@ -1,10 +1,7 @@
 #include "gsShootEmUpGame.h"
 
-#include "gsLogger.h"
-#include "gsInput.h"
-#include "gsGraphics.h"
-#include "gsOpenGL.h"
-#include "gsCollision.h"
+
+#include "gsSystem.h"
 
 #include "gsShootEmUp_Player.h"
 #include "gsShootEmUp_EnemySpawner.h"
