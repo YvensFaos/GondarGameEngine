@@ -9,9 +9,10 @@
 class gsShootEmUpObject : public gsGameObject {
 protected:
 	gsShootEmUpGame *game;
-	gsShootEmUpObjectTag tag;
 
 public:
+	gsShootEmUpObjectTag tag;
+
 	gsShootEmUpObject() {}
 	gsShootEmUpObject(gsShootEmUpGame *game) { this->game = game; }
 

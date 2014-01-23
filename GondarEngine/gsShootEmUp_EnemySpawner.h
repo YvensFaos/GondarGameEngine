@@ -9,7 +9,8 @@ class gsShootEmUp_EnemySpawner : public gsShootEmUpObject {
 private:
 	float spawnCooldownTime;
 	float spawnCooldown;
-	
+	int enemyCount;
+
 public:
 	gsShootEmUp_EnemySpawner() {}
 	gsShootEmUp_EnemySpawner(gsShootEmUpGame *game);

@@ -9,7 +9,7 @@ public:
 	float refreshInterval;
 
 	gsAnimationClip(void);
-	gsAnimationClip(const char* name, int* keyFrames, int keyFrameCount);
+	gsAnimationClip(const char* name, int* keyFrames, int keyFrameCount, float refreshInterval);
 	~gsAnimationClip();
 };
 

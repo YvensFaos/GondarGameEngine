@@ -8,12 +8,12 @@ gsAnimationClip::gsAnimationClip(void)
 	keyFrameCount = 0;
 	refreshInterval = 0;
 }
-gsAnimationClip::gsAnimationClip(const char* name, int* keyFrames, int keyFrameCount)
+gsAnimationClip::gsAnimationClip(const char* name, int* keyFrames, int keyFrameCount, float refreshInterval)
 {
 	this->name = name;
 	this->keyFrames = keyFrames;
 	this->keyFrameCount = keyFrameCount;
-	this->refreshInterval = 0.4f;
+	this->refreshInterval = refreshInterval;
 }
 gsAnimationClip::~gsAnimationClip(void)
 {

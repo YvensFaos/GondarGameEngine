@@ -51,8 +51,8 @@ public:
 			gsRandom::nextInt(50, 550),
 			0);
 		gsVector3 size = gsVector3(
-			64,
-			64,
+			51,
+			51,
 			0);
 		gsVector3 speed = gsVector3(
 			gsRandom::nextInt(-200, 200), 
@@ -67,7 +67,7 @@ public:
 		{
 			keyframes[i] = i;
 		}
-		gsAnimationClip *clip = new gsAnimationClip(spriteName, keyframes, keyCount);
+		gsAnimationClip *clip = new gsAnimationClip(spriteName, keyframes, keyCount, 0.4f);
 		sprite->addAnimation(clip);
 		sprite->setAnimation(spriteName);
 
@@ -98,7 +98,7 @@ void gsDebugGame_TextureLoading::start() {
 	objects.add(new gsDebugTextureObject(texture));
 	//objects.add(new gsDebugSpritesheetObject("explosion_spritesheet.png", "Explosion", 5, 5));
 	//objects.add(new gsDebugSpritesheetObject("scarlet_walk.png", "Scarlett", 2, 10));
-	objects.add(new gsDebugSpritesheetObject("Shoot/player_walking_broken.png", "Player", 1, 4));
+	objects.add(new gsDebugSpritesheetObject("Shoot/player_walking.png", "Player", 1, 4));
 }
 
 void gsDebugGame_TextureLoading::end() {
