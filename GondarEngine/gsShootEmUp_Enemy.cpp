@@ -11,8 +11,9 @@
 #define default_damage 1
 #define default_cooldown 0.4f
 
-gsShootEmUp_Enemy::gsShootEmUp_Enemy(gsShootEmUpGame *game) {
+gsShootEmUp_Enemy::gsShootEmUp_Enemy(gsShootEmUpGame *game) : gsShootEmUpObject(game) {
 	// Carregar sprite do inimigo
+
 	sprite = new gsSpriteSheet("Shoot/enemy_walking.png", "enemy", 1, 4);
 	int keyCount = 4;
 	int *keyframes = new int[keyCount];
@@ -86,9 +87,10 @@ void gsShootEmUp_Enemy::update() {
 	{
 		weapowCooldownTime -= swapowCooldown;
 
-		gsShootEmUp_Bullet* bullet = new gsShootEmUp_Bullet(false, this, game, gsVector3(0, -10, 0));
+		gsShootEmUp_Bullet* bullet = new gsShootEmUp_Bullet(false, this, game, gsVector3(0, 250, 0));
+		bullet->setDamage(damage);
 		//adicionar o damage do enemy na bullet
-		//game->addObjetToObjectsList(bullet);
+		game->addObjetToObjectsList(bullet);
 	}
 }
 

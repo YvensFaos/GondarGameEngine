@@ -18,6 +18,7 @@ public:
 	void update();
 	void draw();
 
+	void setDamage(float damage);
 	void onCollision(gsGameObject *_other, const gsCollisionInfo& info);
 };
 

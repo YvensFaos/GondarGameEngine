@@ -6,9 +6,9 @@
 #define default_time 0.6f
 #define maximum_enemies 5
 
-gsShootEmUp_EnemySpawner::gsShootEmUp_EnemySpawner(gsShootEmUpGame *game) {
+gsShootEmUp_EnemySpawner::gsShootEmUp_EnemySpawner(gsShootEmUpGame *game) : gsShootEmUpObject(game)
+{
 	// Atribuir valores iniciais para as variáveis
-	this->game = game;
 	spawnCooldown = default_time;
 	spawnCooldownTime = 0.6f;
 	enemyCount = 0;
