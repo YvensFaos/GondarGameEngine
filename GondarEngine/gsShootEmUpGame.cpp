@@ -6,14 +6,20 @@
 #include "gsOpenGL.h"
 
 #include "gsShootEmUp_Player.h"
-
+#include "gsShootEmUp_EnemySpawner.h"
 
 void gsShootEmUpGame::start() {
 	GS_LOG("Shoot 'em Up Game Initialized\n");
 	
 	// Criar um player
+	player = new gsShootEmUp_Player(this);
 	// Criar um enemy spawner
+	spawner = new gsShootEmUp_EnemySpawner(this);
+
+	addObjetToObjectsList(player);
+	addObjetToObjectsList(spawner);
 }
+
 void gsShootEmUpGame::end() {
 	GS_LOG("Shoot 'em Up Game Ended\n");
 	for (int i = 0; i < objects.getSize(); i++)

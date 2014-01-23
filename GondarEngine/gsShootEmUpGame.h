@@ -6,7 +6,7 @@
 #include "gsGameObject.h"
 #include "gsArrayList.h"
 
-
+class gsShootEmUp_EnemySpawner;
 class gsShootEmUp_Player;
 
 class gsShootEmUpGame : public gsGame {
@@ -14,6 +14,7 @@ private:
 	gsArrayList<gsGameObject*> objects;
 	gsArrayList<gsGameObject*> objectsToBeRemoved;
 	gsShootEmUp_Player *player;
+	gsShootEmUp_EnemySpawner * spawner;
 
 public:
 	virtual void start();
