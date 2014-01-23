@@ -14,7 +14,7 @@ public:
 	gsShootEmUpObjectTag tag;
 
 	gsShootEmUpObject() {}
-	gsShootEmUpObject(gsShootEmUpGame *game) { this->game = game; }
+	gsShootEmUpObject(gsShootEmUpGame *game) : gsGameObject() { this->game = game; }
 
 	gsShootEmUpObjectTag getTag() { return tag; }
 };

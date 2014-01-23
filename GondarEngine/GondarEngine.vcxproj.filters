@@ -354,11 +354,5 @@
     <Image Include="Shoot\player_walking_broken.png">
       <Filter>Files\Shoot</Filter>
     </Image>
-    <Image Include="Shoot\enemy_walking.png">
-      <Filter>Files\Shoot</Filter>
-    </Image>
-    <Image Include="Shoot\enemy_walking_broken.png">
-      <Filter>Files\Shoot</Filter>
-    </Image>
   </ItemGroup>
 </Project>

@@ -13,7 +13,6 @@
 
 gsShootEmUp_Enemy::gsShootEmUp_Enemy(gsShootEmUpGame *game) : gsShootEmUpObject(game) {
 	// Carregar sprite do inimigo
-
 	sprite = new gsSpriteSheet("Shoot/enemy_walking.png", "enemy", 1, 4);
 	int keyCount = 4;
 	int *keyframes = new int[keyCount];
@@ -47,6 +46,7 @@ gsShootEmUp_Enemy::gsShootEmUp_Enemy(gsShootEmUpGame *game) : gsShootEmUpObject(
 	transform = gsTransform(position, size, gsVector3::zero(), speed, color);
 
 	tag = gsShootEmUpObjectTag::Enemy;
+	collisionMask = 0x01;
 }
 
 gsShootEmUp_Enemy::~gsShootEmUp_Enemy() {

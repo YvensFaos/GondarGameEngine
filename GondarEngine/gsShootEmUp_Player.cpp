@@ -1,4 +1,5 @@
 #include "gsShootEmUp_Player.h"
+
 #include "gsGraphics.h"
 #include "gsInput.h"
 #include "gsConfig.h"
@@ -25,6 +26,8 @@ gsShootEmUp_Player::gsShootEmUp_Player(gsShootEmUpGame *game) {
 	transform.position = gsVector3(400, 300, 0);
 	transform.size = gsVector3(50, 50, 0);
 	transform.tint = gsColor::white();
+
+	collisionMask = 0x02;
 }
 gsShootEmUp_Player::~gsShootEmUp_Player() {
 	delete sprite;
@@ -49,7 +52,6 @@ void gsShootEmUp_Player::update() {
 		transform.position.y = GS_RESOLUTION_Y -1 - transform.size.y;
 		transform.speed.y *= -1;
 	}
-
 
 	if (gsInput::queryKey(GLFW_KEY_LEFT) == gsKeyState::Pressed)
 	{

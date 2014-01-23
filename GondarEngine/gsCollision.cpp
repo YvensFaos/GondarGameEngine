@@ -19,7 +19,7 @@ void gsCollision::detectCollisions(gsArrayList<gsGameObject*>* objects) {
 				continue;
 			}
 
-			if (g1->collisionMask && g2->collisionMask != 0) {
+			if ((g1->collisionMask & g2->collisionMask) != 0) {
 				p2 = gsCollisionProxy(g2);
 
 				if (gsCollisionProxy::broadTest(p1, p2)) {

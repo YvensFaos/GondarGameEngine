@@ -12,6 +12,8 @@ gsShootEmUp_EnemySpawner::gsShootEmUp_EnemySpawner(gsShootEmUpGame *game) : gsSh
 	spawnCooldown = default_time;
 	spawnCooldownTime = 0.6f;
 	enemyCount = 0;
+
+	collident = false;
 }
 
 gsShootEmUp_EnemySpawner::~gsShootEmUp_EnemySpawner() {}

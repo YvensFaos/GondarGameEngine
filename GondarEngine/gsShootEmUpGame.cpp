@@ -4,6 +4,7 @@
 #include "gsInput.h"
 #include "gsGraphics.h"
 #include "gsOpenGL.h"
+#include "gsCollision.h"
 
 #include "gsShootEmUp_Player.h"
 #include "gsShootEmUp_EnemySpawner.h"
@@ -38,6 +39,8 @@ void gsShootEmUpGame::update() {
 		objects.get(i)->update();
 	}
 
+	gsCollision::detectCollisions(&objects);
+
 	if (objectsToBeRemoved.getSize() != 0) {
 		for (int i = 0; i < objectsToBeRemoved.getSize(); i++)
 		{
@@ -45,7 +48,10 @@ void gsShootEmUpGame::update() {
 		}
 		objectsToBeRemoved.clear();
 	}
+
+	GS_LOG(objects.getSize());
 }
+
 void gsShootEmUpGame::draw() {
 	for (int i = 0; i < objects.getSize(); i++)
 	{
@@ -56,6 +62,7 @@ void gsShootEmUpGame::draw() {
 void gsShootEmUpGame::addObjetToObjectsList(gsGameObject* object) {
 	objects.add(object);
 }
+
 void gsShootEmUpGame::removeObjectFromObjectsList(gsGameObject *object) {
 	objectsToBeRemoved.add(object);
 }

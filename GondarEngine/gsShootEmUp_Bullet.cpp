@@ -1,5 +1,6 @@
 #include "gsShootEmUp_Bullet.h"
 
+#include "gsConfig.h"
 #include "gsGraphics.h"
 #include "gsShootEmUpObjectTag.h"
 
@@ -11,36 +12,28 @@ gsShootEmUp_Bullet::gsShootEmUp_Bullet(bool isPlayerBullet, gsShootEmUpObject* s
 
 	transform = gsTransform(pos, size, gsVector3::zero(), spd, gsColor::white(1.0f));
 
+	int keyCount = 3;
+	int *keyframes = new int[keyCount];
+	for (int i = 0; i < keyCount; i++)
+	{
+		keyframes[i] = i;
+	}
 	if(isPlayerBullet)
 	{
 		tag = gsShootEmUpObjectTag::PlayerBullet;
-
 		sprite = new gsSpriteSheet("Shoot/player_bullet.png", "bullet", 1, 3);
-		int keyCount = 3;
-		int *keyframes = new int[keyCount];
-		for (int i = 0; i < keyCount; i++)
-		{
-			keyframes[i] = i;
-		}
-		gsAnimationClip *clip = new gsAnimationClip("bulletClip", keyframes, keyCount, 0.2f);
-		sprite->addAnimation(clip);
-		sprite->setAnimation("bulletClip");
+		collisionMask = 0x01;
 	}
 	else
 	{
 		tag = gsShootEmUpObjectTag::EnemyBullet;
-
 		sprite = new gsSpriteSheet("Shoot/enemy_bullet.png", "bullet", 1, 3);
-		int keyCount = 3;
-		int *keyframes = new int[keyCount];
-		for (int i = 0; i < keyCount; i++)
-		{
-			keyframes[i] = i;
-		}
-		gsAnimationClip *clip = new gsAnimationClip("bulletClip", keyframes, keyCount, 0.2f);
-		sprite->addAnimation(clip);
-		sprite->setAnimation("bulletClip");
+		collisionMask = 0x02;
 	}
+
+	gsAnimationClip *clip = new gsAnimationClip("bulletClip", keyframes, keyCount, 0.2f);
+	sprite->addAnimation(clip);
+	sprite->setAnimation("bulletClip");
 
 	damage = 0;
 }
@@ -51,7 +44,16 @@ gsShootEmUp_Bullet::~gsShootEmUp_Bullet() {
 
 void gsShootEmUp_Bullet::update() {
 	transform.applySpeed();
+
+	if (transform.position.x + transform.size.x < 0 || transform.position.x > GS_RESOLUTION_X) {
+		game->removeObjectFromObjectsList(this);
+	}
+
+	if (transform.position.y + transform.size.y < 0 || transform.position.y > GS_RESOLUTION_Y) {
+		game->removeObjectFromObjectsList(this);
+	}
 }
+
 void gsShootEmUp_Bullet::draw() {
 	// ativar sprite no openGL
 	// chamar rotina de desenho
