@@ -6,13 +6,15 @@
 #include "gsShootEmUpObject.h"
 #include "gsShootEmUp_Bullet.h"
 #include "gsShootEmUpObjectTag.h"
+#include "gsConfig.h"
 
 #define default_hp 10
 #define default_damage 1
 #define default_cooldown 0.4f
 
 gsShootEmUp_Enemy::gsShootEmUp_Enemy(gsShootEmUpGame *game) : gsShootEmUpObject(game) {
-	// Carregar sprite do inimigo
+	tag = gsShootEmUpObjectTag::Enemy;
+
 	sprite = new gsSpriteSheet("Shoot/enemy_walking.png", "enemy", 1, 4);
 	int keyCount = 4;
 	int *keyframes = new int[keyCount];
@@ -30,8 +32,8 @@ gsShootEmUp_Enemy::gsShootEmUp_Enemy(gsShootEmUpGame *game) : gsShootEmUpObject(
 	weapowCooldownTime = 0;
 
 	gsVector3 position = gsVector3(
-		gsRandom::nextInt(60, 700), 
-		gsRandom::nextInt(400, 550), 
+		gsRandom::nextInt(60, 740), 
+		-51, 
 		0);
 	gsVector3 size = gsVector3(
 		51,
@@ -39,28 +41,25 @@ gsShootEmUp_Enemy::gsShootEmUp_Enemy(gsShootEmUpGame *game) : gsShootEmUpObject(
 		0);
 	gsVector3 speed = gsVector3(
 		gsRandom::nextInt(-50, 50), 
-		gsRandom::nextInt(-50, 50), 
+		gsRandom::nextInt(30, 50), 
 		0);
 	gsColor color = gsColor::white(1.f);
 
 	transform = gsTransform(position, size, gsVector3::zero(), speed, color);
 
-	tag = gsShootEmUpObjectTag::Enemy;
 	collisionMask = 0x01;
 }
-
 gsShootEmUp_Enemy::~gsShootEmUp_Enemy() {
 	delete sprite;
 }
 
 void gsShootEmUp_Enemy::update() {
 	transform.applySpeed();
-	transform.bounceAtScreenEdges();
 	sprite->updateAnimation();
 
 	transform.setTextureCoordinates(sprite->getCurrentSprite());
 
-	if(hp = default_hp / 2.f)
+	if(hp == default_hp / 2.f)
 	{
 		sprite = new gsSpriteSheet("Shoot/enemy_walking_broken.png", "enemy", 1, 4);
 		int keyCount = 4;
@@ -82,14 +81,17 @@ void gsShootEmUp_Enemy::update() {
 		}
 	}
 
+	if (transform.position.y > GS_RESOLUTION_Y) {
+		game->removeObjectFromObjectsList(this);
+	}
+
 	weapowCooldownTime += gsClock::getDeltaTime();
 	if(weapowCooldownTime >= swapowCooldown)
 	{
 		weapowCooldownTime -= swapowCooldown;
 
-		gsShootEmUp_Bullet* bullet = new gsShootEmUp_Bullet(false, this, game, gsVector3(0, 250, 0));
+		gsShootEmUp_Bullet* bullet = new gsShootEmUp_Bullet(false, this, game, gsVector3(gsRandom::nextInt(-20, 20), 200, 0));
 		bullet->setDamage(damage);
-		//adicionar o damage do enemy na bullet
 		game->addObjetToObjectsList(bullet);
 	}
 }
@@ -100,14 +102,12 @@ void gsShootEmUp_Enemy::draw() {
 }
 
 void gsShootEmUp_Enemy::onCollision(gsGameObject *_other, const gsCollisionInfo& info) {
-	gsShootEmUpObject *other = static_cast<gsShootEmUpObject*>(_other);
+	gsShootEmUpObject *otherAsSEUObject = static_cast<gsShootEmUpObject*>(_other);
 
-	// utilizar a tag para descobrir com que tipo de objeto colidiu.
-	// fazer outro cast
-	// deduzir do HP o damage recebido
-	if(other->tag == gsShootEmUpObjectTag::PlayerBullet)
+	if(otherAsSEUObject->tag == gsShootEmUpObjectTag::PlayerBullet)
 	{
-		hp -= 2;
+		gsShootEmUp_Bullet *other = static_cast<gsShootEmUp_Bullet*>(_other);
+		hp -= other->damage;
 	}
 }
 

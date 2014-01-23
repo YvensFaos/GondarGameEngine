@@ -7,14 +7,13 @@
 
 // Classe que representa a nave do jogador
 class gsShootEmUp_Player : public gsShootEmUpObject {
-private:
+public:
 	gsSpriteSheet *sprite;
 	float health;
 	float damage;
 	float weaponCooldownTime;
 	float weaponCooldown;
 	
-public:
 	gsShootEmUp_Player() {}
 	gsShootEmUp_Player(gsShootEmUpGame *game);
 	~gsShootEmUp_Player();

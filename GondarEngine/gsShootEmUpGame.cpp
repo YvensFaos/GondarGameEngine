@@ -12,9 +12,7 @@
 void gsShootEmUpGame::start() {
 	GS_LOG("Shoot 'em Up Game Initialized\n");
 	
-	// Criar um player
 	player = new gsShootEmUp_Player(this);
-	// Criar um enemy spawner
 	spawner = new gsShootEmUp_EnemySpawner(this);
 
 	addObjetToObjectsList(player);
@@ -30,6 +28,7 @@ void gsShootEmUpGame::end() {
 }
 
 bool gsShootEmUpGame::isRunning() {
+	//return player->health != 0;
 	return true;
 }
 
@@ -44,12 +43,13 @@ void gsShootEmUpGame::update() {
 	if (objectsToBeRemoved.getSize() != 0) {
 		for (int i = 0; i < objectsToBeRemoved.getSize(); i++)
 		{
-			objects.remove(objectsToBeRemoved.get(i));
+			gsGameObject *otbr = objectsToBeRemoved.get(i);
+			if (objects.contains(otbr)) { // Evita que o mesmo objeto seja enviado para a remoção duas vezes
+				objects.remove(otbr);
+			}
 		}
 		objectsToBeRemoved.clear();
 	}
-
-	GS_LOG(objects.getSize());
 }
 
 void gsShootEmUpGame::draw() {

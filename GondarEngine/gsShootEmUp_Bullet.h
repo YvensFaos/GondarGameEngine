@@ -6,11 +6,10 @@
 #include "gsSpriteSheet.h"
 
 class gsShootEmUp_Bullet : public gsShootEmUpObject {
-private:
+public:
 	gsSpriteSheet *sprite;
 	float damage;
-	
-public:
+
 	gsShootEmUp_Bullet() {}
 	gsShootEmUp_Bullet(bool isPlayerBullet, gsShootEmUpObject* shooter, gsShootEmUpGame *game, gsVector3 speed);
 	~gsShootEmUp_Bullet();

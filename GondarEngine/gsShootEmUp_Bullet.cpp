@@ -5,12 +5,11 @@
 #include "gsShootEmUpObjectTag.h"
 
 gsShootEmUp_Bullet::gsShootEmUp_Bullet(bool isPlayerBullet, gsShootEmUpObject* shooter, gsShootEmUpGame *game, gsVector3 speed) : gsShootEmUpObject(game) {
-	// Carregar sprite da bullet
 	gsVector3 pos = shooter->transform.position;
 	gsVector3 spd = speed;
 	gsVector3 size = gsVector3(10,10,0);
 
-	transform = gsTransform(pos, size, gsVector3::zero(), spd, gsColor::white(1.0f));
+	pos.x += shooter->transform.size.x / 2;
 
 	int keyCount = 3;
 	int *keyframes = new int[keyCount];
@@ -29,13 +28,14 @@ gsShootEmUp_Bullet::gsShootEmUp_Bullet(bool isPlayerBullet, gsShootEmUpObject* s
 		tag = gsShootEmUpObjectTag::EnemyBullet;
 		sprite = new gsSpriteSheet("Shoot/enemy_bullet.png", "bullet", 1, 3);
 		collisionMask = 0x02;
+		pos.y += shooter->transform.size.y;
 	}
 
 	gsAnimationClip *clip = new gsAnimationClip("bulletClip", keyframes, keyCount, 0.2f);
 	sprite->addAnimation(clip);
 	sprite->setAnimation("bulletClip");
 
-	damage = 0;
+	transform = gsTransform(pos, size, gsVector3::zero(), spd, gsColor::white(1.0f));
 }
 
 gsShootEmUp_Bullet::~gsShootEmUp_Bullet() {
