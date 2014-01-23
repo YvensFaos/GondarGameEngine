@@ -13,10 +13,9 @@ class gsShootEmUpGame : public gsGame {
 private:
 	gsArrayList<gsGameObject*> objects;
 	gsArrayList<gsGameObject*> objectsToBeRemoved;
-
-public:
 	gsShootEmUp_Player *player;
 
+public:
 	virtual void start();
 	virtual void end();
 

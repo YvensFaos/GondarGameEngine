@@ -60,8 +60,6 @@ public:
 			gsTransform pointTransform = gsTransform(position, pointSize, gsVector3::zero(), gsColor::red());
 			contacts[i] = pointTransform;
 		}
-
-
 	}
 };
 

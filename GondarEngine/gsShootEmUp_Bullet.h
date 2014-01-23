@@ -12,7 +12,7 @@ private:
 	
 public:
 	gsShootEmUp_Bullet() {}
-	gsShootEmUp_Bullet(bool isPlayerBullet, gsShootEmUpObject* shooter, gsShootEmUpGame *game, gsVector3 speed);
+	gsShootEmUp_Bullet(bool isPlayerBullet, gsShootEmUpGame *game);
 	~gsShootEmUp_Bullet();
 
 	void update();

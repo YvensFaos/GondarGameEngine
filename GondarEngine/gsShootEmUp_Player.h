@@ -11,8 +11,8 @@ private:
 	gsSpriteSheet *sprite;
 	float health;
 	float damage;
-	float weaponCooldownTime;
-	float weaponCooldown;
+	float weapowCooldownTime;
+	float swapowCooldown;
 	
 public:
 	gsShootEmUp_Player() {}
