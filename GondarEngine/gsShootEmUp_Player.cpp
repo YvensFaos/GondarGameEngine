@@ -6,6 +6,8 @@
 
 gsShootEmUp_Player::gsShootEmUp_Player(gsShootEmUpGame *game) {
 	// Carregar sprite do jogador
+	tag = gsShootEmUpObjectTag::Player;
+
 	sprite = new gsSpriteSheet("Shoot\\player_walking.png", "player", 1, 4);
 
 	//Animação walking
@@ -88,7 +90,9 @@ void gsShootEmUp_Player::draw() {
 void gsShootEmUp_Player::onCollision(gsGameObject *_other, const gsCollisionInfo& info) {
 	gsShootEmUpObject *other = static_cast<gsShootEmUpObject*>(_other);
 	if (other->tag == gsShootEmUpObjectTag::EnemyBullet)
-		;
+	{
+
+	}
 	// utilizar a tag para descobrir com que tipo de objeto colidiu.
 	// fazer outro cast
 	// deduzir do HP o damage recebido
