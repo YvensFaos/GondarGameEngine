@@ -1,5 +1,6 @@
 #include "gsShootEmUpGame.h"
 
+#include "gsCollision.h"
 #include "gsLogger.h"
 #include "gsInput.h"
 #include "gsGraphics.h"
@@ -11,7 +12,11 @@
 void gsShootEmUpGame::start() {
 	GS_LOG("Shoot 'em Up Game Initialized\n");
 	
+	gsShootEmUp_Player* player = new gsShootEmUp_Player(this);
+	objects.add(player);
+
 	// Criar um player
+
 	// Criar um enemy spawner
 }
 void gsShootEmUpGame::end() {
@@ -31,6 +36,8 @@ void gsShootEmUpGame::update() {
 	{
 		objects.get(i)->update();
 	}
+
+	gsCollision::detectCollisions(&objects);
 
 	if (objectsToBeRemoved.getSize() != 0) {
 		for (int i = 0; i < objectsToBeRemoved.getSize(); i++)

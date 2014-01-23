@@ -14,6 +14,7 @@
 //Método principal do jogo
 int main()
 {
+
 	gsShootEmUpGame game;
 	gsEngine engine = gsEngine(&game);
 
