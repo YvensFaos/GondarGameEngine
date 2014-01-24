@@ -79,6 +79,10 @@ void gsShootEmUp_Enemy::update() {
 		}
 	}
 
+	if (transform.position.x + transform.size.x < 0 || transform.position.x > GS_RESOLUTION_X) {
+		game->removeObjectFromObjectsList(this);
+	}
+
 	if (transform.position.y > GS_RESOLUTION_Y) {
 		game->removeObjectFromObjectsList(this);
 	}

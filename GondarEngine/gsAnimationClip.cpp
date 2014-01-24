@@ -18,7 +18,7 @@ gsAnimationClip::gsAnimationClip(const char* name, int* keyFrames, int keyFrameC
 gsAnimationClip::~gsAnimationClip(void)
 {
 	if (keyFrames) {
-		delete[] keyFrames;
+		delete keyFrames;
 	}
 }
 
