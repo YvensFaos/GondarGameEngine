@@ -11,6 +11,7 @@
 #include "gsWindow.h"
 #include "gsCollision.h"
 #include "gsGraphics.h"
+#include "gsAudio.h"
 #include "gsContent.h"
 
 // Meta files

@@ -1,5 +1,7 @@
 #include "gsDebugGame_TextureLoading.h"
 
+#ifdef GS_DEBUG
+
 #include "gsLogger.h"
 #include "gsClock.h"
 #include "gsRandom.h"
@@ -126,3 +128,5 @@ void gsDebugGame_TextureLoading::draw() {
 		objects.get(i)->draw();
 	}
 }
+
+#endif

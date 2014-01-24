@@ -1,5 +1,7 @@
 #include "gsDebugGame_Graphics.h"
 
+#ifdef GS_DEBUG
+
 #include "gsLogger.h"
 #include "gsClock.h"
 #include "gsRandom.h"
@@ -39,3 +41,5 @@ void gsDebugGame_Graphics::draw() {
 
 	triangle.drawSolid();
 }
+
+#endif

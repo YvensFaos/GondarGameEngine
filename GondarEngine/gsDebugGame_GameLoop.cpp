@@ -1,5 +1,7 @@
 #include "gsDebugGame_Gameloop.h"
 
+#ifdef GS_DEBUG
+
 #include "gsLogger.h"
 #include "gsClock.h"
 #include "gsRandom.h"
@@ -64,3 +66,5 @@ void gsDebugGame_GameLoop::update() {
 void gsDebugGame_GameLoop::draw() {
 	// nada
 }
+
+#endif

@@ -1,12 +1,8 @@
 #include "gsDebugGame_Collisions.h"
 
-#include "gsLogger.h"
-#include "gsClock.h"
-#include "gsRandom.h"
-#include "gsCollision.h"
-#include "gsCollisionInfo.h"
-#include "gsGraphics.h"
-#include "gsOpenGL.h"
+#ifdef GS_DEBUG
+
+#include "gsSystem.h"
 
 
 class gsDebugCollisionsObject : public gsGameObject {
@@ -67,6 +63,7 @@ public:
 
 void gsDebugGame_Collisions::start() {
 	GS_LOG("Teste Inicializado\n");
+
 	for (int i = 0; i < 30; i++)
 	{
 		objects.add(new gsDebugCollisionsObject());
@@ -106,3 +103,5 @@ void gsDebugGame_Collisions::draw() {
 		objects.get(i)->draw();
 	}
 }
+
+#endif

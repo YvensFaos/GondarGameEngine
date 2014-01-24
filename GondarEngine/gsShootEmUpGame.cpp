@@ -8,7 +8,8 @@
 
 void gsShootEmUpGame::start() {
 	GS_LOG("Shoot 'em Up Game Initialized\n");
-	
+	gsAudio::play("Audio\\dota2.mp3", false, 1, 0);
+
 	player = new gsShootEmUp_Player(this);
 	spawner = new gsShootEmUp_EnemySpawner(this);
 

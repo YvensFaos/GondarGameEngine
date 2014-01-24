@@ -22,14 +22,17 @@ void gsEngine::initializeEngineSystems() {
 	gsRandom::init();
 	gsInput::init();
 	gsContent::init();
+	gsAudio::init();
 	gsGraphics::init(GS_RESOLUTION_X, GS_RESOLUTION_Y);
 }
 void gsEngine::updateEngineSystems() {
 	gsClock::update();
 	gsInput::update();
+	gsAudio::update();
 }
 void gsEngine::disposeEngineSystems() {
 	gsGraphics::dispose();
+	gsAudio::dispose();
 	gsContent::dispose();
 	gsWindow::dispose();
 }

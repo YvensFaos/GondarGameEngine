@@ -2,10 +2,16 @@
 #define __GS_AUDIO__
 
 
+typedef int gsChannel;
 
 class gsAudio {
 public:
-	
+	static void init();
+	static void update();
+	static void dispose();
+
+	static gsChannel play(const char* path, bool repeat, float volume, float pan);
+	static void stop(gsChannel channel);
 };
 
 #endif

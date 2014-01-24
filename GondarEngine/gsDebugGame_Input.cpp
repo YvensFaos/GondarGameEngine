@@ -1,5 +1,7 @@
 #include "gsDebugGame_Input.h"
 
+#ifdef GS_DEBUG
+
 #include "gsLogger.h"
 #include "gsInput.h"
 #include "gsGraphics.h"
@@ -78,3 +80,5 @@ void gsDebugGame_Input::draw() {
 		objects.get(i)->draw();
 	}
 }
+
+#endif

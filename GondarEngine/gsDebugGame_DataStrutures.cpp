@@ -1,5 +1,7 @@
 #include "gsDebugGame_DataStrutures.h"
 
+#ifdef GS_DEBUG
+
 #include "gsLogger.h"
 #include "gsMacros.h"
 #include "gsLinkedList.h"
@@ -132,3 +134,5 @@ void gsDebugGame_DataStrutures::testArrayList() {
 	}
 	list.log();
 }
+
+#endif
