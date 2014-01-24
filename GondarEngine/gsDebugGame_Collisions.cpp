@@ -54,6 +54,7 @@ public:
 		{
 			position = info.contactPoints[i] - pointSize/2;
 			gsTransform pointTransform = gsTransform(position, pointSize, gsVector3::zero(), gsColor::red());
+			transform.tint = gsColor::red();
 			contacts[i] = pointTransform;
 		}
 
