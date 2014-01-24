@@ -3,6 +3,8 @@
 
 class gsGame {
 public:
+	virtual ~gsGame() {}
+
 	virtual void start() = 0;
 	virtual void end() = 0;
 

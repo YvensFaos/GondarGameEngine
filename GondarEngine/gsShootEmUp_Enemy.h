@@ -16,7 +16,7 @@ private:
 public:
 	gsShootEmUp_Enemy() {}
 	gsShootEmUp_Enemy(gsShootEmUpGame *game);
-	~gsShootEmUp_Enemy();
+	virtual ~gsShootEmUp_Enemy();
 
 	void update();
 	void draw();

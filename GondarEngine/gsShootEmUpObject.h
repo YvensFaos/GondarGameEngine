@@ -15,6 +15,7 @@ public:
 
 	gsShootEmUpObject() {}
 	gsShootEmUpObject(gsShootEmUpGame *game) : gsGameObject() { this->game = game; }
+	virtual ~gsShootEmUpObject() {}
 
 	gsShootEmUpObjectTag getTag() { return tag; }
 };

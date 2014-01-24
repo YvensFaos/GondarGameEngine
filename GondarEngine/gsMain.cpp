@@ -9,7 +9,8 @@
 
 #include "gsShootEmUpGame.h"
 
-#include <stdlib.h> // system("pause");
+#include <stdlib.h>
+
 
 //Método principal do jogo
 int main()
@@ -19,5 +20,5 @@ int main()
 
 	engine.runGame();
 
-	//system("pause");
+	system("pause");
 }

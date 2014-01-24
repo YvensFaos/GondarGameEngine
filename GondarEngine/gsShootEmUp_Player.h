@@ -16,7 +16,7 @@ public:
 	
 	gsShootEmUp_Player() {}
 	gsShootEmUp_Player(gsShootEmUpGame *game);
-	~gsShootEmUp_Player();
+	virtual ~gsShootEmUp_Player();
 
 	void update();
 	void draw();

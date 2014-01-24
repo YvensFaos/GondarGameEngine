@@ -67,6 +67,9 @@
     <Filter Include="Files\Shoot">
       <UniqueIdentifier>{47aafb7a-9d48-4c4d-8538-3375863bcc07}</UniqueIdentifier>
     </Filter>
+    <Filter Include="System\Engine Sytems\Audio">
+      <UniqueIdentifier>{13df672e-b81e-4d95-b741-ee1668f5cd00}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gsEngine.h">
@@ -154,9 +157,6 @@
     <ClInclude Include="gsRandom.h">
       <Filter>System\Engine Sytems\Atomic</Filter>
     </ClInclude>
-    <ClInclude Include="gsWindow.h">
-      <Filter>System\Engine Sytems\Atomic</Filter>
-    </ClInclude>
     <ClInclude Include="gsCollisionProxy.h">
       <Filter>System\Engine Sytems\Collision</Filter>
     </ClInclude>
@@ -223,6 +223,12 @@
     <ClInclude Include="gsSystem.h">
       <Filter>System\Engine Sytems</Filter>
     </ClInclude>
+    <ClInclude Include="gsWindow.h">
+      <Filter>System\Engine Sytems\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="gsAudio.h">
+      <Filter>System\Engine Sytems\Audio</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsMain.cpp" />
@@ -283,9 +289,6 @@
     <ClCompile Include="gsRandom.cpp">
       <Filter>System\Engine Sytems\Atomic</Filter>
     </ClCompile>
-    <ClCompile Include="gsWindow.cpp">
-      <Filter>System\Engine Sytems\Atomic</Filter>
-    </ClCompile>
     <ClCompile Include="gsCollisionProxy.cpp">
       <Filter>System\Engine Sytems\Collision</Filter>
     </ClCompile>
@@ -330,6 +333,12 @@
     </ClCompile>
     <ClCompile Include="gsContent.cpp">
       <Filter>System\Engine Sytems\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="gsWindow.cpp">
+      <Filter>System\Engine Sytems\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="gsAudio.cpp">
+      <Filter>System\Engine Sytems\Audio</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

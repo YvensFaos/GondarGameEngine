@@ -22,6 +22,7 @@ public:
 		enabled = visible = collident = solid = true;
 		collisionMask = 0xFFFFFFFF; // todos os bits 1.
 	}
+	virtual ~gsGameObject() {}
 
 	virtual void update() = 0;
 	virtual void draw() = 0;

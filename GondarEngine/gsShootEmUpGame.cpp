@@ -43,6 +43,7 @@ void gsShootEmUpGame::update() {
 			gsGameObject *otbr = objectsToBeRemoved.get(i);
 			if (objects.contains(otbr)) { // Evita que o mesmo objeto seja enviado para a remoção duas vezes
 				objects.remove(otbr);
+				delete otbr;
 			}
 		}
 		objectsToBeRemoved.clear();

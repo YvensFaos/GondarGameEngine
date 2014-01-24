@@ -13,7 +13,7 @@ private:
 public:
 	gsShootEmUp_EnemySpawner() {}
 	gsShootEmUp_EnemySpawner(gsShootEmUpGame *game);
-	~gsShootEmUp_EnemySpawner();
+	virtual ~gsShootEmUp_EnemySpawner();
 
 	void update();
 	void draw();

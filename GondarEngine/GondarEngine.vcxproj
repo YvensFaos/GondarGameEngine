@@ -82,6 +82,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="gsAudio.h" />
     <ClInclude Include="gsContent.h" />
     <ClInclude Include="gsShootEmUpObject.h" />
     <ClInclude Include="gsShootEmUpObjectTag.h" />
@@ -137,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsAnimationClip.cpp" />
+    <ClCompile Include="gsAudio.cpp" />
     <ClCompile Include="gsCamera.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
