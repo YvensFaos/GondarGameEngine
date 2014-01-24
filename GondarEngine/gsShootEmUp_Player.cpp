@@ -33,7 +33,7 @@ gsShootEmUp_Player::gsShootEmUp_Player(gsShootEmUpGame *game) : gsShootEmUpObjec
 	collisionMask = 0x02;
 }
 gsShootEmUp_Player::~gsShootEmUp_Player() {
-	delete sprite;
+	//delete sprite; <- bugando
 }
 
 void gsShootEmUp_Player::update() {

@@ -48,7 +48,6 @@ void gsShootEmUp_Bullet::update() {
 	if (transform.position.x + transform.size.x < 0 || transform.position.x > GS_RESOLUTION_X) {
 		game->removeObjectFromObjectsList(this);
 	}
-
 	if (transform.position.y + transform.size.y < 0 || transform.position.y > GS_RESOLUTION_Y) {
 		game->removeObjectFromObjectsList(this);
 	}
