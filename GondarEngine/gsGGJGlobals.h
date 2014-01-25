@@ -4,6 +4,7 @@
 
 #include "gsGGJPhase.h"
 #include "gsGGJBulletType.h"
+#include "gsRandom.h"
 
 extern float gsGGJGlobal_PowerFactor;
 extern float gsGGJGlobal_SizeFactor;
@@ -35,8 +36,8 @@ extern int gsGGJGlobal_Points;
 #define INITIAL_PHASE gsGGJPhase::BluePhase
 #define INITIAL_BULLET_TYPE gsGGJBulletType::Normal
 
-#define POINTS_WHEN_ENEMY_DIES 70
-#define POINTS_WHEN_BULLET_STRIKES 20
+#define POINTS_WHEN_ENEMY_DIES gsRandom::nextInt(45, 55);
+#define POINTS_WHEN_BULLET_STRIKES gsRandom::nextInt(1, 3); 
 
 #define ENEMY_SPAWNER_COOLDOWN 1.2f
 #define ENEMY_SPAWNER_TIMER 0.6f

@@ -12,7 +12,7 @@ public:
 	
 	void draw();
 
-	~gsGGJNumber(void){}
+	~gsGGJNumber(void);
 };
 
 #endif

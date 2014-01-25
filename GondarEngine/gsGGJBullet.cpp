@@ -12,15 +12,13 @@ gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTran
 	gsVector3 speed = INITIAL_BULLET_SPEED;
 	this->color = color;
 
-	switch (bulletType)
-	{
-
+	switch (bulletType) {
 		case gsGGJBulletType::Normal: damage = BULLET_DAMAGE_NORMAL;
 			break;
 		case gsGGJBulletType::Spiral: damage = BULLET_DAMAGE_SPIRAL;
 			break;
 		case gsGGJBulletType::Spread: damage = BULLET_DAMAGE_SPREAD;
-	
+			break;
 	}
 
 	if (isPlayerBullet) {
@@ -83,7 +81,20 @@ void gsGGJBullet::doSpiral() {
 }
 
 void gsGGJBullet::onCollision(gsGameObject *_other, const gsCollisionInfo& info) {
+	gsGGJObject *other = static_cast<gsGGJObject*>(_other);
 
+	if (tag == gsGGJTag::EnemyBullet) {
+		if (other->tag == gsGGJTag::Player) {
+			game->removeObjectFromObjectsList(this);
+			return;
+		}
+	} 
+	if (tag == gsGGJTag::PlayerBullet) {
+		if (other->tag == gsGGJTag::Enemy) {
+			game->removeObjectFromObjectsList(this);
+			return;
+		}
+	}
 }
 
 void gsGGJBullet::setUpSprite(bool isPlayerBullet) {

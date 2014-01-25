@@ -49,8 +49,8 @@ void gsGGJEnemy::update() {
 
 	transform.setTextureCoordinates(sprite->getCurrentSprite());
 
-	if (hp == INITIAL_ENEMY_HEALTH / 2.f)
-	{
+	if (hp <= INITIAL_ENEMY_HEALTH / 2) {
+		delete sprite;
 		sprite = new gsSpriteSheet("Shoot/enemy_walking_broken.png", "enemy", 1, 4);
 		int keyCount = 4;
 		int *keyframes = new int[keyCount];
@@ -61,14 +61,6 @@ void gsGGJEnemy::update() {
 		gsAnimationClip *clip = new gsAnimationClip("damagedEnemyClip", keyframes, keyCount, 0.4f);
 		sprite->addAnimation(clip);
 		sprite->setAnimation("damagedEnemyClip");
-	}
-	else
-	{
-		if (hp <= 0)
-		{
-			game->removeObjectFromObjectsList(this);
-			return;
-		}
 	}
 
 	if (transform.leftTheSceen()) {
@@ -85,9 +77,15 @@ void gsGGJEnemy::draw() {
 void gsGGJEnemy::onCollision(gsGameObject *_other, const gsCollisionInfo& info) {
 	gsGGJObject *otherCastedToGGJObject = static_cast<gsGGJObject*>(_other);
 
-	if (otherCastedToGGJObject->tag == gsGGJTag::PlayerBullet)
-	{
+	if (otherCastedToGGJObject->tag == gsGGJTag::PlayerBullet) {
 		gsGGJBullet *other = static_cast<gsGGJBullet*>(_other);
 		hp -= other->damage;
+
+		if (hp <= 0) {
+			game->removeObjectFromObjectsList(this);
+			gsGGJGlobal_Points += POINTS_WHEN_ENEMY_DIES;
+			return;
+		}
+		gsGGJGlobal_Points += POINTS_WHEN_BULLET_STRIKES;
 	}
 }
