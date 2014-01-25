@@ -54,9 +54,11 @@ public:
 		{
 			position = info.contactPoints[i] - pointSize/2;
 			gsTransform pointTransform = gsTransform(position, pointSize, gsVector3::zero(), gsColor::red());
-			transform.tint = gsColor::red();
 			contacts[i] = pointTransform;
 		}
+		if(this->isSolid() && this->collident)
+			transform.tint.randomize();
+
 
 
 	}
@@ -75,7 +77,7 @@ void gsDebugGame_Collisions::start() {
 	bigGreen->transform.tint = gsColor::green();
 	bigGreen->transform.tint.a = 0.5f;
 	bigGreen->solid = false;
-	
+
 	objects.add(bigGreen);
 	
 }

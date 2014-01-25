@@ -70,6 +70,9 @@
     <Filter Include="System\Engine Sytems\Audio">
       <UniqueIdentifier>{13df672e-b81e-4d95-b741-ee1668f5cd00}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\Scrolling Demo">
+      <UniqueIdentifier>{e9a3763f-99a9-4c08-8dba-b8154edd2567}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gsEngine.h">
@@ -229,6 +232,9 @@
     <ClInclude Include="gsAudio.h">
       <Filter>System\Engine Sytems\Audio</Filter>
     </ClInclude>
+    <ClInclude Include="gsScrollingDemo.h">
+      <Filter>Games\Scrolling Demo</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsMain.cpp" />
@@ -339,6 +345,9 @@
     </ClCompile>
     <ClCompile Include="gsAudio.cpp">
       <Filter>System\Engine Sytems\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="gsScrollingDemo.cpp">
+      <Filter>Games\Scrolling Demo</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
