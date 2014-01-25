@@ -56,8 +56,8 @@ public:
 			gsTransform pointTransform = gsTransform(position, pointSize, gsVector3::zero(), gsColor::red());
 			contacts[i] = pointTransform;
 		}
-		if(this->isSolid() && this->collident)
-			transform.tint.randomize();
+		//if(this->isSolid() && this->collident)
+			//transform.tint.randomize();
 
 
 

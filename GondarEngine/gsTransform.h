@@ -44,6 +44,9 @@ public:
 	void applySpeed();
 	void bounceAtScreenEdges();
 
+	bool touchedScreenEdges();
+	bool leftTheSceen();
+
 	void setTextureCoordinates(gsVector2* coords);
 };
 

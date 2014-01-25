@@ -47,6 +47,26 @@ void gsTransform::bounceAtScreenEdges() {
 	}
 }
 
+bool gsTransform::touchedScreenEdges() {
+	if (position.x < 0 || position.x + size.x > GS_RESOLUTION_X) {
+		return true;
+	} else if (position.y < 0 || position.y + size.y > GS_RESOLUTION_Y) {
+		return true;
+	} else {
+		return false;
+	}
+}
+bool gsTransform::leftTheSceen() {
+	if (position.x + size.x < 0 || position.x > GS_RESOLUTION_X) {
+		return true;
+	} else if (position.y + size.y < 0 || position.y > GS_RESOLUTION_Y) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+
 void gsTransform::setTextureCoordinates(gsVector2* coords) {
 	textureCoordinates[0] = coords[0];
 	textureCoordinates[1] = coords[1];
