@@ -13,7 +13,7 @@ gsShootEmUp_Player::gsShootEmUp_Player(gsShootEmUpGame *game) : gsShootEmUpObjec
 	health = 20;
 	damage = 3;
 	weaponCooldownTime = 0;
-	weaponCooldown = 0.3;
+	weaponCooldown = 0.5;
 
 	//Animação walking
 	int* frames = new int(4);
@@ -80,12 +80,18 @@ void gsShootEmUp_Player::update() {
 	weaponCooldownTime += gsClock::getDeltaTime();
 	if(weaponCooldownTime >= weaponCooldown && (gsInput::queryKey(GLFW_KEY_SPACE) == gsKeyState::Pressed))
 	{
-		weaponCooldownTime -= weaponCooldown;
-
+		weaponCooldownTime = 0;
+		
 		gsShootEmUp_Bullet* bullet = new gsShootEmUp_Bullet(true, this, game, gsVector3(gsRandom::nextInt(-20, 20), -200, 0));
 		bullet->setDamage(damage);
 		game->addObjetToObjectsList(bullet);
 	}
+	
+	weaponCooldownTime += gsClock::getDeltaTime();
+
+
+	
+
 }
 void gsShootEmUp_Player::draw() {
 	sprite->sendToOpenGL_Texture();
