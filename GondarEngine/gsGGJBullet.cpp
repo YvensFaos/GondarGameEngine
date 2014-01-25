@@ -25,6 +25,8 @@ gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTran
 	angle = 0;
 
 	transform = gsTransform(pos, size, gsVector3::zero(), speed, gsColor::white());
+
+	collisionMask = 0x01;
 }
 gsGGJBullet::~gsGGJBullet() {
 	delete sprite;
