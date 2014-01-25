@@ -21,6 +21,8 @@ public:
 	gsSpriteSheet *sprite;
 	gsGGJPhase phase;
 	gsGGJBulletType bulletType;
+	float weaponCooldown;
+	float weaponCooldownTime;
 
 	gsGGJShip() {}
 	gsGGJShip(gsGGJGame *game) {
