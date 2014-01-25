@@ -6,11 +6,11 @@
 
 
 // Objeto invisível que deve de tempos em tempos criar um novo inimigo no topo da tela
-class gsGGJEnemySpawner : public gsGGJObject {
+class gsGGJEnemySpawner : public gsGGJObject 
+{
 private:
 	float spawnCooldown;
 	float spawnTimer;
-
 public:
 	gsGGJEnemySpawner() {}
 	gsGGJEnemySpawner(gsGGJGame *game);
@@ -19,7 +19,7 @@ public:
 	void update();
 	void draw();
 
-	void onCollision(gsGameObject *_other, const gsCollisionInfo& info);
+	//void onCollision(gsGameObject *_other, const gsCollisionInfo& info);
 };
 
 #endif

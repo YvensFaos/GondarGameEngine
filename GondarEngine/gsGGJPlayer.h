@@ -1,7 +1,7 @@
 #ifndef __GS_GGJ_PLAYER_H__
 #define __GS_GGJ_PLAYER_H__
 
-#include "gsggjship.h"
+#include "gsGGJship.h"
 
 
 class gsGGJPlayer : public gsGGJShip
