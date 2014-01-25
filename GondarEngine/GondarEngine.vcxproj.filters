@@ -277,6 +277,7 @@
     <ClInclude Include="gsGGJShop.h">
       <Filter>Games\GGJ Game\Objects</Filter>
     </ClInclude>
+    <ClInclude Include="gsGJJNumber.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsMain.cpp" />
@@ -412,6 +413,7 @@
     <ClCompile Include="gsGGJShop.cpp">
       <Filter>Games\GGJ Game\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="gsGJJNumber.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="gondar_texture.jpg">
