@@ -38,7 +38,8 @@ void gsGGJBullet::update() {
 		game->removeObjectFromObjectsList(this);
 		return;
 	}
-	
+	sprite->updateAnimation();
+	transform.setTextureCoordinates(sprite->getCurrentSprite());
 	if (bulletType == gsGGJBulletType::Spiral) {
 		doSpiral();
 	}

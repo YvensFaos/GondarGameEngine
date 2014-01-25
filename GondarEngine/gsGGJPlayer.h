@@ -8,7 +8,7 @@ class gsGGJPlayer : public gsGGJShip
 {
 public: 
 	gsGGJPlayer(void) {}
-	gsGGJPlayer(gsGame *game);
+	gsGGJPlayer(gsGGJGame *game);
 	virtual ~gsGGJPlayer(void);
 
 	virtual void update();

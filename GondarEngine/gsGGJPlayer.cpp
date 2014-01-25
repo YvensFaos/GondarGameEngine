@@ -1,12 +1,12 @@
 #include "gsGGJPlayer.h"
-
+#include "gsGGJBullet.h"
 
 #include "gsSystem.h"
 
 
-gsGGJPlayer::gsGGJPlayer(gsGame *game)
+gsGGJPlayer::gsGGJPlayer(gsGGJGame *game) : gsGGJShip(game)
 {
-	//tag = gsShootEmUpObjectTag::Player;
+	tag = gsGGJTag::Player;
 
 	sprite = new gsSpriteSheet("Shoot\\player_walking.png", "player", 1, 4);
 
@@ -44,12 +44,9 @@ void gsGGJPlayer::shoot()
 	{
 		weaponCooldownTime = 0;
 		
-		/*gsGGJBullet* bullet = new gsGGJBullet(true, this, game, gsVector3(gsRandom::nextInt(-20, 20), -200, 0));
-		bullet->setDamage(damage);
-		game->addObjetToObjectsList(bullet);*/
+		gsGGJBullet *bullet = new gsGGJBullet(true, gsGGJBulletType::Spiral, &this->transform, game);
+		game->addObjetToObjectsList(bullet);
 	}
-	
-	weaponCooldownTime += gsClock::getDeltaTime();
 }
 
 gsGGJPlayer::~gsGGJPlayer(void)
@@ -83,15 +80,13 @@ void gsGGJPlayer::move()
 
 	if (transform.position.x < 0) {
 		transform.position.x = 1;
-	}
-	else if (transform.position.x + transform.size.x > GS_RESOLUTION_X) {
+	} else if (transform.position.x + transform.size.x > GS_RESOLUTION_X) {
 		transform.position.x = GS_RESOLUTION_X - 1 - transform.size.x;
 	}
 
 	if (transform.position.y < 0) {
 		transform.position.y = 1;
-	}
-	else if (transform.position.y + transform.size.y > GS_RESOLUTION_Y) {
+	} else if (transform.position.y + transform.size.y > GS_RESOLUTION_Y) {
 		transform.position.y = GS_RESOLUTION_Y -1 - transform.size.y;
 	}
 }
@@ -99,6 +94,7 @@ void gsGGJPlayer::move()
 void gsGGJPlayer::update()
 {
 	move();
+	shoot();
 	sprite->updateAnimation();
 	transform.setTextureCoordinates(sprite->getCurrentSprite());
 }
