@@ -2,11 +2,16 @@
 
 #include "gsGGJGame.h"
 
+#include "gsGGJPlayer.h"
 
 void gsGGJGame::start()
 {
-	GS_LOG("Shoot 'em Up Game Initialized\n");
+	GS_LOG("GS Shoot 'em Up Game Initialized\n");
 	gsAudio::play("Audio\\dota2.mp3", false, 1, 0);
+
+	gsGGJPlayer *player = new gsGGJPlayer(this);
+
+	addObjetToObjectsList(player);
 }
 
 bool gsGGJGame::isRunning()
@@ -51,4 +56,12 @@ void gsGGJGame::end()
 	{
 		delete objects.get(i);
 	}
+}
+
+void gsGGJGame::addObjetToObjectsList(gsGameObject* object) {
+	objects.add(object);
+}
+
+void gsGGJGame::removeObjectFromObjectsList(gsGameObject *object) {
+	objectsToBeRemoved.add(object);
 }

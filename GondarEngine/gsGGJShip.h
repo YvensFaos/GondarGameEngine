@@ -8,6 +8,7 @@
 #include "gsGGJGlobals.h"
 #include "gsSpriteSheet.h"
 
+
 class gsGGJShip : public gsGGJObject {
 public:
 	float powerFactor;
@@ -17,6 +18,7 @@ public:
 	float avoidChance;
 	float hp;
 	float damage;
+	gsSpriteSheet *sprite;
 	gsGGJPhase phase;
 	gsGGJBulletType bulletType;
 

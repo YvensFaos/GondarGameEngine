@@ -1,9 +1,7 @@
 #include "gsEngine.h"
 #include "gsGame.h"
 
-
 #include "gsSystem.h"
-
 
 gsEngine::gsEngine(gsGame* gameToBeRun) {
 	gsAssert(gameToBeRun != 0);

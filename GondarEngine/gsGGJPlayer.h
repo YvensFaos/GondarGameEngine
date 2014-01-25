@@ -7,7 +7,7 @@
 class gsGGJPlayer : public gsGGJShip
 {
 public: 
-	gsGGJPlayer(void);
+	gsGGJPlayer(void) {}
 	gsGGJPlayer(gsGame *game);
 	virtual ~gsGGJPlayer(void);
 
