@@ -84,6 +84,13 @@
   <ItemGroup>
     <ClInclude Include="gsAudio.h" />
     <ClInclude Include="gsContent.h" />
+    <ClInclude Include="gsGGJBulletType.h" />
+    <ClInclude Include="gsGGJGame.h" />
+    <ClInclude Include="gsGGJGlobals.h" />
+    <ClInclude Include="gsGGJObject.h" />
+    <ClInclude Include="gsGGJPhase.h" />
+    <ClInclude Include="gsGGJShip.h" />
+    <ClInclude Include="gsGGJTag.h" />
     <ClInclude Include="gsScrollingDemo.h" />
     <ClInclude Include="gsShootEmUpObject.h" />
     <ClInclude Include="gsShootEmUpObjectTag.h" />
@@ -159,6 +166,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="gsGGJGlobals.cpp" />
     <ClCompile Include="gsGraphics.cpp" />
     <ClCompile Include="gsInput.cpp" />
     <ClCompile Include="gsLogger.cpp" />

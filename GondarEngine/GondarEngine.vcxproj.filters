@@ -73,6 +73,12 @@
     <Filter Include="Games\Scrolling Demo">
       <UniqueIdentifier>{e9a3763f-99a9-4c08-8dba-b8154edd2567}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\GGJ Game\Objects">
+      <UniqueIdentifier>{6959e361-e8b2-4eba-9910-13bb7a47870b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Games\GGJ Game\Enums">
+      <UniqueIdentifier>{7c8aebe7-914a-4856-bae5-ad6050ec7bbf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gsEngine.h">
@@ -235,6 +241,27 @@
     <ClInclude Include="gsScrollingDemo.h">
       <Filter>Games\Scrolling Demo</Filter>
     </ClInclude>
+    <ClInclude Include="gsGGJGame.h">
+      <Filter>Games\GGJ Game</Filter>
+    </ClInclude>
+    <ClInclude Include="gsGGJGlobals.h">
+      <Filter>Games\GGJ Game</Filter>
+    </ClInclude>
+    <ClInclude Include="gsGGJShip.h">
+      <Filter>Games\GGJ Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="gsGGJObject.h">
+      <Filter>Games\GGJ Game</Filter>
+    </ClInclude>
+    <ClInclude Include="gsGGJTag.h">
+      <Filter>Games\GGJ Game\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="gsGGJPhase.h">
+      <Filter>Games\GGJ Game\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="gsGGJBulletType.h">
+      <Filter>Games\GGJ Game\Enums</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsMain.cpp" />
@@ -348,6 +375,9 @@
     </ClCompile>
     <ClCompile Include="gsScrollingDemo.cpp">
       <Filter>Games\Scrolling Demo</Filter>
+    </ClCompile>
+    <ClCompile Include="gsGGJGlobals.cpp">
+      <Filter>Games\GGJ Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -26,6 +26,7 @@ gsShootEmUp_Player::gsShootEmUp_Player(gsShootEmUpGame *game) : gsShootEmUpObjec
 	sprite->addAnimation(clip);
 	sprite->setAnimation("walking");
 
+
 	transform.position = gsVector3(400, 300, 0);
 	transform.size = gsVector3(50, 50, 0);
 	transform.tint = gsColor::white();
@@ -88,6 +89,12 @@ void gsShootEmUp_Player::update() {
 	}
 	
 	weaponCooldownTime += gsClock::getDeltaTime();
+
+	//Trecho de código que checa se o player morreu
+	if(this->health < 1)
+	{
+
+	}
 
 
 	
