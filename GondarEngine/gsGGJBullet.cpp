@@ -12,6 +12,17 @@ gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTran
 	gsVector3 speed = INITIAL_BULLET_SPEED;
 	this->color = color;
 
+	switch (bulletType)
+	{
+
+		case gsGGJBulletType::Normal: damage = BULLET_DAMAGE_NORMAL;
+			break;
+		case gsGGJBulletType::Spiral: damage = BULLET_DAMAGE_SPIRAL;
+			break;
+		case gsGGJBulletType::Spread: damage = BULLET_DAMAGE_SPREAD;
+	
+	}
+
 	if (isPlayerBullet) {
 		tag = gsGGJTag::PlayerBullet;
 		pos.y -= size.y + 64;
@@ -35,7 +46,7 @@ gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTran
 	if(color == gsColor::yellow()); this->phase = YellowPhase;
 	if(color == gsColor::magenta()); this->phase = MagentaPhase;
 
-
+	solid = false;
 }
 gsGGJBullet::~gsGGJBullet() {
 	delete sprite;

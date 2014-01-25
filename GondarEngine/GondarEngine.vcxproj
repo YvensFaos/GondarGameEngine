@@ -90,12 +90,12 @@
     <ClInclude Include="gsGGJEnemy.h" />
     <ClInclude Include="gsGGJGame.h" />
     <ClInclude Include="gsGGJGlobals.h" />
+    <ClInclude Include="gsGGJNumber.h" />
     <ClInclude Include="gsGGJObject.h" />
     <ClInclude Include="gsGGJPhase.h" />
     <ClInclude Include="gsGGJPlayer.h" />
     <ClInclude Include="gsGGJShip.h" />
     <ClInclude Include="gsGGJTag.h" />
-    <ClInclude Include="gsGJJNumber.h" />
     <ClInclude Include="gsScrollingDemo.h" />
     <ClInclude Include="gsShootEmUpObject.h" />
     <ClInclude Include="gsShootEmUpObjectTag.h" />
@@ -177,8 +177,8 @@
     <ClCompile Include="gsGGJEnemySpawner.cpp" />
     <ClCompile Include="gsGGJGame.cpp" />
     <ClCompile Include="gsGGJGlobals.cpp" />
+    <ClCompile Include="gsGGJNumber.cpp" />
     <ClCompile Include="gsGGJPlayer.cpp" />
-    <ClCompile Include="gsGJJNumber.cpp" />
     <ClCompile Include="gsGraphics.cpp" />
     <ClCompile Include="gsInput.cpp" />
     <ClCompile Include="gsLogger.cpp" />

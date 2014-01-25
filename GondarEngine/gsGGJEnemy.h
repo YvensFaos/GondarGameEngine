@@ -9,6 +9,7 @@ class gsGGJEnemy : public gsGGJShip {
 private:
 	float weaponBurstCooldown;
 	float weaponBurstTimer;
+	float hp;
 
 public:
 	gsGGJEnemy() {}
