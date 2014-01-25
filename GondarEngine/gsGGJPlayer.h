@@ -18,6 +18,8 @@ public:
 
 	void move();
 	void shoot();
+	void changeColor(gsColor color);
+	void toChangeColor();
 };
 
 #endif

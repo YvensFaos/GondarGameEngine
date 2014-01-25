@@ -8,7 +8,7 @@ gsGGJPlayer::gsGGJPlayer(gsGGJGame *game) : gsGGJShip(game)
 {
 	tag = gsGGJTag::Player;
 
-	sprite = new gsSpriteSheet("Shoot\\player_walking.png", "player", 1, 4);
+	sprite = new gsSpriteSheet("GGJ\\main_ship.png", "player", 1, 1);
 
 	hp = 20;
 	damage = 3;
@@ -16,15 +16,15 @@ gsGGJPlayer::gsGGJPlayer(gsGGJGame *game) : gsGGJShip(game)
 	weaponCooldown = 0.5;
 
 	//Animação walking
-	int* frames = new int(4);
-	frames[0] = 0;
-	frames[1] = 1;
-	frames[2] = 2;
-	frames[3] = 3;
+	//int* frames = new int(4);
+	//frames[0] = 0;
+	//frames[1] = 1;
+	//frames[2] = 2;
+	//frames[3] = 3;
 
-	gsAnimationClip* clip = new gsAnimationClip("walking", frames, 4, 0.4f);
-	sprite->addAnimation(clip);
-	sprite->setAnimation("walking");
+	//gsAnimationClip* clip = new gsAnimationClip("walking", frames, 4, 0.4f);
+	//sprite->addAnimation(clip);
+	//sprite->setAnimation("walking");
 
 	// tetenta pelo construtor
 	transform = gsTransform(gsVector3(400, 300, 0), gsVector3(50, 50, 0), gsColor::white(1.0f));
@@ -95,8 +95,29 @@ void gsGGJPlayer::update()
 {
 	move();
 	shoot();
-	sprite->updateAnimation();
-	transform.setTextureCoordinates(sprite->getCurrentSprite());
+	toChangeColor();
+	/*sprite->updateAnimation();
+	transform.setTextureCoordinates(sprite->getCurrentSprite());*/
+}
+
+void gsGGJPlayer::toChangeColor()
+{
+	if(gsInput::queryKey(GLFW_KEY_Q) == gsKeyState::Pressed)
+		changeColor(gsColor::red());
+	else if(gsInput::queryKey(GLFW_KEY_W) == gsKeyState::Pressed)
+		changeColor(gsColor::green());
+	else if(gsInput::queryKey(GLFW_KEY_E) == gsKeyState::Pressed)
+		changeColor(gsColor::blue());
+	else if(gsInput::queryKey(GLFW_KEY_R) == gsKeyState::Pressed)
+		changeColor(gsColor::yellow());
+	else if(gsInput::queryKey(GLFW_KEY_T) == gsKeyState::Pressed)
+		changeColor(gsColor::magenta());
+}
+
+
+void gsGGJPlayer::changeColor(gsColor color)
+{
+	transform.tint = color;	
 }
 
 void gsGGJPlayer::onCollision(gsGameObject *other, const gsCollisionInfo& info)
