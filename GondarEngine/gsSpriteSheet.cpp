@@ -94,6 +94,9 @@ void gsSpriteSheet::setAnimation(const char* animationName) {
 	currentKeyframe = 0;
 }
 
+gsVector2* gsSpriteSheet::getSprite(int i) {
+	return &positions[i * 4];
+}
 gsVector2* gsSpriteSheet::getCurrentSprite() {
 	return &positions[currentAnimation->keyFrames[currentKeyframe] * 4];
 }

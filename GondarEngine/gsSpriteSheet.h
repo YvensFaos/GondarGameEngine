@@ -32,6 +32,8 @@ public:
 	void setAnimation(const char* animationName);
 
 	gsVector2* getCurrentSprite();
+	gsVector2* getSprite(int i);
+
 };
 
 #endif
