@@ -82,9 +82,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="gsGGJEnemySpawner.h" />
     <ClInclude Include="gsAudio.h" />
     <ClInclude Include="gsContent.h" />
+    <ClInclude Include="gsGGJBullet.h" />
     <ClInclude Include="gsGGJBulletType.h" />
+    <ClInclude Include="gsGGJEnemy.h" />
     <ClInclude Include="gsGGJGame.h" />
     <ClInclude Include="gsGGJGlobals.h" />
     <ClInclude Include="gsGGJObject.h" />
@@ -167,6 +170,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="gsGGJBullet.cpp" />
+    <ClCompile Include="gsGGJEnemy.cpp" />
+    <ClCompile Include="gsGGJEnemySpawner.cpp" />
     <ClCompile Include="gsGGJGame.cpp" />
     <ClCompile Include="gsGGJGlobals.cpp" />
     <ClCompile Include="gsGGJPlayer.cpp" />
