@@ -34,13 +34,15 @@ extern gsGGJBulletType gsGGJGlobal_BulletType;
 #define INITIAL_BULLET_TYPE gsGGJBulletType::Normal
 
 
+#define ENEMY_SPAWNER_COOLDOWN 1.6f
+#define ENEMY_SPAWNER_TIMER 0.6f
 
 #define WAVE_2_TIME 40
 #define WAVE_3_TIME WAVE_2_TIME + 60
 #define WAVE_4_TIME WAVE_3_TIME + 70
-#define WAVE_5_TIME WAVE_5_TIME + 80
-#define WAVE_6_TIME WAVE_6_TIME + 90
-#define WAVE_7_TIME WAVE_7_TIME + 100
+#define WAVE_5_TIME WAVE_4_TIME + 80
+#define WAVE_6_TIME WAVE_5_TIME + 90
+#define WAVE_7_TIME WAVE_6_TIME + 100
 
 
 #endif

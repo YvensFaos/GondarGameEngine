@@ -14,12 +14,12 @@ private:
 public:
 	gsGGJEnemySpawner() {}
 	gsGGJEnemySpawner(gsGGJGame *game);
-	virtual ~gsGGJEnemySpawner();
+	virtual ~gsGGJEnemySpawner(){}
 
 	void update();
 	void draw();
 
-	//void onCollision(gsGameObject *_other, const gsCollisionInfo& info);
+	void onCollision(gsGameObject *_other, const gsCollisionInfo& info);
 };
 
 #endif

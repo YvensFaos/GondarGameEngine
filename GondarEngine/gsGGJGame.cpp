@@ -3,6 +3,7 @@
 #include "gsGGJGame.h"
 
 #include "gsGGJPlayer.h"
+#include "gsGGJEnemySpawner.h"
 
 void gsGGJGame::start()
 {
@@ -10,8 +11,10 @@ void gsGGJGame::start()
 	gsAudio::play("Audio\\dota2.mp3", false, 1, 0);
 
 	gsGGJPlayer *player = new gsGGJPlayer(this);
+	gsGGJEnemySpawner *spawner = new gsGGJEnemySpawner(this);
 
 	addObjetToObjectsList(player);
+	addObjetToObjectsList(spawner);
 }
 
 bool gsGGJGame::isRunning()
