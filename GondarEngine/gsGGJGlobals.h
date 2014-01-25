@@ -13,6 +13,8 @@ extern int gsGGJGlobal_Cannons;
 extern gsGGJPhase gsGGJGlobal_Phase;
 extern gsGGJBulletType gsGGJGlobal_BulletType;
 
+extern int gsGGJGlobal_Points;
+
 //Definições dos valores iniciais do jogo
 #define INITIAL_PLAYER_HEATH 80
 #define INITIAL_PLAYER_DAMAGE 10
@@ -33,6 +35,8 @@ extern gsGGJBulletType gsGGJGlobal_BulletType;
 #define INITIAL_PHASE gsGGJPhase::BluePhase
 #define INITIAL_BULLET_TYPE gsGGJBulletType::Normal
 
+#define POINTS_WHEN_ENEMY_DIES 70
+#define POINTS_WHEN_BULLET_STRIKES 20
 
 #define ENEMY_SPAWNER_COOLDOWN 1.6f
 #define ENEMY_SPAWNER_TIMER 0.6f
