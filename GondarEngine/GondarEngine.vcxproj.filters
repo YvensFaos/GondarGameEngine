@@ -409,7 +409,7 @@
     <ClCompile Include="gsGGJEnemySpawner.cpp">
       <Filter>Games\GGJ Game\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="gsShop.cpp">
+    <ClCompile Include="gsGGJShop.cpp">
       <Filter>Games\GGJ Game\Objects</Filter>
     </ClCompile>
   </ItemGroup>

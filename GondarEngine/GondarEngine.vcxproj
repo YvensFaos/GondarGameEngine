@@ -195,7 +195,7 @@
     <ClCompile Include="gsShootEmUp_Enemy.cpp" />
     <ClCompile Include="gsShootEmUp_EnemySpawner.cpp" />
     <ClCompile Include="gsShootEmUp_Player.cpp" />
-    <ClCompile Include="gsShop.cpp" />
+    <ClCompile Include="gsGGJShop.cpp" />
     <ClCompile Include="gsSpriteSheet.cpp" />
     <ClCompile Include="gsTexture.cpp" />
     <ClCompile Include="gsTransform.cpp" />

@@ -6,6 +6,7 @@
 #include "gsGameObject.h"
 #include "gsArrayList.h"
 
+class gsGGJPlayer;
 
 class gsGGJGame : public gsGame {
 private:
@@ -13,6 +14,8 @@ private:
 	gsArrayList<gsGameObject*> objectsToBeRemoved;
 	
 public:
+	gsGGJPlayer *player;
+
 	virtual void start();
 	virtual void end();
 

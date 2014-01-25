@@ -2,17 +2,22 @@
 #define __GS_GGJ_SHOP__
 
 #include "gsGGJObject.h"
+#include "gsSpriteSheet.h"
 
-class gsShop : public gsGGJObject {
+class gsGGJShop : public gsGGJObject {
 public:
-	gsShop(void) {}
-	gsShop(gsGGJGame *game);
-	virtual ~gsShop(void);
+	gsSpriteSheet *sprite;
+
+	gsGGJShop(void) {}
+	gsGGJShop(gsGGJGame *game);
+	virtual ~gsGGJShop(void);
 
 	virtual void update();
 	virtual void draw();
 	
 	virtual void onCollision(gsGameObject *other, const gsCollisionInfo& info);
+
+	void setUpSprite();
 };
 
 #endif
