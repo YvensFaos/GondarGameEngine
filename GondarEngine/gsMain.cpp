@@ -9,13 +9,15 @@
 
 #include "gsShootEmUpGame.h"
 
+#include "gsGGJGame.h"
+
 #include <stdlib.h>
 
 
 //Método principal do jogo
 int main()
 {
-	gsShootEmUpGame game;
+	gsGGJGame game;
 	gsEngine engine = gsEngine(&game);
 
 	engine.runGame();

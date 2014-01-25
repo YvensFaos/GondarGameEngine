@@ -6,6 +6,7 @@
 #include "gsGGJTag.h"
 #include "gsGGJPhase.h"
 #include "gsGGJGlobals.h"
+#include "gsSpriteSheet.h"
 
 class gsGGJShip : public gsGGJObject {
 public:
@@ -14,6 +15,8 @@ public:
 	float speedFactor;
 	int cannons;
 	float avoidChance;
+	float hp;
+	float damage;
 	gsGGJPhase phase;
 	gsGGJBulletType bulletType;
 
@@ -27,7 +30,7 @@ public:
 		phase = gsGGJGlobal_Phase;
 		bulletType = gsGGJGlobal_BulletType;
 	}
-	virtual ~gsGGJShip();
+	virtual ~gsGGJShip() {}
 };
 
 #endif

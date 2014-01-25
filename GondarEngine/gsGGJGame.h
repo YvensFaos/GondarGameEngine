@@ -12,7 +12,6 @@ private:
 	gsArrayList<gsGameObject*> objects;
 	gsArrayList<gsGameObject*> objectsToBeRemoved;
 	
-
 public:
 	virtual void start();
 	virtual void end();
