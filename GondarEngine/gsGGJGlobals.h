@@ -16,9 +16,14 @@ extern gsGGJBulletType gsGGJGlobal_BulletType;
 //Definições dos valores iniciais do jogo
 #define INITIAL_PLAYER_HEATH 80
 #define INITIAL_PLAYER_DAMAGE 10
+#define INITIAL_PLAYER_SIZE gsVector3(32, 32, 0);
 
 #define INITIAL_ENEMY_HEATH 42
 #define INITIAL_ENEMY_DAMAGE 6
+#define INITIAL_ENEMY_SIZE gsVector3(32, 32, 0);
+
+#define INITIAL_BULLET_SPEED gsVector3(0, 100, 0);
+#define INITIAL_BULLET_SIZE gsVector3(16, 16, 0)
 
 #define INITIAL_POWER_FACTOR 1.f
 #define INITIAL_SIZE_FACTOR 1.f

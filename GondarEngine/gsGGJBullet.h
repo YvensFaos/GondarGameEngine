@@ -11,7 +11,8 @@ public:
 	gsGGJBulletType bulletType;
 	gsSpriteSheet *sprite;
 	gsVector3 offset;
-	float angulo;
+	float angle;
+
 	gsGGJBullet() {}
 	gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTransform* shooterTransform, gsGGJGame *game);
 	virtual ~gsGGJBullet();
@@ -20,6 +21,7 @@ public:
 	void draw();
 
 	void doSpiral();
+	void setUpSprite(bool isPlayerBullet);
 	
 
 	void onCollision(gsGameObject *_other, const gsCollisionInfo& info);
