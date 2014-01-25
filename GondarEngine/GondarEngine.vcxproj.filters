@@ -274,6 +274,9 @@
     <ClInclude Include="gsGGJEnemySpawner.h">
       <Filter>Games\GGJ Game\Objects</Filter>
     </ClInclude>
+    <ClInclude Include="gsGGJShop.h">
+      <Filter>Games\GGJ Game\Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsMain.cpp" />
@@ -404,6 +407,9 @@
       <Filter>Games\GGJ Game\Objects</Filter>
     </ClCompile>
     <ClCompile Include="gsGGJEnemySpawner.cpp">
+      <Filter>Games\GGJ Game\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="gsShop.cpp">
       <Filter>Games\GGJ Game\Objects</Filter>
     </ClCompile>
   </ItemGroup>

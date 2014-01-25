@@ -139,6 +139,7 @@
     <ClInclude Include="gsShootEmUp_Bullet.h" />
     <ClInclude Include="gsShootEmUp_EnemySpawner.h" />
     <ClInclude Include="gsShootEmUp_Player.h" />
+    <ClInclude Include="gsGGJShop.h" />
     <ClInclude Include="gsSpriteSheet.h" />
     <ClInclude Include="gsSystem.h" />
     <ClInclude Include="gsTexture.h" />
@@ -194,6 +195,7 @@
     <ClCompile Include="gsShootEmUp_Enemy.cpp" />
     <ClCompile Include="gsShootEmUp_EnemySpawner.cpp" />
     <ClCompile Include="gsShootEmUp_Player.cpp" />
+    <ClCompile Include="gsShop.cpp" />
     <ClCompile Include="gsSpriteSheet.cpp" />
     <ClCompile Include="gsTexture.cpp" />
     <ClCompile Include="gsTransform.cpp" />
