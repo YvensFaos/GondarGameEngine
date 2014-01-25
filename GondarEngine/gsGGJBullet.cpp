@@ -5,12 +5,12 @@
 #include "gsSystem.h"
 #include "gsGGJGlobals.h"
 
-gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTransform* shooterTransform, gsGGJGame *game) : gsGGJObject(game) {
+gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTransform* shooterTransform, gsGGJGame *game,gsColor color) : gsGGJObject(game) {
 	gsVector3 pos = shooterTransform->position;
 	gsVector3 size = INITIAL_BULLET_SIZE;
 	size.x += shooterTransform->size.x / 2;
 	gsVector3 speed = INITIAL_BULLET_SPEED;
-
+	this->color = color;
 
 	if (isPlayerBullet) {
 		tag = gsGGJTag::PlayerBullet;
@@ -26,9 +26,16 @@ gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTran
 	offset = gsVector3::zero();
 	angle = 0;
 
-	transform = gsTransform(pos, size, gsVector3::zero(), speed, gsColor::white());
+	transform = gsTransform(pos, size, gsVector3::zero(), speed, color);
 
 	collisionMask = 0x01;
+	if(color == gsColor::red()); this->phase = RedPhase;
+	if(color == gsColor::green()); this->phase = GreenPhase;		
+	if(color == gsColor::blue()); this->phase = BluePhase;
+	if(color == gsColor::yellow()); this->phase = YellowPhase;
+	if(color == gsColor::magenta()); this->phase = MagentaPhase;
+
+
 }
 gsGGJBullet::~gsGGJBullet() {
 	delete sprite;

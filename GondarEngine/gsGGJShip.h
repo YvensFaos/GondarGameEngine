@@ -16,6 +16,7 @@ public:
 	float avoidChance;
 	float hp;
 	float damage;
+	gsColor color;
 	gsSpriteSheet *sprite;
 	gsGGJPhase phase;
 	gsGGJBulletType bulletType;
@@ -31,6 +32,7 @@ public:
 		avoidChance = gsGGJGlobal_AvoidChance;
 		phase = gsGGJGlobal_Phase;
 		bulletType = gsGGJGlobal_BulletType;
+		color = gsColor::white();
 	}
 	virtual ~gsGGJShip() {}
 };

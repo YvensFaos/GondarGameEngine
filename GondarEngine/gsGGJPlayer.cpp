@@ -44,7 +44,7 @@ void gsGGJPlayer::shoot()
 	{
 		weaponCooldownTime = 0;
 		
-		gsGGJBullet *bullet = new gsGGJBullet(true, gsGGJBulletType::Spiral, &this->transform, game);
+		gsGGJBullet *bullet = new gsGGJBullet(true, gsGGJBulletType::Spiral, &this->transform, game,this->color);
 		game->addObjetToObjectsList(bullet);
 	}
 }
@@ -117,7 +117,13 @@ void gsGGJPlayer::toChangeColor()
 
 void gsGGJPlayer::changeColor(gsColor color)
 {
+	this->color = color;
 	transform.tint = color;	
+	if(color == gsColor::red()); this->phase = RedPhase;
+	if(color == gsColor::green()); this->phase = GreenPhase;		
+	if(color == gsColor::blue()); this->phase = BluePhase;
+	if(color == gsColor::yellow()); this->phase = YellowPhase;
+	if(color == gsColor::magenta()); this->phase = MagentaPhase;
 }
 
 void gsGGJPlayer::onCollision(gsGameObject *other, const gsCollisionInfo& info)
