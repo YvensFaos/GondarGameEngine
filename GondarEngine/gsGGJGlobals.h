@@ -14,11 +14,18 @@ extern gsGGJPhase gsGGJGlobal_Phase;
 extern gsGGJBulletType gsGGJGlobal_BulletType;
 
 //Definições dos valores iniciais do jogo
-#define INIT_PLAYER_HEATH 10
-#define INIT_PLAYER_ALPHA 1.f
+#define INITIAL_PLAYER_HEATH 80
+#define INITIAL_PLAYER_DAMAGE 10
 
-#define INIT_ROF 1
-#define INIT_SPEED 5
+#define INITIAL_ENEMY_HEATH 42
+#define INITIAL_ENEMY_DAMAGE 6
 
+#define INITIAL_POWER_FACTOR 1.f
+#define INITIAL_SIZE_FACTOR 1.f
+#define INITIAL_SPEED_FACTOR 1.f
+#define INITIAL_AVOID_CHANCE 1.f
+#define INITIAL_CANNONS 1
+#define INITIAL_PHASE gsGGJPhase::BluePhase
+#define INITIAL_BULLET_TYPE gsGGJBulletType::Normal
 
 #endif
