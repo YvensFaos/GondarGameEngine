@@ -1,13 +1,11 @@
 #ifndef __GS_GGJ_SHIP__
 #define __GS_GGJ_SHIP__
 
-
 #include "gsGGJObject.h"
 #include "gsGGJTag.h"
 #include "gsGGJPhase.h"
 #include "gsGGJGlobals.h"
 #include "gsSpriteSheet.h"
-
 
 class gsGGJShip : public gsGGJObject {
 public:
