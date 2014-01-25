@@ -11,8 +11,10 @@ gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTran
 	size.x += shooterTransform->size.x / 2;
 	gsVector3 speed = INITIAL_BULLET_SPEED;
 
+
 	if (isPlayerBullet) {
 		tag = gsGGJTag::PlayerBullet;
+		pos.y -= size.y + 64;
 		speed *= -1;
 	} else {
 		tag = gsGGJTag::EnemyBullet;
@@ -25,6 +27,8 @@ gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTran
 	angle = 0;
 
 	transform = gsTransform(pos, size, gsVector3::zero(), speed, gsColor::white());
+
+	collisionMask = 0x01;
 }
 gsGGJBullet::~gsGGJBullet() {
 	delete sprite;
@@ -38,7 +42,8 @@ void gsGGJBullet::update() {
 		game->removeObjectFromObjectsList(this);
 		return;
 	}
-	
+	sprite->updateAnimation();
+	transform.setTextureCoordinates(sprite->getCurrentSprite());
 	if (bulletType == gsGGJBulletType::Spiral) {
 		doSpiral();
 	}
@@ -53,9 +58,9 @@ void gsGGJBullet::draw() {
 void gsGGJBullet::doSpiral() {
 	int raio = 40;
 	transform.position -= offset;
-	angle += gsClock::getDeltaTime();
-	offset.x = sin(angle * raio);
-	offset.y = cos(angle * raio);
+	angle += gsClock::getDeltaTime() * 20;
+	offset.x = sin(angle) * raio;
+	offset.y = cos(angle) * raio * 2 ;
 	transform.position += offset;
 }
 

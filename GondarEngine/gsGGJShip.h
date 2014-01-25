@@ -1,13 +1,11 @@
 #ifndef __GS_GGJ_SHIP__
 #define __GS_GGJ_SHIP__
 
-
 #include "gsGGJObject.h"
 #include "gsGGJTag.h"
 #include "gsGGJPhase.h"
 #include "gsGGJGlobals.h"
 #include "gsSpriteSheet.h"
-
 
 class gsGGJShip : public gsGGJObject {
 public:
@@ -25,7 +23,7 @@ public:
 	float weaponCooldownTime;
 
 	gsGGJShip() {}
-	gsGGJShip(gsGGJGame *game) {
+	gsGGJShip(gsGGJGame *game) : gsGGJObject(game) {
 		powerFactor = gsGGJGlobal_PowerFactor;
 		sizeFactor = gsGGJGlobal_SizeFactor;
 		speedFactor = gsGGJGlobal_SpeedFactor;
