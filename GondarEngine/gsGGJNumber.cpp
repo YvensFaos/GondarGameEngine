@@ -23,8 +23,15 @@ void gsGGJNumber::draw() {
 	gsGraphics::drawQuad(transform);
 }
 
+
+void gsGGJNumber::changeDigit(int i)
+{
+	this->digit = i;
+}
+
 void gsGGJNumber::update()
 {
+
 }
 
 gsGGJNumber::~gsGGJNumber(void)
