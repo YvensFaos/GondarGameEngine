@@ -11,6 +11,12 @@ class gsGGJEnemySpawner : public gsGGJObject
 private:
 	float spawnCooldown;
 	float spawnTimer;
+
+	float slaienTimer;
+	float fractalisTimer;
+
+	bool stateMachine;
+	int state;
 public:
 	gsGGJEnemySpawner() {}
 	gsGGJEnemySpawner(gsGGJGame *game);
