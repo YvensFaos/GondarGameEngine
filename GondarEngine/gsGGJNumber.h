@@ -18,6 +18,7 @@ public:
 	virtual void update();
 	virtual void draw();
 
+	void changeDigit(int i);
 	void onCollision(gsGameObject *other, const gsCollisionInfo& info){}
 };
 
