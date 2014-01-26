@@ -10,7 +10,7 @@ class gsGGJHealth : public gsGGJObject {
 public:
 	gsGGJShip* target;
 	gsSpriteSheet *sprite;
-	float acelerateCounter;
+	float size;
 
 	gsGGJHealth(void) {}
 	gsGGJHealth(gsGGJGame *game, gsGGJShip *target);
