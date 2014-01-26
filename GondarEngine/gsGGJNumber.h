@@ -12,7 +12,7 @@ public:
 	int digit;
 
 	gsGGJNumber(void) {}
-	gsGGJNumber(gsGGJGame* game);
+	gsGGJNumber(int digit,gsGGJGame* game);
 	virtual ~gsGGJNumber(void);
 
 	virtual void update();
