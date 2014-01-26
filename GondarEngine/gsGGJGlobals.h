@@ -15,6 +15,7 @@ extern int gsGGJGlobal_PhasesAvaiable;
 extern gsGGJBulletType gsGGJGlobal_BulletType;
 
 extern int gsGGJGlobal_Points;
+extern int gsGGJGlobal_UpgradesPurchased;
 
 //Definições dos valores iniciais do jogo
 #define INITIAL_PLAYER_HEATH 80
