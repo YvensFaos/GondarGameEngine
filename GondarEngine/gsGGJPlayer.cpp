@@ -18,6 +18,8 @@ gsGGJPlayer::gsGGJPlayer(gsGGJGame *game) : gsGGJShip(game)
 	// tetenta pelo construtor
 	transform = gsTransform(gsVector3(400, 300, 0), gsVector3(66, 60, 0), gsColor::white(1.0f));
 	collisionMask = 0x02;
+
+	changeColor(gsGGJPhase::BluePhase);
 }
 
 void gsGGJPlayer::draw()
@@ -107,11 +109,11 @@ void gsGGJPlayer::changeColor(gsGGJPhase phase)
 {
 	this->phase = phase;
 	collisionMask &= ~phase;
-	if (phase == gsGGJPhase::RedPhase) transform.tint = gsColor::red();
-	else if (phase == gsGGJPhase::GreenPhase) transform.tint = gsColor::green();
-	else if (phase == gsGGJPhase::BluePhase) transform.tint = gsColor::blue();
-	else if (phase == gsGGJPhase::YellowPhase) transform.tint = gsColor::yellow();
-	else if (phase == gsGGJPhase::MagentaPhase) transform.tint = gsColor::magenta();
+	if (phase == gsGGJPhase::RedPhase) transform.tint = PHASE_RED_COLOR;
+	else if (phase == gsGGJPhase::GreenPhase) transform.tint = PHASE_GREEN_COLOR;
+	else if (phase == gsGGJPhase::BluePhase) transform.tint = PHASE_BLUE_COLOR;
+	else if (phase == gsGGJPhase::YellowPhase) transform.tint = PHASE_YELLOW_COLOR;
+	else if (phase == gsGGJPhase::MagentaPhase) transform.tint = PHASE_MAGENTA_COLOR;
 	collisionMask |= phase;
 }
 

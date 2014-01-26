@@ -9,7 +9,7 @@
 gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTransform* shooterTransform, gsGGJGame *game, gsGGJPhase phase) : gsGGJObject(game) {
 	gsVector3 pos = shooterTransform->position;
 	gsVector3 size = INITIAL_BULLET_SIZE;
-	size.x += shooterTransform->size.x / 2;
+	//size.x += shooterTransform->size.x / 2;
 	gsVector3 speed = INITIAL_BULLET_SPEED;
 
 	switch (bulletType) {
@@ -40,11 +40,11 @@ gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTran
 	transform = gsTransform(pos, size, gsVector3::zero(), speed, gsColor::white());
 
 	this->phase = phase;
-	if (phase == gsGGJPhase::RedPhase) transform.tint = gsColor::red();
-	else if (phase == gsGGJPhase::GreenPhase) transform.tint = gsColor::green();
-	else if (phase == gsGGJPhase::BluePhase) transform.tint = gsColor::blue();
-	else if (phase == gsGGJPhase::YellowPhase) transform.tint = gsColor::yellow();
-	else if (phase == gsGGJPhase::MagentaPhase) transform.tint = gsColor::magenta();
+	if (phase == gsGGJPhase::RedPhase) transform.tint = PHASE_RED_COLOR;
+	else if (phase == gsGGJPhase::GreenPhase) transform.tint = PHASE_GREEN_COLOR;
+	else if (phase == gsGGJPhase::BluePhase) transform.tint = PHASE_BLUE_COLOR;
+	else if (phase == gsGGJPhase::YellowPhase) transform.tint = PHASE_YELLOW_COLOR;
+	else if (phase == gsGGJPhase::MagentaPhase) transform.tint = PHASE_MAGENTA_COLOR;
 
 	solid = false;
 }
@@ -111,11 +111,8 @@ void gsGGJBullet::setUpSprite(bool isPlayerBullet) {
 	for (int i = 0; i < keyCount; i++) {
 		keyframes[i] = i;
 	}
-	if (isPlayerBullet) {
-		sprite = new gsSpriteSheet("Shoot/player_bullet.png", "bullet", 1, 3);
-	} else {
-		sprite = new gsSpriteSheet("Shoot/enemy_bullet.png", "bullet", 1, 3);
-	}
+
+	sprite = new gsSpriteSheet("GGJ/bullet_simple.png", "bullet", 1, 3);
 
 	gsAnimationClip *clip = new gsAnimationClip("bulletClip", keyframes, keyCount, 0.2f);
 	sprite->addAnimation(clip);

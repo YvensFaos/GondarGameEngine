@@ -19,13 +19,7 @@ void gsGGJGame::start()
 	gsGGJGlobal_BulletType = INITIAL_BULLET_TYPE;
 
 	this->player = new gsGGJPlayer(this);
-	gsGGJNumber* number = new gsGGJNumber(this);
-	number->transform.position = gsVector3(300, 300, 0);
-	number->transform.size = gsVector3(100, 100, 0);
-	number->transform.tint = gsColor::white();
 
-	addObjetToObjectsList(player);
-	addObjetToObjectsList(number);
 	addObjetToObjectsList(new gsGGJEnemySpawner(this));
 	addObjetToObjectsList(new gsGGJShop(this));
 }

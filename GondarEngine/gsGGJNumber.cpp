@@ -5,15 +5,15 @@
 #include "gsSpriteSheet.h"
 #include "gsAnimationClip.h"
 
-gsGGJNumber::gsGGJNumber(gsGGJGame* game) : gsGGJObject(game)
+gsGGJNumber::gsGGJNumber(int digit,gsGGJGame* game) : gsGGJObject(game)
 {
 	sprite = new gsSpriteSheet("GGJ\\numbers.png", "numbersspritesheet", 1, 10);
+	this->digit = digit;
 
-	transform = gsTransform(gsVector3(400, 300, 0), gsVector3(50, 50, 0), gsColor::white(1.0f));
+	transform = gsTransform(gsVector3(20 * digit, 0, 0), gsVector3(25, 25, 0), gsColor::white(1.0f));
 	collident = false;
 	solid = false;
 
-	digit = 0;
 }
 
 void gsGGJNumber::draw() {
@@ -25,7 +25,6 @@ void gsGGJNumber::draw() {
 
 void gsGGJNumber::update()
 {
-	//digit = (int)gsClock::getTotalTime() % 10;
 }
 
 gsGGJNumber::~gsGGJNumber(void)

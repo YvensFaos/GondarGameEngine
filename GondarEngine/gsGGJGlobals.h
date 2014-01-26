@@ -25,7 +25,7 @@ extern int gsGGJGlobal_Points;
 #define INITIAL_ENEMY_DAMAGE 6
 #define INITIAL_ENEMY_SIZE gsVector3(32, 32, 0);
 
-#define INITIAL_BULLET_SPEED gsVector3(0, 100, 0);
+#define INITIAL_BULLET_SPEED gsVector3(0, 300, 0);
 #define INITIAL_BULLET_SIZE gsVector3(16, 16, 0)
 
 #define INITIAL_POWER_FACTOR 1.f
@@ -77,12 +77,13 @@ extern int gsGGJGlobal_Points;
 #define BULLET_DAMAGE_SPIRAL 20.0f
 #define BULLET_DAMAGE_SPREAD 15.0f
 
-#define WAVE_2_TIME 40
-#define WAVE_3_TIME WAVE_2_TIME + 60
-#define WAVE_4_TIME WAVE_3_TIME + 70
-#define WAVE_5_TIME WAVE_4_TIME + 80
-#define WAVE_6_TIME WAVE_5_TIME + 90
-#define WAVE_7_TIME WAVE_6_TIME + 100
+#define PHASE_RED_COLOR gsColor(1.0f, 0.0f, 0.0f)
+#define PHASE_GREEN_COLOR gsColor(0.0f, 1.0f, 0.0f)
+#define PHASE_BLUE_COLOR gsColor(0.145f, 0.56f, 0.682)
+#define PHASE_YELLOW_COLOR gsColor(1.0f, 1.0f, 0.0f)
+#define PHASE_MAGENTA_COLOR gsColor(1.0f, 0.0f, 1.0f)
+
+// 0 145    0 56     0 682
 
 
 #endif
