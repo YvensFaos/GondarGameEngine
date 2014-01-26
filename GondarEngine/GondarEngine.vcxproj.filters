@@ -471,14 +471,5 @@
     <Image Include="Shoot\player_walking_broken.png">
       <Filter>Files\Shoot</Filter>
     </Image>
-    <Image Include="GGJ\main_ship.png">
-      <Filter>Files\Shoot</Filter>
-    </Image>
-    <Image Include="GGJ\numbers.png">
-      <Filter>Files\Shoot</Filter>
-    </Image>
-    <Image Include="GGJ\tab_hud.png">
-      <Filter>Files\Shoot</Filter>
-    </Image>
   </ItemGroup>
 </Project>

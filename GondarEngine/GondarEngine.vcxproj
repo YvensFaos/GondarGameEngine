@@ -99,10 +99,6 @@
     <ClInclude Include="gsGGJSimlen.h" />
     <ClInclude Include="gsGGJSlaien.h" />
     <ClInclude Include="gsGGJTag.h" />
-<<<<<<< HEAD
-    <ClInclude Include="gsGGJNumber.h" />
-=======
->>>>>>> f8ecffa20a5f5efa1354fd6adb6742856874d61b
     <ClInclude Include="gsScrollingDemo.h" />
     <ClInclude Include="gsShootEmUpObject.h" />
     <ClInclude Include="gsShootEmUpObjectTag.h" />
@@ -187,12 +183,8 @@
     <ClCompile Include="gsGGJGlobals.cpp" />
     <ClCompile Include="gsGGJNumber.cpp" />
     <ClCompile Include="gsGGJPlayer.cpp" />
-<<<<<<< HEAD
-    <ClCompile Include="gsGGJNumber.cpp" />
-=======
     <ClCompile Include="gsGGJSimlen.cpp" />
     <ClCompile Include="gsGGJSlaien.cpp" />
->>>>>>> f8ecffa20a5f5efa1354fd6adb6742856874d61b
     <ClCompile Include="gsGraphics.cpp" />
     <ClCompile Include="gsInput.cpp" />
     <ClCompile Include="gsLogger.cpp" />
@@ -226,9 +218,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
     </Image>
-    <Image Include="GGJ\main_ship.png" />
-    <Image Include="GGJ\numbers.png" />
-    <Image Include="GGJ\tab_hud.png" />
     <Image Include="gondar_texture.jpg">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
