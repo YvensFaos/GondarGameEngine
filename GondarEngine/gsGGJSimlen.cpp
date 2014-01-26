@@ -48,6 +48,9 @@ gsGGJSimlen::gsGGJSimlen(gsGGJGame *game) : gsGGJEnemy(game){
 	else if (phase == gsGGJPhase::MagentaPhase) transform.tint = PHASE_MAGENTA_COLOR;
 
 	solid = false;
+
+	transform.size *= sizeFactor;
+	transform.speed *= speedFactor;
 }
 
 void gsGGJSimlen::setupSpritesheet()

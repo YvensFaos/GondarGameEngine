@@ -44,6 +44,9 @@ gsGGJEnemy::gsGGJEnemy(gsGGJGame *game) : gsGGJShip(game) {
 	else if (phase == gsGGJPhase::BluePhase) transform.tint = PHASE_BLUE_COLOR;
 	else if (phase == gsGGJPhase::YellowPhase) transform.tint = PHASE_YELLOW_COLOR;
 	else if (phase == gsGGJPhase::MagentaPhase) transform.tint = PHASE_MAGENTA_COLOR;
+
+	transform.size *= sizeFactor;
+	transform.speed *= speedFactor;
 }
 gsGGJEnemy::~gsGGJEnemy() {
 	delete sprite;
@@ -69,7 +72,16 @@ void gsGGJEnemy::update() {
 	} else {
 		if (cooldownTime > cooldown) {
 			cooldownTime -= cooldown;
-			shoot();
+			if (cannons == 1) {
+				shoot(0);
+			} else {
+				float margin = CANNONS_INTERBULLET_MARGIN;
+				float offset = (margin * cannons) / 2.0f;
+				for (int i = 0; i <= cannons; i++)
+				{
+					shoot(margin * i - offset);
+				}
+			}
 		}
 		if (burstWaitTime > burstWaitCooldown) {
 			burstWaitCooldown = ENEMY_WAITING_TIME;
@@ -91,14 +103,16 @@ void gsGGJEnemy::onCollision(gsGameObject *_other, const gsCollisionInfo& info) 
 	if (otherCastedToGGJObject->tag == gsGGJTag::PlayerBullet) {
 		gsGGJBullet *other = static_cast<gsGGJBullet*>(_other);
 		if (phase != other->phase) {
-			hp -= other->damage;
+			if (gsRandom::chance(gsGGJGlobal_AvoidChance)) {
+				hp -= other->damage;
 
-			if (hp <= 0) {
-				game->removeObjectFromObjectsList(this);
-				gsGGJGlobal_Points += POINTS_WHEN_ENEMY_DIES;
-				return;
+				if (hp <= 0) {
+					game->removeObjectFromObjectsList(this);
+					gsGGJGlobal_Points += POINTS_WHEN_ENEMY_DIES;
+					return;
+				}
+				gsGGJGlobal_Points += POINTS_WHEN_BULLET_STRIKES;
 			}
-			gsGGJGlobal_Points += POINTS_WHEN_BULLET_STRIKES;
 		}
 	}
 }
@@ -118,7 +132,8 @@ void gsGGJEnemy::setupSpritesheet() {
 void gsGGJEnemy::move() {
 	transform.applySpeed();
 }
-void gsGGJEnemy::shoot() {
+void gsGGJEnemy::shoot(float offsetX) {
     gsGGJBullet *bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+	bullet->transform.position.x += offsetX;
 	game->addObjetToObjectsList(bullet);
 }

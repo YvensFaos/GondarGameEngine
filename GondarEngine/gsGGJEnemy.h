@@ -25,7 +25,7 @@ public:
 
 	virtual void setupSpritesheet();
 	virtual void move();
-	virtual void shoot();
+	virtual void shoot(float offsetX);
 };
 
 #endif

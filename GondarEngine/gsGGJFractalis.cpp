@@ -47,6 +47,9 @@ gsGGJFractalis::gsGGJFractalis(gsGGJGame *game) : gsGGJEnemy(game){
 
 	solid = false;
 	this->bulletType = gsGGJBulletType::Spiral;
+
+	transform.size *= sizeFactor;
+	transform.speed *= speedFactor;
 }
 
 void gsGGJFractalis::setupSpritesheet()

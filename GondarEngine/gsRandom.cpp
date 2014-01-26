@@ -41,7 +41,7 @@ bool gsRandom::chance(int chance)
 	if(chance < 0) return false;
 
 	int value = nextInt(0, 100);
-	if(value > chance)
+	if(value < chance)
 	{
 		return true;
 	}

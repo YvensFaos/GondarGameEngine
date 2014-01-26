@@ -47,6 +47,7 @@ gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTran
 	else if (phase == gsGGJPhase::MagentaPhase) transform.tint = PHASE_MAGENTA_COLOR;
 
 	solid = false;
+	damage *= gsGGJGlobal_PowerFactor;
 }
 gsGGJBullet::~gsGGJBullet() {
 	delete sprite;

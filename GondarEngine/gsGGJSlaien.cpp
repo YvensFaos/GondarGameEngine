@@ -48,6 +48,9 @@ gsGGJSlaien::gsGGJSlaien(gsGGJGame *game) : gsGGJEnemy(game){
 
 	solid = false;
 	this->bulletType = gsGGJBulletType::Spread;
+
+	transform.size *= sizeFactor;
+	transform.speed *= speedFactor;
 }
 
 void gsGGJSlaien::setupSpritesheet()

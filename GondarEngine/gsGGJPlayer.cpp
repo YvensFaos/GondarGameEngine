@@ -24,8 +24,24 @@ gsGGJPlayer::gsGGJPlayer(gsGGJGame *game) : gsGGJShip(game)
 
 	gsGGJHealth* healthBar = new gsGGJHealth(game, this);
 	game->addObjetToObjectsList(healthBar);
+
+	transform.size *= sizeFactor;
 }
 
+void gsGGJPlayer::update()
+{
+	if (this->sizeFactor != gsGGJGlobal_SizeFactor) {
+		transform.size /= sizeFactor;
+		transform.size *= gsGGJGlobal_SizeFactor;
+		this->sizeFactor = gsGGJGlobal_SizeFactor;
+	}
+
+	move();
+	shoot();
+	toChangeColor();
+	/*sprite->updateAnimation();
+	transform.setTextureCoordinates(sprite->getCurrentSprite());*/
+}
 void gsGGJPlayer::draw()
 {
 	sprite->sendToOpenGL_Texture();
@@ -40,39 +56,52 @@ void gsGGJPlayer::shoot()
 		cooldownTime = 0;
 		
 		gsTransform* bulletTransform = new gsTransform(transform);
-		bulletTransform->position.x += 25;
-		bulletTransform->position.y += 80;
-		gsGGJBullet *bullet = new gsGGJBullet(true, bulletType, bulletTransform, game, phase);
-		game->addObjetToObjectsList(bullet);
+
+		if (cannons == 1) {
+			bulletTransform->position.x += transform.size.x / 2;
+			bulletTransform->position.y -= 0;
+			gsGGJBullet *bullet = new gsGGJBullet(true, bulletType, bulletTransform, game, phase);
+			game->addObjetToObjectsList(bullet);
+		} else {
+			float margin = CANNONS_INTERBULLET_MARGIN;
+			float offset = (margin * cannons) / 2.0f;
+			for (int i = 0; i <= cannons; i++)
+			{
+				bulletTransform->position = transform.position;
+				bulletTransform->position.x += (transform.size.x / 2) + margin * i - offset;
+				bulletTransform->position.y += transform.size.y * 0.6f;
+				gsGGJBullet *bullet = new gsGGJBullet(true, bulletType, bulletTransform, game, phase);
+				game->addObjetToObjectsList(bullet);
+			}
+		}
+
+		delete bulletTransform;
 	}
 }
 
-gsGGJPlayer::~gsGGJPlayer(void)
-{
-
-}
+gsGGJPlayer::~gsGGJPlayer(void) {}
 
 void gsGGJPlayer::move()
 {
 	if (gsInput::queryKey(GLFW_KEY_LEFT) == gsKeyState::Pressed)
 	{
-		transform.speed = gsVector3(-380, 0, 0);
+		transform.speed = gsVector3(-380, 0, 0) * gsGGJGlobal_SpeedFactor;
 		transform.applySpeed();
 	}
 
 	if (gsInput::queryKey(GLFW_KEY_RIGHT) == gsKeyState::Pressed)
 	{
-		transform.speed = gsVector3(380, 0, 0);
+		transform.speed = gsVector3(380, 0, 0) * gsGGJGlobal_SpeedFactor;
 		transform.applySpeed();
 	}
 
 	if (gsInput::queryKey(GLFW_KEY_UP) == gsKeyState::Pressed){
-		transform.speed = gsVector3(0, -380, 0);
+		transform.speed = gsVector3(0, -380, 0) * gsGGJGlobal_SpeedFactor;
 		transform.applySpeed();
 	}
 
 	if (gsInput::queryKey(GLFW_KEY_DOWN) == gsKeyState::Pressed){
-		transform.speed = gsVector3(0, 380, 0);
+		transform.speed = gsVector3(0, 380, 0) * gsGGJGlobal_SpeedFactor;
 		transform.applySpeed();
 	}
 
@@ -87,15 +116,6 @@ void gsGGJPlayer::move()
 	} else if (transform.position.y + transform.size.y > GS_RESOLUTION_Y) {
 		transform.position.y = GS_RESOLUTION_Y -1 - transform.size.y;
 	}
-}
-
-void gsGGJPlayer::update()
-{
-	move();
-	shoot();
-	toChangeColor();
-	/*sprite->updateAnimation();
-	transform.setTextureCoordinates(sprite->getCurrentSprite());*/
 }
 
 void gsGGJPlayer::toChangeColor()
@@ -131,11 +151,13 @@ void gsGGJPlayer::onCollision(gsGameObject *_other, const gsCollisionInfo& info)
 	if (otherCastedToGGJObject->tag == gsGGJTag::EnemyBullet) {
 		gsGGJBullet *other = static_cast<gsGGJBullet*>(_other);
 		if (phase != other->phase) {
-			hp -= other->damage;
+			if (gsRandom::chance(gsGGJGlobal_AvoidChance)) {
+				hp -= other->damage;
 
-			if (hp <= 0) {
-				GS_LOG("Morreu");
-				return;
+				if (hp <= 0) {
+					GS_LOG("Morreu");
+					return;
+				}
 			}
 		}
 	}
