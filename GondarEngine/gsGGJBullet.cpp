@@ -53,10 +53,7 @@ gsGGJBullet::~gsGGJBullet() {
 }
 
 void gsGGJBullet::update() {
-	if (transform.position.x + transform.size.x < 0 || transform.position.x > GS_RESOLUTION_X) {
-		game->removeObjectFromObjectsList(this);
-		return;
-	} else if (transform.position.y + transform.size.y < 0 || transform.position.y > GS_RESOLUTION_Y) {
+	if (transform.leftTheSceen()) {
 		game->removeObjectFromObjectsList(this);
 		return;
 	}

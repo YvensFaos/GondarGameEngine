@@ -18,6 +18,10 @@ gsGGJShop::~gsGGJShop(void) {
 void gsGGJShop::update() {
 	sprite->updateAnimation();
 	transform.setTextureCoordinates(sprite->getCurrentSprite());
+
+	if (gsInput::queryKey(GLFW_KEY_TAB) == gsKeyState::JustPressed) {
+		GS_LOG(gsGGJGlobal_Points);
+	}
 }
 void gsGGJShop::draw() {
 	if (gsInput::queryKey(GLFW_KEY_TAB) == gsKeyState::Pressed) {
