@@ -29,7 +29,7 @@ public:
 		speedFactor = gsGGJGlobal_SpeedFactor;
 		cannons = gsGGJGlobal_Cannons;
 		avoidChance = gsGGJGlobal_AvoidChance;
-		phase = gsGGJPhase::RedPhase; // it will be reset at the enemy constructor
+		phase = gsGGJPhase::BluePhase; // it will be reset at the enemy constructor
 		bulletType = gsGGJGlobal_BulletType;
 	}
 	virtual ~gsGGJShip() {}

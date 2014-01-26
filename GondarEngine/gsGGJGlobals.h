@@ -77,13 +77,12 @@ extern int gsGGJGlobal_Points;
 #define BULLET_DAMAGE_SPIRAL 20.0f
 #define BULLET_DAMAGE_SPREAD 15.0f
 
-#define PHASE_RED_COLOR gsColor(1.0f, 0.0f, 0.0f)
-#define PHASE_GREEN_COLOR gsColor(0.0f, 1.0f, 0.0f)
+#define PHASE_RED_COLOR gsColor(0.921f, 0.16f, 0.052f)
+#define PHASE_GREEN_COLOR gsColor(0.003f, 0.858f, 0.027f)
 #define PHASE_BLUE_COLOR gsColor(0.145f, 0.56f, 0.682)
-#define PHASE_YELLOW_COLOR gsColor(1.0f, 1.0f, 0.0f)
-#define PHASE_MAGENTA_COLOR gsColor(1.0f, 0.0f, 1.0f)
+#define PHASE_YELLOW_COLOR gsColor(0.905f, 0.737f, 0.066f)
+#define PHASE_MAGENTA_COLOR gsColor(1.0f, 0.454f, 0.870f)
 
-// 0 145    0 56     0 682
-
+#define PANORAMA_INITIAL_SPEEP 50
 
 #endif

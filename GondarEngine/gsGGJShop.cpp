@@ -26,6 +26,8 @@ void gsGGJShop::draw() {
 		transform.size = player->transform.size + gsVector3(64, 64, 0);
 		sprite->sendToOpenGL_Texture();
 		gsGraphics::drawQuad(transform);
+
+		//Lógica dos updates
 	}
 }
 	

@@ -35,7 +35,10 @@ void gsGGJPlayer::shoot()
 	{
 		cooldownTime = 0;
 		
-		gsGGJBullet *bullet = new gsGGJBullet(true, bulletType, &this->transform, game, phase);
+		gsTransform* bulletTransform = new gsTransform(transform);
+		bulletTransform->position.x += 25;
+		bulletTransform->position.y += 80;
+		gsGGJBullet *bullet = new gsGGJBullet(true, bulletType, bulletTransform, game, phase);
 		game->addObjetToObjectsList(bullet);
 	}
 }

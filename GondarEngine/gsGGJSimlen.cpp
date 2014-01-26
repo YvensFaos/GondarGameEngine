@@ -17,7 +17,7 @@ gsGGJSimlen::gsGGJSimlen(gsGGJGame *game) : gsGGJEnemy(game){
 	waiting = ENEMY_SIMLEN_WAITING;
 
 	//Alterar valores do transform
-	gsVector3 size = gsVector3(51, 51, 0);
+	gsVector3 size = gsVector3(32, 31, 0);
 	gsVector3 speed = gsVector3(gsRandom::nextInt(-50, 50), gsRandom::nextInt(30, 50), 0);
 	gsColor color = gsColor::white(1.f);
 
@@ -41,11 +41,11 @@ gsGGJSimlen::gsGGJSimlen(gsGGJGame *game) : gsGGJEnemy(game){
 		phase = gsGGJPhase::RedPhase;
 	}
 
-	if (phase == gsGGJPhase::RedPhase) transform.tint = gsColor::red();
-	else if (phase == gsGGJPhase::GreenPhase) transform.tint = gsColor::green();
-	else if (phase == gsGGJPhase::BluePhase) transform.tint = gsColor::blue();
-	else if (phase == gsGGJPhase::YellowPhase) transform.tint = gsColor::yellow();
-	else if (phase == gsGGJPhase::MagentaPhase) transform.tint = gsColor::magenta();
+	if (phase == gsGGJPhase::RedPhase) transform.tint = PHASE_RED_COLOR;
+	else if (phase == gsGGJPhase::GreenPhase) transform.tint = PHASE_GREEN_COLOR;
+	else if (phase == gsGGJPhase::BluePhase) transform.tint = PHASE_BLUE_COLOR;
+	else if (phase == gsGGJPhase::YellowPhase) transform.tint = PHASE_YELLOW_COLOR;
+	else if (phase == gsGGJPhase::MagentaPhase) transform.tint = PHASE_MAGENTA_COLOR;
 
 	solid = false;
 }
