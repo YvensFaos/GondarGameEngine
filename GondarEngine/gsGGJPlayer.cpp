@@ -151,7 +151,7 @@ void gsGGJPlayer::onCollision(gsGameObject *_other, const gsCollisionInfo& info)
 	if (otherCastedToGGJObject->tag == gsGGJTag::EnemyBullet) {
 		gsGGJBullet *other = static_cast<gsGGJBullet*>(_other);
 		if (phase != other->phase) {
-			if (gsRandom::chance(gsGGJGlobal_AvoidChance)) {
+			if (!gsRandom::chance(gsGGJGlobal_AvoidChance)) {
 				hp -= other->damage;
 
 				if (hp <= 0) {
