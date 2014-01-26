@@ -10,9 +10,10 @@ class gsGGJNumber : public gsGGJObject
 public:
 	gsSpriteSheet *sprite;
 	int digit;
+	int number;
 
 	gsGGJNumber(void) {}
-	gsGGJNumber(int digit,gsGGJGame* game);
+	gsGGJNumber(int number,int digit,gsGGJGame* game);
 	virtual ~gsGGJNumber(void);
 
 	virtual void update();

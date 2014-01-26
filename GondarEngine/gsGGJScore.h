@@ -4,11 +4,12 @@
 #include "gsGGJObject.h"
 #include "gsGGJNumber.h"
 #include "gsArrayList.h"
+#include "gsGGJGlobals.h"
 
 class gsGGJScore : public gsGGJObject
 {
 public:
-	gsArrayList<gsGGJNumber> numbers;
+	gsArrayList<gsGGJNumber *> numbers;
 
 	gsGGJScore(void) {}
 	gsGGJScore(gsGGJGame* game);
@@ -16,6 +17,8 @@ public:
 
 	virtual void update();
 	virtual void draw();
+	
+	int getNumberByIndex(int index);
 
 	void onCollision(gsGameObject *other, const gsCollisionInfo& info){}
 };
