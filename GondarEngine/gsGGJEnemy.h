@@ -6,13 +6,14 @@
 #include "gsSpriteSheet.h"
 
 class gsGGJEnemy : public gsGGJShip {
-private:
+
+public:
+
 	float burstWaitCooldown;
 	float burstWaitTime;
 	bool waiting;
 	float hp;
 
-public:
 	gsGGJEnemy() {}
 	gsGGJEnemy(gsGGJGame *game);
 	virtual ~gsGGJEnemy();
