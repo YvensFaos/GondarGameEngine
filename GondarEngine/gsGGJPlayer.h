@@ -4,8 +4,7 @@
 #include "gsGGJship.h"
 
 
-class gsGGJPlayer : public gsGGJShip
-{
+class gsGGJPlayer : public gsGGJShip {
 public: 
 	gsGGJPlayer(void) {}
 	gsGGJPlayer(gsGGJGame *game);
@@ -18,8 +17,10 @@ public:
 
 	void move();
 	void shoot();
-	void changeColor(gsColor color);
+	void changeColor(gsGGJPhase color);
 	void toChangeColor();
+
+	void setUpSpritesheet();
 };
 
 #endif

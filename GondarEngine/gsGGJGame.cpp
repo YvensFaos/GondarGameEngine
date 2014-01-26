@@ -9,7 +9,13 @@
 void gsGGJGame::start()
 {
 	GS_LOG("GS Shoot 'em Up Game Initialized\n");
-	gsAudio::play("Audio\\dota2.mp3", false, 1, 0);
+	gsGGJGlobal_PowerFactor = INITIAL_POWER_FACTOR;
+	gsGGJGlobal_SizeFactor = INITIAL_SIZE_FACTOR;
+	gsGGJGlobal_SpeedFactor = INITIAL_SPEED_FACTOR;
+	gsGGJGlobal_AvoidChance = INITIAL_AVOID_CHANCE;
+	gsGGJGlobal_Cannons = INITIAL_CANNONS;
+	gsGGJGlobal_PhasesAvaiable = INITIAL_PHASES_AVAIABLE;
+	gsGGJGlobal_BulletType = INITIAL_BULLET_TYPE;
 
 	this->player = new gsGGJPlayer(this);
 

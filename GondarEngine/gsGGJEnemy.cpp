@@ -8,66 +8,57 @@
 gsGGJEnemy::gsGGJEnemy(gsGGJGame *game) : gsGGJShip(game) {
 	tag = gsGGJTag::Enemy;
 
-	sprite = new gsSpriteSheet("Shoot/enemy_walking.png", "enemy", 1, 4);
-	int keyCount = 4;
-	int *keyframes = new int[keyCount];
-	for (int i = 0; i < keyCount; i++)
-	{
-		keyframes[i] = i;
-	}
-	gsAnimationClip *clip = new gsAnimationClip("enemyClip", keyframes, keyCount, 0.4f);
-	sprite->addAnimation(clip);
-	sprite->setAnimation("enemyClip");
+	setupSpritesheet();
 
-	weaponBurstCooldown = 0.4f;
-	weaponBurstTimer = 0;
+	hp = INITIAL_ENEMY_HEALTH;
+	burstWaitCooldown = ENEMY_INITIAL_WAITING_TIME;
+	burstWaitTime = 0;
+	cooldown = ENEMY_COOLDOWN_TIME;
+	cooldownTime = 0;
+	waiting = true;
 
-	gsVector3 size = gsVector3(
-		51,
-		51,
-		0);
-	gsVector3 speed = gsVector3(
-		gsRandom::nextInt(-50, 50),
-		gsRandom::nextInt(30, 50),
-		0);
+	gsVector3 size = gsVector3(51, 51, 0);
+	gsVector3 speed = gsVector3(gsRandom::nextInt(-50, 50), gsRandom::nextInt(30, 50), 0);
 	gsColor color = gsColor::white(1.f);
 
 	transform = gsTransform(transform.position, size, gsVector3::zero(), speed, color);
 
 	collisionMask = 0x01;
-
-	hp = INITIAL_ENEMY_HEALTH;
-
 }
 gsGGJEnemy::~gsGGJEnemy() {
-	//delete sprite;
+	delete sprite;
 }
 
 void gsGGJEnemy::update() {
-	transform.applySpeed();
-	sprite->updateAnimation();
-
-	transform.setTextureCoordinates(sprite->getCurrentSprite());
-
-	if (hp <= INITIAL_ENEMY_HEALTH / 2) {
-		delete sprite;
-		sprite = new gsSpriteSheet("Shoot/enemy_walking_broken.png", "enemy", 1, 4);
-		int keyCount = 4;
-		int *keyframes = new int[keyCount];
-		for (int i = 0; i < keyCount; i++)
-		{
-			keyframes[i] = i;
-		}
-		gsAnimationClip *clip = new gsAnimationClip("damagedEnemyClip", keyframes, keyCount, 0.4f);
-		sprite->addAnimation(clip);
-		sprite->setAnimation("damagedEnemyClip");
-	}
-
 	if (transform.leftTheSceen()) {
 		game->removeObjectFromObjectsList(this);
 		return;
 	}
-	// Logica de atualização do inimigo
+	
+	move();
+	burstWaitTime += gsClock::getDeltaTime();
+	cooldownTime += gsClock::getDeltaTime();
+
+	if (waiting) {
+		if (burstWaitTime > burstWaitCooldown) {
+			burstWaitCooldown = ENEMY_BURST_TIME;
+			burstWaitTime = 0;
+			cooldownTime = 0;
+			waiting = false;
+		}
+	} else {
+		if (cooldownTime > cooldown) {
+			cooldownTime -= cooldown;
+			shoot();
+		}
+		if (burstWaitTime > burstWaitCooldown) {
+			burstWaitCooldown = ENEMY_WAITING_TIME;
+			waiting = true;
+		}
+	}
+
+	sprite->updateAnimation();
+	transform.setTextureCoordinates(sprite->getCurrentSprite());
 }
 void gsGGJEnemy::draw() {
 	sprite->sendToOpenGL_Texture();
@@ -88,4 +79,24 @@ void gsGGJEnemy::onCollision(gsGameObject *_other, const gsCollisionInfo& info) 
 		}
 		gsGGJGlobal_Points += POINTS_WHEN_BULLET_STRIKES;
 	}
+}
+
+void gsGGJEnemy::setupSpritesheet() {
+	sprite = new gsSpriteSheet("Shoot/enemy_walking.png", "enemy", 1, 4);
+	int keyCount = 4;
+	int *keyframes = new int[keyCount];
+	for (int i = 0; i < keyCount; i++)
+	{
+		keyframes[i] = i;
+	}
+	gsAnimationClip *clip = new gsAnimationClip("enemyClip", keyframes, keyCount, 0.4f);
+	sprite->addAnimation(clip);
+	sprite->setAnimation("enemyClip");
+}
+void gsGGJEnemy::move() {
+	transform.applySpeed();
+}
+void gsGGJEnemy::shoot() {
+    gsGGJBullet *bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+	game->addObjetToObjectsList(bullet);
 }

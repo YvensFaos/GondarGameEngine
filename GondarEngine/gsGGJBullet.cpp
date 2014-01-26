@@ -5,12 +5,11 @@
 #include "gsSystem.h"
 #include "gsGGJGlobals.h"
 
-gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTransform* shooterTransform, gsGGJGame *game,gsColor color) : gsGGJObject(game) {
+gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTransform* shooterTransform, gsGGJGame *game, gsGGJPhase phase) : gsGGJObject(game) {
 	gsVector3 pos = shooterTransform->position;
 	gsVector3 size = INITIAL_BULLET_SIZE;
 	size.x += shooterTransform->size.x / 2;
 	gsVector3 speed = INITIAL_BULLET_SPEED;
-	this->color = color;
 
 	switch (bulletType) {
 		case gsGGJBulletType::Normal: damage = BULLET_DAMAGE_NORMAL;
@@ -25,9 +24,11 @@ gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTran
 		tag = gsGGJTag::PlayerBullet;
 		pos.y -= size.y + 64;
 		speed *= -1;
+		collisionMask = 0x01;
 	} else {
 		tag = gsGGJTag::EnemyBullet;
 		pos.y += shooterTransform->size.y;
+		collisionMask = 0x02;
 	}
 	setUpSprite(isPlayerBullet);
 
@@ -35,14 +36,14 @@ gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTran
 	offset = gsVector3::zero();
 	angle = 0;
 
-	transform = gsTransform(pos, size, gsVector3::zero(), speed, color);
+	transform = gsTransform(pos, size, gsVector3::zero(), speed, gsColor::white());
 
-	collisionMask = 0x01;
-	if(color == gsColor::red()); this->phase = RedPhase;
-	if(color == gsColor::green()); this->phase = GreenPhase;		
-	if(color == gsColor::blue()); this->phase = BluePhase;
-	if(color == gsColor::yellow()); this->phase = YellowPhase;
-	if(color == gsColor::magenta()); this->phase = MagentaPhase;
+	this->phase = phase;
+	if (phase == gsGGJPhase::RedPhase); transform.tint = gsColor::red();
+	if (phase == gsGGJPhase::GreenPhase); transform.tint = gsColor::green();
+	if (phase == gsGGJPhase::BluePhase); transform.tint = gsColor::blue();
+	if (phase == gsGGJPhase::YellowPhase); transform.tint = gsColor::yellow();
+	if (phase == gsGGJPhase::MagentaPhase); transform.tint = gsColor::magenta();
 
 	solid = false;
 }
