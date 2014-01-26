@@ -19,7 +19,7 @@ void gsGGJGame::start()
 	gsGGJGlobal_PhasesAvaiable = INITIAL_PHASES_AVAIABLE;
 	gsGGJGlobal_BulletType = INITIAL_BULLET_TYPE;
 
-	gsAudio::play("GGJ\\ShipSongOgg.ogg", true, 100, 0);
+	gsAudio::play("GGJ\\ShipSongOgg.ogg", true, 0, 0);
 
 	addObjetToObjectsList(new gsGGJPanorama(this));
 	addObjetToObjectsList(new gsGGJScore(this));
@@ -53,6 +53,11 @@ void gsGGJGame::update()
 			}
 		}
 		objectsToBeRemoved.clear();
+	}
+
+	if (gsInput::queryKey(GLFW_KEY_V) == gsKeyState::JustPressed)
+	{
+		GS_LOG("Objects: " << objects.getCapacity() << "Remove" << objectsToBeRemoved.getCapacity());
 	}
 }
 
