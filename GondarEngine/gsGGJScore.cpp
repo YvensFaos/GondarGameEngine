@@ -13,17 +13,21 @@ void gsGGJScore::draw()
 
 void gsGGJScore::update()
 {
-	for (int i = 0; i < numbers.getSize(); i++)
+	if(oldScore != gsGGJGlobal_Points)
 	{
-		delete numbers.get(i);
+		for (int i = 0; i < numbers.getSize(); i++)
+		{
+			numbers.get(i)->changeNumber(getNumberByIndex(i));
+		}
+		oldScore = gsGGJGlobal_Points;
 	}
-	numbers.clear();
-	for(int i = 0; i < 6; i++)
-			numbers.add(new gsGGJNumber(getNumberByIndex(i),i,game));
+	
+	
 }
 
 gsGGJScore::gsGGJScore(gsGGJGame *game) : gsGGJObject(game)
 {
+	oldScore = gsGGJGlobal_Points;
 	for(int i = 0; i < 6; i++)
 		numbers.add(new gsGGJNumber(getNumberByIndex(i),i,game));
 
@@ -31,7 +35,6 @@ gsGGJScore::gsGGJScore(gsGGJGame *game) : gsGGJObject(game)
 
 int gsGGJScore::getNumberByIndex(int index)
 {
-	float aux;
 	aux = gsGGJGlobal_Points % (int) pow(10,index + 1);
 	aux = aux / pow(10,index );
 	return (int) aux;

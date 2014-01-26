@@ -8,11 +8,17 @@
 
 class gsGGJScore : public gsGGJObject
 {
+private:
+		float aux;
+
 public:
 	gsArrayList<gsGGJNumber *> numbers;
 
 	gsGGJScore(void) {}
 	gsGGJScore(gsGGJGame* game);
+
+	int oldScore;
+
 	virtual ~gsGGJScore(void);
 
 	virtual void update();

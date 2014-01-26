@@ -3,7 +3,6 @@
 #include "gsSystem.h"
 #include "gsGGJGame.h"
 #include "gsSpriteSheet.h"
-#include "gsAnimationClip.h"
 
 gsGGJNumber::gsGGJNumber(int number,int digit,gsGGJGame* game) : gsGGJObject(game)
 {
@@ -26,9 +25,9 @@ void gsGGJNumber::draw() {
 }
 
 
-void gsGGJNumber::changeDigit(int i)
+void gsGGJNumber::changeNumber(int i)
 {
-	this->digit = i;
+	this->number = i;
 }
 
 void gsGGJNumber::update()
@@ -38,6 +37,6 @@ void gsGGJNumber::update()
 
 gsGGJNumber::~gsGGJNumber(void)
 { 
-	delete sprite;
+	delete this->sprite;
 }
 
