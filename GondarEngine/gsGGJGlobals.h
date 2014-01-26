@@ -29,12 +29,14 @@ extern int gsGGJGlobal_Points;
 #define INITIAL_BULLET_SIZE gsVector3(16, 16, 0)
 
 #define INITIAL_POWER_FACTOR 1.f
-#define INITIAL_SIZE_FACTOR 1.f
+#define INITIAL_SIZE_FACTOR 1.9f
 #define INITIAL_SPEED_FACTOR 1.f
 #define INITIAL_AVOID_CHANCE 1.f
-#define INITIAL_CANNONS 1
+#define INITIAL_CANNONS 4
 #define INITIAL_PHASES_AVAIABLE 5
 #define INITIAL_BULLET_TYPE gsGGJBulletType::Normal
+
+#define CANNONS_INTERBULLET_MARGIN 20
 
 #define POINTS_WHEN_ENEMY_DIES gsRandom::nextInt(45, 55);
 #define POINTS_WHEN_BULLET_STRIKES gsRandom::nextInt(1, 3); 
