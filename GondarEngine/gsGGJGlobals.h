@@ -25,7 +25,7 @@ extern int gsGGJGlobal_Points;
 #define INITIAL_ENEMY_DAMAGE 6
 #define INITIAL_ENEMY_SIZE gsVector3(32, 32, 0);
 
-#define INITIAL_BULLET_SPEED gsVector3(0, 100, 0);
+#define INITIAL_BULLET_SPEED gsVector3(0, 300, 0);
 #define INITIAL_BULLET_SIZE gsVector3(16, 16, 0)
 
 #define INITIAL_POWER_FACTOR 1.f

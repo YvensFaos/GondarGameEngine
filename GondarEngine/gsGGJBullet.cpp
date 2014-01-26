@@ -9,7 +9,7 @@
 gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTransform* shooterTransform, gsGGJGame *game, gsGGJPhase phase) : gsGGJObject(game) {
 	gsVector3 pos = shooterTransform->position;
 	gsVector3 size = INITIAL_BULLET_SIZE;
-	size.x += shooterTransform->size.x / 2;
+	//size.x += shooterTransform->size.x / 2;
 	gsVector3 speed = INITIAL_BULLET_SPEED;
 
 	switch (bulletType) {
@@ -111,11 +111,8 @@ void gsGGJBullet::setUpSprite(bool isPlayerBullet) {
 	for (int i = 0; i < keyCount; i++) {
 		keyframes[i] = i;
 	}
-	if (isPlayerBullet) {
-		sprite = new gsSpriteSheet("Shoot/player_bullet.png", "bullet", 1, 3);
-	} else {
-		sprite = new gsSpriteSheet("Shoot/enemy_bullet.png", "bullet", 1, 3);
-	}
+
+	sprite = new gsSpriteSheet("GGJ/bullet_simple.png", "bullet", 1, 3);
 
 	gsAnimationClip *clip = new gsAnimationClip("bulletClip", keyframes, keyCount, 0.2f);
 	sprite->addAnimation(clip);
