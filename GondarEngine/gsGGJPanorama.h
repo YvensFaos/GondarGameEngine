@@ -7,6 +7,7 @@ class gsSpriteSheet;
 
 class gsGGJPanorama : public gsGGJObject {
 public:
+	float acelerateCounter;
 	float speedFactor;
 	gsSpriteSheet *sprite;
 
@@ -18,6 +19,7 @@ public:
 	virtual void draw();
 	
 	void onCollision(gsGameObject *other, const gsCollisionInfo& info) {};
+	void acelerate(void);
 };
 
 #endif

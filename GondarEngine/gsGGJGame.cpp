@@ -4,6 +4,7 @@
 
 #include "gsGGJPlayer.h"
 #include "gsGGJShop.h"
+#include "gsGGJPanorama.h"
 #include "gsGGJEnemySpawner.h"
 #include "gsGGJNumber.h"
 
@@ -20,6 +21,7 @@ void gsGGJGame::start()
 
 	this->player = new gsGGJPlayer(this);
 
+	addObjetToObjectsList(new gsGGJPanorama(this));
 	addObjetToObjectsList(player);
 	addObjetToObjectsList(new gsGGJEnemySpawner(this));
 	addObjetToObjectsList(new gsGGJShop(this));
