@@ -88,6 +88,7 @@
     <ClInclude Include="gsGGJBullet.h" />
     <ClInclude Include="gsGGJBulletType.h" />
     <ClInclude Include="gsGGJEnemy.h" />
+    <ClInclude Include="gsGGJFractalis.h" />
     <ClInclude Include="gsGGJGame.h" />
     <ClInclude Include="gsGGJGlobals.h" />
     <ClInclude Include="gsGGJNumber.h" />
@@ -95,6 +96,8 @@
     <ClInclude Include="gsGGJPhase.h" />
     <ClInclude Include="gsGGJPlayer.h" />
     <ClInclude Include="gsGGJShip.h" />
+    <ClInclude Include="gsGGJSimlen.h" />
+    <ClInclude Include="gsGGJSlaien.h" />
     <ClInclude Include="gsGGJTag.h" />
     <ClInclude Include="gsScrollingDemo.h" />
     <ClInclude Include="gsShootEmUpObject.h" />
@@ -175,10 +178,13 @@
     <ClCompile Include="gsGGJBullet.cpp" />
     <ClCompile Include="gsGGJEnemy.cpp" />
     <ClCompile Include="gsGGJEnemySpawner.cpp" />
+    <ClCompile Include="gsGGJFractalis.cpp" />
     <ClCompile Include="gsGGJGame.cpp" />
     <ClCompile Include="gsGGJGlobals.cpp" />
     <ClCompile Include="gsGGJNumber.cpp" />
     <ClCompile Include="gsGGJPlayer.cpp" />
+    <ClCompile Include="gsGGJSimlen.cpp" />
+    <ClCompile Include="gsGGJSlaien.cpp" />
     <ClCompile Include="gsGraphics.cpp" />
     <ClCompile Include="gsInput.cpp" />
     <ClCompile Include="gsLogger.cpp" />

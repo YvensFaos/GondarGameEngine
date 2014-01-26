@@ -79,6 +79,9 @@
     <Filter Include="Games\GGJ Game\Enums">
       <UniqueIdentifier>{7c8aebe7-914a-4856-bae5-ad6050ec7bbf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\GGJ Game\Objects\Enemies">
+      <UniqueIdentifier>{e0dcd3de-ce3d-4044-b4c8-3382169679f0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gsEngine.h">
@@ -268,9 +271,6 @@
     <ClInclude Include="gsGGJBullet.h">
       <Filter>Games\GGJ Game\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="gsGGJEnemy.h">
-      <Filter>Games\GGJ Game\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="gsGGJEnemySpawner.h">
       <Filter>Games\GGJ Game\Objects</Filter>
     </ClInclude>
@@ -279,6 +279,18 @@
     </ClInclude>
     <ClInclude Include="gsGGJNumber.h">
       <Filter>Games\GGJ Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="gsGGJEnemy.h">
+      <Filter>Games\GGJ Game\Objects\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="gsGGJSimlen.h">
+      <Filter>Games\GGJ Game\Objects\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="gsGGJSlaien.h">
+      <Filter>Games\GGJ Game\Objects\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="gsGGJFractalis.h">
+      <Filter>Games\GGJ Game\Objects\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -406,9 +418,6 @@
     <ClCompile Include="gsGGJBullet.cpp">
       <Filter>Games\GGJ Game\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="gsGGJEnemy.cpp">
-      <Filter>Games\GGJ Game\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="gsGGJEnemySpawner.cpp">
       <Filter>Games\GGJ Game\Objects</Filter>
     </ClCompile>
@@ -417,6 +426,18 @@
     </ClCompile>
     <ClCompile Include="gsGGJNumber.cpp">
       <Filter>Games\GGJ Game\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="gsGGJEnemy.cpp">
+      <Filter>Games\GGJ Game\Objects\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="gsGGJSimlen.cpp">
+      <Filter>Games\GGJ Game\Objects\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="gsGGJSlaien.cpp">
+      <Filter>Games\GGJ Game\Objects\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="gsGGJFractalis.cpp">
+      <Filter>Games\GGJ Game\Objects\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
