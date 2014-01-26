@@ -17,12 +17,8 @@ public:
 	virtual void update();
 	virtual void draw();
 
-<<<<<<< HEAD
 	void onCollision(gsGameObject *other, const gsCollisionInfo& info){}
 	void draw(int number,int x, int y);
-=======
-	~gsGGJNumber(void);
->>>>>>> f8ecffa20a5f5efa1354fd6adb6742856874d61b
 };
 
 #endif
