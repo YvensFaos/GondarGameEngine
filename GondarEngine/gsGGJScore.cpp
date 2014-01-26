@@ -2,6 +2,7 @@
 #include "gsGGJGame.h"
 #include <math.h>
 
+/*
 void gsGGJScore::draw()
 {
 	for(int i = numbers.getSize() - 1; i >= 0 ; i--)
@@ -36,3 +37,4 @@ gsGGJScore::~gsGGJScore(void)
 {
 	
 }
+*/

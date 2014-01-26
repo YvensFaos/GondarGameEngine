@@ -8,11 +8,13 @@
 class gsGGJEnemy : public gsGGJShip {
 
 public:
-
+	float alpha;
 	float burstWaitCooldown;
 	float burstWaitTime;
 	bool waiting;
 	float hp;
+	bool acelerated;
+	float acelerate;
 
 	gsGGJEnemy() {}
 	gsGGJEnemy(gsGGJGame *game);
