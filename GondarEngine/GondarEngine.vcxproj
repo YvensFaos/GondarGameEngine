@@ -97,6 +97,7 @@
     <ClInclude Include="gsGGJPanorama.h" />
     <ClInclude Include="gsGGJPhase.h" />
     <ClInclude Include="gsGGJPlayer.h" />
+    <ClInclude Include="gsGGJScore.h" />
     <ClInclude Include="gsGGJShip.h" />
     <ClInclude Include="gsGGJSimlen.h" />
     <ClInclude Include="gsGGJSlaien.h" />
@@ -187,6 +188,7 @@
     <ClCompile Include="gsGGJNumber.cpp" />
     <ClCompile Include="gsGGJPanorama.cpp" />
     <ClCompile Include="gsGGJPlayer.cpp" />
+    <ClCompile Include="gsGGJScore.cpp" />
     <ClCompile Include="gsGGJSimlen.cpp" />
     <ClCompile Include="gsGGJSlaien.cpp" />
     <ClCompile Include="gsGraphics.cpp" />
