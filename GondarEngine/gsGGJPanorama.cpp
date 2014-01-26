@@ -16,10 +16,15 @@ gsGGJPanorama::gsGGJPanorama(gsGGJGame *game) : gsGGJObject(game)
 	collident = false;
 }
 
-void update()
+void gsGGJPanorama::update(void)
 {
 }
 
-void draw()
+void gsGGJPanorama::draw(void)
 {
+}
+
+gsGGJPanorama::~gsGGJPanorama(void)
+{
+
 }

@@ -10,14 +10,14 @@ public:
 	float speedFactor;
 	gsSpriteSheet *sprite;
 
-	gsGGJPanorama() {}
+	gsGGJPanorama(void) {}
 	gsGGJPanorama(gsGGJGame *game);
-	virtual ~gsGGJPanorama() {}
+	virtual ~gsGGJPanorama(void);
 
 	virtual void update();
 	virtual void draw();
 	
-	void onCollision(gsGameObject *other, const gsCollisionInfo& info);
+	void onCollision(gsGameObject *other, const gsCollisionInfo& info) {};
 };
 
 #endif
