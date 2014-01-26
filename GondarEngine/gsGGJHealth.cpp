@@ -7,14 +7,11 @@
 gsGGJHealth::gsGGJHealth(gsGGJGame *game, gsGGJShip *target) : gsGGJObject(game)
 {
 	this->target = target;
-	gsVector3 pos = target->transform.position;
-	pos.z = 0.0f;
-	pos.x += target->transform.size.x / 2.f;
-	pos.y += target->transform.size.y;
-	float size = target->hp;
+	size = target->hp * 10;
 
 	sprite = new gsSpriteSheet("GGJ\\bar.png", "health", 1, 1);
-	transform = gsTransform(pos, gsVector3(size*10, 10, 0), gsColor::white(1.0f));
+	transform = gsTransform(target->transform.position, gsVector3(size, 5, 0), PHASE_RED_COLOR);
+	move();
 
 	solid = false;
 	collident = false;
@@ -30,14 +27,6 @@ void gsGGJHealth::update(void)
 	{
 		resize();
 		move();
-	}
-
-	if(gsInput::queryKey(GLFW_KEY_V) == gsKeyState::JustPressed)
-	{
-		GS_LOG(target->transform.position.x);
-		GS_LOG(target->transform.position.y);
-		GS_LOG(transform.position.x);
-		GS_LOG(transform.position.y);
 	}
 }
 
@@ -59,6 +48,7 @@ void gsGGJHealth::resize(void)
 void gsGGJHealth::move(void)
 {
 	gsVector3 pos = target->transform.position;
-	pos.x = target->transform.position.x + target->transform.size.x / 2.f;
-	pos.y = target->transform.position.y + target->transform.size.y;
+	//pos.x -= (target->transform.size.x/2);
+	pos.y += target->transform.size.y + 5;
+	transform.position = pos;
 }
