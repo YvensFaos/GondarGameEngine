@@ -10,8 +10,10 @@ void gsGraphics::init(int resX, int resY) {
 	gResX = resX;
 	gResY = resY;
 
-	glEnable (GL_BLEND);
+	glEnable(GL_BLEND);
 	glEnable(GL_TEXTURE_2D);
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LEQUAL);
 	glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
@@ -24,7 +26,7 @@ void gsGraphics::beginDraw() {
 	glfwGetFramebufferSize(gsWindow::getWindow(), &gResX, &gResY);
     glViewport(0, 0, gResX, gResY);
 
-    glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glMatrixMode(GL_PROJECTION);
     glLoadIdentity();

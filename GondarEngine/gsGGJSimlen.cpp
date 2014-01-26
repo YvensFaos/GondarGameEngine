@@ -50,36 +50,6 @@ gsGGJSimlen::gsGGJSimlen(gsGGJGame *game) : gsGGJEnemy(game){
 	solid = false;
 }
 
-gsGGJSimlen::~gsGGJSimlen(){}
-
-//void gsGGJSimlen::update() 
-//{
-//
-//}
-
-void gsGGJSimlen::draw()
-{
-	sprite->sendToOpenGL_Texture();
-	gsGraphics::drawQuad(transform);
-}
-
-void gsGGJSimlen::onCollision(gsGameObject *_other, const gsCollisionInfo& info)
-{
-	gsGGJObject *otherCastedToGGJObject = static_cast<gsGGJObject*>(_other);
-
-	if (otherCastedToGGJObject->tag == gsGGJTag::PlayerBullet) {
-		gsGGJBullet *other = static_cast<gsGGJBullet*>(_other);
-		hp -= other->damage;
-
-		if (hp <= 0) {
-			game->removeObjectFromObjectsList(this);
-			gsGGJGlobal_Points += POINTS_WHEN_ENEMY_DIES;
-			return;
-		}
-		gsGGJGlobal_Points += POINTS_WHEN_BULLET_STRIKES;
-	}
-}
-
 void gsGGJSimlen::setupSpritesheet()
 {
 	sprite = new gsSpriteSheet("GGJ/simlien.png", "enemy", 1, 1);
@@ -94,11 +64,6 @@ void gsGGJSimlen::setupSpritesheet()
 	sprite->setAnimation("SimlenClip");
 }
 
-void gsGGJSimlen::move()
-{
-	transform.applySpeed();
-}
-
 void gsGGJSimlen::shoot()
 {
 	if(modifyShot == false){
@@ -109,10 +74,10 @@ void gsGGJSimlen::shoot()
 	}else{
 
 		gsGGJBullet *bulletLeft = new gsGGJBullet(false, gsGGJBulletType::Normal, &this->transform, game, phase);
-		bulletLeft->transform.speed.x = -10;
+		bulletLeft->transform.speed.x = -ENEMY_SIMLEN_CONE;
 
 		gsGGJBullet *bulletRight = new gsGGJBullet(false, gsGGJBulletType::Normal, &this->transform, game, phase);
-		bulletRight->transform.speed.x = 10;
+		bulletRight->transform.speed.x = ENEMY_SIMLEN_CONE;
 
 		game->addObjetToObjectsList(bulletLeft);
 		game->addObjetToObjectsList(bulletRight);

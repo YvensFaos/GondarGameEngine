@@ -16,8 +16,9 @@ public:
 	gsCollisionProxy() {}
 	gsCollisionProxy(gsGameObject* obj) {
 		object = obj;
-		aabbMin = object->transform.position;
-		aabbMax = object->transform.position + object->transform.size;
+		gsVector3 reduc = object->transform.size * 0.1;
+		aabbMin = object->transform.position + reduc;
+		aabbMax = object->transform.position + object->transform.size - reduc * 2;
 	}
 
 public:

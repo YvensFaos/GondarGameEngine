@@ -17,7 +17,7 @@ void gsWindow::init(int resX, int resY) {
 	}
 
 	//Criação da janela de renderização
-	gWindow = glfwCreateWindow(resX, resY, GS_ENGINE_NAME GS_ENGINE_VERSION, NULL, NULL);
+	gWindow = glfwCreateWindow(resX, resY, GS_ENGINE_NAME " " GS_ENGINE_VERSION, NULL, NULL);
     if (!gWindow)
     {
 		gsAssert(0);

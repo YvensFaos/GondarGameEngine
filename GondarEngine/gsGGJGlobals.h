@@ -56,6 +56,7 @@ extern int gsGGJGlobal_Points;
 #define ENEMY_SIMLEN_COOLDOWN 0.5
 #define ENEMY_SIMLEN_COOLDOWNTIME 0 
 #define ENEMY_SIMLEN_WAITING true
+#define ENEMY_SIMLEN_CONE 80
 
 //Enemy Slaien Attributes
 #define ENEMY_SLAIEN_HEALTH 200
@@ -76,6 +77,9 @@ extern int gsGGJGlobal_Points;
 #define BULLET_DAMAGE_NORMAL 30.0f
 #define BULLET_DAMAGE_SPIRAL 20.0f
 #define BULLET_DAMAGE_SPREAD 15.0f
+#define BULLET_SPREAD_CONE 30
+#define BULLET_SPIRAL_RADIUS 30
+#define BULLET_SPIRAL_FREQUENCY 20
 
 #define PHASE_RED_COLOR gsColor(0.921f, 0.16f, 0.052f)
 #define PHASE_GREEN_COLOR gsColor(0.003f, 0.858f, 0.027f)

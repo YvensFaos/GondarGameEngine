@@ -47,39 +47,7 @@ gsGGJSlaien::gsGGJSlaien(gsGGJGame *game) : gsGGJEnemy(game){
 	else if (phase == gsGGJPhase::MagentaPhase) transform.tint = PHASE_MAGENTA_COLOR;
 
 	solid = false;
-
-}
-
-gsGGJSlaien::~gsGGJSlaien(){}
-
-//void gsGGJSlaien::update()
-//{
-//
-//}
-
-void gsGGJSlaien::draw()
-{
-	sprite->sendToOpenGL_Texture();
-	gsGraphics::drawQuad(transform);
-}
-
-void gsGGJSlaien::onCollision(gsGameObject *_other, const gsCollisionInfo& info)
-{
-	gsGGJObject *otherCastedToGGJObject = static_cast<gsGGJObject*>(_other);
-
-	if (otherCastedToGGJObject->tag == gsGGJTag::PlayerBullet) {
-		gsGGJBullet *other = static_cast<gsGGJBullet*>(_other);
-		if (phase != other->phase) {
-			hp -= other->damage;
-
-			if (hp <= 0) {
-				game->removeObjectFromObjectsList(this);
-				gsGGJGlobal_Points += POINTS_WHEN_ENEMY_DIES;
-				return;
-			}
-			gsGGJGlobal_Points += POINTS_WHEN_BULLET_STRIKES;
-		}
-	}
+	this->bulletType = gsGGJBulletType::Spread;
 }
 
 void gsGGJSlaien::setupSpritesheet()
@@ -94,16 +62,5 @@ void gsGGJSlaien::setupSpritesheet()
 	gsAnimationClip *clip = new gsAnimationClip("SlaienClip", keyframes, keyCount, 0.4f);
 	sprite->addAnimation(clip);
 	sprite->setAnimation("SlaienClip");
-}
-
-void gsGGJSlaien::move()
-{
-	transform.applySpeed();
-}
-
-void gsGGJSlaien::shoot()
-{
-	gsGGJBullet *bullet = new gsGGJBullet(false, gsGGJBulletType::Spread, &this->transform, game, phase);
-	game->addObjetToObjectsList(bullet);
 }
 

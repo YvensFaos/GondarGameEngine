@@ -46,39 +46,7 @@ gsGGJFractalis::gsGGJFractalis(gsGGJGame *game) : gsGGJEnemy(game){
 	else if (phase == gsGGJPhase::MagentaPhase) transform.tint = PHASE_MAGENTA_COLOR;
 
 	solid = false;
-
-}
-
-gsGGJFractalis::~gsGGJFractalis(){}
-
-//void gsGGJFractalis::update()
-//{
-//
-//}
-
-void gsGGJFractalis::draw()
-{
-	sprite->sendToOpenGL_Texture();
-	gsGraphics::drawQuad(transform);
-}
-
-void gsGGJFractalis::onCollision(gsGameObject *_other, const gsCollisionInfo& info)
-{
-	gsGGJObject *otherCastedToGGJObject = static_cast<gsGGJObject*>(_other);
-
-	if (otherCastedToGGJObject->tag == gsGGJTag::PlayerBullet) {
-		gsGGJBullet *other = static_cast<gsGGJBullet*>(_other);
-		if (phase != other->phase) {
-			hp -= other->damage;
-
-			if (hp <= 0) {
-				game->removeObjectFromObjectsList(this);
-				gsGGJGlobal_Points += POINTS_WHEN_ENEMY_DIES;
-				return;
-			}
-			gsGGJGlobal_Points += POINTS_WHEN_BULLET_STRIKES;
-		}
-	}
+	this->bulletType = gsGGJBulletType::Spiral;
 }
 
 void gsGGJFractalis::setupSpritesheet()
@@ -93,16 +61,5 @@ void gsGGJFractalis::setupSpritesheet()
 	gsAnimationClip *clip = new gsAnimationClip("FractalisClip", keyframes, keyCount, 0.4f);
 	sprite->addAnimation(clip);
 	sprite->setAnimation("FractalisClip");
-}
-
-void gsGGJFractalis::move()
-{
-	transform.applySpeed();
-}
-
-void gsGGJFractalis::shoot()
-{
-	gsGGJBullet *bullet = new gsGGJBullet(false, gsGGJBulletType::Spiral, &this->transform, game, phase);
-	game->addObjetToObjectsList(bullet);
 }
 

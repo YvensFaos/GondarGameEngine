@@ -21,17 +21,17 @@ void gsGGJEnemySpawner::update()
 	{
 
 		gsGGJSimlen *enemySimlen = new gsGGJSimlen(game);
-		gsGGJSlaien *enemySlaien = new gsGGJSlaien(game);
+		/*gsGGJSlaien *enemySlaien = new gsGGJSlaien(game);
 		gsGGJFractalis *enemyFractalis = new gsGGJFractalis(game);
 
 		enemySimlen->transform.position = gsVector3(gsRandom::nextInt(0, 800), 0,0);
 		enemySlaien->transform.position = gsVector3(gsRandom::nextInt(0, 800), 0,0);
 		enemyFractalis->transform.position = gsVector3(gsRandom::nextInt(0, 800), 0,0);
-
+		*/
 
 		game->addObjetToObjectsList(enemySimlen);
-		game->addObjetToObjectsList(enemySlaien);
-		game->addObjetToObjectsList(enemyFractalis);
+		//game->addObjetToObjectsList(enemySlaien);
+		//game->addObjetToObjectsList(enemyFractalis);
 
 		spawnTimer -= spawnCooldown;
 	}
