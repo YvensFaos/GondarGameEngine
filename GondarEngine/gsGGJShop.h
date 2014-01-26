@@ -6,7 +6,10 @@
 
 class gsGGJShop : public gsGGJObject {
 public:
-	gsSpriteSheet *sprite;
+	gsSpriteSheet *hudSprite;
+	gsSpriteSheet *powerCannonsSprite;
+	gsSpriteSheet *colorAvoidSprite;
+	gsSpriteSheet *sizeSprite;
 
 	gsGGJShop(void) {}
 	gsGGJShop(gsGGJGame *game);
@@ -18,6 +21,10 @@ public:
 	virtual void onCollision(gsGameObject *other, const gsCollisionInfo& info);
 
 	void setUpSprite();
+	void showShop();
+
+	void pickShop(int id); // para as três primeiras compras
+	void normalShop(); // para as demais onde já foram escolhidas as opções antagônicas
 };
 
 #endif
