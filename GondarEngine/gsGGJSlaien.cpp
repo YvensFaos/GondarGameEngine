@@ -79,18 +79,31 @@ void gsGGJSlaien::update()
 	gsGGJEnemy::update();
 
 	multishot += gsClock::getDeltaTime()*0.2f;
-	if (multishot < 0.4f)
+	if (multishot >= 0.8f)
 	{
-		/*
+		int spd = 100;
+
 		gsGGJBullet *bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
-		bullet->transform.speed.x = -50;
+		bullet->transform.speed.x = -1 * spd;
+		bullet->transform.speed.y = 0;
 		game->addObjetToObjectsList(bullet);
 
 		bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
-		bullet->transform.speed.x = -50;
+		bullet->transform.speed.x = spd;
+		bullet->transform.speed.y = 0;
 		game->addObjetToObjectsList(bullet);
-		*/
+		
+		bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+		bullet->transform.speed.y = -1 * spd;
+		bullet->transform.speed.x = 0;
+		game->addObjetToObjectsList(bullet);
 
+		bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+		bullet->transform.speed.y = spd;
+		bullet->transform.speed.x = 0;
+		game->addObjetToObjectsList(bullet);
+		
+		multishot -= multishot;
 	}
 }
 

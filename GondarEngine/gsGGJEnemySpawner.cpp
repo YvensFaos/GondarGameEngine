@@ -30,6 +30,17 @@ void gsGGJEnemySpawner::update()
 		{
 			switch (state)
 			{
+			case 2:
+			{
+					  int generated = gsRandom::nextInt(1, 6);
+					  for (int i = 0; i < generated; i++)
+					  {
+						  gsGGJFractalis * enemyFractalis = new gsGGJFractalis(game);
+						  enemyFractalis->transform.position = gsVector3(gsRandom::nextInt(0, 800), 0, 0);
+
+						  game->addObjetToObjectsList(enemyFractalis);
+					  }
+			}
 			case 1:
 			{
 					  int generated = gsRandom::nextInt(1, 4);
@@ -53,9 +64,14 @@ void gsGGJEnemySpawner::update()
 						}
 						spawnTimer -= spawnCooldown;
 
-						if (stateTimer >= 3.f)
+						if (stateTimer >= 3.f && state == 0)
 						{
 							state = 1; 
+							stateTimer = 0.f;
+						}
+						if (stateTimer >= 15.f && state == 1)
+						{
+							state = 2;
 							stateTimer = 0.f;
 						}
 			}
