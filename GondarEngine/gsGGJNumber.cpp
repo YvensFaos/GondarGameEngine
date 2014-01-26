@@ -11,7 +11,7 @@ gsGGJNumber::gsGGJNumber(int number,int digit,gsGGJGame* game) : gsGGJObject(gam
 	this->digit = digit;
 	this->number = number;
 
-	transform = gsTransform(gsVector3(20 * digit, 0, 0), gsVector3(25, 25, 0), gsColor::white(1.0f));
+	transform = gsTransform(gsVector3(20 * (5 - digit), 0, 0), gsVector3(25, 25, 0), gsColor::white(1.0f));
 
 	collident = false;
 	solid = false;
