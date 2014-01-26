@@ -280,8 +280,6 @@
     <ClInclude Include="gsGGJNumber.h">
       <Filter>Games\GGJ Game\Objects</Filter>
     </ClInclude>
-<<<<<<< HEAD
-=======
     <ClInclude Include="gsGGJEnemy.h">
       <Filter>Games\GGJ Game\Objects\Enemies</Filter>
     </ClInclude>
@@ -294,7 +292,6 @@
     <ClInclude Include="gsGGJFractalis.h">
       <Filter>Games\GGJ Game\Objects\Enemies</Filter>
     </ClInclude>
->>>>>>> f8ecffa20a5f5efa1354fd6adb6742856874d61b
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsMain.cpp" />
@@ -430,8 +427,6 @@
     <ClCompile Include="gsGGJNumber.cpp">
       <Filter>Games\GGJ Game\Objects</Filter>
     </ClCompile>
-<<<<<<< HEAD
-=======
     <ClCompile Include="gsGGJEnemy.cpp">
       <Filter>Games\GGJ Game\Objects\Enemies</Filter>
     </ClCompile>
@@ -444,7 +439,6 @@
     <ClCompile Include="gsGGJFractalis.cpp">
       <Filter>Games\GGJ Game\Objects\Enemies</Filter>
     </ClCompile>
->>>>>>> f8ecffa20a5f5efa1354fd6adb6742856874d61b
   </ItemGroup>
   <ItemGroup>
     <Image Include="gondar_texture.jpg">
