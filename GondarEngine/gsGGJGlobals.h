@@ -50,7 +50,7 @@ extern int gsGGJGlobal_UpgradesPurchased;
 #define ENEMY_INITIAL_WAITING_TIME 0.6
 #define ENEMY_COOLDOWN_TIME 0.5
 
-#define ENEMY_SPAWNER_COOLDOWN 1.2f
+#define ENEMY_SPAWNER_COOLDOWN 6.0f
 #define ENEMY_SPAWNER_TIMER 0.6f
 
 //Enemy Simlen Attributes

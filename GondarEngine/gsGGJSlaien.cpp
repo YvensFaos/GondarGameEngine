@@ -5,7 +5,7 @@
 
 
 gsGGJSlaien::gsGGJSlaien(gsGGJGame *game) : gsGGJEnemy(game){
-	
+	multishot = 0.f;
 	tag = gsGGJTag::Enemy;
 
 	setupSpritesheet();
@@ -47,7 +47,14 @@ gsGGJSlaien::gsGGJSlaien(gsGGJGame *game) : gsGGJEnemy(game){
 	else if (phase == gsGGJPhase::MagentaPhase) transform.tint = PHASE_MAGENTA_COLOR;
 
 	solid = false;
-	this->bulletType = gsGGJBulletType::Spread;
+	if (gsRandom::chance(50))
+	{
+		this->bulletType = gsGGJBulletType::Spread;
+	}
+	else
+	{
+		this->bulletType = gsGGJBulletType::Normal;
+	}
 
 	transform.size *= sizeFactor;
 	transform.speed *= speedFactor;
@@ -67,3 +74,42 @@ void gsGGJSlaien::setupSpritesheet()
 	sprite->setAnimation("SlaienClip");
 }
 
+void gsGGJSlaien::update()
+{
+	gsGGJEnemy::update();
+
+	multishot += gsClock::getDeltaTime()*0.2f;
+	if (multishot >= 0.8f)
+	{
+		int spd = 100;
+
+		gsGGJBullet *bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+		bullet->transform.speed.x = -1 * spd;
+		bullet->transform.speed.y = 0;
+		game->addObjetToObjectsList(bullet);
+
+		bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+		bullet->transform.speed.x = spd;
+		bullet->transform.speed.y = 0;
+		game->addObjetToObjectsList(bullet);
+		
+		bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+		bullet->transform.speed.y = -1 * spd;
+		bullet->transform.speed.x = 0;
+		game->addObjetToObjectsList(bullet);
+
+		bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+		bullet->transform.speed.y = spd;
+		bullet->transform.speed.x = 0;
+		game->addObjetToObjectsList(bullet);
+		
+		multishot -= multishot;
+	}
+}
+
+void gsGGJSlaien::shoot(float offsetX)
+{
+	gsGGJBullet *bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+	bullet->transform.position.x += offsetX;
+	game->addObjetToObjectsList(bullet);
+}

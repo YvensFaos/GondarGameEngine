@@ -15,6 +15,7 @@ private:
 	float slaienTimer;
 	float fractalisTimer;
 
+	float stateTimer;
 	bool stateMachine;
 	int state;
 public:

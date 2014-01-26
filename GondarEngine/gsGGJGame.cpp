@@ -6,7 +6,7 @@
 #include "gsGGJShop.h"
 #include "gsGGJPanorama.h"
 #include "gsGGJEnemySpawner.h"
-#include "gsGGJNumber.h"
+#include "gsGGJScore.h"
 
 void gsGGJGame::start()
 {
@@ -19,8 +19,10 @@ void gsGGJGame::start()
 	gsGGJGlobal_PhasesAvaiable = INITIAL_PHASES_AVAIABLE;
 	gsGGJGlobal_BulletType = INITIAL_BULLET_TYPE;
 
+	gsAudio::play("GGJ\\ShipSongOgg.ogg", true, 100, 0);
 
 	addObjetToObjectsList(new gsGGJPanorama(this));
+	addObjetToObjectsList(new gsGGJScore(this));
 	this->player = new gsGGJPlayer(this);
 	addObjetToObjectsList(player);
 	addObjetToObjectsList(new gsGGJEnemySpawner(this));

@@ -82,6 +82,9 @@
     <Filter Include="Games\GGJ Game\Objects\Enemies">
       <UniqueIdentifier>{e0dcd3de-ce3d-4044-b4c8-3382169679f0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\GGJ Game\Objects\Score">
+      <UniqueIdentifier>{9ed809a6-1506-44d0-8682-33841ea7f178}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gsEngine.h">
@@ -277,9 +280,6 @@
     <ClInclude Include="gsGGJShop.h">
       <Filter>Games\GGJ Game\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="gsGGJNumber.h">
-      <Filter>Games\GGJ Game\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="gsGGJEnemy.h">
       <Filter>Games\GGJ Game\Objects\Enemies</Filter>
     </ClInclude>
@@ -297,6 +297,12 @@
     </ClInclude>
     <ClInclude Include="gsGGJHealth.h">
       <Filter>Games\GGJ Game\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="gsGGJNumber.h">
+      <Filter>Games\GGJ Game\Objects\Score</Filter>
+    </ClInclude>
+    <ClInclude Include="gsGGJScore.h">
+      <Filter>Games\GGJ Game\Objects\Score</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -430,9 +436,6 @@
     <ClCompile Include="gsGGJShop.cpp">
       <Filter>Games\GGJ Game\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="gsGGJNumber.cpp">
-      <Filter>Games\GGJ Game\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="gsGGJEnemy.cpp">
       <Filter>Games\GGJ Game\Objects\Enemies</Filter>
     </ClCompile>
@@ -450,6 +453,12 @@
     </ClCompile>
     <ClCompile Include="gsGGJHealth.cpp">
       <Filter>Games\GGJ Game\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="gsGGJNumber.cpp">
+      <Filter>Games\GGJ Game\Objects\Score</Filter>
+    </ClCompile>
+    <ClCompile Include="gsGGJScore.cpp">
+      <Filter>Games\GGJ Game\Objects\Score</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

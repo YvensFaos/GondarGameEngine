@@ -14,25 +14,72 @@ gsGGJEnemySpawner::gsGGJEnemySpawner(gsGGJGame *game) : gsGGJObject(game)
 	spawnTimer = ENEMY_SPAWNER_TIMER;
 	slaienTimer = 20.f;
 	fractalisTimer = 50.f;
+	stateTimer = 0;
 
-	stateMachine = false;
+	stateMachine = true;
 	state = 0;
 }
 
 void gsGGJEnemySpawner::update()
 {
 	spawnTimer += gsClock::getDeltaTime();
+	stateTimer += gsClock::getDeltaTime();
 	if(stateMachine)
 	{
-		switch(state)
+		if (spawnTimer >= spawnCooldown)
 		{
-		case 0: //Jogo começou agora
-			//int generated = gsRandom::nextInt(1,3);
+			switch (state)
+			{
+			case 2:
+			{
+					  int generated = gsRandom::nextInt(1, 6);
+					  for (int i = 0; i < generated; i++)
+					  {
+						  gsGGJFractalis * enemyFractalis = new gsGGJFractalis(game);
+						  enemyFractalis->transform.position = gsVector3(gsRandom::nextInt(0, 800), 0, 0);
 
-			break;
+						  game->addObjetToObjectsList(enemyFractalis);
+					  }
+			}
+			case 1:
+			{
+					  int generated = gsRandom::nextInt(1, 4);
+					  for (int i = 0; i < generated; i++)
+					  {
+						  gsGGJSlaien * enemySlaien = new gsGGJSlaien(game);
+						  enemySlaien->transform.position = gsVector3(gsRandom::nextInt(0, 800), 0, 0);
 
-		default:
-			break;
+						  game->addObjetToObjectsList(enemySlaien);
+					  }
+			}
+			case 0: //Jogo começou agora
+			{
+						int generated = gsRandom::nextInt(1, 3);
+						for (int i = 0; i < generated; i++)
+						{
+							gsGGJSimlen *enemySimlen = new gsGGJSimlen(game);
+							enemySimlen->transform.position = gsVector3(gsRandom::nextInt(0, 800), 0, 0);
+
+							game->addObjetToObjectsList(enemySimlen);
+						}
+						spawnTimer -= spawnCooldown;
+
+						if (stateTimer >= 3.f && state == 0)
+						{
+							state = 1; 
+							stateTimer = 0.f;
+						}
+						if (stateTimer >= 15.f && state == 1)
+						{
+							state = 2;
+							stateTimer = 0.f;
+						}
+			}
+				break;
+
+			default:
+				break;
+			}
 		}
 	}
 	else
