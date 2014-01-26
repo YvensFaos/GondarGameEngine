@@ -6,8 +6,6 @@
 
 gsGGJPanorama::gsGGJPanorama(gsGGJGame *game) : gsGGJObject(game)
 {
-	tag = gsGGJTag::Player;
-
 	sprite = new gsSpriteSheet("GGJ\\panorama_double.png", "panorama", 1, 1);
 	speedFactor = PANORAMA_INITIAL_SPEEP;
 
@@ -31,12 +29,12 @@ void gsGGJPanorama::update(void)
 
 	acelerate();
 
-	if(gsInput::queryKey(GLFW_KEY_V) == gsKeyState::JustPressed)
+	/*if(gsInput::queryKey(GLFW_KEY_V) == gsKeyState::JustPressed)
 	{
 		GS_LOG(transform.position.y);
 		GS_LOG(acelerateCounter);
 		GS_LOG(transform.speed);
-	}
+	}*/
 }
 
 void gsGGJPanorama::draw(void)

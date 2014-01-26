@@ -19,9 +19,9 @@ void gsGGJGame::start()
 	gsGGJGlobal_PhasesAvaiable = INITIAL_PHASES_AVAIABLE;
 	gsGGJGlobal_BulletType = INITIAL_BULLET_TYPE;
 
-	this->player = new gsGGJPlayer(this);
 
 	addObjetToObjectsList(new gsGGJPanorama(this));
+	this->player = new gsGGJPlayer(this);
 	addObjetToObjectsList(player);
 	addObjetToObjectsList(new gsGGJEnemySpawner(this));
 	addObjetToObjectsList(new gsGGJShop(this));

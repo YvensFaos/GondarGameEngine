@@ -2,7 +2,7 @@
 #include "gsGGJBullet.h"
 
 #include "gsSystem.h"
-
+#include "gsGGJHealth.h"
 
 gsGGJPlayer::gsGGJPlayer(gsGGJGame *game) : gsGGJShip(game)
 {
@@ -21,6 +21,9 @@ gsGGJPlayer::gsGGJPlayer(gsGGJGame *game) : gsGGJShip(game)
 	collisionMask = 0x02;
 	bulletType = gsGGJBulletType::Spread;
 	changeColor(gsGGJPhase::BluePhase);
+
+	gsGGJHealth* healthBar = new gsGGJHealth(game, this);
+	game->addObjetToObjectsList(healthBar);
 }
 
 void gsGGJPlayer::draw()
