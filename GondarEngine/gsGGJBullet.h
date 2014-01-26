@@ -14,11 +14,11 @@ public:
 	gsSpriteSheet *sprite;
 	gsVector3 offset;
 	float angle;
-	gsColor color;
 	gsGGJPhase phase;
+	float damage;
 
 	gsGGJBullet() {}
-	gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTransform* shooterTransform, gsGGJGame *game,gsColor color);
+	gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTransform* shooterTransform, gsGGJGame *game, gsGGJPhase phase);
 	virtual ~gsGGJBullet();
 
 	void update();

@@ -7,18 +7,24 @@
 
 class gsGGJEnemy : public gsGGJShip {
 private:
-	float weaponBurstCooldown;
-	float weaponBurstTimer;
+	float burstWaitCooldown;
+	float burstWaitTime;
+	bool waiting;
+	float hp;
 
 public:
 	gsGGJEnemy() {}
 	gsGGJEnemy(gsGGJGame *game);
 	virtual ~gsGGJEnemy();
 
-	void update();
-	void draw();
+	virtual void update();
+	virtual void draw();
 
 	void onCollision(gsGameObject *_other, const gsCollisionInfo& info);
+
+	virtual void setupSpritesheet();
+	virtual void move();
+	virtual void shoot();
 };
 
 #endif

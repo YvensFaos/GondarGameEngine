@@ -8,7 +8,6 @@ gsGGJEnemySpawner::gsGGJEnemySpawner(gsGGJGame *game) : gsGGJObject(game)
 {
 	spawnCooldown = ENEMY_SPAWNER_COOLDOWN;
 	spawnTimer = ENEMY_SPAWNER_TIMER;
-
 }
 
 void gsGGJEnemySpawner::update()
@@ -25,13 +24,8 @@ void gsGGJEnemySpawner::update()
 
 		spawnTimer -= spawnCooldown;
 	}
-
-
 }
 
 void gsGGJEnemySpawner::draw(){}
 
-void gsGGJEnemySpawner::onCollision(gsGameObject *_other, const gsCollisionInfo& info)
-{
-
-}
+void gsGGJEnemySpawner::onCollision(gsGameObject *_other, const gsCollisionInfo& info){}

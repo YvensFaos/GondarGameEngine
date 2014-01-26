@@ -16,12 +16,11 @@ public:
 	float avoidChance;
 	float hp;
 	float damage;
-	gsColor color;
 	gsSpriteSheet *sprite;
 	gsGGJPhase phase;
 	gsGGJBulletType bulletType;
-	float weaponCooldown;
-	float weaponCooldownTime;
+	float cooldown;
+	float cooldownTime;
 
 	gsGGJShip() {}
 	gsGGJShip(gsGGJGame *game) : gsGGJObject(game) {
@@ -30,9 +29,8 @@ public:
 		speedFactor = gsGGJGlobal_SpeedFactor;
 		cannons = gsGGJGlobal_Cannons;
 		avoidChance = gsGGJGlobal_AvoidChance;
-		phase = gsGGJGlobal_Phase;
+		phase = gsGGJPhase::RedPhase; // it will be reset at the enemy constructor
 		bulletType = gsGGJGlobal_BulletType;
-		color = gsColor::white();
 	}
 	virtual ~gsGGJShip() {}
 };

@@ -8,23 +8,12 @@ gsGGJPlayer::gsGGJPlayer(gsGGJGame *game) : gsGGJShip(game)
 {
 	tag = gsGGJTag::Player;
 
-	sprite = new gsSpriteSheet("GGJ\\main_ship.png", "player", 1, 1);
+	setUpSpritesheet();
 
 	hp = 20;
 	damage = 3;
-	weaponCooldownTime = 0;
-	weaponCooldown = 0.5;
-
-	//Animação walking
-	//int* frames = new int(4);
-	//frames[0] = 0;
-	//frames[1] = 1;
-	//frames[2] = 2;
-	//frames[3] = 3;
-
-	//gsAnimationClip* clip = new gsAnimationClip("walking", frames, 4, 0.4f);
-	//sprite->addAnimation(clip);
-	//sprite->setAnimation("walking");
+	cooldownTime = 0;
+	cooldown = PLAYER_COOLDOWN_TIME;
 
 	// tetenta pelo construtor
 	transform = gsTransform(gsVector3(400, 300, 0), gsVector3(50, 50, 0), gsColor::white(1.0f));
@@ -39,12 +28,12 @@ void gsGGJPlayer::draw()
 
 void gsGGJPlayer::shoot()
 {
-	weaponCooldownTime += gsClock::getDeltaTime();
-	if(weaponCooldownTime >= weaponCooldown && (gsInput::queryKey(GLFW_KEY_SPACE) == gsKeyState::Pressed))
+	cooldownTime += gsClock::getDeltaTime();
+	if (cooldownTime >= cooldown && (gsInput::queryKey(GLFW_KEY_SPACE) == gsKeyState::Pressed))
 	{
-		weaponCooldownTime = 0;
+		cooldownTime = 0;
 		
-		gsGGJBullet *bullet = new gsGGJBullet(true, gsGGJBulletType::Spiral, &this->transform, game,this->color);
+		gsGGJBullet *bullet = new gsGGJBullet(true, bulletType, &this->transform, game, phase);
 		game->addObjetToObjectsList(bullet);
 	}
 }
@@ -103,30 +92,45 @@ void gsGGJPlayer::update()
 void gsGGJPlayer::toChangeColor()
 {
 	if(gsInput::queryKey(GLFW_KEY_Q) == gsKeyState::Pressed)
-		changeColor(gsColor::red());
-	else if(gsInput::queryKey(GLFW_KEY_W) == gsKeyState::Pressed)
-		changeColor(gsColor::green());
-	else if(gsInput::queryKey(GLFW_KEY_E) == gsKeyState::Pressed)
-		changeColor(gsColor::blue());
-	else if(gsInput::queryKey(GLFW_KEY_R) == gsKeyState::Pressed)
-		changeColor(gsColor::yellow());
-	else if(gsInput::queryKey(GLFW_KEY_T) == gsKeyState::Pressed)
-		changeColor(gsColor::magenta());
+		changeColor(gsGGJPhase::RedPhase);
+	else if(gsInput::queryKey(GLFW_KEY_W) == gsKeyState::Pressed && gsGGJGlobal_PhasesAvaiable > 1)
+		changeColor(gsGGJPhase::GreenPhase);
+	else if (gsInput::queryKey(GLFW_KEY_E) == gsKeyState::Pressed && gsGGJGlobal_PhasesAvaiable > 2)
+		changeColor(gsGGJPhase::BluePhase);
+	else if (gsInput::queryKey(GLFW_KEY_R) == gsKeyState::Pressed && gsGGJGlobal_PhasesAvaiable > 3)
+		changeColor(gsGGJPhase::YellowPhase);
+	else if (gsInput::queryKey(GLFW_KEY_T) == gsKeyState::Pressed && gsGGJGlobal_PhasesAvaiable > 4)
+		changeColor(gsGGJPhase::MagentaPhase);
 }
 
 
-void gsGGJPlayer::changeColor(gsColor color)
+void gsGGJPlayer::changeColor(gsGGJPhase phase)
 {
-	this->color = color;
-	transform.tint = color;	
-	if(color == gsColor::red()); this->phase = RedPhase;
-	if(color == gsColor::green()); this->phase = GreenPhase;		
-	if(color == gsColor::blue()); this->phase = BluePhase;
-	if(color == gsColor::yellow()); this->phase = YellowPhase;
-	if(color == gsColor::magenta()); this->phase = MagentaPhase;
+	this->phase = phase;
+	collisionMask &= ~phase;
+	if (phase == gsGGJPhase::RedPhase) transform.tint = gsColor::red();
+	else if (phase == gsGGJPhase::GreenPhase) transform.tint = gsColor::green();
+	else if (phase == gsGGJPhase::BluePhase) transform.tint = gsColor::blue();
+	else if (phase == gsGGJPhase::YellowPhase) transform.tint = gsColor::yellow();
+	else if (phase == gsGGJPhase::MagentaPhase) transform.tint = gsColor::magenta();
+	collisionMask |= phase;
 }
 
 void gsGGJPlayer::onCollision(gsGameObject *other, const gsCollisionInfo& info)
 {
 
+}
+
+void gsGGJPlayer::setUpSpritesheet() {
+	sprite = new gsSpriteSheet("GGJ\\main_ship.png", "player", 1, 1);
+	//Animação walking
+	//int* frames = new int(4);
+	//frames[0] = 0;
+	//frames[1] = 1;
+	//frames[2] = 2;
+	//frames[3] = 3;
+
+	//gsAnimationClip* clip = new gsAnimationClip("walking", frames, 4, 0.4f);
+	//sprite->addAnimation(clip);
+	//sprite->setAnimation("walking");
 }
