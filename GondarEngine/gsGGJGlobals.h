@@ -32,7 +32,7 @@ extern int gsGGJGlobal_Points;
 #define INITIAL_SIZE_FACTOR 1.f
 #define INITIAL_SPEED_FACTOR 1.f
 #define INITIAL_AVOID_CHANCE 1.f
-#define INITIAL_CANNONS 1
+#define INITIAL_CANNONS 5
 #define INITIAL_PHASES_AVAIABLE 1
 #define INITIAL_BULLET_TYPE gsGGJBulletType::Normal
 
@@ -45,7 +45,7 @@ extern int gsGGJGlobal_Points;
 
 #define ENEMY_BURST_TIME 1.6
 #define ENEMY_WAITING_TIME 3.8
-#define ENEMY_INITIAL_WAITING_TIME 2
+#define ENEMY_INITIAL_WAITING_TIME 0.6
 #define ENEMY_COOLDOWN_TIME 0.5
 
 #define ENEMY_SPAWNER_COOLDOWN 1.2f

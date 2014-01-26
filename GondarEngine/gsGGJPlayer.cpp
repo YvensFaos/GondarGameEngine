@@ -13,13 +13,12 @@ gsGGJPlayer::gsGGJPlayer(gsGGJGame *game) : gsGGJShip(game)
 	hp = 20;
 	damage = 3;
 	cooldownTime = 0;
-	//cooldown = PLAYER_COOLDOWN_TIME;
-	cooldown = BULLET_SPREAD_COOLDOWN;
+	cooldown = PLAYER_COOLDOWN_TIME;
 
 	// tetenta pelo construtor
 	transform = gsTransform(gsVector3(400, 300, 0), gsVector3(66, 60, 0), gsColor::white(1.0f));
 	collisionMask = 0x02;
-	bulletType = gsGGJBulletType::Spread;
+	bulletType = gsGGJGlobal_BulletType;
 	changeColor(gsGGJPhase::BluePhase);
 
 	gsGGJHealth* healthBar = new gsGGJHealth(game, this);
@@ -51,31 +50,22 @@ void gsGGJPlayer::draw()
 void gsGGJPlayer::shoot()
 {
 	cooldownTime += gsClock::getDeltaTime();
-	if (cooldownTime >= cooldown && (gsInput::queryKey(GLFW_KEY_SPACE) == gsKeyState::Pressed))
-	{
+	if (cooldownTime >= cooldown && (gsInput::queryKey(GLFW_KEY_SPACE) == gsKeyState::Pressed)) {
+		gsGGJBullet *bullet;
 		cooldownTime = 0;
-		
-		gsTransform* bulletTransform = new gsTransform(transform);
 
 		if (cannons == 1) {
-			bulletTransform->position.x += transform.size.x / 2;
-			bulletTransform->position.y -= 0;
-			gsGGJBullet *bullet = new gsGGJBullet(true, bulletType, bulletTransform, game, phase);
+			bullet = new gsGGJBullet(true, bulletType, &transform, game, phase);
 			game->addObjetToObjectsList(bullet);
 		} else {
 			float margin = CANNONS_INTERBULLET_MARGIN;
 			float offset = (margin * cannons) / 2.0f;
-			for (int i = 0; i <= cannons; i++)
-			{
-				bulletTransform->position = transform.position;
-				bulletTransform->position.x += (transform.size.x / 2) + margin * i - offset;
-				bulletTransform->position.y += transform.size.y * 0.6f;
-				gsGGJBullet *bullet = new gsGGJBullet(true, bulletType, bulletTransform, game, phase);
+			for (int i = 0; i <= cannons; i++) {
+				bullet = new gsGGJBullet(true, bulletType, &transform, game, phase);
+				bullet->transform.position.x += margin * i - offset;
 				game->addObjetToObjectsList(bullet);
 			}
-		}
-
-		delete bulletTransform;
+		} 
 	}
 }
 
@@ -120,16 +110,18 @@ void gsGGJPlayer::move()
 
 void gsGGJPlayer::toChangeColor()
 {
-	if(gsInput::queryKey(GLFW_KEY_Q) == gsKeyState::Pressed)
-		changeColor(gsGGJPhase::RedPhase);
-	else if(gsInput::queryKey(GLFW_KEY_W) == gsKeyState::Pressed && gsGGJGlobal_PhasesAvaiable > 1)
-		changeColor(gsGGJPhase::GreenPhase);
-	else if (gsInput::queryKey(GLFW_KEY_E) == gsKeyState::Pressed && gsGGJGlobal_PhasesAvaiable > 2)
-		changeColor(gsGGJPhase::BluePhase);
-	else if (gsInput::queryKey(GLFW_KEY_R) == gsKeyState::Pressed && gsGGJGlobal_PhasesAvaiable > 3)
-		changeColor(gsGGJPhase::YellowPhase);
-	else if (gsInput::queryKey(GLFW_KEY_T) == gsKeyState::Pressed && gsGGJGlobal_PhasesAvaiable > 4)
-		changeColor(gsGGJPhase::MagentaPhase);
+	if (INITIAL_PHASES_AVAIABLE != 1) {
+		if(gsInput::queryKey(GLFW_KEY_Q) == gsKeyState::Pressed)
+			changeColor(gsGGJPhase::RedPhase);
+		else if(gsInput::queryKey(GLFW_KEY_W) == gsKeyState::Pressed && gsGGJGlobal_PhasesAvaiable > 1)
+			changeColor(gsGGJPhase::GreenPhase);
+		else if (gsInput::queryKey(GLFW_KEY_E) == gsKeyState::Pressed && gsGGJGlobal_PhasesAvaiable > 2)
+			changeColor(gsGGJPhase::BluePhase);
+		else if (gsInput::queryKey(GLFW_KEY_R) == gsKeyState::Pressed && gsGGJGlobal_PhasesAvaiable > 3)
+			changeColor(gsGGJPhase::YellowPhase);
+		else if (gsInput::queryKey(GLFW_KEY_T) == gsKeyState::Pressed && gsGGJGlobal_PhasesAvaiable > 4)
+			changeColor(gsGGJPhase::MagentaPhase);
+	}
 }
 
 void gsGGJPlayer::changeColor(gsGGJPhase phase)

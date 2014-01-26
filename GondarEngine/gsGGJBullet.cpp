@@ -25,9 +25,11 @@ gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTran
 			break;
 	}
 
+	pos.x += shooterTransform->size.x / 2.0f;
+	pos.x -= size.x / 2.0f;
 	if (isPlayerBullet) {
 		tag = gsGGJTag::PlayerBullet;
-		pos.y -= size.y + 64;
+		pos.y -= size.y;
 		speed *= -1;
 		collisionMask = 0x01;
 	} else {
