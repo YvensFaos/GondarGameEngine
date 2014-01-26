@@ -8,7 +8,7 @@
 
 gsGGJEnemy::gsGGJEnemy(gsGGJGame *game) : gsGGJShip(game) {
 	tag = gsGGJTag::Enemy;
-
+	alpha = 0.3;
 	setupSpritesheet();
 
 	hp = INITIAL_ENEMY_HEALTH;
@@ -20,7 +20,7 @@ gsGGJEnemy::gsGGJEnemy(gsGGJGame *game) : gsGGJShip(game) {
 
 	gsVector3 size = gsVector3(51, 51, 0);
 	gsVector3 speed = gsVector3(gsRandom::nextInt(-50, 50), gsRandom::nextInt(30, 50), 0);
-	gsColor color = gsColor::white(1.f);
+	gsColor color = gsColor::white(alpha);
 
 	transform = gsTransform(transform.position, size, gsVector3::zero(), speed, color);
 	collisionMask = 0x01;
@@ -53,6 +53,12 @@ gsGGJEnemy::~gsGGJEnemy() {
 }
 
 void gsGGJEnemy::update() {
+	if (alpha < (1.0f - gsGGJGlobal_AvoidChance/100.f))
+	{
+		alpha += gsClock::getDeltaTime()*0.5f;
+		transform.tint.a = alpha;
+	}
+
 	if (transform.leftTheSceen()) {
 		game->removeObjectFromObjectsList(this);
 		return;

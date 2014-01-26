@@ -28,13 +28,6 @@ void gsGGJPanorama::update(void)
 	}
 
 	acelerate();
-
-	/*if(gsInput::queryKey(GLFW_KEY_V) == gsKeyState::JustPressed)
-	{
-		GS_LOG(transform.position.y);
-		GS_LOG(acelerateCounter);
-		GS_LOG(transform.speed);
-	}*/
 }
 
 void gsGGJPanorama::draw(void)
@@ -47,7 +40,7 @@ void gsGGJPanorama::acelerate(void)
 {
 	acelerateCounter += gsClock::getDeltaTime();
 
-	if(acelerateCounter >= 0.5)
+	if(acelerateCounter >= 4.5)
 	{
 		transform.speed.y *= 1.05f;
 		acelerateCounter = 0;

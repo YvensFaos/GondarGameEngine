@@ -1,10 +1,11 @@
 #include "gsGGJSimlen.h"
+
 #include "gsGGJBullet.h"
 #include "gsSystem.h"
 #include "gsGGJPlayer.h"
+#include "gsRandom.h"
 
 gsGGJSimlen::gsGGJSimlen(gsGGJGame *game) : gsGGJEnemy(game){
-	
 	tag = gsGGJTag::Enemy;
 
 	setupSpritesheet();
@@ -18,7 +19,17 @@ gsGGJSimlen::gsGGJSimlen(gsGGJGame *game) : gsGGJEnemy(game){
 
 	//Alterar valores do transform
 	gsVector3 size = gsVector3(32, 31, 0);
-	gsVector3 speed = gsVector3(gsRandom::nextInt(-50, 50), gsRandom::nextInt(30, 50), 0);
+	gsVector3 speed;
+
+	if (gsRandom::chance(70))
+	{
+		speed = gsVector3(gsRandom::nextInt(-50, 50), gsRandom::nextInt(30, 50), 0);
+	}
+	else
+	{
+		speed = gsVector3(0, 40, 0);
+	}
+
 	gsColor color = gsColor::white(1.f);
 
 	transform = gsTransform(transform.position, size, gsVector3::zero(), speed, color);
@@ -51,6 +62,9 @@ gsGGJSimlen::gsGGJSimlen(gsGGJGame *game) : gsGGJEnemy(game){
 
 	transform.size *= sizeFactor;
 	transform.speed *= speedFactor;
+
+	acelerate = 0.f;
+	acelerated = false;
 }
 
 void gsGGJSimlen::setupSpritesheet()
@@ -88,6 +102,17 @@ void gsGGJSimlen::shoot()
 	}
 	
 	modifyShot = !modifyShot;
-
 }
 
+void gsGGJSimlen::update()
+{
+	gsGGJEnemy::update();
+
+	acelerate += gsClock::getDeltaTime()*0.2;
+
+	if (acelerate > 1.3f && !acelerated)
+	{
+		transform.speed.y += 100;
+		acelerated = true;
+	}
+}
