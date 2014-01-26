@@ -3,6 +3,7 @@
 
 #include "gsSystem.h"
 #include "gsGGJBullet.h"
+#include "gsGGJPlayer.h"
 
 
 gsGGJEnemy::gsGGJEnemy(gsGGJGame *game) : gsGGJShip(game) {
@@ -22,8 +23,27 @@ gsGGJEnemy::gsGGJEnemy(gsGGJGame *game) : gsGGJShip(game) {
 	gsColor color = gsColor::white(1.f);
 
 	transform = gsTransform(transform.position, size, gsVector3::zero(), speed, color);
-
 	collisionMask = 0x01;
+
+	if (INITIAL_PHASES_AVAIABLE != 1) {
+		gsGGJPhase playerPhase = game->player->phase;
+		int phaseId = gsRandom::nextInt(1, INITIAL_PHASES_AVAIABLE);
+		switch (phaseId) {
+			case 1: phase = gsGGJPhase::RedPhase; break;
+			case 2: phase = gsGGJPhase::GreenPhase; break;
+			case 3: phase = gsGGJPhase::BluePhase; break;
+			case 4: phase = gsGGJPhase::YellowPhase; break;
+			case 5: phase = gsGGJPhase::MagentaPhase; break;
+		}
+	} else {
+		phase = gsGGJPhase::RedPhase;
+	}
+
+	if (phase == gsGGJPhase::RedPhase) transform.tint = gsColor::red();
+	else if (phase == gsGGJPhase::GreenPhase) transform.tint = gsColor::green();
+	else if (phase == gsGGJPhase::BluePhase) transform.tint = gsColor::blue();
+	else if (phase == gsGGJPhase::YellowPhase) transform.tint = gsColor::yellow();
+	else if (phase == gsGGJPhase::MagentaPhase) transform.tint = gsColor::magenta();
 }
 gsGGJEnemy::~gsGGJEnemy() {
 	delete sprite;
@@ -70,14 +90,16 @@ void gsGGJEnemy::onCollision(gsGameObject *_other, const gsCollisionInfo& info) 
 
 	if (otherCastedToGGJObject->tag == gsGGJTag::PlayerBullet) {
 		gsGGJBullet *other = static_cast<gsGGJBullet*>(_other);
-		hp -= other->damage;
+		if (phase != other->phase) {
+			hp -= other->damage;
 
-		if (hp <= 0) {
-			game->removeObjectFromObjectsList(this);
-			gsGGJGlobal_Points += POINTS_WHEN_ENEMY_DIES;
-			return;
+			if (hp <= 0) {
+				game->removeObjectFromObjectsList(this);
+				gsGGJGlobal_Points += POINTS_WHEN_ENEMY_DIES;
+				return;
+			}
+			gsGGJGlobal_Points += POINTS_WHEN_BULLET_STRIKES;
 		}
-		gsGGJGlobal_Points += POINTS_WHEN_BULLET_STRIKES;
 	}
 }
 

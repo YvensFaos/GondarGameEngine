@@ -103,7 +103,6 @@ void gsGGJPlayer::toChangeColor()
 		changeColor(gsGGJPhase::MagentaPhase);
 }
 
-
 void gsGGJPlayer::changeColor(gsGGJPhase phase)
 {
 	this->phase = phase;
@@ -116,9 +115,21 @@ void gsGGJPlayer::changeColor(gsGGJPhase phase)
 	collisionMask |= phase;
 }
 
-void gsGGJPlayer::onCollision(gsGameObject *other, const gsCollisionInfo& info)
+void gsGGJPlayer::onCollision(gsGameObject *_other, const gsCollisionInfo& info)
 {
+	gsGGJObject *otherCastedToGGJObject = static_cast<gsGGJObject*>(_other);
 
+	if (otherCastedToGGJObject->tag == gsGGJTag::EnemyBullet) {
+		gsGGJBullet *other = static_cast<gsGGJBullet*>(_other);
+		if (phase != other->phase) {
+			hp -= other->damage;
+
+			if (hp <= 0) {
+				GS_LOG("Morreu");
+				return;
+			}
+		}
+	}
 }
 
 void gsGGJPlayer::setUpSpritesheet() {

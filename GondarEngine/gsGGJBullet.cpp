@@ -4,6 +4,7 @@
 #include <math.h>
 #include "gsSystem.h"
 #include "gsGGJGlobals.h"
+#include "gsGGJShip.h"
 
 gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTransform* shooterTransform, gsGGJGame *game, gsGGJPhase phase) : gsGGJObject(game) {
 	gsVector3 pos = shooterTransform->position;
@@ -82,18 +83,24 @@ void gsGGJBullet::doSpiral() {
 }
 
 void gsGGJBullet::onCollision(gsGameObject *_other, const gsCollisionInfo& info) {
-	gsGGJObject *other = static_cast<gsGGJObject*>(_other);
+	gsGGJObject *otherObject = static_cast<gsGGJObject*>(_other);
 
 	if (tag == gsGGJTag::EnemyBullet) {
-		if (other->tag == gsGGJTag::Player) {
-			game->removeObjectFromObjectsList(this);
-			return;
+		if (otherObject->tag == gsGGJTag::Player) {
+			gsGGJShip *other = static_cast<gsGGJShip*>(otherObject);
+			if (phase != other->phase) {
+				game->removeObjectFromObjectsList(this);
+				return;
+			}
 		}
 	} 
 	if (tag == gsGGJTag::PlayerBullet) {
-		if (other->tag == gsGGJTag::Enemy) {
-			game->removeObjectFromObjectsList(this);
-			return;
+		if (otherObject->tag == gsGGJTag::Enemy) {
+			gsGGJShip *other = static_cast<gsGGJShip*>(otherObject);
+			if (phase != other->phase) {
+				game->removeObjectFromObjectsList(this);
+				return;
+			}
 		}
 	}
 }
