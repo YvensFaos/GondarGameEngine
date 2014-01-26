@@ -1,18 +1,24 @@
 #ifndef __GS_GGJ_NUMBER_H_
 #define __GS_GGJ_NUMBER_H_
 
-#include "gsSpriteSheet.h"
+#include "gsGGJObject.h"
 
-class gsGGJNumber
+class gsSpriteSheet;
+
+class gsGGJNumber : public gsGGJObject
 {
 public:
-	static gsSpriteSheet numberSpriteSheet;
+	gsSpriteSheet *sprite;
 
-	gsGGJNumber(void);
-	
-	void draw();
+	gsGGJNumber(void) {}
+	gsGGJNumber(gsGGJGame* game);
+	virtual ~gsGGJNumber(void);
 
-	~gsGGJNumber(void){}
+	virtual void update();
+	virtual void draw();
+
+	void onCollision(gsGameObject *other, const gsCollisionInfo& info){}
+	void draw(int number,int x, int y);
 };
 
 #endif

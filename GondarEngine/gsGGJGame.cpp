@@ -5,6 +5,7 @@
 #include "gsGGJPlayer.h"
 #include "gsGGJShop.h"
 #include "gsGGJEnemySpawner.h"
+#include "gsGGJNumber.h"
 
 void gsGGJGame::start()
 {
@@ -12,6 +13,7 @@ void gsGGJGame::start()
 	gsAudio::play("Audio\\dota2.mp3", false, 1, 0);
 
 	this->player = new gsGGJPlayer(this);
+	gsGGJNumber* number = new gsGGJNumber(this);
 
 	addObjetToObjectsList(player);
 	addObjetToObjectsList(new gsGGJEnemySpawner(this));
@@ -47,10 +49,12 @@ void gsGGJGame::update()
 
 void gsGGJGame::draw()
 {
+	
 	for (int i = 0; i < objects.getSize(); i++)
 	{
 		objects.get(i)->draw();
 	}
+
 }
 
 void gsGGJGame::end()
