@@ -9,6 +9,7 @@ class gsGGJNumber : public gsGGJObject
 {
 public:
 	gsSpriteSheet *sprite;
+	int digit;
 
 	gsGGJNumber(void) {}
 	gsGGJNumber(gsGGJGame* game);
@@ -18,7 +19,6 @@ public:
 	virtual void draw();
 
 	void onCollision(gsGameObject *other, const gsCollisionInfo& info){}
-	void draw(int number,int x, int y);
 };
 
 #endif
