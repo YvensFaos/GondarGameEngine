@@ -13,7 +13,7 @@ public:
 	virtual void update();
 	virtual void draw();
 	
-	void onCollision(gsGameObject *other, const gsCollisionInfo& info);
+	virtual void onCollision(gsGameObject *other, const gsCollisionInfo& info);
 
 	void move();
 	void shoot();

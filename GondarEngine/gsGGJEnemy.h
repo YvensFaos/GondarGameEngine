@@ -21,7 +21,7 @@ public:
 	virtual void update();
 	virtual void draw();
 
-	void onCollision(gsGameObject *_other, const gsCollisionInfo& info);
+	virtual void onCollision(gsGameObject *_other, const gsCollisionInfo& info);
 
 	virtual void setupSpritesheet();
 	virtual void move();

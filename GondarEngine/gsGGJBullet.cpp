@@ -12,12 +12,16 @@ gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTran
 	//size.x += shooterTransform->size.x / 2;
 	gsVector3 speed = INITIAL_BULLET_SPEED;
 
+	this->bulletType = bulletType;
 	switch (bulletType) {
 		case gsGGJBulletType::Normal: damage = BULLET_DAMAGE_NORMAL;
 			break;
 		case gsGGJBulletType::Spiral: damage = BULLET_DAMAGE_SPIRAL;
+			offset = gsVector3::zero();
+			angle = 0;
 			break;
 		case gsGGJBulletType::Spread: damage = BULLET_DAMAGE_SPREAD;
+			speed.x = gsRandom::nextDouble() * BULLET_SPREAD_CONE;
 			break;
 	}
 
@@ -32,10 +36,6 @@ gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTran
 		collisionMask = 0x02;
 	}
 	setUpSprite(isPlayerBullet);
-
-	this->bulletType = bulletType;
-	offset = gsVector3::zero();
-	angle = 0;
 
 	transform = gsTransform(pos, size, gsVector3::zero(), speed, gsColor::white());
 
@@ -74,9 +74,9 @@ void gsGGJBullet::draw() {
 }
 
 void gsGGJBullet::doSpiral() {
-	int raio = 40;
+	int raio = BULLET_SPIRAL_RADIUS;
 	transform.position -= offset;
-	angle += gsClock::getDeltaTime() * 20;
+	angle += gsClock::getDeltaTime() * BULLET_SPIRAL_FREQUENCY;
 	offset.x = sin(angle) * raio;
 	offset.y = cos(angle) * raio * 2 ;
 	transform.position += offset;

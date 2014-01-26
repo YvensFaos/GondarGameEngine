@@ -28,7 +28,7 @@ public:
 	void setUpSprite(bool isPlayerBullet);
 	
 
-	void onCollision(gsGameObject *_other, const gsCollisionInfo& info);
+	virtual void onCollision(gsGameObject *_other, const gsCollisionInfo& info);
 };
 
 #endif

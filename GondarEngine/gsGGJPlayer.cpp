@@ -13,12 +13,13 @@ gsGGJPlayer::gsGGJPlayer(gsGGJGame *game) : gsGGJShip(game)
 	hp = 20;
 	damage = 3;
 	cooldownTime = 0;
-	cooldown = PLAYER_COOLDOWN_TIME;
+	//cooldown = PLAYER_COOLDOWN_TIME;
+	cooldown = BULLET_SPREAD_COOLDOWN;
 
 	// tetenta pelo construtor
 	transform = gsTransform(gsVector3(400, 300, 0), gsVector3(66, 60, 0), gsColor::white(1.0f));
 	collisionMask = 0x02;
-
+	bulletType = gsGGJBulletType::Spread;
 	changeColor(gsGGJPhase::BluePhase);
 }
 
