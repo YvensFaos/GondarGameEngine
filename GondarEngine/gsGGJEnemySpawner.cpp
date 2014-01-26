@@ -32,48 +32,48 @@ void gsGGJEnemySpawner::update()
 			{
 			case 2:
 			{
-					  int generated = gsRandom::nextInt(1, 6);
-					  for (int i = 0; i < generated; i++)
-					  {
-						  gsGGJFractalis * enemyFractalis = new gsGGJFractalis(game);
-						  enemyFractalis->transform.position = gsVector3(gsRandom::nextInt(0, 800), 0, 0);
+				int generated = gsRandom::nextInt(1, 6);
+				for (int i = 0; i < generated; i++)
+				{
+					gsGGJFractalis * enemyFractalis = new gsGGJFractalis(game);
+					enemyFractalis->transform.position = gsVector3(gsRandom::nextInt(0, 800), 0, 0);
 
-						  game->addObjetToObjectsList(enemyFractalis);
-					  }
+					game->addObjetToObjectsList(enemyFractalis);
+				}
 			}
 			case 1:
 			{
-					  int generated = gsRandom::nextInt(1, 4);
-					  for (int i = 0; i < generated; i++)
-					  {
-						  gsGGJSlaien * enemySlaien = new gsGGJSlaien(game);
-						  enemySlaien->transform.position = gsVector3(gsRandom::nextInt(0, 800), 0, 0);
+				int generated = gsRandom::nextInt(1, 4);
+				for (int i = 0; i < generated; i++)
+				{
+					gsGGJSlaien * enemySlaien = new gsGGJSlaien(game);
+					enemySlaien->transform.position = gsVector3(gsRandom::nextInt(0, 800), 0, 0);
 
-						  game->addObjetToObjectsList(enemySlaien);
-					  }
+					game->addObjetToObjectsList(enemySlaien);
+				}
 			}
 			case 0: //Jogo começou agora
 			{
-						int generated = gsRandom::nextInt(1, 3);
-						for (int i = 0; i < generated; i++)
-						{
-							gsGGJSimlen *enemySimlen = new gsGGJSimlen(game);
-							enemySimlen->transform.position = gsVector3(gsRandom::nextInt(0, 800), 0, 0);
+				int generated = gsRandom::nextInt(1, 3);
+				for (int i = 0; i < generated; i++)
+				{
+					gsGGJSimlen *enemySimlen = new gsGGJSimlen(game);
+					enemySimlen->transform.position = gsVector3(gsRandom::nextInt(0, 800), 0, 0);
 
-							game->addObjetToObjectsList(enemySimlen);
-						}
-						spawnTimer -= spawnCooldown;
+					game->addObjetToObjectsList(enemySimlen);
+				}
+				spawnTimer -= spawnCooldown;
 
-						if (stateTimer >= 3.f && state == 0)
-						{
-							state = 1; 
-							stateTimer = 0.f;
-						}
-						if (stateTimer >= 15.f && state == 1)
-						{
-							state = 2;
-							stateTimer = 0.f;
-						}
+				if (stateTimer >= 3.f && state == 0)
+				{
+					state = 1; 
+					stateTimer = 0.f;
+				}
+				if (stateTimer >= 15.f && state == 1)
+				{
+					state = 2;
+					stateTimer = 0.f;
+				}
 			}
 				break;
 
