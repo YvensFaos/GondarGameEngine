@@ -16,7 +16,7 @@ gsGGJPlayer::gsGGJPlayer(gsGGJGame *game) : gsGGJShip(game)
 	cooldown = PLAYER_COOLDOWN_TIME;
 
 	// tetenta pelo construtor
-	transform = gsTransform(gsVector3(400, 300, 0), gsVector3(50, 50, 0), gsColor::white(1.0f));
+	transform = gsTransform(gsVector3(400, 300, 0), gsVector3(66, 60, 0), gsColor::white(1.0f));
 	collisionMask = 0x02;
 }
 

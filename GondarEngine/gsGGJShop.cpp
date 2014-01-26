@@ -9,7 +9,7 @@ gsGGJShop::gsGGJShop(gsGGJGame *game) : gsGGJObject(game) {
 	collident = solid = false;
 	setUpSprite();
 
-	transform.tint = gsColor::white();
+	transform.tint = gsColor::white(0.3f);
 }
 gsGGJShop::~gsGGJShop(void) {
 	delete sprite;
