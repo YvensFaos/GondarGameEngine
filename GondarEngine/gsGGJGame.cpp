@@ -20,6 +20,7 @@ void gsGGJGame::start()
 
 	this->player = new gsGGJPlayer(this);
 
+	addObjetToObjectsList(player);
 	addObjetToObjectsList(new gsGGJEnemySpawner(this));
 	addObjetToObjectsList(new gsGGJShop(this));
 }
