@@ -106,6 +106,7 @@ void gsGGJPlayer::toChangeColor()
 
 void gsGGJPlayer::changeColor(gsGGJPhase phase)
 {
+	this->phase = phase;
 	collisionMask &= ~phase;
 	if (phase == gsGGJPhase::RedPhase) transform.tint = gsColor::red();
 	else if (phase == gsGGJPhase::GreenPhase) transform.tint = gsColor::green();

@@ -39,11 +39,11 @@ gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTran
 	transform = gsTransform(pos, size, gsVector3::zero(), speed, gsColor::white());
 
 	this->phase = phase;
-	if (phase == gsGGJPhase::RedPhase); transform.tint = gsColor::red();
-	if (phase == gsGGJPhase::GreenPhase); transform.tint = gsColor::green();
-	if (phase == gsGGJPhase::BluePhase); transform.tint = gsColor::blue();
-	if (phase == gsGGJPhase::YellowPhase); transform.tint = gsColor::yellow();
-	if (phase == gsGGJPhase::MagentaPhase); transform.tint = gsColor::magenta();
+	if (phase == gsGGJPhase::RedPhase) transform.tint = gsColor::red();
+	else if (phase == gsGGJPhase::GreenPhase) transform.tint = gsColor::green();
+	else if (phase == gsGGJPhase::BluePhase) transform.tint = gsColor::blue();
+	else if (phase == gsGGJPhase::YellowPhase) transform.tint = gsColor::yellow();
+	else if (phase == gsGGJPhase::MagentaPhase) transform.tint = gsColor::magenta();
 
 	solid = false;
 }
