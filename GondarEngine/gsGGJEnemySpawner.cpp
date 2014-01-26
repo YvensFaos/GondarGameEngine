@@ -4,6 +4,10 @@
 #include "gsGGJEnemy.h"
 #include "gsRandom.h"
 
+#include "gsGGJSimlen.h"
+#include "gsGGJSlaien.h"
+#include "gsGGJFractalis.h"
+
 gsGGJEnemySpawner::gsGGJEnemySpawner(gsGGJGame *game) : gsGGJObject(game)
 {
 	spawnCooldown = ENEMY_SPAWNER_COOLDOWN;
@@ -15,12 +19,19 @@ void gsGGJEnemySpawner::update()
 	spawnTimer += gsClock::getDeltaTime();
 	if (spawnTimer >= spawnCooldown)
 	{
-		gsGGJEnemy *enemy = new gsGGJEnemy(game);
-		enemy->transform.position.x = gsRandom::nextInt(0, 800);
-		enemy->transform.position.y = 0;
-		enemy->transform.position.z = 0;
 
-		game->addObjetToObjectsList(enemy);
+		gsGGJSimlen *enemySimlen = new gsGGJSimlen(game);
+		gsGGJSlaien *enemySlaien = new gsGGJSlaien(game);
+		gsGGJFractalis *enemyFractalis = new gsGGJFractalis(game);
+
+		enemySimlen->transform.position = gsVector3(gsRandom::nextInt(0, 800), 0,0);
+		enemySlaien->transform.position = gsVector3(gsRandom::nextInt(0, 800), 0,0);
+		enemyFractalis->transform.position = gsVector3(gsRandom::nextInt(0, 800), 0,0);
+
+
+		game->addObjetToObjectsList(enemySimlen);
+		game->addObjetToObjectsList(enemySlaien);
+		game->addObjetToObjectsList(enemyFractalis);
 
 		spawnTimer -= spawnCooldown;
 	}
