@@ -11,6 +11,8 @@ private:
 	float spawnCooldown;
 	float spawnTimer;
 
+	float timer;
+
 	int maxSimlien;
 	float slaienTimer;
 	float fractalisTimer;
@@ -26,6 +28,8 @@ public:
 
 	void update();
 	void draw();
+
+	void summonSimlienFleet(bool left);
 
 	void onCollision(gsGameObject *_other, const gsCollisionInfo& info);
 };

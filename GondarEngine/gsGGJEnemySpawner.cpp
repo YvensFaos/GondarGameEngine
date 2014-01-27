@@ -15,6 +15,7 @@ gsGGJEnemySpawner::gsGGJEnemySpawner(gsGGJGame *game) : gsGGJObject(game)
 	slaienTimer = 20.f;
 	fractalisTimer = 50.f;
 	stateTimer = 0;
+	timer = 0;
 
 	stateMachine = true;
 	state = 0;
@@ -26,6 +27,8 @@ void gsGGJEnemySpawner::update()
 {
 	spawnTimer += gsClock::getDeltaTime();
 	stateTimer += gsClock::getDeltaTime();
+	timer += gsClock::getDeltaTime()*100;
+
 	if(stateMachine)
 	{
 		if (spawnTimer >= spawnCooldown)
@@ -80,11 +83,20 @@ void gsGGJEnemySpawner::update()
 					state = 2;
 					stateTimer = 0.f;
 				}
+
+				
 			} break;
 			default:
 				break;
 			}
 		}
+
+		/*GS_LOG("q" << timer);
+		if ((int) (timer*10000)  % 21 == 0)
+		{
+			GS_LOG(((int) timer*10000));
+			summonSimlienFleet(gsRandom::chance(50));
+		}*/
 	} 
 	else 
 	{
@@ -98,13 +110,38 @@ void gsGGJEnemySpawner::update()
 			enemySlaien->transform.position = gsVector3(gsRandom::nextInt(0, 800), 0,0);
 			enemyFractalis->transform.position = gsVector3(gsRandom::nextInt(0, 800), 0,0);
 		
-
 			game->addObjetToObjectsList(enemySimlen);
 			game->addObjetToObjectsList(enemySlaien);
 			game->addObjetToObjectsList(enemyFractalis);
 
 			spawnTimer -= spawnCooldown;
 		}
+	}
+}
+
+void gsGGJEnemySpawner::summonSimlienFleet(bool left)
+{
+	float mainAxis = 0.f;
+	if(left)
+	{
+		mainAxis = gsRandom::nextInt(20, 200);
+	}
+	else
+	{
+		mainAxis = gsRandom::nextInt(60, 780);
+	}
+
+	float factor = (left)? 1 : -1;
+
+	GS_LOG("FLEET!");
+
+	for(int i = 0; i < 3; i++)
+	{
+		gsGGJSimlen *enemySimlen = new gsGGJSimlen(game);
+		enemySimlen->transform.position = gsVector3((mainAxis + (i*50)*factor), 10,0);
+		enemySimlen->transform.speed = gsVector3(60, 0, 0);
+
+		game->addObjetToObjectsList(enemySimlen);
 	}
 }
 
