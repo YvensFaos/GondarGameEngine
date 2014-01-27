@@ -6,8 +6,10 @@
 #include "gsSpriteSheet.h"
 
 class gsGGJEnemy : public gsGGJShip {
-
 public:
+	gsVector3 shakeOffset;
+	float shakingTime;
+	bool shaking;
 	float alpha;
 	float burstWaitCooldown;
 	float burstWaitTime;
@@ -26,6 +28,7 @@ public:
 
 	virtual void setupSpritesheet();
 	void setUpPhase();
+	void shootingInteligence();
 	
 	virtual void move();
 	virtual void shoot(float offsetX, float offsetY, bool lastShoot);
