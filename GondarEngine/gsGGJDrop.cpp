@@ -20,9 +20,10 @@ gsGGJDrop::gsGGJDrop(gsGGJGame *game, gsTransform* transform) : gsGGJObject(game
 	sprite->addAnimation(clip);
 	sprite->setAnimation("dropClip");
 
-	transform->speed.x = 0;
-	transform->speed.y = -10;
-	transform->tint = gsColor::white(0.8f);
+	this->transform.size = gsVector3(40, 40, 0);
+	this->transform.speed.x = 0;
+	this->transform.speed.y = 60;
+	this->transform.tint = gsColor::white(0.8f);
 
 	solid = false;
 }
@@ -55,32 +56,24 @@ void gsGGJDrop::onCollision(gsGameObject *other, const gsCollisionInfo& info)
 	if (otherObject->tag == gsGGJTag::Player) {
 		gsGGJPlayer *player = game->player;
 
-		if(gsRandom::chance(50))
-		{
+		int pick = gsRandom::nextInt(0, 100);
+		if(pick < 20) {
 			//Adiciona pontos
 			gsGGJGlobal_Points += gsRandom::nextInt(1, 100);
-		}
-		else
-		{
-			if(gsRandom::chance(50))
-			{
-				//Ganha vida
-				player->hp += gsRandom::nextInt(1, 4);
-			}
-			else
-			{
-				if(gsRandom::chance(70))
-				{
-					player->bulletType = gsGGJBulletType::Spiral;
-				}
-				else
-				{
-					player->bulletType = gsGGJBulletType::Spread;
-				}
-			}
+		} else if(pick < 40) {
+			player->hp += gsRandom::nextInt(1, 4);
+		} else  if(pick < 60) {
+			player->bulletType = gsGGJBulletType::Spiral;
+			player->cooldown = BULLET_SPIRAL_COOLDOWN;
+		} else if (pick < 80) {
+			player->bulletType = gsGGJBulletType::Spread;
+			player->cooldown = BULLET_SPREAD_COOLDOWN;
+		} else {
+			player->bulletType = gsGGJBulletType::Normal;
+			player->cooldown = BULLET_NORMAL_COOLDOWN;
 		}
 
-		gsAudio::play("GGJ\\UpgradeSound.ogg", false, 100, 0);
+		gsAudio::play("GGJ\\UpgradeSound.ogg", false, 0.6, 0);
 		game->removeObjectFromObjectsList(this);
 		return;
 	}

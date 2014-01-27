@@ -68,8 +68,7 @@ void gsGGJSlaien::update()
 	gsGGJEnemy::update();
 
 	multishot += gsClock::getDeltaTime()*0.2f;
-	if (multishot >= 0.8f)
-	{
+	if (multishot >= 0.8f) {
 		int spd = 100;
 
 		gsGGJBullet *bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);

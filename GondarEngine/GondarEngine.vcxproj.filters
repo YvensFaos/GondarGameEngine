@@ -88,6 +88,9 @@
     <Filter Include="Games\GGJ Game\Objects\HUD\Score">
       <UniqueIdentifier>{9ed809a6-1506-44d0-8682-33841ea7f178}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\GGJ Game\Objects\Effects">
+      <UniqueIdentifier>{4b19d054-8fc7-4bbf-b7c6-4df417381041}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gsEngine.h">
@@ -313,6 +316,9 @@
     <ClInclude Include="gsGGJPlayerState.h">
       <Filter>Games\GGJ Game\Enums</Filter>
     </ClInclude>
+    <ClInclude Include="gsGGJExplosion.h">
+      <Filter>Games\GGJ Game\Objects\Effects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsMain.cpp" />
@@ -471,6 +477,9 @@
     </ClCompile>
     <ClCompile Include="gsGGJShop.cpp">
       <Filter>Games\GGJ Game\Objects\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="gsGGJExplosion.cpp">
+      <Filter>Games\GGJ Game\Objects\Effects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

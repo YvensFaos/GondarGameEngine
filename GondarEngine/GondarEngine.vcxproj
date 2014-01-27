@@ -89,6 +89,7 @@
     <ClInclude Include="gsGGJBullet.h" />
     <ClInclude Include="gsGGJBulletType.h" />
     <ClInclude Include="gsGGJEnemy.h" />
+    <ClInclude Include="gsGGJExplosion.h" />
     <ClInclude Include="gsGGJFractalis.h" />
     <ClInclude Include="gsGGJGame.h" />
     <ClInclude Include="gsGGJGlobals.h" />
@@ -184,6 +185,7 @@
     <ClCompile Include="gsGGJDrop.cpp" />
     <ClCompile Include="gsGGJEnemy.cpp" />
     <ClCompile Include="gsGGJEnemySpawner.cpp" />
+    <ClCompile Include="gsGGJExplosion.cpp" />
     <ClCompile Include="gsGGJFractalis.cpp" />
     <ClCompile Include="gsGGJGame.cpp" />
     <ClCompile Include="gsGGJGlobals.cpp" />

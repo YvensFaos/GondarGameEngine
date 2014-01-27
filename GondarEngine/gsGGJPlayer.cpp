@@ -14,7 +14,7 @@ gsGGJPlayer::gsGGJPlayer(gsGGJGame *game) : gsGGJShip(game)
 	maxHp = hp;
 	damage = 3;
 	cooldownTime = 0;
-	cooldown = PLAYER_COOLDOWN_TIME;
+	cooldown = BULLET_NORMAL_COOLDOWN;
 
 	// tetenta pelo construtor
 	transform = gsTransform(INITIAL_PLAYER_POS, INITIAL_PLAYER_SIZE, gsColor::white(1.0f));
@@ -181,6 +181,9 @@ void gsGGJPlayer::onCollision(gsGameObject *_other, const gsCollisionInfo& info)
 					if (gsGGJGlobal_Lifes >= 0) {
 						state = gsGGJPlayerState::Dead;
 						stateTransitionTime = 0;
+
+						bulletType = gsGGJBulletType::Normal;
+						cooldown = BULLET_NORMAL_COOLDOWN;
 					} else {
 						game->removeObjectFromObjectsList(this);
 					}
