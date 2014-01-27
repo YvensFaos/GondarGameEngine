@@ -31,11 +31,11 @@ gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTran
 		tag = gsGGJTag::PlayerBullet;
 		pos.y -= size.y;
 		speed *= -1;
-		collisionMask = 0x01;
+		collisionMask = 0x101;
 	} else {
 		tag = gsGGJTag::EnemyBullet;
 		pos.y += shooterTransform->size.y;
-		collisionMask = 0x02;
+		collisionMask = 0x102;
 	}
 	setUpSprite(isPlayerBullet);
 
@@ -93,6 +93,13 @@ void gsGGJBullet::onCollision(gsGameObject *_other, const gsCollisionInfo& info)
 				return;
 			}
 		}
+		if (otherObject->tag == gsGGJTag::PlayerBullet) {
+			gsGGJShip *other = static_cast<gsGGJShip*>(otherObject);
+			if (phase != other->phase) {
+				game->removeObjectFromObjectsList(this);
+				return;
+			}
+		}
 	} 
 	if (tag == gsGGJTag::PlayerBullet) {
 		if (otherObject->tag == gsGGJTag::Enemy) {
@@ -102,7 +109,17 @@ void gsGGJBullet::onCollision(gsGameObject *_other, const gsCollisionInfo& info)
 				return;
 			}
 		}
+		if (otherObject->tag == gsGGJTag::EnemyBullet) {
+			gsGGJShip *other = static_cast<gsGGJShip*>(otherObject);
+			if (phase != other->phase) {
+				game->removeObjectFromObjectsList(this);
+				return;
+			}
+		}
 	}
+	
+
+	
 }
 
 void gsGGJBullet::setUpSprite(bool isPlayerBullet) {

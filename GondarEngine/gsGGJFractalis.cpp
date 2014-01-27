@@ -18,7 +18,7 @@ gsGGJFractalis::gsGGJFractalis(gsGGJGame *game) : gsGGJEnemy(game){
 	cooldown = ENEMY_FRACTALIS_COOLDOWN;
 	cooldownTime = ENEMY_FRACTALIS_COOLDOWNTIME;
 	waiting = ENEMY_FRACTALIS_WAITING;
-
+	multishot = 0;
 	//Alterar valores do transform
 	gsVector3 size = gsVector3(61, 56, 0);
 	gsVector3 speed = gsVector3(gsRandom::nextInt(-50, 50), gsRandom::nextInt(30, 50), 0);
@@ -56,6 +56,43 @@ gsGGJFractalis::gsGGJFractalis(gsGGJGame *game) : gsGGJEnemy(game){
 
 	healthBar = new gsGGJHealth(game, this);
 	game->addObjetToObjectsList(healthBar);
+}
+
+void gsGGJFractalis::update(){
+	gsGGJEnemy::update();
+
+	multishot += gsClock::getDeltaTime()*0.2f;
+	if (multishot >= 0.8f)
+	{
+		int spd = 100;
+		
+		gsGGJBullet *bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+		bullet->transform.speed.x = -1 * spd / 2;
+		bullet->transform.speed.y = -1 * spd / 2;
+		bullet->bulletType = gsGGJBulletType::Normal;
+		game->addObjetToObjectsList(bullet);
+
+		bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+		bullet->transform.speed.x = -1 * spd / 2;
+		bullet->transform.speed.y = 1 * spd / 2;
+		bullet->bulletType = gsGGJBulletType::Normal;
+		game->addObjetToObjectsList(bullet);
+
+		bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+		bullet->transform.speed.x = 1 * spd / 2;
+		bullet->transform.speed.y = -1 * spd / 2;
+		bullet->bulletType = gsGGJBulletType::Normal;
+		game->addObjetToObjectsList(bullet);
+
+		bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+		bullet->transform.speed.x = 1 * spd / 2;
+		bullet->transform.speed.y = 1 * spd / 2;
+		bullet->bulletType = gsGGJBulletType::Normal;
+		game->addObjetToObjectsList(bullet);
+
+		multishot -= multishot;
+	}
+
 }
 
 void gsGGJFractalis::setupSpritesheet()
