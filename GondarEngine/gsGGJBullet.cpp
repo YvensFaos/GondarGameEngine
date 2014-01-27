@@ -22,6 +22,8 @@ gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTran
 			break;
 		case gsGGJBulletType::Spread: damage = BULLET_DAMAGE_SPREAD;
 			speed.x = gsRandom::nextDouble() * BULLET_SPREAD_CONE;
+			speed.y += gsRandom::nextInt(-8, 8);
+			size *= (gsRandom::nextDouble() / 2.5f) + 0.6;
 			break;
 	}
 

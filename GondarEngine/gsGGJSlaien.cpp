@@ -35,7 +35,7 @@ gsGGJSlaien::gsGGJSlaien(gsGGJGame *game) : gsGGJEnemy(game){
 	{
 		this->bulletType = gsGGJBulletType::Spread;
 		burstWaitCooldown = 0.5;
-		cooldown = 0.2;
+		cooldown = BULLET_SPREAD_COOLDOWN;
 	}
 	else
 	{
