@@ -28,25 +28,7 @@ gsGGJFractalis::gsGGJFractalis(gsGGJGame *game) : gsGGJEnemy(game){
 
 	collisionMask = 0x01;
 
-	if (gsGGJGlobal_PhasesAvaiable != 1) {
-		gsGGJPhase playerPhase = game->player->phase;
-		int phaseId = gsRandom::nextInt(1, gsGGJGlobal_PhasesAvaiable);
-		switch (phaseId) {
-			case 1: phase = gsGGJPhase::RedPhase; break;
-			case 2: phase = gsGGJPhase::GreenPhase; break;
-			case 3: phase = gsGGJPhase::BluePhase; break;
-			case 4: phase = gsGGJPhase::YellowPhase; break;
-			case 5: phase = gsGGJPhase::MagentaPhase; break;
-		}
-	} else {
-		phase = gsGGJPhase::RedPhase;
-	}
-
-	if (phase == gsGGJPhase::RedPhase) transform.tint = PHASE_RED_COLOR;
-	else if (phase == gsGGJPhase::GreenPhase) transform.tint = PHASE_GREEN_COLOR;
-	else if (phase == gsGGJPhase::BluePhase) transform.tint = PHASE_BLUE_COLOR;
-	else if (phase == gsGGJPhase::YellowPhase) transform.tint = PHASE_YELLOW_COLOR;
-	else if (phase == gsGGJPhase::MagentaPhase) transform.tint = PHASE_MAGENTA_COLOR;
+	setUpPhase();
 
 	solid = false;
 	this->bulletType = gsGGJBulletType::Spiral;

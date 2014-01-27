@@ -6,7 +6,7 @@ enum gsGGJTag {
 	Player, 
 	PlayerBullet, 
 	Enemy, 
-	EnemyBullet, 
+	EnemyBullet,
 	TuNaoSetouAindaViado
 };
 

@@ -51,11 +51,21 @@ void gsGGJPlayer::shoot()
 			bullet = new gsGGJBullet(true, bulletType, &transform, game, phase);
 			game->addObjetToObjectsList(bullet);
 		} else {
+			int count = 0;
+			switch (cannons) {
+				case 2: count = 2; break;
+				case 3: count = 3; break;
+				case 4: count = 5; break;
+				case 5: count = 8; break;
+				default: break;
+			}
+
 			float margin = CANNONS_INTERBULLET_MARGIN;
-			float offset = (margin * cannons) / 2.0f;
-			for (int i = 0; i < cannons; i++) {
+			float offset = (margin * (count-1)) / 2.0f;
+			for (int i = 0; i < count; i++) {
 				bullet = new gsGGJBullet(true, bulletType, &transform, game, phase);
 				bullet->transform.position.x += margin * i - offset;
+				bullet->transform.position.y += abs(((i - (count-1) / 2.0f) * 8));
 				game->addObjetToObjectsList(bullet);
 			}
 		} 
@@ -105,11 +115,11 @@ void gsGGJPlayer::toChangeColor()
 {
 	if (gsGGJGlobal_PhasesAvaiable != 1) {
 		if(gsInput::queryKey(GLFW_KEY_Q) == gsKeyState::Pressed)
-			changeColor(gsGGJPhase::RedPhase);
-		else if(gsInput::queryKey(GLFW_KEY_W) == gsKeyState::Pressed && gsGGJGlobal_PhasesAvaiable > 1)
-			changeColor(gsGGJPhase::GreenPhase);
-		else if (gsInput::queryKey(GLFW_KEY_E) == gsKeyState::Pressed && gsGGJGlobal_PhasesAvaiable > 2)
 			changeColor(gsGGJPhase::BluePhase);
+		else if(gsInput::queryKey(GLFW_KEY_W) == gsKeyState::Pressed && gsGGJGlobal_PhasesAvaiable > 1)
+			changeColor(gsGGJPhase::RedPhase);
+		else if (gsInput::queryKey(GLFW_KEY_E) == gsKeyState::Pressed && gsGGJGlobal_PhasesAvaiable > 2)
+			changeColor(gsGGJPhase::GreenPhase);
 		else if (gsInput::queryKey(GLFW_KEY_R) == gsKeyState::Pressed && gsGGJGlobal_PhasesAvaiable > 3)
 			changeColor(gsGGJPhase::YellowPhase);
 		else if (gsInput::queryKey(GLFW_KEY_T) == gsKeyState::Pressed && gsGGJGlobal_PhasesAvaiable > 4)
@@ -120,11 +130,7 @@ void gsGGJPlayer::toChangeColor()
 void gsGGJPlayer::changeColor(gsGGJPhase phase)
 {
 	this->phase = phase;
-	if (phase == gsGGJPhase::RedPhase) transform.tint = PHASE_RED_COLOR;
-	else if (phase == gsGGJPhase::GreenPhase) transform.tint = PHASE_GREEN_COLOR;
-	else if (phase == gsGGJPhase::BluePhase) transform.tint = PHASE_BLUE_COLOR;
-	else if (phase == gsGGJPhase::YellowPhase) transform.tint = PHASE_YELLOW_COLOR;
-	else if (phase == gsGGJPhase::MagentaPhase) transform.tint = PHASE_MAGENTA_COLOR;
+	setPhaseColor(phase);
 }
 
 void gsGGJPlayer::onCollision(gsGameObject *_other, const gsCollisionInfo& info)

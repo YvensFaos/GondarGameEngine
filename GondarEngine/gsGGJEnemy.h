@@ -25,8 +25,10 @@ public:
 	virtual void onCollision(gsGameObject *_other, const gsCollisionInfo& info);
 
 	virtual void setupSpritesheet();
+	void setUpPhase();
+	
 	virtual void move();
-	virtual void shoot(float offsetX);
+	virtual void shoot(float offsetX, float offsetY, bool lastShoot);
 };
 
 #endif

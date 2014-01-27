@@ -146,7 +146,7 @@ void gsGGJShop::setUpSprite() {
 	powerCannonsSprite = new gsSpriteSheet("GGJ\\powercannon.png", "powCan", 1, 8);
 	colorAvoidSprite = new gsSpriteSheet("GGJ\\colorsavoid.png", "colAvoid", 1, 8);
 	sizeSprite = new gsSpriteSheet("GGJ\\size.png", "size", 1, 2);
-	maxedoutSprite = new gsSpriteSheet("GGJ\\size.png", "max", 1, 1);
+	maxedoutSprite = new gsSpriteSheet("GGJ\\star.png", "max", 1, 1);
 }
 
 
@@ -207,7 +207,7 @@ void gsGGJShop::pickShopUpdate(int id) {
 }
 void gsGGJShop::normalShopUpdate() {
 	if (gsInput::queryKey(GLFW_KEY_1) == gsKeyState::JustPressed) {
-		if (gCanBuy(gPowerCannons) && gPowerChoosen < 4) {
+		if (gCanBuy(gPowerCannons) && gPowerCannons < 4) {
 			gsGGJGlobal_Points -= gTierPrice(gPowerCannons);
 			gPowerCannons += 1;
 			updatePowerCannon();

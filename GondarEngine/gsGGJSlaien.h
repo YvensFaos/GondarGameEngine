@@ -10,5 +10,4 @@ public:
 
 	virtual void update();
 	virtual void setupSpritesheet();
-	virtual void shoot(float offsetX);
 };

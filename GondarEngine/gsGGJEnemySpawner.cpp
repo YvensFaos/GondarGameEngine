@@ -33,8 +33,7 @@ void gsGGJEnemySpawner::update()
 	{
 		if (spawnTimer >= spawnCooldown)
 		{
-			switch (state)
-			{
+			switch (state) {
 			case 2:
 			{
 				int generated = gsRandom::nextInt(1, 6);
