@@ -10,6 +10,7 @@ public:
 	gsSpriteSheet *powerCannonsSprite;
 	gsSpriteSheet *colorAvoidSprite;
 	gsSpriteSheet *sizeSprite;
+	gsSpriteSheet *maxedoutSprite;
 	gsTransform itemTransform;
 
 	gsGGJShop(void) {}

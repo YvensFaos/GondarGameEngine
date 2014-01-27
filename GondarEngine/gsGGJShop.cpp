@@ -22,17 +22,17 @@ bool gSizePlusChoosen;
 #define NORMAL_SHOP_ITEM_2_POS (gsVector3(0, -15, 0) - SHOP_ITEM_SIZE_Y)
 #define NORMAL_SHOP_ITEM_3_POS (gsVector3(-15, 0, 0) - SHOP_ITEM_SIZE_Y)
 
-bool gCanBuy(int tier) {
+int gTierPrice(int tier) {
 	switch (tier) {
-	case 0: return (gsGGJGlobal_Points > UPGRADE_TIER_ONE_COST);
-	case 1: return (gsGGJGlobal_Points > UPGRADE_TIER_TWO_COST);
-	case 2: return (gsGGJGlobal_Points > UPGRADE_TIER_THREE_COST);
-	case 3: return (gsGGJGlobal_Points > UPGRADE_TIER_FOUR_COST);
-	default:
-		//gsAssert(0); // tier inválido
-		return false;
-		break;
+	case 0: return UPGRADE_TIER_ONE_COST;
+	case 1: return UPGRADE_TIER_TWO_COST;
+	case 2: return UPGRADE_TIER_THREE_COST;
+	case 3: return UPGRADE_TIER_FOUR_COST;
+	default: return 0; break;
 	}
+}
+bool gCanBuy(int tier) {
+	return (gsGGJGlobal_Points > gTierPrice(tier));
 }
 
 void gsGGJShop::updatePowerCannon() {
@@ -95,9 +95,6 @@ void gsGGJShop::update() {
 	hudSprite->updateAnimation();
 	transform.setTextureCoordinates(hudSprite->getCurrentSprite());
 
-	if (gsInput::queryKey(GLFW_KEY_TAB) == gsKeyState::JustPressed) {
-		GS_LOG(gsGGJGlobal_Points); 
-	}
 	if (gsInput::queryKey(GLFW_KEY_TAB) == gsKeyState::Pressed) {
 		if (gPowerCannons != 0) {
 			if (gColorAvoid != 0) {
@@ -137,8 +134,6 @@ void gsGGJShop::draw() {
 		}
 	}
 }
-	
-void gsGGJShop::onCollision(gsGameObject *other, const gsCollisionInfo& info) {}
 
 void gsGGJShop::setUpSprite() {
 	int *frames = new int[3];
@@ -151,6 +146,7 @@ void gsGGJShop::setUpSprite() {
 	powerCannonsSprite = new gsSpriteSheet("GGJ\\powercannon.png", "powCan", 1, 8);
 	colorAvoidSprite = new gsSpriteSheet("GGJ\\colorsavoid.png", "colAvoid", 1, 8);
 	sizeSprite = new gsSpriteSheet("GGJ\\size.png", "size", 1, 2);
+	maxedoutSprite = new gsSpriteSheet("GGJ\\size.png", "max", 1, 1);
 }
 
 
@@ -159,12 +155,14 @@ void gsGGJShop::pickShopUpdate(int id) {
 		case 0: 
 			if (gsInput::queryKey(GLFW_KEY_1) == gsKeyState::JustPressed) {
 				if (gCanBuy(0)) {
+					gsGGJGlobal_Points -= gTierPrice(0);
 					gPowerCannons += 1;
 					gPowerChoosen = true;
 					updatePowerCannon();
 				}
 			} else if (gsInput::queryKey(GLFW_KEY_2) == gsKeyState::JustPressed) {
 				if (gCanBuy(0)) {
+					gsGGJGlobal_Points -= gTierPrice(0);
 					gPowerCannons += 1;
 					gPowerChoosen = false;
 					updatePowerCannon();
@@ -174,12 +172,14 @@ void gsGGJShop::pickShopUpdate(int id) {
 		case 1: 
 			if (gsInput::queryKey(GLFW_KEY_1) == gsKeyState::JustPressed) {
 				if (gCanBuy(0)) {
+					gsGGJGlobal_Points -= gTierPrice(0);
 					gColorAvoid += 1;
 					gColorChoosen = true;
 					updateColorAvoid();
 				}
 			} else if (gsInput::queryKey(GLFW_KEY_2) == gsKeyState::JustPressed) {
 				if (gCanBuy(0)) {
+					gsGGJGlobal_Points -= gTierPrice(0);
 					gColorAvoid += 1;
 					gColorChoosen = false;
 					updateColorAvoid();
@@ -189,12 +189,14 @@ void gsGGJShop::pickShopUpdate(int id) {
 		case 2: 
 			if (gsInput::queryKey(GLFW_KEY_1) == gsKeyState::JustPressed) {
 				if (gCanBuy(0)) {
+					gsGGJGlobal_Points -= gTierPrice(0);
 					gSize += 1;
 					gSizePlusChoosen = true;
 					updateSize();
 				}
 			} else if (gsInput::queryKey(GLFW_KEY_2) == gsKeyState::JustPressed) {
 				if (gCanBuy(0)) {
+					gsGGJGlobal_Points -= gTierPrice(0);
 					gSize += 1;
 					gSizePlusChoosen = false;
 					updateSize();
@@ -205,17 +207,20 @@ void gsGGJShop::pickShopUpdate(int id) {
 }
 void gsGGJShop::normalShopUpdate() {
 	if (gsInput::queryKey(GLFW_KEY_1) == gsKeyState::JustPressed) {
-		if (gCanBuy(gPowerCannons)) {
+		if (gCanBuy(gPowerCannons) && gPowerChoosen < 4) {
+			gsGGJGlobal_Points -= gTierPrice(gPowerCannons);
 			gPowerCannons += 1;
 			updatePowerCannon();
 		}
 	} else if (gsInput::queryKey(GLFW_KEY_2) == gsKeyState::JustPressed) {
-		if (gCanBuy(gColorAvoid)) {
+		if (gCanBuy(gColorAvoid) && gColorAvoid < 4) {
+			gsGGJGlobal_Points -= gTierPrice(gColorAvoid);
 			gColorAvoid += 1;
 			updateColorAvoid();
 		}
 	} else if (gsInput::queryKey(GLFW_KEY_3) == gsKeyState::JustPressed) {
-		if (gCanBuy(gSize)) {
+		if (gCanBuy(gSize) && gSize < 4) {
+			gsGGJGlobal_Points -= gTierPrice(gSize);
 			gSize += 1;
 			updateSize();
 		}
@@ -257,37 +262,51 @@ void gsGGJShop::pickShopDraw(int id) {
 	}
 	gsGraphics::drawQuad(itemTransform);
 }
-
 void gsGGJShop::normalShopDraw() {
-	if (!gCanBuy(gPowerCannons)) 
-	{ 
+	if (!gCanBuy(gPowerCannons))  { 
 		itemTransform.tint = gsColor(0.4, 0.4, 0.4); 
-	} 
-	else 
-	{ 
+	} else { 
 		itemTransform.tint = gsColor::white(); 
 	}
 
-	powerCannonsSprite->sendToOpenGL_Texture();
-
 	itemTransform.position = NORMAL_SHOP_ITEM_1_POS + transform.position;
-	itemTransform.setTextureCoordinates(powerCannonsSprite->getSprite(gPowerCannons + ((gPowerChoosen) ? 0 : 4)));
-	gsGraphics::drawQuad(itemTransform);
 
-	if (!gCanBuy(gColorAvoid)) { itemTransform.tint = gsColor(0.4, 0.4, 0.4); } else { itemTransform.tint = gsColor::white(); }
-	colorAvoidSprite->sendToOpenGL_Texture();
+	if (gPowerCannons == 4) {
+		maxedoutSprite->sendToOpenGL_Texture();
+		itemTransform.setTextureCoordinates(maxedoutSprite->getSprite(0));
+	} else {
+		if (!gCanBuy(gColorAvoid)) { itemTransform.tint = gsColor(0.4, 0.4, 0.4); } else { itemTransform.tint = gsColor::white(); }
+		powerCannonsSprite->sendToOpenGL_Texture();
+		itemTransform.setTextureCoordinates(powerCannonsSprite->getSprite(gPowerCannons + ((gPowerChoosen) ? 0 : 4)));
+	}
+	gsGraphics::drawQuad(itemTransform);
 
 	itemTransform.position = NORMAL_SHOP_ITEM_2_POS + transform.position;
 	itemTransform.position.x += transform.size.x / 2;
 	itemTransform.position.x -= itemTransform.size.x / 2;
-	itemTransform.setTextureCoordinates(colorAvoidSprite->getSprite(gColorAvoid + ((gColorChoosen) ? 0 : 4)));
+	
+	if (gColorAvoid == 4) {
+		maxedoutSprite->sendToOpenGL_Texture();
+		itemTransform.setTextureCoordinates(maxedoutSprite->getSprite(0));
+	} else {
+		if (!gCanBuy(gColorAvoid)) { itemTransform.tint = gsColor(0.4, 0.4, 0.4); } else { itemTransform.tint = gsColor::white(); }
+		colorAvoidSprite->sendToOpenGL_Texture();
+		itemTransform.setTextureCoordinates(colorAvoidSprite->getSprite(gColorAvoid + ((gColorChoosen) ? 0 : 4)));
+	}
 	gsGraphics::drawQuad(itemTransform);
-
-	if (!gCanBuy(gSize)) { itemTransform.tint = gsColor(0.4, 0.4, 0.4); } else { itemTransform.tint = gsColor::white(); }
-	sizeSprite->sendToOpenGL_Texture();
 
 	itemTransform.position = NORMAL_SHOP_ITEM_3_POS + transform.position;
 	itemTransform.position.x += transform.size.x;
-	itemTransform.setTextureCoordinates(sizeSprite->getSprite((gSizePlusChoosen) ? 1 : 0));
+
+	if (gSize == 4) {
+		maxedoutSprite->sendToOpenGL_Texture();
+		itemTransform.setTextureCoordinates(maxedoutSprite->getSprite(0));
+	} else {
+		if (!gCanBuy(gSize)) { itemTransform.tint = gsColor(0.4, 0.4, 0.4); } else { itemTransform.tint = gsColor::white(); }
+		sizeSprite->sendToOpenGL_Texture();
+		itemTransform.setTextureCoordinates(sizeSprite->getSprite((gSizePlusChoosen) ? 1 : 0));
+	}
 	gsGraphics::drawQuad(itemTransform);
 }
+
+void gsGGJShop::onCollision(gsGameObject *other, const gsCollisionInfo& info) {}
