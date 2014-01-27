@@ -147,6 +147,7 @@ void gsGGJShop::setUpSprite() {
 	colorAvoidSprite = new gsSpriteSheet("GGJ\\colorsavoid.png", "colAvoid", 1, 8);
 	sizeSprite = new gsSpriteSheet("GGJ\\size.png", "size", 1, 2);
 	maxedoutSprite = new gsSpriteSheet("GGJ\\star.png", "max", 1, 1);
+	actualShot = new gsSpriteSheet("GGJ\\shots.png", "max", 1, 1);
 }
 
 

@@ -11,6 +11,7 @@ public:
 	gsSpriteSheet *colorAvoidSprite;
 	gsSpriteSheet *sizeSprite;
 	gsSpriteSheet *maxedoutSprite;
+	gsSpriteSheet *actualShot;
 	gsTransform itemTransform;
 
 	gsGGJShop(void) {}
