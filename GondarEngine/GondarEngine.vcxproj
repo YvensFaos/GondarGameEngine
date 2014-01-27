@@ -60,6 +60,11 @@
       <AdditionalDependencies>glfw3.lib;opengl32.lib;glu32.lib;FreeImage.lib;audiere.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)\GLFW;$(ProjectDir)\FreeImage\lib32\;$(ProjectDir)Audiere\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(SolutionDir)GondarEngine\Audiere\audiere.dll" "$(TargetDir)audiere.dll"
+copy /Y "$(SolutionDir)GondarEngine\FreeImage\lib32\FreeImage.dll" "$(TargetDir)FreeImage.dll"</Command>
+      <Message>Copying Audiere and Freeimage to TargetDir</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -71,6 +76,9 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -80,6 +88,11 @@
       <AdditionalDependencies>glfw3.lib;opengl32.lib;glu32.lib;FreeImage.lib;audiere.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)GLFW\;$(ProjectDir)\FreeImage\lib32\;$(ProjectDir)Audiere\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(SolutionDir)GondarEngine\Audiere\audiere.dll" "$(TargetDir)audiere.dll"
+copy /Y "$(SolutionDir)GondarEngine\FreeImage\lib32\FreeImage.dll" "$(TargetDir)FreeImage.dll"</Command>
+      <Message>Copying Audiere and Freeimage to TargetDir</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="gsGGJDrop.h" />
