@@ -48,6 +48,10 @@ gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTran
 	else if (phase == gsGGJPhase::YellowPhase) transform.tint = PHASE_YELLOW_COLOR;
 	else if (phase == gsGGJPhase::MagentaPhase) transform.tint = PHASE_MAGENTA_COLOR;
 
+	gsVector3 powerFeedback = transform.size * gsGGJGlobal_PowerFactor - transform.size;
+	transform.position -= powerFeedback / 2;
+	transform.size += powerFeedback;
+
 	solid = false;
 	damage *= gsGGJGlobal_PowerFactor;
 }
@@ -86,13 +90,6 @@ void gsGGJBullet::onCollision(gsGameObject *_other, const gsCollisionInfo& info)
 	gsGGJObject *otherObject = static_cast<gsGGJObject*>(_other);
 
 	if (tag == gsGGJTag::EnemyBullet) {
-		if (otherObject->tag == gsGGJTag::Player) {
-			gsGGJShip *other = static_cast<gsGGJShip*>(otherObject);
-			if (phase != other->phase) {
-				game->removeObjectFromObjectsList(this);
-				return;
-			}
-		}
 		if (otherObject->tag == gsGGJTag::PlayerBullet) {
 			gsGGJShip *other = static_cast<gsGGJShip*>(otherObject);
 			if (phase != other->phase) {
@@ -102,13 +99,6 @@ void gsGGJBullet::onCollision(gsGameObject *_other, const gsCollisionInfo& info)
 		}
 	} 
 	if (tag == gsGGJTag::PlayerBullet) {
-		if (otherObject->tag == gsGGJTag::Enemy) {
-			gsGGJShip *other = static_cast<gsGGJShip*>(otherObject);
-			if (phase != other->phase) {
-				game->removeObjectFromObjectsList(this);
-				return;
-			}
-		}
 		if (otherObject->tag == gsGGJTag::EnemyBullet) {
 			gsGGJShip *other = static_cast<gsGGJShip*>(otherObject);
 			if (phase != other->phase) {

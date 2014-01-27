@@ -24,9 +24,9 @@ gsGGJEnemy::gsGGJEnemy(gsGGJGame *game) : gsGGJShip(game) {
 	transform = gsTransform(transform.position, size, gsVector3::zero(), speed, color);
 	collisionMask = 0x01;
 
-	if (INITIAL_PHASES_AVAIABLE != 1) {
+	if (gsGGJGlobal_PhasesAvaiable != 1) {
 		gsGGJPhase playerPhase = game->player->phase;
-		int phaseId = gsRandom::nextInt(1, INITIAL_PHASES_AVAIABLE);
+		int phaseId = gsRandom::nextInt(1, gsGGJGlobal_PhasesAvaiable);
 		switch (phaseId) {
 			case 1: phase = gsGGJPhase::RedPhase; break;
 			case 2: phase = gsGGJPhase::GreenPhase; break;
@@ -84,7 +84,7 @@ void gsGGJEnemy::update() {
 			} else {
 				float margin = CANNONS_INTERBULLET_MARGIN;
 				float offset = (margin * cannons) / 2.0f;
-				for (int i = 0; i <= cannons; i++)
+				for (int i = 0; i < cannons; i++)
 				{
 					shoot(margin * i - offset);
 				}
@@ -119,6 +119,10 @@ void gsGGJEnemy::onCollision(gsGameObject *_other, const gsCollisionInfo& info) 
 					return;
 				}
 				gsGGJGlobal_Points += POINTS_WHEN_BULLET_STRIKES;
+				game->removeObjectFromObjectsList(other);
+			} else {
+				other->collident = false;
+				other->transform.tint = gsColor(0.3, 0.3, 0.3, 0.5);
 			}
 		}
 	}

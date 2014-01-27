@@ -37,37 +37,39 @@ bool gCanBuy(int tier) {
 
 void gsGGJShop::updatePowerCannon() {
 	if (gPowerChoosen) {
-		gsGGJGlobal_PowerFactor = 1 + (gPowerCannons + 1) * 0.1f;
-		game->player->powerFactor = gsGGJGlobal_PowerFactor;
+		gsGGJGlobal_PowerFactor = 1 + (gPowerCannons + 1) * 0.33f;
 	} else {
-		gsGGJGlobal_Cannons =  (gPowerCannons + 2);
+		gsGGJGlobal_Cannons =  (gPowerCannons + 1);
 		game->player->cannons = gsGGJGlobal_Cannons;
 	}
 }
 
 void gsGGJShop::updateColorAvoid() {
 	if (gColorChoosen) {
-		gsGGJGlobal_PhasesAvaiable = gColorAvoid + 2;
+		gsGGJGlobal_PhasesAvaiable = gColorAvoid + 1;
 	} else {
-		gsGGJGlobal_AvoidChance = (gColorAvoid + 1) * 0.1f;
-		game->player->avoidChance = gsGGJGlobal_AvoidChance;
+		gsGGJGlobal_AvoidChance = gColorAvoid * 10;
+		game->player->transform.tint.a = (100 - gsGGJGlobal_AvoidChance) / 100.0f;
 	}
 }
 
 void gsGGJShop::updateSize() {
+	float oldFactor = gsGGJGlobal_SizeFactor;
 	if (gSizePlusChoosen) {
-		gsGGJGlobal_SizeFactor = 1 + (gPowerCannons + 1) * 0.1f;
-		game->player->sizeFactor = gsGGJGlobal_SizeFactor;
+		gsGGJGlobal_SizeFactor = 1 + (gSize + 1) * 0.1f;
 	} else {
-		gsGGJGlobal_SizeFactor = 1 - (gPowerCannons + 1) * 0.1f;
-		game->player->sizeFactor = gsGGJGlobal_SizeFactor;
+		gsGGJGlobal_SizeFactor = 1 - (gSize + 1) * 0.1f;
 	}
+
+	game->player->transform.size /= oldFactor;
+	game->player->transform.size *= gsGGJGlobal_SizeFactor;
+	game->player->sizeFactor = gsGGJGlobal_SizeFactor;
 }
 
 gsGGJShop::gsGGJShop(gsGGJGame *game) : gsGGJObject(game) {
 	collident = solid = false;
 	setUpSprite();
-	gsGGJGlobal_Points = 10000;
+	gsGGJGlobal_Points = 900000;
 	transform.tint = gsColor::white(0.3f);
 
 	gPowerCannons = 0;
@@ -110,19 +112,6 @@ void gsGGJShop::update() {
 		} else { // showing only power or cannons
 			pickShopUpdate(0);
 		}
-	}
-
-	if (gsInput::queryKey(GLFW_KEY_H) == gsKeyState::JustPressed) {
-		gPowerCannons++;
-		GS_LOG(gPowerCannons << ", " << gColorAvoid << ", " << gSize);
-	}
-	if (gsInput::queryKey(GLFW_KEY_J) == gsKeyState::JustPressed) {
-		gColorAvoid++;
-		GS_LOG(gPowerCannons << ", " << gColorAvoid << ", " << gSize);
-	}
-	if (gsInput::queryKey(GLFW_KEY_K) == gsKeyState::JustPressed) {
-		gSize++;
-		GS_LOG(gPowerCannons << ", " << gColorAvoid << ", " << gSize);
 	}
 }
 void gsGGJShop::draw() {
@@ -215,17 +204,17 @@ void gsGGJShop::pickShopUpdate(int id) {
 	}
 }
 void gsGGJShop::normalShopUpdate() {
-	if (gsInput::queryKey(GLFW_KEY_1) == gsKeyState::Pressed) {
+	if (gsInput::queryKey(GLFW_KEY_1) == gsKeyState::JustPressed) {
 		if (gCanBuy(gPowerCannons)) {
 			gPowerCannons += 1;
 			updatePowerCannon();
 		}
-	} else if (gsInput::queryKey(GLFW_KEY_2) == gsKeyState::Pressed) {
+	} else if (gsInput::queryKey(GLFW_KEY_2) == gsKeyState::JustPressed) {
 		if (gCanBuy(gColorAvoid)) {
 			gColorAvoid += 1;
 			updateColorAvoid();
 		}
-	} else if (gsInput::queryKey(GLFW_KEY_3) == gsKeyState::Pressed) {
+	} else if (gsInput::queryKey(GLFW_KEY_3) == gsKeyState::JustPressed) {
 		if (gCanBuy(gSize)) {
 			gSize += 1;
 			updateSize();
@@ -252,15 +241,19 @@ void gsGGJShop::pickShopDraw(int id) {
 	sprite->sendToOpenGL_Texture();
 
 	itemTransform.position = PICKUP_SHOP_ITEM_1_POS + transform.position;
-	itemTransform.setTextureCoordinates(sprite->getSprite(0));
+	if (id != 2) {
+		itemTransform.setTextureCoordinates(sprite->getSprite(0));
+	} else {
+		itemTransform.setTextureCoordinates(sprite->getSprite(1)); // caso especial do size
+	}
 	gsGraphics::drawQuad(itemTransform);
 
 	itemTransform.position = PICKUP_SHOP_ITEM_2_POS + transform.position;
 	itemTransform.position.x += transform.size.x;
 	if (id != 2) {
-		itemTransform.setTextureCoordinates(sprite->getSprite(5));
+		itemTransform.setTextureCoordinates(sprite->getSprite(4));
 	} else {
-		itemTransform.setTextureCoordinates(sprite->getSprite(1)); // caso especial do size
+		itemTransform.setTextureCoordinates(sprite->getSprite(0)); // caso especial do size
 	}
 	gsGraphics::drawQuad(itemTransform);
 }
@@ -278,8 +271,7 @@ void gsGGJShop::normalShopDraw() {
 	powerCannonsSprite->sendToOpenGL_Texture();
 
 	itemTransform.position = NORMAL_SHOP_ITEM_1_POS + transform.position;
-	itemTransform.setTextureCoordinates(powerCannonsSprite->getSprite(
-		gPowerCannons + (gPowerChoosen) ? 0 : 5));
+	itemTransform.setTextureCoordinates(powerCannonsSprite->getSprite(gPowerCannons + ((gPowerChoosen) ? 0 : 4)));
 	gsGraphics::drawQuad(itemTransform);
 
 	if (!gCanBuy(gColorAvoid)) { itemTransform.tint = gsColor(0.4, 0.4, 0.4); } else { itemTransform.tint = gsColor::white(); }
@@ -288,8 +280,7 @@ void gsGGJShop::normalShopDraw() {
 	itemTransform.position = NORMAL_SHOP_ITEM_2_POS + transform.position;
 	itemTransform.position.x += transform.size.x / 2;
 	itemTransform.position.x -= itemTransform.size.x / 2;
-	itemTransform.setTextureCoordinates(colorAvoidSprite->getSprite(
-		gColorAvoid + (gColorAvoid) ? 0 : 5));
+	itemTransform.setTextureCoordinates(colorAvoidSprite->getSprite(gColorAvoid + ((gColorChoosen) ? 0 : 4)));
 	gsGraphics::drawQuad(itemTransform);
 
 	if (!gCanBuy(gSize)) { itemTransform.tint = gsColor(0.4, 0.4, 0.4); } else { itemTransform.tint = gsColor::white(); }
@@ -297,7 +288,6 @@ void gsGGJShop::normalShopDraw() {
 
 	itemTransform.position = NORMAL_SHOP_ITEM_3_POS + transform.position;
 	itemTransform.position.x += transform.size.x;
-	itemTransform.setTextureCoordinates(sizeSprite->getSprite(
-		(gSizePlusChoosen) ? 0 : 1));
+	itemTransform.setTextureCoordinates(sizeSprite->getSprite((gSizePlusChoosen) ? 1 : 0));
 	gsGraphics::drawQuad(itemTransform);
 }
