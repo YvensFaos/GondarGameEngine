@@ -7,6 +7,7 @@
 #include "gsArrayList.h"
 
 class gsGGJPlayer;
+class gsGGJScore;
 
 class gsGGJGame : public gsGame {
 private:
@@ -15,6 +16,7 @@ private:
 	
 public:
 	gsGGJPlayer *player;
+	gsGGJScore *scoreDisplay;
 
 	virtual void start();
 	virtual void end();

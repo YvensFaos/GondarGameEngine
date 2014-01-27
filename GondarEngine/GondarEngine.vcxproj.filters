@@ -91,6 +91,9 @@
     <Filter Include="Games\GGJ Game\Objects\Effects">
       <UniqueIdentifier>{4b19d054-8fc7-4bbf-b7c6-4df417381041}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Games\GGJ Game\Objects\Scenario">
+      <UniqueIdentifier>{f091eb68-f1d0-4e5d-a3c6-d47565a91ea7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gsEngine.h">
@@ -280,9 +283,6 @@
     <ClInclude Include="gsGGJBullet.h">
       <Filter>Games\GGJ Game\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="gsGGJEnemySpawner.h">
-      <Filter>Games\GGJ Game\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="gsGGJEnemy.h">
       <Filter>Games\GGJ Game\Objects\Enemies</Filter>
     </ClInclude>
@@ -294,9 +294,6 @@
     </ClInclude>
     <ClInclude Include="gsGGJFractalis.h">
       <Filter>Games\GGJ Game\Objects\Enemies</Filter>
-    </ClInclude>
-    <ClInclude Include="gsGGJPanorama.h">
-      <Filter>Games\GGJ Game\Objects</Filter>
     </ClInclude>
     <ClInclude Include="gsGGJNumber.h">
       <Filter>Games\GGJ Game\Objects\HUD\Score</Filter>
@@ -318,6 +315,15 @@
     </ClInclude>
     <ClInclude Include="gsGGJExplosion.h">
       <Filter>Games\GGJ Game\Objects\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="gsGGJLifes.h">
+      <Filter>Games\GGJ Game\Objects\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="gsGGJPanorama.h">
+      <Filter>Games\GGJ Game\Objects\Scenario</Filter>
+    </ClInclude>
+    <ClInclude Include="gsGGJEnemySpawner.h">
+      <Filter>Games\GGJ Game\Objects\Scenario</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -445,9 +451,6 @@
     <ClCompile Include="gsGGJBullet.cpp">
       <Filter>Games\GGJ Game\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="gsGGJEnemySpawner.cpp">
-      <Filter>Games\GGJ Game\Objects</Filter>
-    </ClCompile>
     <ClCompile Include="gsGGJEnemy.cpp">
       <Filter>Games\GGJ Game\Objects\Enemies</Filter>
     </ClCompile>
@@ -459,9 +462,6 @@
     </ClCompile>
     <ClCompile Include="gsGGJFractalis.cpp">
       <Filter>Games\GGJ Game\Objects\Enemies</Filter>
-    </ClCompile>
-    <ClCompile Include="gsGGJPanorama.cpp">
-      <Filter>Games\GGJ Game\Objects</Filter>
     </ClCompile>
     <ClCompile Include="gsGGJNumber.cpp">
       <Filter>Games\GGJ Game\Objects\HUD\Score</Filter>
@@ -480,6 +480,15 @@
     </ClCompile>
     <ClCompile Include="gsGGJExplosion.cpp">
       <Filter>Games\GGJ Game\Objects\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="gsGGJLifes.cpp">
+      <Filter>Games\GGJ Game\Objects\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="gsGGJEnemySpawner.cpp">
+      <Filter>Games\GGJ Game\Objects\Scenario</Filter>
+    </ClCompile>
+    <ClCompile Include="gsGGJPanorama.cpp">
+      <Filter>Games\GGJ Game\Objects\Scenario</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

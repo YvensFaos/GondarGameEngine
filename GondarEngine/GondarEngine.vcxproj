@@ -94,6 +94,7 @@
     <ClInclude Include="gsGGJGame.h" />
     <ClInclude Include="gsGGJGlobals.h" />
     <ClInclude Include="gsGGJHealth.h" />
+    <ClInclude Include="gsGGJLifes.h" />
     <ClInclude Include="gsGGJNumber.h" />
     <ClInclude Include="gsGGJObject.h" />
     <ClInclude Include="gsGGJPanorama.h" />
@@ -190,6 +191,7 @@
     <ClCompile Include="gsGGJGame.cpp" />
     <ClCompile Include="gsGGJGlobals.cpp" />
     <ClCompile Include="gsGGJHealth.cpp" />
+    <ClCompile Include="gsGGJLifes.cpp" />
     <ClCompile Include="gsGGJNumber.cpp" />
     <ClCompile Include="gsGGJPanorama.cpp" />
     <ClCompile Include="gsGGJPlayer.cpp" />

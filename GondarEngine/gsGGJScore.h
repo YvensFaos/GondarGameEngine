@@ -17,8 +17,10 @@ public:
 
 	virtual void update();
 	virtual void draw();
+
+	void setScore(int score);
 	
-	int getNumberByIndex(int index);
+	int getNumberByIndex(int number, int index);
 
 	void onCollision(gsGameObject *other, const gsCollisionInfo& info){}
 };
