@@ -304,6 +304,9 @@
     <ClInclude Include="gsGGJScore.h">
       <Filter>Games\GGJ Game\Objects\Score</Filter>
     </ClInclude>
+    <ClInclude Include="gsGGJDrop.h">
+      <Filter>Games\GGJ Game\Objects\Score</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsMain.cpp" />
@@ -458,6 +461,9 @@
       <Filter>Games\GGJ Game\Objects\Score</Filter>
     </ClCompile>
     <ClCompile Include="gsGGJScore.cpp">
+      <Filter>Games\GGJ Game\Objects\Score</Filter>
+    </ClCompile>
+    <ClCompile Include="gsGGJDrop.cpp">
       <Filter>Games\GGJ Game\Objects\Score</Filter>
     </ClCompile>
   </ItemGroup>
