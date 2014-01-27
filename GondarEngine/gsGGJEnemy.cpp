@@ -1,9 +1,9 @@
 #include "gsGGJEnemy.h"
 
-
 #include "gsSystem.h"
 #include "gsGGJBullet.h"
 #include "gsGGJPlayer.h"
+#include "gsGGJDrop.h"
 
 gsGGJEnemy::gsGGJEnemy(gsGGJGame *game) : gsGGJShip(game) {
 	tag = gsGGJTag::Enemy;
@@ -106,6 +106,13 @@ void gsGGJEnemy::onCollision(gsGameObject *_other, const gsCollisionInfo& info) 
 				if (hp <= 0) {
 					game->removeObjectFromObjectsList(this);
 					gsGGJGlobal_Points += POINTS_WHEN_ENEMY_DIES;
+
+					//Dropar 
+					if(gsRandom::chance(10))
+					{
+						gsGGJDrop* drop = new gsGGJDrop(game, &transform);
+						game->addObjetToObjectsList(drop);
+					}
 					return;
 				}
 				gsGGJGlobal_Points += POINTS_WHEN_BULLET_STRIKES;
