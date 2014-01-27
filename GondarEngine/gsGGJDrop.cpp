@@ -2,6 +2,7 @@
 
 #include "gsSystem.h"
 #include "gsGGJGlobals.h"
+#include "gsGGJPlayer.h"
 
 gsGGJDrop::gsGGJDrop(gsGGJGame *game, gsTransform* transform) : gsGGJObject(game)
 {
@@ -45,4 +46,42 @@ void gsGGJDrop::draw(void)
 {
 	sprite->sendToOpenGL_Texture();
 	gsGraphics::drawQuad(transform);
+}
+
+void gsGGJDrop::onCollision(gsGameObject *other, const gsCollisionInfo& info)
+{
+	gsGGJObject *otherObject = static_cast<gsGGJObject*>(other);
+
+	if (otherObject->tag == gsGGJTag::Player) {
+		gsGGJPlayer *player = game->player;
+
+		if(gsRandom::chance(50))
+		{
+			//Adiciona pontos
+			gsGGJGlobal_Points += gsRandom::nextInt(1, 100);
+		}
+		else
+		{
+			if(gsRandom::chance(50))
+			{
+				//Ganha vida
+				player->hp += gsRandom::nextInt(1, 4);
+			}
+			else
+			{
+				if(gsRandom::chance(70))
+				{
+					player->bulletType = gsGGJBulletType::Spiral;
+				}
+				else
+				{
+					player->bulletType = gsGGJBulletType::Spread;
+				}
+			}
+		}
+
+		gsAudio::play("GGJ\\UpgradeSound.ogg", false, 100, 0);
+		game->removeObjectFromObjectsList(this);
+		return;
+	}
 }
