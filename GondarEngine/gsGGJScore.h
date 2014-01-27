@@ -6,19 +6,13 @@
 #include "gsArrayList.h"
 #include "gsGGJGlobals.h"
 
-class gsGGJScore : public gsGGJObject
-{
-private:
-		float aux;
-
+class gsGGJScore : public gsGGJObject {
 public:
-	gsArrayList<gsGGJNumber *> numbers;
+	gsArrayList<gsGGJNumber*> numbers;
+	int oldScore;
 
 	gsGGJScore(void) {}
 	gsGGJScore(gsGGJGame* game);
-
-	int oldScore;
-
 	virtual ~gsGGJScore(void);
 
 	virtual void update();

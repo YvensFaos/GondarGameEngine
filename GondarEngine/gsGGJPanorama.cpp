@@ -7,7 +7,7 @@
 gsGGJPanorama::gsGGJPanorama(gsGGJGame *game) : gsGGJObject(game)
 {
 	sprite = new gsSpriteSheet("GGJ\\panorama_double.png", "panorama", 1, 1);
-	speedFactor = PANORAMA_INITIAL_SPEEP;
+	speedFactor = PANORAMA_INITIAL_SPEED;
 
 	transform = gsTransform(gsVector3(0, -1200, 0), gsVector3(800, 2400, 0), gsColor::white(1.0f));
 	transform.speed = gsVector3(0, speedFactor, 0);
@@ -16,6 +16,9 @@ gsGGJPanorama::gsGGJPanorama(gsGGJGame *game) : gsGGJObject(game)
 	collident = false;
 
 	acelerateCounter = 0.0f;
+}
+gsGGJPanorama::~gsGGJPanorama(void) {
+	delete sprite;
 }
 
 void gsGGJPanorama::update(void)
@@ -46,6 +49,3 @@ void gsGGJPanorama::acelerate(void)
 		acelerateCounter = 0;
 	}
 }
-
-gsGGJPanorama::~gsGGJPanorama(void)
-{ }

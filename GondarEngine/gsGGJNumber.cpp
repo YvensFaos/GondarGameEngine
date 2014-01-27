@@ -4,7 +4,7 @@
 #include "gsGGJGame.h"
 #include "gsSpriteSheet.h"
 
-gsGGJNumber::gsGGJNumber(int number,int digit,gsGGJGame* game) : gsGGJObject(game)
+gsGGJNumber::gsGGJNumber(int number, int digit,gsGGJGame* game) : gsGGJObject(game)
 {
 	sprite = new gsSpriteSheet("GGJ\\numbers.png", "numbersspritesheet", 1, 10);
 	this->digit = digit;

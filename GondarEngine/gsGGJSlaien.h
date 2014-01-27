@@ -1,7 +1,6 @@
 #include "gsGGJEnemy.h"
 
-class gsGGJSlaien: public gsGGJEnemy{
-
+class gsGGJSlaien: public gsGGJEnemy {
 public:
 	float multishot;
 

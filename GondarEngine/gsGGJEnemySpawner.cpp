@@ -35,7 +35,7 @@ void gsGGJEnemySpawner::update()
 				int generated = gsRandom::nextInt(1, 6);
 				for (int i = 0; i < generated; i++)
 				{
-					gsGGJFractalis * enemyFractalis = new gsGGJFractalis(game);
+					gsGGJFractalis *enemyFractalis = new gsGGJFractalis(game);
 					enemyFractalis->transform.position = gsVector3(gsRandom::nextInt(0, 800), 0, 0);
 
 					game->addObjetToObjectsList(enemyFractalis);
@@ -46,7 +46,7 @@ void gsGGJEnemySpawner::update()
 				int generated = gsRandom::nextInt(1, 4);
 				for (int i = 0; i < generated; i++)
 				{
-					gsGGJSlaien * enemySlaien = new gsGGJSlaien(game);
+					gsGGJSlaien *enemySlaien = new gsGGJSlaien(game);
 					enemySlaien->transform.position = gsVector3(gsRandom::nextInt(0, 800), 0, 0);
 
 					game->addObjetToObjectsList(enemySlaien);
@@ -74,15 +74,13 @@ void gsGGJEnemySpawner::update()
 					state = 2;
 					stateTimer = 0.f;
 				}
-			}
-				break;
-
+			} break;
 			default:
 				break;
 			}
 		}
-	}
-	else
+	} 
+	else 
 	{
 		if (spawnTimer >= spawnCooldown)
 		{

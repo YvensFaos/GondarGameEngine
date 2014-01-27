@@ -16,6 +16,9 @@ gsGGJHealth::gsGGJHealth(gsGGJGame *game, gsGGJShip *target) : gsGGJObject(game)
 	solid = false;
 	collident = false;
 }
+gsGGJHealth::~gsGGJHealth(void) {
+	delete sprite;
+}
 
 void gsGGJHealth::update(void)
 {
@@ -35,9 +38,6 @@ void gsGGJHealth::draw(void)
 	sprite->sendToOpenGL_Texture();
 	gsGraphics::drawQuad(transform);
 }
-
-gsGGJHealth::~gsGGJHealth(void)
-{ }
 
 void gsGGJHealth::resize(void)
 {
