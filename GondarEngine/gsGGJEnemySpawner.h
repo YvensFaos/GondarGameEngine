@@ -11,6 +11,7 @@ private:
 	float spawnCooldown;
 	float spawnTimer;
 
+	int maxSimlien;
 	float slaienTimer;
 	float fractalisTimer;
 

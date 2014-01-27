@@ -18,6 +18,8 @@ gsGGJEnemySpawner::gsGGJEnemySpawner(gsGGJGame *game) : gsGGJObject(game)
 
 	stateMachine = true;
 	state = 0;
+
+	maxSimlien = 1;
 }
 
 void gsGGJEnemySpawner::update()
@@ -54,7 +56,7 @@ void gsGGJEnemySpawner::update()
 			}
 			case 0: //Jogo começou agora
 			{
-				int generated = gsRandom::nextInt(1, 3);
+				int generated = gsRandom::nextInt(1, maxSimlien);
 				for (int i = 0; i < generated; i++)
 				{
 					gsGGJSimlen *enemySimlen = new gsGGJSimlen(game);
@@ -64,12 +66,16 @@ void gsGGJEnemySpawner::update()
 				}
 				spawnTimer -= spawnCooldown;
 
-				if (stateTimer >= 3.f && state == 0)
+				if (stateTimer >= (8.f + (maxSimlien - 1)) && maxSimlien < 5)
+				{
+					maxSimlien++;
+				}
+				if (stateTimer >= 30.f && state == 0)
 				{
 					state = 1; 
 					stateTimer = 0.f;
 				}
-				if (stateTimer >= 15.f && state == 1)
+				if (stateTimer >= 65.f && state == 1)
 				{
 					state = 2;
 					stateTimer = 0.f;

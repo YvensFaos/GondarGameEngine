@@ -28,9 +28,9 @@ gsGGJSlaien::gsGGJSlaien(gsGGJGame *game) : gsGGJEnemy(game){
 
 	collisionMask = 0x01;
 
-	if (INITIAL_PHASES_AVAIABLE != 1) {
+	if (gsGGJGlobal_PhasesAvaiable != 1) {
 		gsGGJPhase playerPhase = game->player->phase;
-		int phaseId = gsRandom::nextInt(1, INITIAL_PHASES_AVAIABLE);
+		int phaseId = gsRandom::nextInt(1, gsGGJGlobal_PhasesAvaiable);
 		switch (phaseId) {
 			case 1: phase = gsGGJPhase::RedPhase; break;
 			case 2: phase = gsGGJPhase::GreenPhase; break;
@@ -52,11 +52,15 @@ gsGGJSlaien::gsGGJSlaien(gsGGJGame *game) : gsGGJEnemy(game){
 	if (gsRandom::chance(50))
 	{
 		this->bulletType = gsGGJBulletType::Spread;
+		burstWaitCooldown = 0.5;
+		cooldown = 0.2;
 	}
 	else
 	{
 		this->bulletType = gsGGJBulletType::Normal;
 	}
+
+	//GS_LOG("Slaien " << cooldown << " , " << burstWaitCooldown);
 
 	transform.size *= sizeFactor;
 	transform.speed *= speedFactor;

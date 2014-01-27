@@ -40,9 +40,9 @@ gsGGJSimlen::gsGGJSimlen(gsGGJGame *game) : gsGGJEnemy(game){
 
 	modifyShot = false;
 
-		if (INITIAL_PHASES_AVAIABLE != 1) {
+	if (gsGGJGlobal_PhasesAvaiable != 1) {
 		gsGGJPhase playerPhase = game->player->phase;
-		int phaseId = gsRandom::nextInt(1, INITIAL_PHASES_AVAIABLE);
+		int phaseId = gsRandom::nextInt(1, gsGGJGlobal_PhasesAvaiable);
 		switch (phaseId) {
 			case 1: phase = gsGGJPhase::RedPhase; break;
 			case 2: phase = gsGGJPhase::GreenPhase; break;

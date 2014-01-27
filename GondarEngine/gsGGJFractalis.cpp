@@ -28,9 +28,9 @@ gsGGJFractalis::gsGGJFractalis(gsGGJGame *game) : gsGGJEnemy(game){
 
 	collisionMask = 0x01;
 
-	if (INITIAL_PHASES_AVAIABLE != 1) {
+	if (gsGGJGlobal_PhasesAvaiable != 1) {
 		gsGGJPhase playerPhase = game->player->phase;
-		int phaseId = gsRandom::nextInt(1, INITIAL_PHASES_AVAIABLE);
+		int phaseId = gsRandom::nextInt(1, gsGGJGlobal_PhasesAvaiable);
 		switch (phaseId) {
 			case 1: phase = gsGGJPhase::RedPhase; break;
 			case 2: phase = gsGGJPhase::GreenPhase; break;
@@ -64,7 +64,7 @@ void gsGGJFractalis::update(){
 	multishot += gsClock::getDeltaTime()*0.2f;
 	if (multishot >= 0.8f)
 	{
-		int spd = 100;
+		int spd = 200;
 		
 		gsGGJBullet *bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
 		bullet->transform.speed.x = -1 * spd / 2;
