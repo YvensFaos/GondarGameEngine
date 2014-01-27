@@ -115,6 +115,7 @@ void gsGGJSimlen::update()
 
 	if (acelerate > 1.3f && !acelerated)
 	{
+		transform.speed.x = 0;
 		transform.speed.y += 100;
 		acelerated = true;
 	}
