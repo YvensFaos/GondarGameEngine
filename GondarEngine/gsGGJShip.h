@@ -5,6 +5,7 @@
 #include "gsGGJTag.h"
 #include "gsGGJPhase.h"
 #include "gsGGJGlobals.h"
+#include "gsGGJHealth.h"
 #include "gsSpriteSheet.h"
 
 class gsGGJShip : public gsGGJObject {
@@ -15,10 +16,12 @@ public:
 	int cannons;
 	float avoidChance;
 	float hp;
+	float maxHp;
 	float damage;
 	gsSpriteSheet *sprite;
 	gsGGJPhase phase;
 	gsGGJBulletType bulletType;
+	gsGGJHealth* healthBar;
 	float cooldown;
 	float cooldownTime;
 

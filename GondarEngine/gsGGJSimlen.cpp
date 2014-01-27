@@ -4,6 +4,7 @@
 #include "gsSystem.h"
 #include "gsGGJPlayer.h"
 #include "gsRandom.h"
+#include "gsGGJHealth.h"
 
 gsGGJSimlen::gsGGJSimlen(gsGGJGame *game) : gsGGJEnemy(game){
 	tag = gsGGJTag::Enemy;
@@ -11,6 +12,7 @@ gsGGJSimlen::gsGGJSimlen(gsGGJGame *game) : gsGGJEnemy(game){
 	setupSpritesheet();
 
 	hp = ENEMY_SIMLEN_HEALTH;
+	maxHp = hp;
 	burstWaitCooldown = ENEMY_SIMLEN_BURSTWAITCOOLDOWN;
 	burstWaitTime = ENEMY_SIMLEN_BURSTWAITTIME;
 	cooldown = ENEMY_SIMLEN_COOLDOWN;
@@ -65,6 +67,9 @@ gsGGJSimlen::gsGGJSimlen(gsGGJGame *game) : gsGGJEnemy(game){
 
 	acelerate = 0.f;
 	acelerated = false;
+	
+	healthBar = new gsGGJHealth(game, this);
+	game->addObjetToObjectsList(healthBar);
 }
 
 void gsGGJSimlen::setupSpritesheet()
@@ -89,7 +94,6 @@ void gsGGJSimlen::shoot()
 		game->addObjetToObjectsList(bullet);
 
 	}else{
-
 		gsGGJBullet *bulletLeft = new gsGGJBullet(false, gsGGJBulletType::Normal, &this->transform, game, phase);
 		bulletLeft->transform.speed.x = -ENEMY_SIMLEN_CONE;
 
@@ -97,8 +101,7 @@ void gsGGJSimlen::shoot()
 		bulletRight->transform.speed.x = ENEMY_SIMLEN_CONE;
 
 		game->addObjetToObjectsList(bulletLeft);
-		game->addObjetToObjectsList(bulletRight);
-		
+		game->addObjetToObjectsList(bulletRight);		
 	}
 	
 	modifyShot = !modifyShot;

@@ -11,6 +11,7 @@ gsGGJPlayer::gsGGJPlayer(gsGGJGame *game) : gsGGJShip(game)
 	setUpSpritesheet();
 
 	hp = 20;
+	maxHp = hp;
 	damage = 3;
 	cooldownTime = 0;
 	cooldown = PLAYER_COOLDOWN_TIME;
@@ -21,7 +22,7 @@ gsGGJPlayer::gsGGJPlayer(gsGGJGame *game) : gsGGJShip(game)
 	bulletType = gsGGJGlobal_BulletType;
 	changeColor(gsGGJPhase::BluePhase);
 
-	gsGGJHealth* healthBar = new gsGGJHealth(game, this);
+	healthBar = new gsGGJHealth(game, this);
 	game->addObjetToObjectsList(healthBar);
 
 	transform.size *= sizeFactor;

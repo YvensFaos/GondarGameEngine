@@ -1,7 +1,9 @@
 #include "gsGGJFractalis.h"
+
 #include "gsGGJBullet.h"
 #include "gsSystem.h"
 #include "gsGGJPlayer.h"
+#include "gsGGJHealth.h"
 
 gsGGJFractalis::gsGGJFractalis(gsGGJGame *game) : gsGGJEnemy(game){
 
@@ -10,6 +12,7 @@ gsGGJFractalis::gsGGJFractalis(gsGGJGame *game) : gsGGJEnemy(game){
 	setupSpritesheet();
 
 	hp = ENEMY_FRACTALIS_HEALTH;
+	maxHp = hp;
 	burstWaitCooldown = ENEMY_FRACTALIS_BURSTWAITCOOLDOWN;
 	burstWaitTime = ENEMY_FRACTALIS_BURSTWAITTIME;
 	cooldown = ENEMY_FRACTALIS_COOLDOWN;
@@ -25,7 +28,7 @@ gsGGJFractalis::gsGGJFractalis(gsGGJGame *game) : gsGGJEnemy(game){
 
 	collisionMask = 0x01;
 
-		if (INITIAL_PHASES_AVAIABLE != 1) {
+	if (INITIAL_PHASES_AVAIABLE != 1) {
 		gsGGJPhase playerPhase = game->player->phase;
 		int phaseId = gsRandom::nextInt(1, INITIAL_PHASES_AVAIABLE);
 		switch (phaseId) {
@@ -50,6 +53,9 @@ gsGGJFractalis::gsGGJFractalis(gsGGJGame *game) : gsGGJEnemy(game){
 
 	transform.size *= sizeFactor;
 	transform.speed *= speedFactor;
+
+	healthBar = new gsGGJHealth(game, this);
+	game->addObjetToObjectsList(healthBar);
 }
 
 void gsGGJFractalis::setupSpritesheet()

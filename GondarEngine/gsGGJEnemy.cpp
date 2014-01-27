@@ -5,7 +5,6 @@
 #include "gsGGJBullet.h"
 #include "gsGGJPlayer.h"
 
-
 gsGGJEnemy::gsGGJEnemy(gsGGJGame *game) : gsGGJShip(game) {
 	tag = gsGGJTag::Enemy;
 	alpha = 0.3;
@@ -48,8 +47,10 @@ gsGGJEnemy::gsGGJEnemy(gsGGJGame *game) : gsGGJShip(game) {
 	transform.size *= sizeFactor;
 	transform.speed *= speedFactor;
 }
+
 gsGGJEnemy::~gsGGJEnemy() {
 	delete sprite;
+	game->removeObjectFromObjectsList(healthBar);
 }
 
 void gsGGJEnemy::update() {
@@ -109,7 +110,7 @@ void gsGGJEnemy::onCollision(gsGameObject *_other, const gsCollisionInfo& info) 
 	if (otherCastedToGGJObject->tag == gsGGJTag::PlayerBullet) {
 		gsGGJBullet *other = static_cast<gsGGJBullet*>(_other);
 		if (phase != other->phase) {
-			if (!gsRandom::chance(gsGGJGlobal_AvoidChance)) {
+ 			if (!gsRandom::chance(gsGGJGlobal_AvoidChance)) {
 				hp -= other->damage;
 
 				if (hp <= 0) {

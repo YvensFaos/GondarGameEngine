@@ -4,7 +4,6 @@ class gsGGJSimlen: public gsGGJEnemy{
 
 private:
 	bool modifyShot;
-	
 
 public:
 	gsGGJSimlen() {}

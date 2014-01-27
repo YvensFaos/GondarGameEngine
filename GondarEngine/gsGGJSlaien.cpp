@@ -1,8 +1,9 @@
 #include "gsGGJSlaien.h"
+
 #include "gsGGJBullet.h"
 #include "gsSystem.h"
 #include "gsGGJPlayer.h"
-
+#include "gsGGJHealth.h"
 
 gsGGJSlaien::gsGGJSlaien(gsGGJGame *game) : gsGGJEnemy(game){
 	multishot = 0.f;
@@ -11,6 +12,7 @@ gsGGJSlaien::gsGGJSlaien(gsGGJGame *game) : gsGGJEnemy(game){
 	setupSpritesheet();
 
 	hp = ENEMY_SLAIEN_HEALTH;
+	maxHp = hp;
 	burstWaitCooldown = ENEMY_SLAIEN_BURSTWAITCOOLDOWN;
 	burstWaitTime = ENEMY_SLAIEN_BURSTWAITTIME;
 	cooldown = ENEMY_SLAIEN_COOLDOWN;
@@ -58,6 +60,9 @@ gsGGJSlaien::gsGGJSlaien(gsGGJGame *game) : gsGGJEnemy(game){
 
 	transform.size *= sizeFactor;
 	transform.speed *= speedFactor;
+
+	healthBar = new gsGGJHealth(game, this);
+	game->addObjetToObjectsList(healthBar);
 }
 
 void gsGGJSlaien::setupSpritesheet()

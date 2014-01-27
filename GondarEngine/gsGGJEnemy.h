@@ -12,7 +12,6 @@ public:
 	float burstWaitCooldown;
 	float burstWaitTime;
 	bool waiting;
-	float hp;
 	bool acelerated;
 	float acelerate;
 

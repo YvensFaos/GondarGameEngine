@@ -7,10 +7,10 @@
 gsGGJHealth::gsGGJHealth(gsGGJGame *game, gsGGJShip *target) : gsGGJObject(game)
 {
 	this->target = target;
-	size = target->hp * 10;
+	size = target->hp;
 
 	sprite = new gsSpriteSheet("GGJ\\bar.png", "health", 1, 1);
-	transform = gsTransform(target->transform.position, gsVector3(size, 5, 0), PHASE_RED_COLOR);
+	transform = gsTransform(target->transform.position, gsVector3(size, 3, 0), PHASE_RED_COLOR);
 	move();
 
 	solid = false;
@@ -41,14 +41,13 @@ gsGGJHealth::~gsGGJHealth(void)
 
 void gsGGJHealth::resize(void)
 {
-	float size = target->hp;
-	transform.size.x = size * 10;
+	transform.size.x = target->transform.size.x * (target->hp / target->maxHp);
 }
 
 void gsGGJHealth::move(void)
 {
 	gsVector3 pos = target->transform.position;
-	//pos.x -= (target->transform.size.x/2);
 	pos.y += target->transform.size.y + 5;
+	pos.x += (target->transform.size.x - transform.size.x) /2.f;
 	transform.position = pos;
 }

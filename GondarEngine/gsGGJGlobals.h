@@ -18,12 +18,12 @@ extern int gsGGJGlobal_Points;
 extern int gsGGJGlobal_UpgradesPurchased;
 
 //Definições dos valores iniciais do jogo
-#define INITIAL_PLAYER_HEATH 80
-#define INITIAL_PLAYER_DAMAGE 10
+#define INITIAL_PLAYER_HEATH 10
+#define INITIAL_PLAYER_DAMAGE 2
 #define INITIAL_PLAYER_SIZE gsVector3(32, 32, 0);
 
-#define INITIAL_ENEMY_HEALTH 100
-#define INITIAL_ENEMY_DAMAGE 6
+#define INITIAL_ENEMY_HEALTH 2
+#define INITIAL_ENEMY_DAMAGE 1
 #define INITIAL_ENEMY_SIZE gsVector3(32, 32, 0);
 
 #define INITIAL_BULLET_SPEED gsVector3(0, 300, 0);
@@ -54,7 +54,7 @@ extern int gsGGJGlobal_UpgradesPurchased;
 #define ENEMY_SPAWNER_TIMER 0.6f
 
 //Enemy Simlen Attributes
-#define ENEMY_SIMLEN_HEALTH 5
+#define ENEMY_SIMLEN_HEALTH 4
 #define ENEMY_SIMLEN_BURSTWAITCOOLDOWN 2.5
 #define ENEMY_SIMLEN_BURSTWAITTIME 0
 #define ENEMY_SIMLEN_COOLDOWN 0.5
@@ -78,7 +78,7 @@ extern int gsGGJGlobal_UpgradesPurchased;
 #define ENEMY_FRACTALIS_COOLDOWNTIME 0
 #define ENEMY_FRACTALIS_WAITING true
 
-#define BULLET_DAMAGE_NORMAL 1.0f
+#define BULLET_DAMAGE_NORMAL 2.0f
 #define BULLET_DAMAGE_SPIRAL 4.0f
 #define BULLET_DAMAGE_SPREAD 2.5f
 #define BULLET_SPREAD_CONE 120
