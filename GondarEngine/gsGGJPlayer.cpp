@@ -17,27 +17,58 @@ gsGGJPlayer::gsGGJPlayer(gsGGJGame *game) : gsGGJShip(game)
 	cooldown = PLAYER_COOLDOWN_TIME;
 
 	// tetenta pelo construtor
-	transform = gsTransform(gsVector3(400, 300, 0), gsVector3(66, 60, 0), gsColor::white(1.0f));
+	transform = gsTransform(INITIAL_PLAYER_POS, INITIAL_PLAYER_SIZE, gsColor::white(1.0f));
 	collisionMask = 0x02;
 	bulletType = gsGGJGlobal_BulletType;
 	changeColor(gsGGJPhase::BluePhase);
 
 	healthBar = new gsGGJHealth(game, this);
 	game->addObjetToObjectsList(healthBar);
+
+	state = gsGGJPlayerState::Alive;
 }
+gsGGJPlayer::~gsGGJPlayer(void) {}
 
 void gsGGJPlayer::update()
 {
+	if (state == gsGGJPlayerState::Dead) {
+		stateTransitionTime += gsClock::getDeltaTime();
+
+		if (stateTransitionTime >= PLAYER_DEAD_TIME) {
+			state = gsGGJPlayerState::Blinking;
+			stateTransitionTime = 0;
+			blinkTime = 0;
+			transform.position = INITIAL_PLAYER_POS;
+		}
+		return; // unable to move or shoot
+	} else if (state == gsGGJPlayerState::Blinking) {
+		stateTransitionTime += gsClock::getDeltaTime();
+		blinkTime += gsClock::getDeltaTime();
+
+		if (blinkTime >= PLAYER_BLINKING_INTERVAL) {
+			if (transform.tint.a == 0) {
+				transform.tint.a = (100 - gsGGJGlobal_AvoidChance) / 2.0f;
+			} else {
+				transform.tint.a = 0;
+			}
+			blinkTime = 0;
+		}
+		if (stateTransitionTime >= PLAYER_BLINKING_TIME) {
+			state = gsGGJPlayerState::Alive;
+			transform.tint.a = (100 - gsGGJGlobal_AvoidChance) / 2.0f;
+		}
+	}
+
 	move();
 	shoot();
 	toChangeColor();
-	/*sprite->updateAnimation();
-	transform.setTextureCoordinates(sprite->getCurrentSprite());*/
 }
 void gsGGJPlayer::draw()
 {
-	sprite->sendToOpenGL_Texture();
-	gsGraphics::drawQuad(transform);
+	if (state != gsGGJPlayerState::Dead) {
+		sprite->sendToOpenGL_Texture();
+		gsGraphics::drawQuad(transform);
+	}
 }
 
 void gsGGJPlayer::shoot()
@@ -71,8 +102,6 @@ void gsGGJPlayer::shoot()
 		} 
 	}
 }
-
-gsGGJPlayer::~gsGGJPlayer(void) {}
 
 void gsGGJPlayer::move()
 {
@@ -135,6 +164,10 @@ void gsGGJPlayer::changeColor(gsGGJPhase phase)
 
 void gsGGJPlayer::onCollision(gsGameObject *_other, const gsCollisionInfo& info)
 {
+	if (state != gsGGJPlayerState::Alive) {
+		return;
+	}
+
 	gsGGJObject *otherCastedToGGJObject = static_cast<gsGGJObject*>(_other);
 
 	if (otherCastedToGGJObject->tag == gsGGJTag::EnemyBullet) {
@@ -144,8 +177,13 @@ void gsGGJPlayer::onCollision(gsGameObject *_other, const gsCollisionInfo& info)
 				hp -= other->damage;
 
 				if (hp <= 0) {
-					GS_LOG("Morreu");
-					return;
+					gsGGJGlobal_Lifes--;
+					if (gsGGJGlobal_Lifes >= 0) {
+						state = gsGGJPlayerState::Dead;
+						stateTransitionTime = 0;
+					} else {
+						game->removeObjectFromObjectsList(this);
+					}
 				}
 				game->removeObjectFromObjectsList(other);
 			} else {

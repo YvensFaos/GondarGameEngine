@@ -15,12 +15,18 @@ extern int gsGGJGlobal_PhasesAvaiable;
 extern gsGGJBulletType gsGGJGlobal_BulletType;
 
 extern int gsGGJGlobal_Points;
+extern int gsGGJGlobal_TotalPoints;
 extern int gsGGJGlobal_UpgradesPurchased;
+
+extern int gsGGJGlobal_Lifes;
 
 //Definições dos valores iniciais do jogo
 #define INITIAL_PLAYER_HEATH 10
 #define INITIAL_PLAYER_DAMAGE 2
-#define INITIAL_PLAYER_SIZE gsVector3(32, 32, 0);
+#define INITIAL_PLAYER_POS gsVector3(400, 300, 0)
+#define INITIAL_PLAYER_SIZE gsVector3(66, 60, 0)
+
+#define INITIAL_LIVES 3
 
 #define INITIAL_ENEMY_HEALTH 2
 #define INITIAL_ENEMY_DAMAGE 1
@@ -44,11 +50,16 @@ extern int gsGGJGlobal_UpgradesPurchased;
 #define POINTS_WHEN_BULLET_STRIKES gsRandom::nextInt(1, 3); 
 
 #define PLAYER_COOLDOWN_TIME 0.4
+#define PLAYER_DEAD_TIME 1
+#define PLAYER_BLINKING_TIME 2
+#define PLAYER_BLINKING_INTERVAL 0.2
 
 #define ENEMY_BURST_TIME 1.6
 #define ENEMY_WAITING_TIME 3.8
 #define ENEMY_INITIAL_WAITING_TIME 0.6
 #define ENEMY_COOLDOWN_TIME 0.5
+#define ENEMY_SHAKING_TIME 0.3
+#define ENEMY_SHAKE_AMOUNT gsVector3(2.2f, 0, 0);
 
 #define ENEMY_SPAWNER_COOLDOWN 6.0f
 #define ENEMY_SPAWNER_TIMER 0.6f

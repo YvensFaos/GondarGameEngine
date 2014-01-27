@@ -10,3 +10,7 @@ int gsGGJGlobal_PhasesAvaiable;
 gsGGJBulletType gsGGJGlobal_BulletType;
 
 int gsGGJGlobal_Points;
+int gsGGJGlobal_TotalPoints;
+int gsGGJGlobal_UpgradesPurchased;
+
+int gsGGJGlobal_Lifes;

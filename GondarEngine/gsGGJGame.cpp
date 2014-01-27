@@ -18,6 +18,7 @@ void gsGGJGame::start()
 	gsGGJGlobal_Cannons = INITIAL_CANNONS;
 	gsGGJGlobal_PhasesAvaiable = INITIAL_PHASES_AVAIABLE;
 	gsGGJGlobal_BulletType = INITIAL_BULLET_TYPE;
+	gsGGJGlobal_Lifes = INITIAL_LIVES;
 
 	gsAudio::play("GGJ\\ShipSongOgg.ogg", true, 0, 0);
 

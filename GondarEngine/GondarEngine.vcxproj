@@ -98,6 +98,7 @@
     <ClInclude Include="gsGGJPanorama.h" />
     <ClInclude Include="gsGGJPhase.h" />
     <ClInclude Include="gsGGJPlayer.h" />
+    <ClInclude Include="gsGGJPlayerState.h" />
     <ClInclude Include="gsGGJScore.h" />
     <ClInclude Include="gsGGJShip.h" />
     <ClInclude Include="gsGGJSimlen.h" />
