@@ -15,7 +15,7 @@ gsGGJEnemySpawner::gsGGJEnemySpawner(gsGGJGame *game) : gsGGJObject(game)
 	slaienTimer = 20.f;
 	fractalisTimer = 50.f;
 	stateTimer = 0;
-	timer = 0;
+	simlienFleetTimer = 0;
 
 	stateMachine = true;
 	state = 0;
@@ -27,7 +27,7 @@ void gsGGJEnemySpawner::update()
 {
 	spawnTimer += gsClock::getDeltaTime();
 	stateTimer += gsClock::getDeltaTime();
-	timer += gsClock::getDeltaTime()*100;
+	simlienFleetTimer += gsClock::getDeltaTime();
 
 	if(stateMachine)
 	{
@@ -91,12 +91,12 @@ void gsGGJEnemySpawner::update()
 			}
 		}
 
-		/*GS_LOG("q" << timer);
-		if ((int) (timer*10000)  % 21 == 0)
+		if (simlienFleetTimer >= 18.f && maxSimlien > 3)
 		{
-			GS_LOG(((int) timer*10000));
+			GS_LOG(simlienFleetTimer);
+			simlienFleetTimer = 0;
 			summonSimlienFleet(gsRandom::chance(50));
-		}*/
+		}
 	} 
 	else 
 	{
@@ -133,7 +133,7 @@ void gsGGJEnemySpawner::summonSimlienFleet(bool left)
 
 	float factor = (left)? 1 : -1;
 
-	GS_LOG("FLEET!");
+	//GS_LOG("FLEET!");
 
 	for(int i = 0; i < 3; i++)
 	{
