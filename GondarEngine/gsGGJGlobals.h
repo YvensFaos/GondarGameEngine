@@ -46,9 +46,15 @@ extern int gsGGJGlobal_Lifes;
 
 #define CANNONS_INTERBULLET_MARGIN 20
 
+#define LIFES_POSITION gsVector3(10, 40, 0)
+#define LIFES_SIZE gsVector3(25, 25, 0)
+#define LIFES_MARGIN gsVector3(8 + LIFES_SIZE.x, 0, 0)
+
+#define POINTS_POSITION gsVector3(8, 8, 0);
 #define POINTS_WHEN_ENEMY_DIES gsRandom::nextInt(45, 55);
 #define POINTS_WHEN_BULLET_STRIKES gsRandom::nextInt(1, 3); 
 
+#define PLAYER_HEALTH 30
 #define PLAYER_DEAD_TIME 1
 #define PLAYER_BLINKING_TIME 2
 #define PLAYER_BLINKING_INTERVAL 0.2

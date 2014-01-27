@@ -10,7 +10,7 @@ gsGGJPlayer::gsGGJPlayer(gsGGJGame *game) : gsGGJShip(game)
 
 	setUpSpritesheet();
 
-	hp = 20;
+	hp = PLAYER_HEALTH;
 	maxHp = hp;
 	damage = 3;
 	cooldownTime = 0;
@@ -39,6 +39,10 @@ void gsGGJPlayer::update()
 			stateTransitionTime = 0;
 			blinkTime = 0;
 			transform.position = INITIAL_PLAYER_POS;
+			hp = maxHp;
+
+			healthBar = new gsGGJHealth(game, this);
+			game->addObjetToObjectsList(healthBar);
 		}
 		return; // unable to move or shoot
 	} else if (state == gsGGJPlayerState::Blinking) {

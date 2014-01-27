@@ -8,6 +8,7 @@
 
 class gsGGJPlayer;
 class gsGGJScore;
+class gsGGJLifes;
 
 class gsGGJGame : public gsGame {
 private:
@@ -17,6 +18,7 @@ private:
 public:
 	gsGGJPlayer *player;
 	gsGGJScore *scoreDisplay;
+	gsGGJLifes *lifesDisplay;
 
 	virtual void start();
 	virtual void end();
