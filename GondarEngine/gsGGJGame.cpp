@@ -1,7 +1,6 @@
-#include "gsSystem.h"
-
 #include "gsGGJGame.h"
 
+#include "gsSystem.h"
 #include "gsGGJPlayer.h"
 #include "gsGGJShop.h"
 #include "gsGGJPanorama.h"
@@ -9,6 +8,8 @@
 #include "gsGGJScore.h"
 #include "gsGGJLifes.h"
 #include "gsGGJTutorial.h"
+#include "gsGGJGlobals.h"
+#include "gsGGJGameOver.h"
 
 void gsGGJGame::start()
 {
@@ -24,8 +25,9 @@ void gsGGJGame::start()
 	gsGGJGlobal_Points = 0;
 	gsGGJGlobal_TotalPoints = 0;
 	startGame = false;
+	restartGame = false;
 
-	gsAudio::play("GGJ\\ShipSongOgg.ogg", true, 0.4, 0);
+	gsAudio::play("GGJ\\ShipSongOgg.ogg", true, 0, 0);
 
 	addObjetToObjectsList(new gsGGJPanorama(this));
 	this->player = new gsGGJPlayer(this);
@@ -45,6 +47,11 @@ void gsGGJGame::start()
 
 bool gsGGJGame::isRunning()
 {
+	if(restartGame)
+	{
+		end();
+		start();
+	}
 	return true;
 }
 
@@ -91,6 +98,7 @@ void gsGGJGame::end()
 	{
 		delete objects.get(i);
 	}
+	objects.clear();
 }
 
 void gsGGJGame::addObjetToObjectsList(gsGameObject* object) {

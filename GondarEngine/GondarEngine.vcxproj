@@ -105,6 +105,7 @@ copy /Y "$(SolutionDir)GondarEngine\FreeImage\lib32\FreeImage.dll" "$(TargetDir)
     <ClInclude Include="gsGGJExplosion.h" />
     <ClInclude Include="gsGGJFractalis.h" />
     <ClInclude Include="gsGGJGame.h" />
+    <ClInclude Include="gsGGJGameOver.h" />
     <ClInclude Include="gsGGJGlobals.h" />
     <ClInclude Include="gsGGJHealth.h" />
     <ClInclude Include="gsGGJLifes.h" />
@@ -202,6 +203,7 @@ copy /Y "$(SolutionDir)GondarEngine\FreeImage\lib32\FreeImage.dll" "$(TargetDir)
     <ClCompile Include="gsGGJExplosion.cpp" />
     <ClCompile Include="gsGGJFractalis.cpp" />
     <ClCompile Include="gsGGJGame.cpp" />
+    <ClCompile Include="gsGGJGameOver.cpp" />
     <ClCompile Include="gsGGJGlobals.cpp" />
     <ClCompile Include="gsGGJHealth.cpp" />
     <ClCompile Include="gsGGJLifes.cpp" />

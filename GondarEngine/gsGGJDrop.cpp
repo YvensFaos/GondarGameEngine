@@ -3,6 +3,7 @@
 #include "gsSystem.h"
 #include "gsGGJGlobals.h"
 #include "gsGGJPlayer.h"
+#include "gsGGJExplosion.h"
 
 gsGGJDrop::gsGGJDrop(gsGGJGame *game, gsTransform* transform) : gsGGJObject(game)
 {
@@ -56,23 +57,23 @@ void gsGGJDrop::onCollision(gsGameObject *other, const gsCollisionInfo& info)
 	if (otherObject->tag == gsGGJTag::Player) {
 		gsGGJPlayer *player = game->player;
 
-		if(gsRandom::chance(60)) {
+		int chance = gsRandom::nextInt(0, 101);
+
+		if(chance < 40) {
 			//Adiciona pontos
 			gsGGJGlobal_Points += gsRandom::nextInt(1, 100);
-		} else if(gsRandom::chance(50)) {
+		} else if(chance < 60) {
 			player->hp += gsRandom::nextInt(4, 12);
-		} else  if(gsRandom::chance(50)) {
+		} else  if(chance < 80) {
 			player->bulletType = gsGGJBulletType::Spiral;
 			player->cooldown = BULLET_SPIRAL_COOLDOWN;
-		} else if (gsRandom::chance(50)) {
+		} else {
 			player->bulletType = gsGGJBulletType::Spread;
 			player->cooldown = BULLET_SPREAD_COOLDOWN;
-		} else {
-			player->bulletType = gsGGJBulletType::Normal;
-			player->cooldown = BULLET_NORMAL_COOLDOWN;
-		}
+		} 
 
 		//gsAudio::play("GGJ\\UpgradeSound.ogg", false, 0.6, 0);
+
 		game->removeObjectFromObjectsList(this);
 		return;
 	}

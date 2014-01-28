@@ -10,6 +10,7 @@ gsGGJScore::gsGGJScore(gsGGJGame *game) : gsGGJObject(game) {
 	}
 
 	transform = gsTransform(gsVector3::zero(), gsVector3::zero());
+	transform.position.z = -.5f;
 }
 gsGGJScore::~gsGGJScore(void) {
 	for (int i = 0; i < numbers.getSize(); i++) {

@@ -4,6 +4,7 @@
 #include "gsSystem.h"
 #include "gsGGJHealth.h"
 #include "gsGGJExplosion.h"
+#include "gsGGJGameOver.h"
 
 gsGGJPlayer::gsGGJPlayer(gsGGJGame *game) : gsGGJShip(game)
 {
@@ -193,6 +194,9 @@ void gsGGJPlayer::onCollision(gsGameObject *_other, const gsCollisionInfo& info)
 					} else {
 						game->removeObjectFromObjectsList(this);
 						game->addObjetToObjectsList(new gsGGJExplosion(info, transform.tint, game));
+
+						//GameOver
+						game->addObjetToObjectsList(new gsGGJGameOver(game));
 					}
 				}
 				game->removeObjectFromObjectsList(other);

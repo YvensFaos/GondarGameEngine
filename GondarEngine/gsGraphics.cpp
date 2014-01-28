@@ -31,7 +31,7 @@ void gsGraphics::beginDraw() {
 	glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
 
-	glOrtho(0, gResX, gResY, 0, 0, 1);
+	glOrtho(0, gResX, gResY, 0, -2, 2);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();

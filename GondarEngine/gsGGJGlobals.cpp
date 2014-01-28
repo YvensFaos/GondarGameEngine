@@ -15,3 +15,4 @@ int gsGGJGlobal_UpgradesPurchased;
 
 int gsGGJGlobal_Lifes;
 bool startGame;
+bool restartGame;

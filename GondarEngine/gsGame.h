@@ -15,24 +15,3 @@ public:
 };
 
 #endif
-
-/*
-class A;
-
-class A {
-public:
-	virtual void f() { printf("A"); }
-};
-
-class B : public A {
-public:
-	virtual void f() { printf("B"); }
-};
-
-void main() {
-	A *obj = new B();
-
-	obj->f();
-}
-
-*/
