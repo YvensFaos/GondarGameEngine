@@ -40,13 +40,13 @@ void gsGGJExplosion::draw() {
 }
 	
 void gsGGJExplosion::setupSpritesheet() {
-	int keyCount = 3;
+	int keyCount = 5;
 	int *keyframes = new int[keyCount];
 	for (int i = 0; i < keyCount; i++) {
 		keyframes[i] = i;
 	}
 
-	explosionSprite = new gsSpriteSheet("GGJ/drop.png", "explosion", 1, 3);
+	explosionSprite = new gsSpriteSheet("GGJ/explosion.png", "explosion", 1, keyCount);
 
 	gsAnimationClip *clip = new gsAnimationClip("explosion", keyframes, keyCount, 0.2f);
 	explosionSprite->addAnimation(clip);
