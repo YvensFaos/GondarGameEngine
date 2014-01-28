@@ -320,7 +320,7 @@
       <Filter>Games\GGJ Game\Objects\Scenario</Filter>
     </ClInclude>
     <ClInclude Include="gsGGJTutorial.h">
-      <Filter>Games\GGJ Game\Objects\Effects</Filter>
+      <Filter>Games\GGJ Game\Objects\HUD</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -485,7 +485,7 @@
       <Filter>Games\GGJ Game\Objects\Scenario</Filter>
     </ClCompile>
     <ClCompile Include="gsGGJTutorial.cpp">
-      <Filter>Games\GGJ Game\Objects\Effects</Filter>
+      <Filter>Games\GGJ Game\Objects\HUD</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
