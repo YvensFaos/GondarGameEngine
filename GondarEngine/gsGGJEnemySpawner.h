@@ -14,6 +14,9 @@ private:
 	float simlienFleetTimer;
 
 	int maxSimlien;
+	int maxSlaien;
+	int maxFractalis;
+
 	float slaienTimer;
 	float fractalisTimer;
 

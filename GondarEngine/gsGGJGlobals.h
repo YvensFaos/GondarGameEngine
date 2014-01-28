@@ -19,6 +19,7 @@ extern int gsGGJGlobal_TotalPoints;
 extern int gsGGJGlobal_UpgradesPurchased;
 
 extern int gsGGJGlobal_Lifes;
+extern bool startGame;
 
 //Definições dos valores iniciais do jogo
 #define INITIAL_PLAYER_HEATH 10

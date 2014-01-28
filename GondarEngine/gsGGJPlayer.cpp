@@ -28,6 +28,7 @@ gsGGJPlayer::gsGGJPlayer(gsGGJGame *game) : gsGGJShip(game)
 
 	state = gsGGJPlayerState::Alive;
 }
+
 gsGGJPlayer::~gsGGJPlayer(void) {}
 
 void gsGGJPlayer::update()

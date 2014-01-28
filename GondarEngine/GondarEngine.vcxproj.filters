@@ -70,9 +70,6 @@
     <Filter Include="System\Engine Sytems\Audio">
       <UniqueIdentifier>{13df672e-b81e-4d95-b741-ee1668f5cd00}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Games\Scrolling Demo">
-      <UniqueIdentifier>{e9a3763f-99a9-4c08-8dba-b8154edd2567}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Games\GGJ Game\Objects">
       <UniqueIdentifier>{6959e361-e8b2-4eba-9910-13bb7a47870b}</UniqueIdentifier>
     </Filter>
@@ -253,9 +250,6 @@
     <ClInclude Include="gsAudio.h">
       <Filter>System\Engine Sytems\Audio</Filter>
     </ClInclude>
-    <ClInclude Include="gsScrollingDemo.h">
-      <Filter>Games\Scrolling Demo</Filter>
-    </ClInclude>
     <ClInclude Include="gsGGJGame.h">
       <Filter>Games\GGJ Game</Filter>
     </ClInclude>
@@ -324,6 +318,9 @@
     </ClInclude>
     <ClInclude Include="gsGGJEnemySpawner.h">
       <Filter>Games\GGJ Game\Objects\Scenario</Filter>
+    </ClInclude>
+    <ClInclude Include="gsGGJTutorial.h">
+      <Filter>Games\GGJ Game\Objects\Effects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -436,9 +433,6 @@
     <ClCompile Include="gsAudio.cpp">
       <Filter>System\Engine Sytems\Audio</Filter>
     </ClCompile>
-    <ClCompile Include="gsScrollingDemo.cpp">
-      <Filter>Games\Scrolling Demo</Filter>
-    </ClCompile>
     <ClCompile Include="gsGGJGlobals.cpp">
       <Filter>Games\GGJ Game</Filter>
     </ClCompile>
@@ -489,6 +483,9 @@
     </ClCompile>
     <ClCompile Include="gsGGJPanorama.cpp">
       <Filter>Games\GGJ Game\Objects\Scenario</Filter>
+    </ClCompile>
+    <ClCompile Include="gsGGJTutorial.cpp">
+      <Filter>Games\GGJ Game\Objects\Effects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -31,6 +31,7 @@ int gTierPrice(int tier) {
 	default: return 0; break;
 	}
 }
+
 bool gCanBuy(int tier) {
 	return (gsGGJGlobal_Points > gTierPrice(tier));
 }
@@ -69,7 +70,6 @@ void gsGGJShop::updateSize() {
 gsGGJShop::gsGGJShop(gsGGJGame *game) : gsGGJObject(game) {
 	collident = solid = false;
 	setUpSprite();
-	gsGGJGlobal_Points = 900000;
 	transform.tint = gsColor::white(0.3f);
 
 	gPowerCannons = 0;
@@ -80,6 +80,8 @@ gsGGJShop::gsGGJShop(gsGGJGame *game) : gsGGJObject(game) {
 	gColorChoosen = false;
 	gSizePlusChoosen = false;
 
+	weapon = gsTransform(gsVector3::zero(), gsVector3(21.f, 21.f, 0.f));
+	weapon.tint = gsColor::white(0.3f);
 	itemTransform = gsTransform(gsVector3::zero(), SHOP_ITEM_SIZE_X + SHOP_ITEM_SIZE_Y);
 	itemTransform.tint = gsColor::white();
 }
@@ -89,6 +91,7 @@ gsGGJShop::~gsGGJShop(void) {
 	delete powerCannonsSprite;
 	delete colorAvoidSprite;
 	delete sizeSprite;
+	delete actualShot;
 }
 
 void gsGGJShop::update() {
@@ -111,6 +114,7 @@ void gsGGJShop::update() {
 		}
 	}
 }
+
 void gsGGJShop::draw() {
 	if (gsInput::queryKey(GLFW_KEY_TAB) == gsKeyState::Pressed) {
 		gsGGJPlayer *player = game->player;
@@ -118,6 +122,26 @@ void gsGGJShop::draw() {
 		transform.size = player->transform.size + gsVector3(64, 64, 0);
 		hudSprite->sendToOpenGL_Texture();
 		gsGraphics::drawQuad(transform);
+
+		int position = -1;
+		gsGGJBulletType type = game->player->bulletType;
+		if(type == gsGGJBulletType::Normal)
+		{
+			position = 2;
+		}
+		else if(type == gsGGJBulletType::Spread)
+		{
+			position = 0;
+		}
+		else
+		{
+			position = 1;
+		}
+		weapon.position = player->transform.position - gsVector3(16, 18, 0);
+		weapon.setTextureCoordinates(actualShot->getSprite(position));
+		
+		actualShot->sendToOpenGL_Texture();
+		gsGraphics::drawQuad(weapon);
 
 		if (gPowerCannons != 0) {
 			if (gColorAvoid != 0) {
@@ -147,9 +171,8 @@ void gsGGJShop::setUpSprite() {
 	colorAvoidSprite = new gsSpriteSheet("GGJ\\colorsavoid.png", "colAvoid", 1, 8);
 	sizeSprite = new gsSpriteSheet("GGJ\\size.png", "size", 1, 2);
 	maxedoutSprite = new gsSpriteSheet("GGJ\\star.png", "max", 1, 1);
-	actualShot = new gsSpriteSheet("GGJ\\shots.png", "max", 1, 1);
+	actualShot = new gsSpriteSheet("GGJ\\shots.png", "shot", 1, 3);
 }
-
 
 void gsGGJShop::pickShopUpdate(int id) {
 	switch(id) {
@@ -206,6 +229,7 @@ void gsGGJShop::pickShopUpdate(int id) {
 			break;
 	}
 }
+
 void gsGGJShop::normalShopUpdate() {
 	if (gsInput::queryKey(GLFW_KEY_1) == gsKeyState::JustPressed) {
 		if (gCanBuy(gPowerCannons) && gPowerCannons < 4) {
@@ -263,6 +287,7 @@ void gsGGJShop::pickShopDraw(int id) {
 	}
 	gsGraphics::drawQuad(itemTransform);
 }
+
 void gsGGJShop::normalShopDraw() {
 	if (!gCanBuy(gPowerCannons))  { 
 		itemTransform.tint = gsColor(0.4, 0.4, 0.4); 

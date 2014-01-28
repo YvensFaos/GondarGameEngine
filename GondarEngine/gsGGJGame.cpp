@@ -8,6 +8,7 @@
 #include "gsGGJEnemySpawner.h"
 #include "gsGGJScore.h"
 #include "gsGGJLifes.h"
+#include "gsGGJTutorial.h"
 
 void gsGGJGame::start()
 {
@@ -20,7 +21,8 @@ void gsGGJGame::start()
 	gsGGJGlobal_PhasesAvaiable = INITIAL_PHASES_AVAIABLE;
 	gsGGJGlobal_BulletType = INITIAL_BULLET_TYPE;
 	gsGGJGlobal_Lifes = INITIAL_LIVES;
-
+	gsGGJGlobal_Points = 0;
+	startGame = false;
 	//gsAudio::play("GGJ\\ShipSongOgg.ogg", true, 0.4, 0);
 
 	addObjetToObjectsList(new gsGGJPanorama(this));
@@ -32,7 +34,7 @@ void gsGGJGame::start()
 	addObjetToObjectsList(lifesDisplay);
 	addObjetToObjectsList(new gsGGJEnemySpawner(this));
 	addObjetToObjectsList(new gsGGJShop(this));
-
+	addObjetToObjectsList(new gsGGJTutorial(this));
 	scoreDisplay->setScore(gsGGJGlobal_Points);
 
 	scoreDisplay->transform.position = POINTS_POSITION;
@@ -74,12 +76,10 @@ void gsGGJGame::update()
 
 void gsGGJGame::draw()
 {
-	
 	for (int i = 0; i < objects.getSize(); i++)
 	{
 		objects.get(i)->draw();
 	}
-
 }
 
 void gsGGJGame::end()

@@ -1,6 +1,5 @@
 #include "gsGGJLifes.h"
 
-
 #include "gsSystem.h"
 #include "gsGGJGlobals.h"
 
@@ -9,6 +8,7 @@ gsGGJLifes::gsGGJLifes(gsGGJGame* game) {
 
 	transform = gsTransform(gsVector3::zero(), LIFES_SIZE);
 }
+
 gsGGJLifes::~gsGGJLifes(void) {
 	delete lifeSprite;
 }
@@ -16,6 +16,7 @@ gsGGJLifes::~gsGGJLifes(void) {
 void gsGGJLifes::update() {
 
 }
+
 void gsGGJLifes::draw() {
 	gsVector3 initialPosition = transform.position;
 

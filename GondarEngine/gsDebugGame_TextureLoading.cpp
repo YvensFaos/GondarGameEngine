@@ -95,12 +95,10 @@ public:
 void gsDebugGame_TextureLoading::start() {
 	GS_LOG("Teste Inicializado\n");
 
-	texture = gsTexture("gondar_texture.jpg", "Gondar");
+	texture = gsTexture("GGJ/screen1.png", "Gondar");
 
 	objects.add(new gsDebugTextureObject(texture));
-	//objects.add(new gsDebugSpritesheetObject("explosion_spritesheet.png", "Explosion", 5, 5));
-	//objects.add(new gsDebugSpritesheetObject("scarlet_walk.png", "Scarlett", 2, 10));
-	objects.add(new gsDebugSpritesheetObject("Shoot/player_walking.png", "Player", 1, 4));
+	objects.add(new gsDebugSpritesheetObject("GGJ/tab_hud.png", "Player", 1, 3));
 }
 
 void gsDebugGame_TextureLoading::end() {

@@ -119,7 +119,7 @@ copy /Y "$(SolutionDir)GondarEngine\FreeImage\lib32\FreeImage.dll" "$(TargetDir)
     <ClInclude Include="gsGGJSimlen.h" />
     <ClInclude Include="gsGGJSlaien.h" />
     <ClInclude Include="gsGGJTag.h" />
-    <ClInclude Include="gsScrollingDemo.h" />
+    <ClInclude Include="gsGGJTutorial.h" />
     <ClInclude Include="gsShootEmUpObject.h" />
     <ClInclude Include="gsShootEmUpObjectTag.h" />
     <ClInclude Include="gsShootEmUp_Enemy.h" />
@@ -211,6 +211,7 @@ copy /Y "$(SolutionDir)GondarEngine\FreeImage\lib32\FreeImage.dll" "$(TargetDir)
     <ClCompile Include="gsGGJScore.cpp" />
     <ClCompile Include="gsGGJSimlen.cpp" />
     <ClCompile Include="gsGGJSlaien.cpp" />
+    <ClCompile Include="gsGGJTutorial.cpp" />
     <ClCompile Include="gsGraphics.cpp" />
     <ClCompile Include="gsInput.cpp" />
     <ClCompile Include="gsLogger.cpp" />
@@ -223,7 +224,6 @@ copy /Y "$(SolutionDir)GondarEngine\FreeImage\lib32\FreeImage.dll" "$(TargetDir)
     <ClCompile Include="gsMesh.cpp" />
     <ClCompile Include="gsPlane.cpp" />
     <ClCompile Include="gsRandom.cpp" />
-    <ClCompile Include="gsScrollingDemo.cpp" />
     <ClCompile Include="gsShootEmUpGame.cpp" />
     <ClCompile Include="gsShootEmUp_Bullet.cpp" />
     <ClCompile Include="gsShootEmUp_Enemy.cpp" />

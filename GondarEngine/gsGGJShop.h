@@ -12,6 +12,7 @@ public:
 	gsSpriteSheet *sizeSprite;
 	gsSpriteSheet *maxedoutSprite;
 	gsSpriteSheet *actualShot;
+	gsTransform weapon;
 	gsTransform itemTransform;
 
 	gsGGJShop(void) {}
