@@ -1,6 +1,5 @@
 #include "gsGGJExplosion.h"
 
-
 #include "gsSystem.h"
 
 gsGGJExplosion::gsGGJExplosion(const gsCollisionInfo& collision, gsColor color, gsGGJGame *game) : gsGGJObject(game) {
@@ -48,7 +47,7 @@ void gsGGJExplosion::setupSpritesheet() {
 
 	explosionSprite = new gsSpriteSheet("GGJ/explosion.png", "explosion", 1, keyCount);
 
-	gsAnimationClip *clip = new gsAnimationClip("explosion", keyframes, keyCount, 0.2f);
+	gsAnimationClip *clip = new gsAnimationClip("explosion", keyframes, keyCount, 0.1f);
 	explosionSprite->addAnimation(clip);
 	explosionSprite->setAnimation("explosion");
 }

@@ -59,5 +59,5 @@ void gsGGJTutorial::draw() {
 
 	pressSprite->sendToOpenGL_Texture();
 	gsGraphics::drawQuad(pressSpaceTransform);
-	pressSpaceTransform.tint = gsColor::white(0.7f + sin(alpha));
+	pressSpaceTransform.tint = gsColor::white(0.6f + sin(alpha));
 }

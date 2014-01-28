@@ -1,9 +1,9 @@
 #include "gsGGJEnemySpawner.h"
+
 #include "gsGGJGlobals.h"
 #include "gsClock.h"
 #include "gsGGJEnemy.h"
 #include "gsRandom.h"
-
 #include "gsGGJSimlen.h"
 #include "gsGGJSlaien.h"
 #include "gsGGJFractalis.h"

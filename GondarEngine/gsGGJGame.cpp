@@ -22,8 +22,10 @@ void gsGGJGame::start()
 	gsGGJGlobal_BulletType = INITIAL_BULLET_TYPE;
 	gsGGJGlobal_Lifes = INITIAL_LIVES;
 	gsGGJGlobal_Points = 0;
+	gsGGJGlobal_TotalPoints = 0;
 	startGame = false;
-	//gsAudio::play("GGJ\\ShipSongOgg.ogg", true, 0.4, 0);
+
+	gsAudio::play("GGJ\\ShipSongOgg.ogg", true, 0.4, 0);
 
 	addObjetToObjectsList(new gsGGJPanorama(this));
 	this->player = new gsGGJPlayer(this);

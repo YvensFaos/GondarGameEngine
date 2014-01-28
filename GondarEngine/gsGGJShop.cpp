@@ -98,19 +98,22 @@ void gsGGJShop::update() {
 	hudSprite->updateAnimation();
 	transform.setTextureCoordinates(hudSprite->getCurrentSprite());
 
-	if (gsInput::queryKey(GLFW_KEY_TAB) == gsKeyState::Pressed) {
-		if (gPowerCannons != 0) {
-			if (gColorAvoid != 0) {
-				if (gSize != 0) { // showing all three options you choosed
-					normalShopUpdate();
-				} else { // showing only size plus and size minus
-					pickShopUpdate(2);
+	if(gsGGJGlobal_Lifes >= 0)
+	{
+		if (gsInput::queryKey(GLFW_KEY_TAB) == gsKeyState::Pressed) {
+			if (gPowerCannons != 0) {
+				if (gColorAvoid != 0) {
+					if (gSize != 0) { // showing all three options you choosed
+						normalShopUpdate();
+					} else { // showing only size plus and size minus
+						pickShopUpdate(2);
+					}
+				} else { // showing only avoid or color
+					pickShopUpdate(1);
 				}
-			} else { // showing only avoid or color
-				pickShopUpdate(1);
+			} else { // showing only power or cannons
+				pickShopUpdate(0);
 			}
-		} else { // showing only power or cannons
-			pickShopUpdate(0);
 		}
 	}
 }

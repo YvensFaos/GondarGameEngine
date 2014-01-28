@@ -5,7 +5,6 @@
 #include "gsCollisionInfo.h"
 #include "gsSpriteSheet.h"
 
-
 class gsGGJExplosion : public gsGGJObject {
 public:
 	gsSpriteSheet *explosionSprite;
