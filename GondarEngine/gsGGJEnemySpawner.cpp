@@ -41,7 +41,7 @@ void gsGGJEnemySpawner::update()
 				for (int i = 0; i < generated; i++)
 				{
 					gsGGJFractalis *enemyFractalis = new gsGGJFractalis(game);
-					enemyFractalis->transform.position = gsVector3(gsRandom::nextInt(0, 800), 0, 0);
+					enemyFractalis->transform.position = gsVector3(gsRandom::nextInt(0, 750), 0, 0);
 
 					game->addObjetToObjectsList(enemyFractalis);
 				}
@@ -61,7 +61,7 @@ void gsGGJEnemySpawner::update()
 				for (int i = 0; i < generated; i++)
 				{
 					gsGGJSlaien *enemySlaien = new gsGGJSlaien(game);
-					enemySlaien->transform.position = gsVector3(gsRandom::nextInt(0, 800), 0, 0);
+					enemySlaien->transform.position = gsVector3(gsRandom::nextInt(0, 750), 0, 0);
 
 					game->addObjetToObjectsList(enemySlaien);
 				}
