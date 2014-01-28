@@ -17,7 +17,7 @@ gsGGJEnemySpawner::gsGGJEnemySpawner(gsGGJGame *game) : gsGGJObject(game)
 	stateTimer = 0;
 	simlienFleetTimer = 0;
 
-	state = 2;
+	state = 0;
 
 	maxSimlien = 1;
 	maxSlaien = 1;
