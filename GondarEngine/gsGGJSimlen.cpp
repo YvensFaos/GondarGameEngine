@@ -44,8 +44,8 @@ gsGGJSimlen::gsGGJSimlen(gsGGJGame *game) : gsGGJEnemy(game){
 
 	solid = false;
 
-	transform.size *= sizeFactor;
-	transform.speed *= speedFactor;
+	transform.size *= gsGGJGlobal_SizeFactor;
+	transform.speed *= gsGGJGlobal_SizeFactor;
 
 	acelerate = 0.f;
 	acelerated = false;

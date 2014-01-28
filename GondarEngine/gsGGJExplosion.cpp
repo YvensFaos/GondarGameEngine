@@ -9,13 +9,15 @@ gsGGJExplosion::gsGGJExplosion(const gsCollisionInfo& collision, gsColor color, 
 		position += collision.contactPoints[i];
 	}
 	position /= 8.0f;
-	position += collision.penetration * 10;
-	position += gsVector3(
-		gsRandom::nextDouble() * 8 - 4,  
-		gsRandom::nextDouble() * 8 - 4, 0);
+	position += gsVector3(gsRandom::nextDouble() * 8 - 4, gsRandom::nextDouble() * 8 - 4, 0);
 	fadeOut = 1.0f;
 
-	transform = gsTransform(position, gsVector3(30, 30, 0), gsVector3::zero(), color);
+	gsVector3 size = gsVector3(30, 30, 0);
+	gsVector3 growth = size * gsGGJGlobal_PowerFactor - size;
+	position -= growth / 2.0f;
+	size += growth;
+
+	transform = gsTransform(position, size, gsVector3::zero(), color);
 	setupSpritesheet();
 }
 gsGGJExplosion::~gsGGJExplosion(void) {

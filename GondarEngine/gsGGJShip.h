@@ -10,11 +10,6 @@
 
 class gsGGJShip : public gsGGJObject {
 public:
-	float powerFactor;
-	float sizeFactor;
-	float speedFactor;
-	int cannons;
-	float avoidChance;
 	float hp;
 	float maxHp;
 	float damage;
@@ -27,11 +22,6 @@ public:
 
 	gsGGJShip() {}
 	gsGGJShip(gsGGJGame *game) : gsGGJObject(game) {
-		powerFactor = gsGGJGlobal_PowerFactor;
-		sizeFactor = gsGGJGlobal_SizeFactor;
-		speedFactor = gsGGJGlobal_SpeedFactor;
-		cannons = gsGGJGlobal_Cannons;
-		avoidChance = gsGGJGlobal_AvoidChance;
 		phase = gsGGJPhase::BluePhase; // it will be reset at the enemy constructor
 		bulletType = gsGGJGlobal_BulletType;
 	}

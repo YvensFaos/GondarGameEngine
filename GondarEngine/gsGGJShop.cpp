@@ -41,7 +41,6 @@ void gsGGJShop::updatePowerCannon() {
 		gsGGJGlobal_PowerFactor = 1 + (gPowerCannons + 1) * 0.33f;
 	} else {
 		gsGGJGlobal_Cannons =  (gPowerCannons + 1);
-		game->player->cannons = gsGGJGlobal_Cannons;
 	}
 }
 
@@ -62,9 +61,13 @@ void gsGGJShop::updateSize() {
 		gsGGJGlobal_SizeFactor = 1 - (gSize + 1) * 0.1f;
 	}
 
-	game->player->transform.size /= oldFactor;
-	game->player->transform.size *= gsGGJGlobal_SizeFactor;
-	game->player->sizeFactor = gsGGJGlobal_SizeFactor;
+	gsVector3 shrink = game->player->transform.size / oldFactor - game->player->transform.size;
+	game->player->transform.position -= shrink / 2;
+	game->player->transform.size += shrink;
+
+	gsVector3 growth = game->player->transform.size * gsGGJGlobal_SizeFactor - game->player->transform.size;
+	game->player->transform.position -= growth / 2;
+	game->player->transform.size += growth;
 }
 
 gsGGJShop::gsGGJShop(gsGGJGame *game) : gsGGJObject(game) {

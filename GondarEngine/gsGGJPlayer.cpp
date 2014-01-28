@@ -85,12 +85,12 @@ void gsGGJPlayer::shoot()
 		gsGGJBullet *bullet;
 		cooldownTime = 0;
 
-		if (cannons == 1) {
+		if (gsGGJGlobal_Cannons == 1) {
 			bullet = new gsGGJBullet(true, bulletType, &transform, game, phase);
 			game->addObjetToObjectsList(bullet);
 		} else {
 			int count = 0;
-			switch (cannons) {
+			switch (gsGGJGlobal_Cannons) {
 				case 2: count = 2; break;
 				case 3: count = 3; break;
 				case 4: count = 5; break;

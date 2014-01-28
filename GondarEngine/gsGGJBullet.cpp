@@ -90,8 +90,11 @@ void gsGGJBullet::onCollision(gsGameObject *_other, const gsCollisionInfo& info)
 
 	if (tag == gsGGJTag::EnemyBullet) {
 		if (otherObject->tag == gsGGJTag::PlayerBullet) {
-			gsGGJShip *other = static_cast<gsGGJShip*>(otherObject);
+			gsGGJBullet *other = static_cast<gsGGJBullet*>(otherObject);
 			if (phase != other->phase) {
+				if (bulletType == gsGGJBulletType::Spiral) {
+					if (gsRandom::chance(35)) { return; } // chance de não ser destruída
+				}
 				game->removeObjectFromObjectsList(this);
 				game->addObjetToObjectsList(new gsGGJExplosion(info, transform.tint, game));
 				return;
@@ -100,8 +103,11 @@ void gsGGJBullet::onCollision(gsGameObject *_other, const gsCollisionInfo& info)
 	} 
 	if (tag == gsGGJTag::PlayerBullet) {
 		if (otherObject->tag == gsGGJTag::EnemyBullet) {
-			gsGGJShip *other = static_cast<gsGGJShip*>(otherObject);
+			gsGGJBullet *other = static_cast<gsGGJBullet*>(otherObject);
 			if (phase != other->phase) {
+				if (bulletType == gsGGJBulletType::Spiral) {
+					if (gsRandom::chance(35)) { return; } // chance de não ser destruída
+				}
 				game->removeObjectFromObjectsList(this);
 				game->addObjetToObjectsList(new gsGGJExplosion(info, transform.tint, game));
 				return;

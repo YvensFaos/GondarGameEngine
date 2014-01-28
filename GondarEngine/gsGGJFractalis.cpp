@@ -34,8 +34,8 @@ gsGGJFractalis::gsGGJFractalis(gsGGJGame *game) : gsGGJEnemy(game){
 	solid = false;
 	this->bulletType = gsGGJBulletType::Spiral;
 
-	transform.size *= sizeFactor;
-	transform.speed *= speedFactor;
+	transform.size *= gsGGJGlobal_SizeFactor;
+	transform.speed *= gsGGJGlobal_SizeFactor;
 
 	healthBar = new gsGGJHealth(game, this);
 	game->addObjetToObjectsList(healthBar);

@@ -25,8 +25,8 @@ gsGGJEnemy::gsGGJEnemy(gsGGJGame *game) : gsGGJShip(game) {
 	transform = gsTransform(transform.position, size, gsVector3::zero(), speed, color);
 	collisionMask = 0x01;
 
-	transform.size *= sizeFactor;
-	transform.speed *= speedFactor;
+	transform.size *= gsGGJGlobal_SizeFactor;
+	transform.speed *= gsGGJGlobal_SizeFactor;
 
 	shakeOffset = ENEMY_SHAKE_AMOUNT;
 	shaking = false;
@@ -47,6 +47,9 @@ void gsGGJEnemy::update() {
 	if (transform.leftTheSceen()) {
 		game->removeObjectFromObjectsList(this);
 		return;
+	}
+	if (transform.position.y > GS_RESOLUTION_Y * 0.9f) {
+		transform.tint.a = 1.0f - ((transform.position.y - GS_RESOLUTION_Y * 0.9f) / (GS_RESOLUTION_Y * 0.1f));
 	}
 	
 	move();
@@ -149,11 +152,11 @@ void gsGGJEnemy::shootingInteligence() {
 	} else {
 		if (cooldownTime > cooldown) {
 			cooldownTime -= cooldown;
-			if (cannons == 1) {
+			if (gsGGJGlobal_Cannons == 1) {
 				shoot(0, 0, true);
 			} else {
 				int count = 0;
-				switch (cannons) {
+				switch (gsGGJGlobal_Cannons) {
 					case 2: count = 2; break;
 					case 3: count = 3; break;
 					case 4: count = 5; break;

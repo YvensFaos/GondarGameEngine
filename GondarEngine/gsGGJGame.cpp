@@ -22,7 +22,7 @@ void gsGGJGame::start()
 	gsGGJGlobal_PhasesAvaiable = INITIAL_PHASES_AVAIABLE;
 	gsGGJGlobal_BulletType = INITIAL_BULLET_TYPE;
 	gsGGJGlobal_Lifes = INITIAL_LIVES;
-	gsGGJGlobal_Points = 0;
+	gsGGJGlobal_Points = 9990;
 	gsGGJGlobal_TotalPoints = 0;
 	startGame = false;
 	restartGame = false;
@@ -43,6 +43,7 @@ void gsGGJGame::start()
 
 	scoreDisplay->transform.position = POINTS_POSITION;
 	lifesDisplay->transform.position = LIFES_POSITION;
+	player->bulletType = gsGGJBulletType::Spiral;
 }
 
 bool gsGGJGame::isRunning()
