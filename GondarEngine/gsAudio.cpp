@@ -2,6 +2,7 @@
 
 
 #include "Audiere\audiere.h"
+#include "gsConfig.h"
 #include "gsMacros.h"
 
 using namespace audiere;
@@ -46,16 +47,15 @@ gsChannel gsAudio::play(const char* path, bool repeat, float volume, float pan) 
 	{
 		if (gChannels[i].running == false) {
 			gChannels[i].gsChannelStream = OutputStreamPtr(OpenSound(gDevice, path, false));
+			gChannels[i].gsChannelStream->play();
+			gChannels[i].gsChannelStream->setRepeat(repeat);
+			gChannels[i].gsChannelStream->setVolume(volume);
+			gChannels[i].gsChannelStream->setPan(pan);
+
+			gChannels[i].running = true;
+
+			return i;
 		}
-		gChannels[i].gsChannelStream->stop();
-		gChannels[i].gsChannelStream->play();
-		gChannels[i].gsChannelStream->setRepeat(repeat);
-		gChannels[i].gsChannelStream->setVolume(volume);
-		gChannels[i].gsChannelStream->setPan(pan);
-
-		gChannels[i].running = true;
-
-		return i;
 	}
 	gsAssert(0); // Not enough channels
 	return -1;
@@ -66,4 +66,13 @@ void gsAudio::stop(gsChannel channel) {
 
 		gChannels[channel].running = false;
 	}
+}
+
+float gsAudio::findPan(gsTransform *transform) {
+	float pos = transform->position.x + transform->size.x / 2;
+	float halfWidth = GS_RESOLUTION_X / 2.0f;
+	pos -= halfWidth;
+	pos /= halfWidth;
+
+	return pos;
 }

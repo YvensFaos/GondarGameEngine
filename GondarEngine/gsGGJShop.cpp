@@ -189,6 +189,8 @@ void gsGGJShop::pickShopUpdate(int id) {
 					gPowerCannons += 1;
 					gPowerChoosen = true;
 					updatePowerCannon();
+					gsGGJGlobal_UpgradesPurchased++;
+					gsAudio::play("GGJ\\Shop Buying.mp3", false, 0.6, gsAudio::findPan(&transform));
 				}
 			} else if (gsInput::queryKey(GLFW_KEY_2) == gsKeyState::JustPressed) {
 				if (gCanBuy(0)) {
@@ -196,6 +198,8 @@ void gsGGJShop::pickShopUpdate(int id) {
 					gPowerCannons += 1;
 					gPowerChoosen = false;
 					updatePowerCannon();
+					gsGGJGlobal_UpgradesPurchased++;
+					gsAudio::play("GGJ\\Shop Buying.mp3", false, 0.6, gsAudio::findPan(&transform));
 				}
 			}
 			break;
@@ -206,6 +210,8 @@ void gsGGJShop::pickShopUpdate(int id) {
 					gColorAvoid += 1;
 					gColorChoosen = true;
 					updateColorAvoid();
+					gsGGJGlobal_UpgradesPurchased++;
+					gsAudio::play("GGJ\\Shop Buying.mp3", false, 0.6, gsAudio::findPan(&transform));
 				}
 			} else if (gsInput::queryKey(GLFW_KEY_2) == gsKeyState::JustPressed) {
 				if (gCanBuy(0)) {
@@ -213,6 +219,8 @@ void gsGGJShop::pickShopUpdate(int id) {
 					gColorAvoid += 1;
 					gColorChoosen = false;
 					updateColorAvoid();
+					gsGGJGlobal_UpgradesPurchased++;
+					gsAudio::play("GGJ\\Shop Buying.mp3", false, 0.6, gsAudio::findPan(&transform));
 				}
 			}
 			break;
@@ -223,6 +231,8 @@ void gsGGJShop::pickShopUpdate(int id) {
 					gSize += 1;
 					gSizePlusChoosen = true;
 					updateSize();
+					gsGGJGlobal_UpgradesPurchased++;
+					gsAudio::play("GGJ\\Shop Buying.mp3", false, 0.6, gsAudio::findPan(&transform));
 				}
 			} else if (gsInput::queryKey(GLFW_KEY_2) == gsKeyState::JustPressed) {
 				if (gCanBuy(0)) {
@@ -230,6 +240,8 @@ void gsGGJShop::pickShopUpdate(int id) {
 					gSize += 1;
 					gSizePlusChoosen = false;
 					updateSize();
+					gsGGJGlobal_UpgradesPurchased++;
+					gsAudio::play("GGJ\\Shop Buying.mp3", false, 0.6, gsAudio::findPan(&transform));
 				}
 			}
 			break;
@@ -242,18 +254,24 @@ void gsGGJShop::normalShopUpdate() {
 			gsGGJGlobal_Points -= gTierPrice(gPowerCannons);
 			gPowerCannons += 1;
 			updatePowerCannon();
+			gsGGJGlobal_UpgradesPurchased++;
+			gsAudio::play("GGJ\\Shop Buying.mp3", false, 0.6, gsAudio::findPan(&transform));
 		}
 	} else if (gsInput::queryKey(GLFW_KEY_2) == gsKeyState::JustPressed) {
 		if (gCanBuy(gColorAvoid) && gColorAvoid < 4) {
 			gsGGJGlobal_Points -= gTierPrice(gColorAvoid);
 			gColorAvoid += 1;
 			updateColorAvoid();
+			gsGGJGlobal_UpgradesPurchased++;
+			gsAudio::play("GGJ\\Shop Buying.mp3", false, 0.6, gsAudio::findPan(&transform));
 		}
 	} else if (gsInput::queryKey(GLFW_KEY_3) == gsKeyState::JustPressed) {
 		if (gCanBuy(gSize) && gSize < 4) {
 			gsGGJGlobal_Points -= gTierPrice(gSize);
 			gSize += 1;
 			updateSize();
+			gsGGJGlobal_UpgradesPurchased++;
+			gsAudio::play("GGJ\\Shop Buying.mp3", false, 0.6, gsAudio::findPan(&transform));
 		}
 	}
 }

@@ -5,6 +5,7 @@
 #include "gsGGJHealth.h"
 #include "gsGGJExplosion.h"
 #include "gsGGJGameOver.h"
+#include "gsGGJPlayerExplosion.h"
 
 gsGGJPlayer::gsGGJPlayer(gsGGJGame *game) : gsGGJShip(game)
 {
@@ -191,12 +192,15 @@ void gsGGJPlayer::onCollision(gsGameObject *_other, const gsCollisionInfo& info)
 
 						bulletType = gsGGJBulletType::Normal;
 						cooldown = BULLET_NORMAL_COOLDOWN;
+						
+						game->addObjetToObjectsList(new gsGGJPlayerExplosion(&transform, phase, game));
 					} else {
-						game->removeObjectFromObjectsList(this);
-						game->addObjetToObjectsList(new gsGGJExplosion(info, transform.tint, game));
+						game->addObjetToObjectsList(new gsGGJPlayerExplosion(&transform, phase, game));
 
 						//GameOver
 						game->addObjetToObjectsList(new gsGGJGameOver(game));
+						state = gsGGJPlayerState::Dead;
+						game->removeObjectFromObjectsList(this);
 					}
 				}
 				game->removeObjectFromObjectsList(other);

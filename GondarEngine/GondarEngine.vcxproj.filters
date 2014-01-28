@@ -325,6 +325,9 @@
     <ClInclude Include="gsGGJGameOver.h">
       <Filter>Games\GGJ Game\Objects\HUD</Filter>
     </ClInclude>
+    <ClInclude Include="gsGGJPlayerExplosion.h">
+      <Filter>Games\GGJ Game\Objects\Effects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsMain.cpp" />
@@ -492,6 +495,9 @@
     </ClCompile>
     <ClCompile Include="gsGGJGameOver.cpp">
       <Filter>Games\GGJ Game\Objects\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="gsGGJPlayerExplosion.cpp">
+      <Filter>Games\GGJ Game\Objects\Effects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

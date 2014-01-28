@@ -28,8 +28,8 @@ void gsGGJEnemySpawner::update()
 {
 	if(startGame)
 	{
-		spawnTimer += gsClock::getDeltaTime();
-		stateTimer += gsClock::getDeltaTime();
+		spawnTimer += gsClock::getDeltaTime()*3;
+		stateTimer += gsClock::getDeltaTime()*3;
 		simlienFleetTimer += gsClock::getDeltaTime();
 
 		if (spawnTimer >= spawnCooldown)
