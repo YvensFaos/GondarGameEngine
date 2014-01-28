@@ -10,6 +10,8 @@ public:
 	float acelerateCounter;
 	float speedFactor;
 	gsSpriteSheet *sprite;
+	gsSpriteSheet *colorSprite;
+	gsTransform colorTransform;
 
 	gsGGJPanorama(void) {}
 	gsGGJPanorama(gsGGJGame *game);

@@ -3,6 +3,7 @@
 class gsGGJFractalis: public gsGGJEnemy{
 
 public:
+	int multishotState;
 	float multishot;
 	
 	gsGGJFractalis() {}

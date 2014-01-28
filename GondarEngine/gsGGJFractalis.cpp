@@ -19,6 +19,7 @@ gsGGJFractalis::gsGGJFractalis(gsGGJGame *game) : gsGGJEnemy(game){
 	cooldownTime = ENEMY_FRACTALIS_COOLDOWNTIME;
 	waiting = ENEMY_FRACTALIS_WAITING;
 	multishot = 0;
+	multishotState = 0;
 	//Alterar valores do transform
 	gsVector3 size = gsVector3(61, 56, 0);
 	gsVector3 speed = gsVector3(gsRandom::nextInt(-50, 50), gsRandom::nextInt(30, 50), 0);
@@ -44,34 +45,84 @@ void gsGGJFractalis::update(){
 	gsGGJEnemy::update();
 
 	multishot += gsClock::getDeltaTime()*0.2f;
-	if (multishot >= 0.8f)
+	if (multishot >= 0.4f)
 	{
-		int spd = 200;
+		if(multishotState == 0)
+		{
+			int spd = 100;
 		
-		gsGGJBullet *bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
-		bullet->transform.speed.x = -1 * spd / 2;
-		bullet->transform.speed.y = -1 * spd / 2;
-		bullet->bulletType = gsGGJBulletType::Normal;
-		game->addObjetToObjectsList(bullet);
+			gsGGJBullet *bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+			bullet->transform.speed.x = -1 * spd;
+			bullet->transform.speed.y = -1 * spd;
+			bullet->bulletType = gsGGJBulletType::Normal;
+			game->addObjetToObjectsList(bullet);
 
-		bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
-		bullet->transform.speed.x = -1 * spd / 2;
-		bullet->transform.speed.y = 1 * spd / 2;
-		bullet->bulletType = gsGGJBulletType::Normal;
-		game->addObjetToObjectsList(bullet);
+			bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+			bullet->transform.speed.x = -1 * spd;
+			bullet->transform.speed.y = 1 * spd;
+			bullet->bulletType = gsGGJBulletType::Normal;
+			game->addObjetToObjectsList(bullet);
 
-		bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
-		bullet->transform.speed.x = 1 * spd / 2;
-		bullet->transform.speed.y = -1 * spd / 2;
-		bullet->bulletType = gsGGJBulletType::Normal;
-		game->addObjetToObjectsList(bullet);
+			bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+			bullet->transform.speed.x = 1 * spd;
+			bullet->transform.speed.y = -1 * spd;
+			bullet->bulletType = gsGGJBulletType::Normal;
+			game->addObjetToObjectsList(bullet);
 
-		bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
-		bullet->transform.speed.x = 1 * spd / 2;
-		bullet->transform.speed.y = 1 * spd / 2;
-		bullet->bulletType = gsGGJBulletType::Normal;
-		game->addObjetToObjectsList(bullet);
+			bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+			bullet->transform.speed.x = 1 * spd;
+			bullet->transform.speed.y = 1 * spd;
+			bullet->bulletType = gsGGJBulletType::Normal;
+			game->addObjetToObjectsList(bullet);
 
+			multishotState++;
+		}
+		else
+		{
+			int spd = 300;
+
+			gsGGJBullet *bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+			bullet->transform.speed.x = -1 * spd;
+			bullet->transform.speed.y = 0.f;
+			bullet->bulletType = gsGGJBulletType::Normal;
+			game->addObjetToObjectsList(bullet);
+
+			bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+			bullet->transform.position.x -= 20;
+			bullet->transform.speed.x = -1 * spd;
+			bullet->transform.speed.y = 0.f;
+			bullet->bulletType = gsGGJBulletType::Normal;
+			game->addObjetToObjectsList(bullet);
+
+			bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+			bullet->transform.position.x -= 40;
+			bullet->transform.speed.x = -1 * spd;
+			bullet->transform.speed.y = 0.f;
+			bullet->bulletType = gsGGJBulletType::Normal;
+			game->addObjetToObjectsList(bullet);
+
+			bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+			bullet->transform.speed.x = 1 * spd;
+			bullet->transform.speed.y = 0.f;
+			bullet->bulletType = gsGGJBulletType::Normal;
+			game->addObjetToObjectsList(bullet);
+
+			bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+			bullet->transform.position.x += 20;
+			bullet->transform.speed.x = 1 * spd;
+			bullet->transform.speed.y = 0.f;
+			bullet->bulletType = gsGGJBulletType::Normal;
+			game->addObjetToObjectsList(bullet);
+
+			bullet = new gsGGJBullet(false, bulletType, &this->transform, game, phase);
+			bullet->transform.position.x += 40;
+			bullet->transform.speed.x = 1 * spd;
+			bullet->transform.speed.y = 0.f;
+			bullet->bulletType = gsGGJBulletType::Normal;
+			game->addObjetToObjectsList(bullet);
+
+			multishotState--;
+		}
 		multishot -= multishot;
 	}
 

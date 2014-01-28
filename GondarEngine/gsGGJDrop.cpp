@@ -56,16 +56,15 @@ void gsGGJDrop::onCollision(gsGameObject *other, const gsCollisionInfo& info)
 	if (otherObject->tag == gsGGJTag::Player) {
 		gsGGJPlayer *player = game->player;
 
-		int pick = gsRandom::nextInt(0, 100);
-		if(pick < 20) {
+		if(gsRandom::chance(60)) {
 			//Adiciona pontos
 			gsGGJGlobal_Points += gsRandom::nextInt(1, 100);
-		} else if(pick < 40) {
-			player->hp += gsRandom::nextInt(1, 8);
-		} else  if(pick < 60) {
+		} else if(gsRandom::chance(50)) {
+			player->hp += gsRandom::nextInt(4, 12);
+		} else  if(gsRandom::chance(50)) {
 			player->bulletType = gsGGJBulletType::Spiral;
 			player->cooldown = BULLET_SPIRAL_COOLDOWN;
-		} else if (pick < 80) {
+		} else if (gsRandom::chance(50)) {
 			player->bulletType = gsGGJBulletType::Spread;
 			player->cooldown = BULLET_SPREAD_COOLDOWN;
 		} else {

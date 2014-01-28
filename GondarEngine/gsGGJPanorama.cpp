@@ -16,7 +16,11 @@ gsGGJPanorama::gsGGJPanorama(gsGGJGame *game) : gsGGJObject(game)
 	collident = false;
 
 	acelerateCounter = 0.0f;
+
+	colorSprite = new gsSpriteSheet("GGJ\\bar.png", "color", 1, 1);
+	colorTransform = gsTransform(gsVector3::zero(), gsVector3(800.f, 600.f, 0.f), gsColor::black(0.2f));
 }
+
 gsGGJPanorama::~gsGGJPanorama(void) {
 	delete sprite;
 }
@@ -29,7 +33,12 @@ void gsGGJPanorama::update(void)
 	{
 		transform.position.y = -1200;
 	}
-
+	
+	if(colorTransform.tint.r < abs((gsGGJGlobal_Lifes - 3)) * 0.2f)
+	{
+		colorTransform.tint.r += gsClock::getDeltaTime()*0.05;
+	}
+	
 	acelerate();
 }
 
@@ -37,6 +46,9 @@ void gsGGJPanorama::draw(void)
 {
 	sprite->sendToOpenGL_Texture();
 	gsGraphics::drawQuad(transform);
+
+	colorSprite->sendToOpenGL_Texture();
+	gsGraphics::drawQuad(colorTransform);
 }
 
 void gsGGJPanorama::acelerate(void)

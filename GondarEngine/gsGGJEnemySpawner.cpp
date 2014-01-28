@@ -17,7 +17,7 @@ gsGGJEnemySpawner::gsGGJEnemySpawner(gsGGJGame *game) : gsGGJObject(game)
 	stateTimer = 0;
 	simlienFleetTimer = 0;
 
-	state = 0;
+	state = 2;
 
 	maxSimlien = 1;
 	maxSlaien = 1;
@@ -31,7 +31,7 @@ void gsGGJEnemySpawner::update()
 		spawnTimer += gsClock::getDeltaTime();
 		stateTimer += gsClock::getDeltaTime();
 		simlienFleetTimer += gsClock::getDeltaTime();
-		//GS_LOG((int)gsClock::getTotalTime());
+
 		if (spawnTimer >= spawnCooldown)
 		{
 			switch (state) {
@@ -49,7 +49,7 @@ void gsGGJEnemySpawner::update()
 				if ((int)gsClock::getTotalTime() % 11 == 0)
 				{
 					GS_LOG("q - fract");
-					if(gsRandom::chance(30))
+					if(gsRandom::chance(40))
 					{
 						maxFractalis++;
 					}
@@ -69,7 +69,7 @@ void gsGGJEnemySpawner::update()
 				if((int)gsClock::getTotalTime() % 7 == 0)
 				{
 					GS_LOG("q - slaien");
-					if(gsRandom::chance(35))
+					if(gsRandom::chance(50))
 					{
 						maxSlaien++;
 					}
@@ -89,8 +89,7 @@ void gsGGJEnemySpawner::update()
 
 				if ((int)gsClock::getTotalTime() % 5 == 0)
 				{
-					GS_LOG("q - simlien");
-					if(gsRandom::chance(40))
+					if(gsRandom::chance(75))
 					{
 						maxSimlien++;
 					}
@@ -98,11 +97,13 @@ void gsGGJEnemySpawner::update()
 				if (stateTimer >= 40.f && state == 0)
 				{
 					state = 1; 
+					maxSimlien++;
 					stateTimer = 0.f;
 				}
 				if (stateTimer >= 80.f && state == 1)
 				{
 					state = 2;
+					maxSlaien++;
 					stateTimer = 0.f;
 				}
 			} break;
