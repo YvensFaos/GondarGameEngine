@@ -15,6 +15,7 @@ public:
 	gsGGJObject() {}
 	gsGGJObject(gsGGJGame *game) : gsGameObject() { 
 		this->game = game;
+		this->solid = false;
 		this->tag = gsGGJTag::TuNaoSetouAindaViado;
 	}
 	virtual ~gsGGJObject() {}

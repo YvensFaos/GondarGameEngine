@@ -5,6 +5,7 @@
 #include "gsSystem.h"
 #include "gsGGJGlobals.h"
 #include "gsGGJShip.h"
+#include "gsGGJExplosion.h"
 
 gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTransform* shooterTransform, gsGGJGame *game, gsGGJPhase phase) : gsGGJObject(game) {
 	gsVector3 pos = shooterTransform->position;
@@ -92,6 +93,7 @@ void gsGGJBullet::onCollision(gsGameObject *_other, const gsCollisionInfo& info)
 			gsGGJShip *other = static_cast<gsGGJShip*>(otherObject);
 			if (phase != other->phase) {
 				game->removeObjectFromObjectsList(this);
+				game->addObjetToObjectsList(new gsGGJExplosion(info, transform.tint, game));
 				return;
 			}
 		}
@@ -101,6 +103,7 @@ void gsGGJBullet::onCollision(gsGameObject *_other, const gsCollisionInfo& info)
 			gsGGJShip *other = static_cast<gsGGJShip*>(otherObject);
 			if (phase != other->phase) {
 				game->removeObjectFromObjectsList(this);
+				game->addObjetToObjectsList(new gsGGJExplosion(info, transform.tint, game));
 				return;
 			}
 		}

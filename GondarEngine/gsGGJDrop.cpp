@@ -73,7 +73,7 @@ void gsGGJDrop::onCollision(gsGameObject *other, const gsCollisionInfo& info)
 			player->cooldown = BULLET_NORMAL_COOLDOWN;
 		}
 
-		gsAudio::play("GGJ\\UpgradeSound.ogg", false, 0.6, 0);
+		//gsAudio::play("GGJ\\UpgradeSound.ogg", false, 0.6, 0);
 		game->removeObjectFromObjectsList(this);
 		return;
 	}

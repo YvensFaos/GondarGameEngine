@@ -3,6 +3,7 @@
 
 #include "gsSystem.h"
 #include "gsGGJHealth.h"
+#include "gsGGJExplosion.h"
 
 gsGGJPlayer::gsGGJPlayer(gsGGJGame *game) : gsGGJShip(game)
 {
@@ -190,9 +191,11 @@ void gsGGJPlayer::onCollision(gsGameObject *_other, const gsCollisionInfo& info)
 						cooldown = BULLET_NORMAL_COOLDOWN;
 					} else {
 						game->removeObjectFromObjectsList(this);
+						game->addObjetToObjectsList(new gsGGJExplosion(info, transform.tint, game));
 					}
 				}
 				game->removeObjectFromObjectsList(other);
+				game->addObjetToObjectsList(new gsGGJExplosion(info, transform.tint, game));
 			} else {
 				other->collident = false;
 				other->transform.tint = gsColor(0.3, 0.3, 0.3, 0.5);

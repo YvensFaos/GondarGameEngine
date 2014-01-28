@@ -38,7 +38,7 @@ public:
 
 generics
 gsArrayList<T>::gsArrayList() {
-	capacity = chunkSize;
+	capacity = 4;
 	size = 0;
 	data = new T[capacity];
 }

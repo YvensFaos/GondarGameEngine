@@ -10,8 +10,7 @@ public:
 	static void init();
 	static void dispose();
 
-	static gsTexture* getTexture(const char* name);
-	static gsSpriteSheet* getSpriteSheet(const char* name);
+	static int* getTexture(const char* name);
 };
 
 #endif

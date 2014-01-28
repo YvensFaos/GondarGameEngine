@@ -4,6 +4,7 @@
 #include "gsGGJBullet.h"
 #include "gsGGJPlayer.h"
 #include "gsGGJDrop.h"
+#include "gsGGJExplosion.h"
 
 gsGGJEnemy::gsGGJEnemy(gsGGJGame *game) : gsGGJShip(game) {
 	tag = gsGGJTag::Enemy;
@@ -87,6 +88,7 @@ void gsGGJEnemy::onCollision(gsGameObject *_other, const gsCollisionInfo& info) 
 
 				if (hp <= 0) {
 					game->removeObjectFromObjectsList(this);
+					game->addObjetToObjectsList(new gsGGJExplosion(info, transform.tint, game));
 					gsGGJGlobal_Points += POINTS_WHEN_ENEMY_DIES;
 					gsGGJGlobal_TotalPoints += POINTS_WHEN_ENEMY_DIES;
 
@@ -103,6 +105,7 @@ void gsGGJEnemy::onCollision(gsGameObject *_other, const gsCollisionInfo& info) 
 				gsGGJGlobal_Points += POINTS_WHEN_BULLET_STRIKES;
 				gsGGJGlobal_TotalPoints += POINTS_WHEN_BULLET_STRIKES;
 				game->removeObjectFromObjectsList(other);
+				game->addObjetToObjectsList(new gsGGJExplosion(info, transform.tint, game));
 			} else {
 				other->collident = false;
 				other->transform.tint = gsColor(0.3, 0.3, 0.3, 0.5);

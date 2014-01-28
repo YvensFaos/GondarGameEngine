@@ -1,5 +1,5 @@
-#ifndef __GS_HEALTH_PANORAMA__
-#define __GS_HEALTH_PANORAMA__
+#ifndef __GS_GGJ_HEALTH__
+#define __GS_GGJ_HEALTH__
 
 #include "gsGGJObject.h"
 
