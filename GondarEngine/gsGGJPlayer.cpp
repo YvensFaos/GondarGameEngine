@@ -19,7 +19,6 @@ gsGGJPlayer::gsGGJPlayer(gsGGJGame *game) : gsGGJShip(game)
 	cooldownTime = 0;
 	cooldown = BULLET_NORMAL_COOLDOWN;
 
-	// tetenta pelo construtor
 	transform = gsTransform(INITIAL_PLAYER_POS, INITIAL_PLAYER_SIZE, gsColor::white(1.0f));
 	collisionMask = 0x02;
 	bulletType = gsGGJGlobal_BulletType;
@@ -215,14 +214,4 @@ void gsGGJPlayer::onCollision(gsGameObject *_other, const gsCollisionInfo& info)
 
 void gsGGJPlayer::setUpSpritesheet() {
 	sprite = new gsSpriteSheet("GGJ\\main_ship.png", "player", 1, 1);
-	//Animação walking
-	//int* frames = new int(4);
-	//frames[0] = 0;
-	//frames[1] = 1;
-	//frames[2] = 2;
-	//frames[3] = 3;
-
-	//gsAnimationClip* clip = new gsAnimationClip("walking", frames, 4, 0.4f);
-	//sprite->addAnimation(clip);
-	//sprite->setAnimation("walking");
 }

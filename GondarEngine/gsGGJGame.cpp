@@ -27,7 +27,7 @@ void gsGGJGame::start()
 	startGame = false;
 	restartGame = false;
 
-	//gsAudio::play("GGJ\\ShipSongOgg.ogg", true, 0.2, 0);
+	//gsAudio::play("GGJ\\ShipSongOgg.ogg", true, 0.1, 0);
 
 	addObjetToObjectsList(new gsGGJPanorama(this));
 	this->player = new gsGGJPlayer(this);
@@ -80,7 +80,11 @@ void gsGGJGame::update()
 	{
 		GS_LOG("Objects: " << objects.getCapacity() << "Remove" << objectsToBeRemoved.getCapacity());
 	}
-	scoreDisplay->setScore(gsGGJGlobal_Points);
+
+	if(gsGGJGlobal_Lifes >= 0)
+	{
+		scoreDisplay->setScore(gsGGJGlobal_Points);
+	}
 }
 
 void gsGGJGame::draw()

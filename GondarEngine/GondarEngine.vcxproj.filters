@@ -328,6 +328,9 @@
     <ClInclude Include="gsGGJPlayerExplosion.h">
       <Filter>Games\GGJ Game\Objects\Effects</Filter>
     </ClInclude>
+    <ClInclude Include="gsGGJDropMessage.h">
+      <Filter>Games\GGJ Game\Objects\Effects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gsMain.cpp" />
@@ -497,6 +500,9 @@
       <Filter>Games\GGJ Game\Objects\HUD</Filter>
     </ClCompile>
     <ClCompile Include="gsGGJPlayerExplosion.cpp">
+      <Filter>Games\GGJ Game\Objects\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="gsGGJDropMessage.cpp">
       <Filter>Games\GGJ Game\Objects\Effects</Filter>
     </ClCompile>
   </ItemGroup>
