@@ -22,7 +22,7 @@ gsGGJBullet::gsGGJBullet(bool isPlayerBullet, gsGGJBulletType bulletType, gsTran
 			angle = 0;
 			break;
 		case gsGGJBulletType::Spread: damage = BULLET_DAMAGE_SPREAD;
-			speed.x = gsRandom::nextDouble() * BULLET_SPREAD_CONE;
+			speed.x = gsRandom::nextDouble() * BULLET_SPREAD_CONE - BULLET_SPREAD_CONE/2.0f;
 			speed.y += gsRandom::nextInt(-8, 8);
 			size *= (gsRandom::nextDouble() / 2.5f) + 0.6;
 			break;
