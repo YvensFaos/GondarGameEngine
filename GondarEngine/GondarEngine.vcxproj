@@ -96,6 +96,7 @@ copy /Y "$(SolutionDir)GondarEngine\FreeImage\lib32\FreeImage.dll" "$(TargetDir)
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="gsGGJDrop.h" />
+    <ClInclude Include="gsGGJDropMessage.h" />
     <ClInclude Include="gsGGJEnemySpawner.h" />
     <ClInclude Include="gsAudio.h" />
     <ClInclude Include="gsContent.h" />
@@ -199,6 +200,7 @@ copy /Y "$(SolutionDir)GondarEngine\FreeImage\lib32\FreeImage.dll" "$(TargetDir)
     </ClCompile>
     <ClCompile Include="gsGGJBullet.cpp" />
     <ClCompile Include="gsGGJDrop.cpp" />
+    <ClCompile Include="gsGGJDropMessage.cpp" />
     <ClCompile Include="gsGGJEnemy.cpp" />
     <ClCompile Include="gsGGJEnemySpawner.cpp" />
     <ClCompile Include="gsGGJExplosion.cpp" />

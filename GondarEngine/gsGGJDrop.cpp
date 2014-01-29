@@ -4,6 +4,7 @@
 #include "gsGGJGlobals.h"
 #include "gsGGJPlayer.h"
 #include "gsGGJExplosion.h"
+#include "gsGGJDropMessage.h"
 
 gsGGJDrop::gsGGJDrop(gsGGJGame *game, gsTransform* transform) : gsGGJObject(game)
 {
@@ -61,9 +62,13 @@ void gsGGJDrop::onCollision(gsGameObject *other, const gsCollisionInfo& info)
 
 		if(chance < 40) {
 			//Adiciona pontos
-			gsGGJGlobal_Points += gsRandom::nextInt(1, 100);
+			int points = gsRandom::nextInt(1, 100);
+			gsGGJGlobal_Points += points;
+			gsGGJGlobal_TotalPoints += points;
+			game->addObjetToObjectsList(new gsGGJDropMessage(info, gsColor::white(1.0), game, "GGJ//points.png"));
 		} else if(chance < 60) {
 			player->hp += gsRandom::nextInt(4, 12);
+			game->addObjetToObjectsList(new gsGGJDropMessage(info, gsColor::white(1.0), game, "GGJ//energy.png"));
 		} else  if(chance < 80) {
 			player->bulletType = gsGGJBulletType::Spiral;
 			player->cooldown = BULLET_SPIRAL_COOLDOWN;
