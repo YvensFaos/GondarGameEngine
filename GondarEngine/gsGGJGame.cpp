@@ -27,7 +27,7 @@ void gsGGJGame::start()
 	startGame = false;
 	restartGame = false;
 
-	//gsAudio::play("GGJ\\ShipSongOgg.ogg", true, 0.1, 0);
+	gsAudio::play("GGJ\\ShipSong Final Ogg.ogg", true, 1.0f, 0);
 
 	addObjetToObjectsList(new gsGGJPanorama(this));
 	this->player = new gsGGJPlayer(this);
