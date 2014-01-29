@@ -1,6 +1,43 @@
 #include "gsCollision.h"
 
+
+#include "gsConfig.h"
+
 void gsCollision::detectCollisions(gsArrayList<gsGameObject*>* objects) {
+	gsArrayList<gsGameObject*> quadrants[4]; // ++3, -+, --, +-
+	gsGameObject *g;
+
+	float mx = GS_RESOLUTION_X / 2.0f;
+	float my = GS_RESOLUTION_Y / 2.0f;
+
+	for (int i = 0; i < objects->getSize(); i++)
+	{
+		g = objects->get(i);
+		if (g->transform.position.x < mx) {
+			if (g->transform.position.y < my) {
+				quadrants[1].add(g); // upper left
+			}
+			if (g->transform.position.y + g->transform.size.y > mx) {
+				quadrants[2].add(g);
+			}
+		}
+		if (g->transform.position.x + g->transform.size.x > mx) {
+			if (g->transform.position.y < my) {
+				quadrants[0].add(g); // upper left
+			}
+			if (g->transform.position.y + g->transform.size.y > mx) {
+				quadrants[3].add(g);
+			}
+		}
+	}
+
+	bruteforce(&quadrants[0]);
+	bruteforce(&quadrants[1]);
+	bruteforce(&quadrants[2]);
+	bruteforce(&quadrants[3]);
+}
+
+void gsCollision::bruteforce(gsArrayList<gsGameObject*>* objects) {
 	gsGameObject *g1, *g2;
 	gsCollisionProxy p1, p2;
 
@@ -29,7 +66,6 @@ void gsCollision::detectCollisions(gsArrayList<gsGameObject*>* objects) {
 		}
 	}
 }
-
 void gsCollision::dispatchPair(const gsCollisionProxy& p1, const gsCollisionProxy& p2) {
 	const gsCollisionInfo *infos = gsCollisionProxy::narrowTest(p1, p2);
 	gsGameObject *g1 = p1.object;

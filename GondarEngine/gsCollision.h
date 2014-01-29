@@ -11,6 +11,7 @@
 // Classe que representa a posição, o tamanho e a orientação de um objeto do jogo.
 class gsCollision  {
 private:
+	static void bruteforce(gsArrayList<gsGameObject*>* objects);
 	static void dispatchPair(const gsCollisionProxy& p1, const gsCollisionProxy& p2);
 
 public:
