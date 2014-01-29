@@ -92,8 +92,8 @@ void gsGGJEnemy::onCollision(gsGameObject *_other, const gsCollisionInfo& info) 
 				if (hp <= 0) {
 					game->removeObjectFromObjectsList(this);
 					game->addObjetToObjectsList(new gsGGJExplosion(info, transform.tint, game));
-					gsGGJGlobal_Points += POINTS_WHEN_ENEMY_DIES;
-					gsGGJGlobal_TotalPoints += POINTS_WHEN_ENEMY_DIES;
+					gsGGJGlobal_Points += POINTS_WHEN_ENEMY_DIES + 6 * gsGGJGlobal_UpgradesPurchased;
+					gsGGJGlobal_TotalPoints += POINTS_WHEN_ENEMY_DIES + 6 * gsGGJGlobal_UpgradesPurchased;
 
 					//Dropar 
 					if(gsRandom::chance(15))
@@ -105,8 +105,8 @@ void gsGGJEnemy::onCollision(gsGameObject *_other, const gsCollisionInfo& info) 
 				}
 				shaking = true;
 				shakingTime = 0;
-				gsGGJGlobal_Points += POINTS_WHEN_BULLET_STRIKES;
-				gsGGJGlobal_TotalPoints += POINTS_WHEN_BULLET_STRIKES;
+				gsGGJGlobal_Points += POINTS_WHEN_BULLET_STRIKES + gsGGJGlobal_UpgradesPurchased;
+				gsGGJGlobal_TotalPoints += POINTS_WHEN_BULLET_STRIKES + gsGGJGlobal_UpgradesPurchased;
 				game->removeObjectFromObjectsList(other);
 				game->addObjetToObjectsList(new gsGGJExplosion(info, transform.tint, game));
 			} else {
