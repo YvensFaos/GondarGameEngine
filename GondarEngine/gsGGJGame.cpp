@@ -11,8 +11,14 @@
 #include "gsGGJGlobals.h"
 #include "gsGGJGameOver.h"
 
+gsGGJGame::gsGGJGame(void) : gsGame()
+{
+	music = false;
+}
+
 void gsGGJGame::start()
 {
+
 	GS_LOG("GS Shoot 'em Up Game Initialized\n");
 	gsGGJGlobal_PowerFactor = INITIAL_POWER_FACTOR;
 	gsGGJGlobal_SizeFactor = INITIAL_SIZE_FACTOR;
@@ -27,7 +33,11 @@ void gsGGJGame::start()
 	startGame = false;
 	restartGame = false;
 
-	gsAudio::play("GGJ\\ShipSong Final Ogg.ogg", true, 1.0f, 0);
+	if(!music)
+	{
+		gsAudio::play("GGJ\\ShipSong Final Ogg.ogg", true, 1.0f, 0);
+		music = true;
+	}
 
 	addObjetToObjectsList(new gsGGJPanorama(this));
 	this->player = new gsGGJPlayer(this);

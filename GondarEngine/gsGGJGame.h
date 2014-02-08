@@ -1,8 +1,8 @@
 #ifndef __GS_GGJ_GAME__
 #define __GS_GGJ_GAME__
 
-
 #include "gsGame.h"
+#include "gsSystem.h"
 #include "gsGameObject.h"
 #include "gsArrayList.h"
 
@@ -19,6 +19,10 @@ public:
 	gsGGJPlayer *player;
 	gsGGJScore *scoreDisplay;
 	gsGGJLifes *lifesDisplay;
+
+	bool music;
+
+	gsGGJGame(void);
 
 	virtual void start();
 	virtual void end();
